@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home1/moose/public_html/portfolio
+    - /bin/rsync -av --delete ~/repositories/portfolio/ $DEPLOYPATH/
