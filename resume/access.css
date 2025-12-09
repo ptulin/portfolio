@@ -73,36 +73,9 @@
     margin-bottom: 1rem;
 }
 
-/* Skills Grid */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 1rem;
-}
-
-.skill-category h3 {
-    font-family: 'Inter', sans-serif;
-    font-size: 1.125rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--text-dark);
-}
-
-.skill-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.skill-list li {
-    padding: 0.5rem 0;
-    color: var(--text-dark);
-    border-bottom: 1px solid var(--accent-gray);
-}
-
-.skill-list li:last-child {
-    border-bottom: none;
+/* Skills List */
+.skills-list {
+    line-height: 1.8;
 }
 
 /* Experience Items */
@@ -145,11 +118,41 @@
     font-size: 0.9375rem;
 }
 
-.experience-location {
+.experience-meta {
     font-size: 0.9375rem;
     color: var(--text-light);
     margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.experience-industry {
     font-style: italic;
+}
+
+.experience-location {
+    font-style: italic;
+}
+
+.experience-results {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--accent-gray);
+    font-size: 0.9375rem;
+    color: var(--text-dark);
+    line-height: 1.7;
+}
+
+.experience-text {
+    color: var(--text-dark);
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+}
+
+.experience-company-list {
+    font-weight: 500;
+    color: var(--text-dark);
 }
 
 .experience-details {
@@ -277,6 +280,11 @@
     .experience-date,
     .education-date {
         margin-left: 0;
+    }
+
+    .experience-meta {
+        flex-direction: column;
+        gap: 0.5rem;
     }
 
     .resume-section h2 {
