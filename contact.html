@@ -81,6 +81,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="js/utils.js"></script>
     <script>
         // Contact form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
@@ -99,68 +100,19 @@
             messageEl.textContent = 'Sending...';
             messageEl.className = 'form-message';
 
-            // Use hidden iframe approach to avoid CORS
-            const iframe = document.createElement('iframe');
-            iframe.style.display = 'none';
-            iframe.name = 'hiddenFrame';
-            document.body.appendChild(iframe);
-
-            // Create a form to submit to Apps Script
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = 'https://script.google.com/macros/s/AKfycbyNQWEWnEUvBhVAnBImfHJlqeYKxMoJzwzqC3-UZJN7qL4kWoVnOM89nJzu3SAjMT72/exec';
-            form.target = 'hiddenFrame';
-            
-            // Add form fields
-            const fields = {
-                action: 'requestAccess',
-                firstName: formData.firstName,
-                lastName: formData.lastName,
-                email: formData.email,
-                phone: formData.phone || '',
-                message: formData.message || '',
-                requestPassword: formData.requestPassword ? 'true' : 'false'
-            };
-            
-            Object.keys(fields).forEach(key => {
-                const input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = key;
-                input.value = fields[key];
-                form.appendChild(input);
-            });
-            
-            document.body.appendChild(form);
-            
-            // Handle response via iframe load
-            iframe.onload = function() {
-                try {
-                    // Apps Script will return JSON, try to read it
-                    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-                    const responseText = iframeDoc.body ? iframeDoc.body.textContent : '';
-                    
-                    let result;
-                    try {
-                        result = JSON.parse(responseText);
-                    } catch (e) {
-                        // If we can't parse, assume success (Apps Script may redirect)
-                        result = { success: true };
-                    }
-                    
-                    if (result.success) {
-                        if (formData.requestPassword) {
-                            messageEl.textContent = 'Check your email for your personal access code.';
-                        } else {
-                            messageEl.textContent = 'Thanks for your message.';
-                        }
-                        messageEl.className = 'form-message success';
-                        document.getElementById('contactForm').reset();
-                    } else {
-                        messageEl.textContent = 'Error sending message. Please try again.';
-                        messageEl.className = 'form-message error';
-                    }
-                } catch (err) {
-                    // If we can't read iframe (cross-origin), assume success after redirect
+            // Use shared utility function
+            submitToAppsScript(
+                {
+                    firstName: formData.firstName,
+                    lastName: formData.lastName,
+                    email: formData.email,
+                    phone: formData.phone || '',
+                    message: formData.message || '',
+                    requestPassword: formData.requestPassword ? 'true' : 'false'
+                },
+                'requestAccess',
+                function(result) {
+                    // Success
                     if (formData.requestPassword) {
                         messageEl.textContent = 'Check your email for your personal access code.';
                     } else {
@@ -168,17 +120,13 @@
                     }
                     messageEl.className = 'form-message success';
                     document.getElementById('contactForm').reset();
+                },
+                function(error) {
+                    // Error
+                    messageEl.textContent = 'Error sending message. Please try again.';
+                    messageEl.className = 'form-message error';
                 }
-                
-                // Cleanup
-                setTimeout(() => {
-                    if (form.parentNode) document.body.removeChild(form);
-                    if (iframe.parentNode) document.body.removeChild(iframe);
-                }, 1000);
-            };
-            
-            // Submit form
-            form.submit();
+            );
         });
     </script>
 </body>

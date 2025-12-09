@@ -44,6 +44,7 @@
         </a>
     </main>
 
+    <script src="../js/utils.js"></script>
     <script>
         // Check if access was granted
         if (sessionStorage.getItem('resumeAccess') !== 'granted') {
@@ -53,43 +54,12 @@
         // Log access (silently fail if CORS blocks it - logging is not critical)
         const passwordID = sessionStorage.getItem('passwordID');
         if (passwordID) {
-            // Use iframe approach to avoid CORS errors in console
-            const iframe = document.createElement('iframe');
-            iframe.style.display = 'none';
-            iframe.name = 'logFrame';
-            document.body.appendChild(iframe);
-
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = 'https://script.google.com/macros/s/AKfycbyNQWEWnEUvBhVAnBImfHJlqeYKxMoJzwzqC3-UZJN7qL4kWoVnOM89nJzu3SAjMT72/exec';
-            form.target = 'logFrame';
-            
-            const actionInput = document.createElement('input');
-            actionInput.type = 'hidden';
-            actionInput.name = 'action';
-            actionInput.value = 'logAccess';
-            form.appendChild(actionInput);
-            
-            const passwordField = document.createElement('input');
-            passwordField.type = 'hidden';
-            passwordField.name = 'passwordID';
-            passwordField.value = passwordID;
-            form.appendChild(passwordField);
-            
-            const emailField = document.createElement('input');
-            emailField.type = 'hidden';
-            emailField.name = 'email';
-            emailField.value = '';
-            form.appendChild(emailField);
-            
-            document.body.appendChild(form);
-            form.submit();
-            
-            // Cleanup after a delay
-            setTimeout(() => {
-                if (form.parentNode) document.body.removeChild(form);
-                if (iframe.parentNode) document.body.removeChild(iframe);
-            }, 2000);
+            submitToAppsScript(
+                { passwordID, email: '' },
+                'logAccess',
+                function() { /* Success - no action needed */ },
+                function() { /* Error - silently fail */ }
+            );
         }
     </script>
 </body>

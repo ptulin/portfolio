@@ -1,6 +1,12 @@
+/**
+ * Portfolio Backend - Google Apps Script
+ * Handles password management, logging, and email notifications
+ */
+
 // Configuration
 const SPREADSHEET_ID = '1qtY7cqSQT243R-iQlzvQ-2d4z1KYM7M8krJ1zqY9-m0';
 const ADMIN_EMAIL = 'ptulin@gmail.com';
+const RESUME_URL = 'https://disruptiveexperience.com/portfolio/resume/index.html';
 const SHEET_NAMES = {
   REQUESTS: 'Requests',
   PASSWORDS: 'Passwords',
@@ -16,13 +22,16 @@ function getSheet(sheetName) {
   return getSpreadsheet().getSheetByName(sheetName);
 }
 
-// Get next password number
+/**
+ * Get the next sequential password number
+ * @return {number} Next password number
+ */
 function getNextPasswordNumber() {
   const sheet = getSheet(SHEET_NAMES.PASSWORDS);
   const lastRow = sheet.getLastRow();
   
   if (lastRow <= 1) {
-    return 1; // First password
+    return 1;
   }
   
   // Get all password IDs and find the highest number
@@ -30,9 +39,9 @@ function getNextPasswordNumber() {
   let maxNumber = 0;
   
   passwordRange.forEach(row => {
-    const passwordID = row[0];
-    if (passwordID && passwordID.startsWith('PT-')) {
-      const number = parseInt(passwordID.replace('PT-', ''));
+    const passwordID = String(row[0] || '');
+    if (passwordID.startsWith('PT-')) {
+      const number = parseInt(passwordID.replace('PT-', ''), 10);
       if (!isNaN(number) && number > maxNumber) {
         maxNumber = number;
       }
@@ -69,67 +78,74 @@ function doGet(e) {
   });
 }
 
-// POST handler
-function doPost(e) {
-  try {
-    let data = {};
-    let action = '';
-    
-    // Parse request data - support both JSON and form data
-    if (e.postData && e.postData.contents) {
-      const contentType = e.postData.type || '';
-      if (contentType.indexOf('application/json') !== -1) {
-        // JSON request
-        try {
-          data = JSON.parse(e.postData.contents);
-          action = data.action || '';
-        } catch (parseError) {
-          Logger.log('JSON parse error: ' + parseError.toString());
-          return createCorsResponse({ 
-            success: false, 
-            error: 'Invalid JSON: ' + parseError.toString() 
-          });
-        }
-      } else {
-        // Form data - parse from postData.contents
-        const params = e.postData.contents.split('&');
-        params.forEach(param => {
-          const [key, value] = param.split('=');
-          if (key && value) {
-            data[decodeURIComponent(key)] = decodeURIComponent(value);
-          }
-        });
+/**
+ * Parse request data from POST request
+ * @param {Object} e - Event object from doPost
+ * @return {Object} Parsed data and action
+ */
+function parseRequestData(e) {
+  let data = {};
+  let action = '';
+  
+  if (e.postData && e.postData.contents) {
+    const contentType = e.postData.type || '';
+    if (contentType.indexOf('application/json') !== -1) {
+      // JSON request
+      try {
+        data = JSON.parse(e.postData.contents);
         action = data.action || '';
+      } catch (parseError) {
+        throw new Error('Invalid JSON: ' + parseError.toString());
       }
     } else {
-      // Fallback to parameters (form data or URL params)
-      data = e.parameter;
-      action = e.parameter.action || '';
+      // Form data - parse URL-encoded
+      const params = e.postData.contents.split('&');
+      params.forEach(param => {
+        const [key, value] = param.split('=');
+        if (key && value) {
+          data[decodeURIComponent(key)] = decodeURIComponent(value);
+        }
+      });
+      action = data.action || '';
     }
+  } else {
+    // Fallback to parameters
+    data = e.parameter || {};
+    action = e.parameter.action || '';
+  }
+  
+  return { data, action };
+}
+
+/**
+ * POST handler - routes requests to appropriate handlers
+ */
+function doPost(e) {
+  try {
+    const { data, action } = parseRequestData(e);
     
-    Logger.log('Received action: ' + action);
-    Logger.log('Data keys: ' + Object.keys(data).join(', '));
+    Logger.log(`Received action: ${action}`);
     
     // Route to appropriate handler
-    if (action === 'requestAccess') {
-      return handleRequestAccess(data);
-    } else if (action === 'verifyPassword') {
-      return handleVerifyPassword(data);
-    } else if (action === 'logAccess') {
-      return handleLogAccess(data);
+    switch (action) {
+      case 'requestAccess':
+        return handleRequestAccess(data);
+      case 'verifyPassword':
+        return handleVerifyPassword(data);
+      case 'logAccess':
+        return handleLogAccess(data);
+      default:
+        return createCorsResponse({ 
+          success: false, 
+          error: `Invalid action: ${action}` 
+        });
     }
-    
-    return createCorsResponse({ 
-      success: false, 
-      error: 'Invalid action: ' + action 
-    });
   } catch (error) {
-    Logger.log('doPost error: ' + error.toString());
-    Logger.log('Stack: ' + error.stack);
+    Logger.log(`doPost error: ${error.toString()}`);
+    Logger.log(`Stack: ${error.stack}`);
     return createCorsResponse({ 
       success: false, 
-      error: error.toString(),
-      stack: error.stack 
+      error: error.toString()
     });
   }
 }
@@ -191,47 +207,43 @@ function handleRequestAccess(data) {
   return createCorsResponse({ success: true });
 }
 
-// Handle verify password
+/**
+ * Verify password and log access attempt
+ * @param {Object} data - Request data containing password and email
+ * @return {Object} Response with valid status
+ */
 function handleVerifyPassword(data) {
   const passwordsSheet = getSheet(SHEET_NAMES.PASSWORDS);
   const accessLogSheet = getSheet(SHEET_NAMES.ACCESS_LOG);
   
   const password = String(data.password || '').trim();
-  const email = data.email || '';
+  const email = String(data.email || '').trim();
   const timestamp = new Date();
   
-  // Get user info
-  const userAgent = ''; // Could be passed from frontend
-  const ip = ''; // Could be passed from frontend
-  
-  Logger.log('Verifying password: ' + password);
+  Logger.log(`Verifying password: ${password}`);
   
   // Check if password exists and is active
   const lastRow = passwordsSheet.getLastRow();
   let isValid = false;
+  let passwordRowIndex = -1;
   
   if (lastRow > 1) {
     const passwordData = passwordsSheet.getRange(2, 1, lastRow - 1, 6).getValues();
     
-    for (let i = 0; i < passwordData.length; i++) {
-      const row = passwordData[i];
+    // Use find instead of loop for better performance
+    const foundIndex = passwordData.findIndex(row => {
       const passwordID = String(row[0] || '').trim();
       const active = String(row[3] || '').toUpperCase();
-      
-      Logger.log('Checking: ' + passwordID + ' vs ' + password + ', active: ' + active);
-      
-      if (passwordID === password && (active === 'TRUE' || active === 'YES' || active === '1')) {
-        isValid = true;
-        
-        // Update DateUsed
-        passwordsSheet.getRange(i + 2, 6).setValue(timestamp);
-        Logger.log('Password valid!');
-        break;
-      }
+      return passwordID === password && (active === 'TRUE' || active === 'YES' || active === '1');
+    });
+    
+    if (foundIndex !== -1) {
+      isValid = true;
+      passwordRowIndex = foundIndex + 2; // +2 because array is 0-indexed and we start at row 2
+      passwordsSheet.getRange(passwordRowIndex, 6).setValue(timestamp);
+      Logger.log('Password valid!');
     }
   }
-  
-  Logger.log('Password verification result: ' + isValid);
   
   // Log access attempt
   accessLogSheet.appendRow([
@@ -239,8 +251,8 @@ function handleVerifyPassword(data) {
     password,
     email,
     isValid ? 'Success' : 'Failed',
-    ip,
-    userAgent
+    '', // IP
+    ''  // UserAgent
   ]);
   
   return createCorsResponse({ valid: isValid });
@@ -268,7 +280,12 @@ function handleLogAccess(data) {
   return createCorsResponse({ success: true });
 }
 
-// Send password email
+/**
+ * Send password email to user
+ * @param {string} email - Recipient email
+ * @param {string} firstName - Recipient first name
+ * @param {string} passwordID - Generated password
+ */
 function sendPasswordEmail(email, firstName, passwordID) {
   const subject = 'Your Resume Access Code — Pawel Tulin';
   const body = `Hello ${firstName},
@@ -277,15 +294,24 @@ Your personal access code for the resume is:
 ${passwordID}
 
 Use it here:
-https://disruptiveexperience.com/portfolio/resume/index.html
+${RESUME_URL}
 
 Best,
 Pawel`;
   
-  GmailApp.sendEmail(email, subject, body);
+  try {
+    GmailApp.sendEmail(email, subject, body);
+    Logger.log(`Password email sent to ${email}`);
+  } catch (error) {
+    Logger.log(`Error sending password email: ${error.toString()}`);
+  }
 }
 
-// Send confirmation email
+/**
+ * Send confirmation email (without password)
+ * @param {string} email - Recipient email
+ * @param {string} firstName - Recipient first name
+ */
 function sendConfirmationEmail(email, firstName) {
   const subject = 'Thank You for Reaching Out';
   const body = `Hello ${firstName},
@@ -295,75 +321,112 @@ Thanks for reaching out. Your message has been received.
 Best,
 Pawel`;
   
-  GmailApp.sendEmail(email, subject, body);
+  try {
+    GmailApp.sendEmail(email, subject, body);
+    Logger.log(`Confirmation email sent to ${email}`);
+  } catch (error) {
+    Logger.log(`Error sending confirmation email: ${error.toString()}`);
+  }
 }
 
-// Daily cron job - send summary report
+/**
+ * Daily cron job - send summary report
+ * Analyzes last 24 hours of activity and emails report
+ */
 function sendDailyReport() {
   const accessLogSheet = getSheet(SHEET_NAMES.ACCESS_LOG);
   const requestsSheet = getSheet(SHEET_NAMES.REQUESTS);
   
   const now = new Date();
   const yesterday = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+  const timeZone = Session.getScriptTimeZone();
   
-  // Get last 24 hours of access logs
-  const lastRow = accessLogSheet.getLastRow();
-  let accessCount = 0;
-  let successCount = 0;
-  let failedCount = 0;
+  // Analyze access logs
+  const accessStats = analyzeAccessLogs(accessLogSheet, yesterday);
   
-  if (lastRow > 1) {
-    const accessData = accessLogSheet.getRange(2, 1, lastRow - 1, 6).getValues();
-    accessData.forEach(row => {
-      const timestamp = new Date(row[0]);
-      if (timestamp >= yesterday) {
-        accessCount++;
-        if (row[3] === 'Success') {
-          successCount++;
-        } else {
-          failedCount++;
-        }
-      }
-    });
-  }
+  // Analyze contact requests
+  const requestStats = analyzeContactRequests(requestsSheet, yesterday);
   
-  // Get last 24 hours of requests
-  const requestsLastRow = requestsSheet.getLastRow();
-  let requestCount = 0;
-  let passwordRequestCount = 0;
-  
-  if (requestsLastRow > 1) {
-    const requestData = requestsSheet.getRange(2, 1, requestsLastRow - 1, 10).getValues();
-    requestData.forEach(row => {
-      const timestamp = new Date(row[0]);
-      if (timestamp >= yesterday) {
-        requestCount++;
-        if (row[6] === 'Yes') {
-          passwordRequestCount++;
-        }
-      }
-    });
-  }
-  
-  // Compose email
-  const subject = 'Portfolio Daily Report - ' + Utilities.formatDate(now, Session.getScriptTimeZone(), 'yyyy-MM-dd');
+  // Compose and send email
+  const subject = `Portfolio Daily Report - ${Utilities.formatDate(now, timeZone, 'yyyy-MM-dd')}`;
   const body = `Daily Portfolio Activity Report
-Generated: ${Utilities.formatDate(now, Session.getScriptTimeZone(), 'yyyy-MM-dd HH:mm:ss')}
+Generated: ${Utilities.formatDate(now, timeZone, 'yyyy-MM-dd HH:mm:ss')}
 
 ACCESS LOGS (Last 24 Hours):
-- Total Access Attempts: ${accessCount}
-- Successful: ${successCount}
-- Failed: ${failedCount}
+- Total Access Attempts: ${accessStats.total}
+- Successful: ${accessStats.successful}
+- Failed: ${accessStats.failed}
 
 CONTACT REQUESTS (Last 24 Hours):
-- Total Requests: ${requestCount}
-- Password Requests: ${passwordRequestCount}
-- General Inquiries: ${requestCount - passwordRequestCount}
+- Total Requests: ${requestStats.total}
+- Password Requests: ${requestStats.passwordRequests}
+- General Inquiries: ${requestStats.generalInquiries}
 
 ---
 This is an automated report from your portfolio website.`;
   
-  GmailApp.sendEmail(ADMIN_EMAIL, subject, body);
+  try {
+    GmailApp.sendEmail(ADMIN_EMAIL, subject, body);
+    Logger.log('Daily report sent successfully');
+  } catch (error) {
+    Logger.log(`Error sending daily report: ${error.toString()}`);
+  }
+}
+
+/**
+ * Analyze access logs for the last 24 hours
+ * @param {Sheet} sheet - Access log sheet
+ * @param {Date} since - Start date for analysis
+ * @return {Object} Statistics object
+ */
+function analyzeAccessLogs(sheet, since) {
+  const stats = { total: 0, successful: 0, failed: 0 };
+  const lastRow = sheet.getLastRow();
+  
+  if (lastRow <= 1) return stats;
+  
+  const accessData = sheet.getRange(2, 1, lastRow - 1, 6).getValues();
+  accessData.forEach(row => {
+    const timestamp = new Date(row[0]);
+    if (timestamp >= since) {
+      stats.total++;
+      if (row[3] === 'Success') {
+        stats.successful++;
+      } else {
+        stats.failed++;
+      }
+    }
+  });
+  
+  return stats;
+}
+
+/**
+ * Analyze contact requests for the last 24 hours
+ * @param {Sheet} sheet - Requests sheet
+ * @param {Date} since - Start date for analysis
+ * @return {Object} Statistics object
+ */
+function analyzeContactRequests(sheet, since) {
+  const stats = { total: 0, passwordRequests: 0, generalInquiries: 0 };
+  const lastRow = sheet.getLastRow();
+  
+  if (lastRow <= 1) return stats;
+  
+  const requestData = sheet.getRange(2, 1, lastRow - 1, 10).getValues();
+  requestData.forEach(row => {
+    const timestamp = new Date(row[0]);
+    if (timestamp >= since) {
+      stats.total++;
+      if (row[6] === 'Yes') {
+        stats.passwordRequests++;
+      } else {
+        stats.generalInquiries++;
+      }
+    }
+  });
+  
+  return stats;
 }
 
 // Setup function - create trigger for daily report
