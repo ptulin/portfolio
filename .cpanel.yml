@@ -1,14 +1,12 @@
 ---
 deployment:
   tasks:
-    - export REPO_PATH=$(pwd)
-    - export DEPLOY_PATH=/home1/moose/public_html/portfolio
-    - mkdir -p $DEPLOY_PATH
-    - cd $REPO_PATH
-    - cp -R index.html about.html contact.html styles.css script.js $DEPLOY_PATH/ 2>&1
-    - cp -R assets $DEPLOY_PATH/ 2>&1
-    - cp -R auth $DEPLOY_PATH/ 2>&1
-    - cp -R resume $DEPLOY_PATH/ 2>&1
-    - cp -R case-studies $DEPLOY_PATH/ 2>&1
-    - rm -rf $DEPLOY_PATH/assets/pdf/Profile.pdf 2>&1 || true
-    - rm -rf $DEPLOY_PATH/.git $DEPLOY_PATH/.gitignore $DEPLOY_PATH/.cpanel.yml $DEPLOY_PATH/Code.js $DEPLOY_PATH/*.md $DEPLOY_PATH/design 2>&1 || true
+    - /bin/cp -f index.html /home1/moose/public_html/portfolio/index.html
+    - /bin/cp -f about.html /home1/moose/public_html/portfolio/about.html
+    - /bin/cp -f contact.html /home1/moose/public_html/portfolio/contact.html
+    - /bin/cp -f styles.css /home1/moose/public_html/portfolio/styles.css
+    - /bin/cp -f script.js /home1/moose/public_html/portfolio/script.js
+    - /bin/cp -rf assets /home1/moose/public_html/portfolio/
+    - /bin/cp -rf auth /home1/moose/public_html/portfolio/
+    - /bin/cp -rf resume /home1/moose/public_html/portfolio/
+    - /bin/cp -rf case-studies /home1/moose/public_html/portfolio/
