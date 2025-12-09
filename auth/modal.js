@@ -98,8 +98,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                     
                     if (result.valid) {
-                        // Store password ID in sessionStorage for access page
+                        // Store password ID and access grant in sessionStorage for access page
                         sessionStorage.setItem('passwordID', password);
+                        sessionStorage.setItem('resumeAccess', 'granted');
                         // Redirect to resume access page
                         window.location.href = 'resume/access.html';
                     } else {

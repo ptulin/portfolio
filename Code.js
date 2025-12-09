@@ -196,13 +196,15 @@ function handleVerifyPassword(data) {
   const passwordsSheet = getSheet(SHEET_NAMES.PASSWORDS);
   const accessLogSheet = getSheet(SHEET_NAMES.ACCESS_LOG);
   
-  const password = data.password || '';
+  const password = String(data.password || '').trim();
   const email = data.email || '';
   const timestamp = new Date();
   
   // Get user info
   const userAgent = ''; // Could be passed from frontend
   const ip = ''; // Could be passed from frontend
+  
+  Logger.log('Verifying password: ' + password);
   
   // Check if password exists and is active
   const lastRow = passwordsSheet.getLastRow();
@@ -213,18 +215,23 @@ function handleVerifyPassword(data) {
     
     for (let i = 0; i < passwordData.length; i++) {
       const row = passwordData[i];
-      const passwordID = row[0];
-      const active = row[3];
+      const passwordID = String(row[0] || '').trim();
+      const active = String(row[3] || '').toUpperCase();
       
-      if (passwordID === password && active === 'TRUE') {
+      Logger.log('Checking: ' + passwordID + ' vs ' + password + ', active: ' + active);
+      
+      if (passwordID === password && (active === 'TRUE' || active === 'YES' || active === '1')) {
         isValid = true;
         
         // Update DateUsed
         passwordsSheet.getRange(i + 2, 6).setValue(timestamp);
+        Logger.log('Password valid!');
         break;
       }
     }
   }
+  
+  Logger.log('Password verification result: ' + isValid);
   
   // Log access attempt
   accessLogSheet.appendRow([
