@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Pawel Tulin</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo"><a href="index.html">Pawel Tulin</a></div>
+            <button class="menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="contact-page">
+        <div class="contact-container">
+            <h1>Get In Touch</h1>
+            <form id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message / Comment</label>
+                    <textarea id="message" name="message" rows="5"></textarea>
+                </div>
+                <div class="form-group checkbox-group">
+                    <label>
+                        <input type="checkbox" id="requestPassword" name="requestPassword">
+                        Request Password for Resume
+                    </label>
+                </div>
+                <button type="submit" class="btn-primary">Submit</button>
+                <div class="form-message" id="formMessage"></div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <nav class="footer-nav">
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="resume/index.html">Resume</a>
+                    <a href="#">Share <span>↗</span></a>
+                </nav>
+                <div class="footer-contact">
+                    <p class="footer-label">GET IN TOUCH</p>
+                    <p class="footer-email">hello@paweltulin.com</p>
+                </div>
+            </div>
+            <div class="footer-right">
+                <a href="#" class="social-icon" aria-label="LinkedIn">in</a>
+                <a href="mailto:hello@paweltulin.com" class="social-icon" aria-label="Email">✉</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('message').value,
+                requestPassword: document.getElementById('requestPassword').checked
+            };
+
+            const messageEl = document.getElementById('formMessage');
+            messageEl.textContent = 'Sending...';
+            messageEl.className = 'form-message';
+
+            try {
+                // Replace with your Apps Script Web App URL
+                const response = await fetch('YOUR_APPS_SCRIPT_WEB_APP_URL/requestAccess', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+                
+                if (result.success) {
+                    if (formData.requestPassword) {
+                        messageEl.textContent = 'Check your email for your personal access code.';
+                    } else {
+                        messageEl.textContent = 'Thanks for your message.';
+                    }
+                    messageEl.className = 'form-message success';
+                    document.getElementById('contactForm').reset();
+                } else {
+                    messageEl.textContent = 'Error sending message. Please try again.';
+                    messageEl.className = 'form-message error';
+                }
+            } catch (error) {
+                messageEl.textContent = 'Error sending message. Please try again.';
+                messageEl.className = 'form-message error';
+            }
+        });
+    </script>
+</body>
+</html>
+

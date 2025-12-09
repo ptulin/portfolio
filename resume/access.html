@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Pawel Tulin</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="access.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo"><a href="../index.html">Pawel Tulin</a></div>
+        </div>
+    </header>
+
+    <main class="resume-container">
+        <div class="resume-header">
+            <h1>Pawel Tulin</h1>
+            <p>AI-Driven Product Designer, UX Leader & Research Strategist</p>
+        </div>
+
+        <div class="resume-content">
+            <div class="resume-section">
+                <h2>Experience</h2>
+                <p>Your resume content...</p>
+            </div>
+            
+            <div class="resume-section">
+                <h2>Education</h2>
+                <p>Your education content...</p>
+            </div>
+        </div>
+
+        <a href="../assets/pdf/resume.pdf" class="download-pdf-btn" download>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 11L3 6H6V1H10V6H13L8 11Z" fill="currentColor"/>
+                <path d="M14 13H2V15H14V13Z" fill="currentColor"/>
+            </svg>
+            Download PDF
+        </a>
+    </main>
+
+    <script>
+        // Check if access was granted
+        if (sessionStorage.getItem('resumeAccess') !== 'granted') {
+            window.location.href = 'index.html';
+        }
+
+        // Log access
+        const passwordID = sessionStorage.getItem('passwordID');
+        if (passwordID) {
+            fetch('YOUR_APPS_SCRIPT_WEB_APP_URL/logAccess', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ 
+                    passwordID: passwordID,
+                    email: ''
+                })
+            }).catch(err => console.error('Log error:', err));
+        }
+    </script>
+</body>
+</html>
+
