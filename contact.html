@@ -106,10 +106,18 @@
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ action: 'requestAccess', ...formData })
+                    body: JSON.stringify({ action: 'requestAccess', ...formData }),
+                    redirect: 'follow'
                 });
 
-                const result = await response.json();
+                const text = await response.text();
+                let result;
+                try {
+                    result = JSON.parse(text);
+                } catch (e) {
+                    console.error('Response text:', text);
+                    throw new Error('Invalid JSON response');
+                }
                 
                 if (result.success) {
                     if (formData.requestPassword) {
