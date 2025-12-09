@@ -1,5 +1,5 @@
 // Configuration
-const SPREADSHEET_ID = '1qtY7cqSQT243R-iQIzvQ-2d4z1KYM7M8krJ1zqY9-m0';
+const SPREADSHEET_ID = '1qtY7cqSQT243R-iQlzvQ-2d4z1KYM7M8krJ1zqY9-m0';
 const ADMIN_EMAIL = 'ptulin@gmail.com';
 const SHEET_NAMES = {
   REQUESTS: 'Requests',
@@ -48,25 +48,75 @@ function generatePassword() {
   return 'PT-' + String(nextNumber).padStart(5, '0');
 }
 
-// POST /requestAccess
+// Helper function to create CORS-enabled response
+function createCorsResponse(data) {
+  return ContentService.createTextOutput(JSON.stringify(data))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+// OPTIONS handler for CORS preflight
+function doOptions(e) {
+  return ContentService.createTextOutput('')
+    .setMimeType(ContentService.MimeType.TEXT);
+}
+
+// GET handler (for testing/health checks)
+function doGet(e) {
+  return createCorsResponse({ 
+    success: true, 
+    message: 'Portfolio Backend API is running',
+    timestamp: new Date().toISOString()
+  });
+}
+
+// POST handler
 function doPost(e) {
   try {
-    const data = JSON.parse(e.postData.contents);
-    const action = data.action || e.parameter.action;
+    let data = {};
+    let action = '';
     
-    if (action === 'requestAccess' || e.parameter.action === 'requestAccess') {
+    // Parse request data
+    if (e.postData && e.postData.contents) {
+      try {
+        data = JSON.parse(e.postData.contents);
+        action = data.action || '';
+      } catch (parseError) {
+        Logger.log('JSON parse error: ' + parseError.toString());
+        return createCorsResponse({ 
+          success: false, 
+          error: 'Invalid JSON: ' + parseError.toString() 
+        });
+      }
+    } else {
+      // Fallback to parameters
+      data = e.parameter;
+      action = e.parameter.action || '';
+    }
+    
+    Logger.log('Received action: ' + action);
+    Logger.log('Data keys: ' + Object.keys(data).join(', '));
+    
+    // Route to appropriate handler
+    if (action === 'requestAccess') {
       return handleRequestAccess(data);
-    } else if (action === 'verifyPassword' || e.parameter.action === 'verifyPassword') {
+    } else if (action === 'verifyPassword') {
       return handleVerifyPassword(data);
-    } else if (action === 'logAccess' || e.parameter.action === 'logAccess') {
+    } else if (action === 'logAccess') {
       return handleLogAccess(data);
     }
     
-    return ContentService.createTextOutput(JSON.stringify({ success: false, error: 'Invalid action' }))
-      .setMimeType(ContentService.MimeType.JSON);
+    return createCorsResponse({ 
+      success: false, 
+      error: 'Invalid action: ' + action 
+    });
   } catch (error) {
-    return ContentService.createTextOutput(JSON.stringify({ success: false, error: error.toString() }))
-      .setMimeType(ContentService.MimeType.JSON);
+    Logger.log('doPost error: ' + error.toString());
+    Logger.log('Stack: ' + error.stack);
+    return createCorsResponse({ 
+      success: false, 
+      error: error.toString(),
+      stack: error.stack 
+    });
   }
 }
 
@@ -124,8 +174,7 @@ function handleRequestAccess(data) {
     sendConfirmationEmail(email, firstName);
   }
   
-  return ContentService.createTextOutput(JSON.stringify({ success: true }))
-    .setMimeType(ContentService.MimeType.JSON);
+  return createCorsResponse({ success: true });
 }
 
 // Handle verify password
@@ -173,8 +222,7 @@ function handleVerifyPassword(data) {
     userAgent
   ]);
   
-  return ContentService.createTextOutput(JSON.stringify({ valid: isValid }))
-    .setMimeType(ContentService.MimeType.JSON);
+  return createCorsResponse({ valid: isValid });
 }
 
 // Handle log access
@@ -196,8 +244,7 @@ function handleLogAccess(data) {
     userAgent
   ]);
   
-  return ContentService.createTextOutput(JSON.stringify({ success: true }))
-    .setMimeType(ContentService.MimeType.JSON);
+  return createCorsResponse({ success: true });
 }
 
 // Send password email
@@ -378,5 +425,24 @@ function setupSheetHeaders() {
   
   Logger.log('Sheet headers set up successfully!');
   return 'Sheet headers set up successfully!';
+}
+
+// Simple test to verify authorization
+function testAuth() {
+  try {
+    // Try to access Drive first (simpler)
+    const test = DriveApp.getRootFolder();
+    Logger.log('Drive access: OK');
+    
+    // Then try SpreadsheetApp
+    const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+    const name = ss.getName();
+    Logger.log('Spreadsheet access: OK - Name: ' + name);
+    return 'Success! Spreadsheet: ' + name;
+  } catch (error) {
+    Logger.log('Error: ' + error.toString());
+    Logger.log('Full error: ' + JSON.stringify(error));
+    return 'Error: ' + error.toString();
+  }
 }
 
