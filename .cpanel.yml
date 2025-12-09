@@ -1,4 +1,4 @@
 ---
 deployment:
   tasks:
-    - /bin/rsync -av --delete /home1/moose/repositories/portfolio/ /home1/moose/public_html/portfolio/
+    - /bin/rsync -av --delete --exclude='.git' --exclude='.gitignore' --exclude='.cpanel.yml' --exclude='Code.js' --exclude='DEPLOYMENT.md' --exclude='DEPLOYMENT_STATUS.md' --exclude='CPANEL_SETUP.md' --exclude='design' --exclude='.DS_Store' /home1/moose/repositories/portfolio/ /home1/moose/public_html/portfolio/
