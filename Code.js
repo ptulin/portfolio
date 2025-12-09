@@ -75,20 +75,34 @@ function doPost(e) {
     let data = {};
     let action = '';
     
-    // Parse request data
+    // Parse request data - support both JSON and form data
     if (e.postData && e.postData.contents) {
-      try {
-        data = JSON.parse(e.postData.contents);
-        action = data.action || '';
-      } catch (parseError) {
-        Logger.log('JSON parse error: ' + parseError.toString());
-        return createCorsResponse({ 
-          success: false, 
-          error: 'Invalid JSON: ' + parseError.toString() 
+      const contentType = e.postData.type || '';
+      if (contentType.indexOf('application/json') !== -1) {
+        // JSON request
+        try {
+          data = JSON.parse(e.postData.contents);
+          action = data.action || '';
+        } catch (parseError) {
+          Logger.log('JSON parse error: ' + parseError.toString());
+          return createCorsResponse({ 
+            success: false, 
+            error: 'Invalid JSON: ' + parseError.toString() 
+          });
+        }
+      } else {
+        // Form data - parse from postData.contents
+        const params = e.postData.contents.split('&');
+        params.forEach(param => {
+          const [key, value] = param.split('=');
+          if (key && value) {
+            data[decodeURIComponent(key)] = decodeURIComponent(value);
+          }
         });
+        action = data.action || '';
       }
     } else {
-      // Fallback to parameters
+      // Fallback to parameters (form data or URL params)
       data = e.parameter;
       action = e.parameter.action || '';
     }
@@ -131,7 +145,7 @@ function handleRequestAccess(data) {
   const email = data.email || '';
   const phone = data.phone || '';
   const message = data.message || '';
-  const requestPassword = data.requestPassword === true || data.requestPassword === 'true';
+  const requestPassword = data.requestPassword === true || data.requestPassword === 'true' || data.requestPassword === 'Yes';
   
   let assignedPassword = '';
   
