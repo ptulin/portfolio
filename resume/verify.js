@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
         errorMessage.textContent = '';
 
         try {
-            // Replace with your Apps Script Web App URL
-            const response = await fetch('YOUR_APPS_SCRIPT_WEB_APP_URL/verifyPassword', {
+            // Apps Script Web App URL
+            const response = await fetch('https://script.google.com/macros/s/AKfycbyNQWEWnEUvBhVAnBImfHJlqeYKxMoJzwzqC3-UZJN7qL4kWoVnOM89nJzu3SAjMT72/exec?action=verifyPassword', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
