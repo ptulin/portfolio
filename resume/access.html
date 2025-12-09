@@ -53,12 +53,13 @@
         // Log access
         const passwordID = sessionStorage.getItem('passwordID');
         if (passwordID) {
-            fetch('https://script.google.com/macros/s/AKfycbyNQWEWnEUvBhVAnBImfHJlqeYKxMoJzwzqC3-UZJN7qL4kWoVnOM89nJzu3SAjMT72/exec?action=logAccess', {
+            fetch('https://script.google.com/macros/s/AKfycbyNQWEWnEUvBhVAnBImfHJlqeYKxMoJzwzqC3-UZJN7qL4kWoVnOM89nJzu3SAjMT72/exec', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ 
+                    action: 'logAccess',
                     passwordID: passwordID,
                     email: ''
                 })

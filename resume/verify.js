@@ -14,12 +14,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         try {
             // Apps Script Web App URL
-            const response = await fetch('https://script.google.com/macros/s/AKfycbyNQWEWnEUvBhVAnBImfHJlqeYKxMoJzwzqC3-UZJN7qL4kWoVnOM89nJzu3SAjMT72/exec?action=verifyPassword', {
+            const response = await fetch('https://script.google.com/macros/s/AKfycbyNQWEWnEUvBhVAnBImfHJlqeYKxMoJzwzqC3-UZJN7qL4kWoVnOM89nJzu3SAjMT72/exec', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ password, email })
+                body: JSON.stringify({ action: 'verifyPassword', password, email })
             });
 
             const result = await response.json();
