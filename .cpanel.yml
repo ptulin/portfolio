@@ -1,15 +1,14 @@
 ---
 deployment:
   tasks:
-    - mkdir -p /home1/moose/public_html/portfolio
-    - /bin/cp -R /home1/moose/repositories/portfolio/* /home1/moose/public_html/portfolio/ 2>/dev/null || true
-    - /bin/cp -R /home1/moose/repositories/portfolio/.[!.]* /home1/moose/public_html/portfolio/ 2>/dev/null || true
-    - rm -rf /home1/moose/public_html/portfolio/.git
-    - rm -f /home1/moose/public_html/portfolio/.gitignore
-    - rm -f /home1/moose/public_html/portfolio/.cpanel.yml
-    - rm -f /home1/moose/public_html/portfolio/Code.js
-    - rm -f /home1/moose/public_html/portfolio/DEPLOYMENT.md
-    - rm -f /home1/moose/public_html/portfolio/DEPLOYMENT_STATUS.md
-    - rm -f /home1/moose/public_html/portfolio/CPANEL_SETUP.md
-    - rm -rf /home1/moose/public_html/portfolio/design
-    - rm -f /home1/moose/public_html/portfolio/.DS_Store
+    - export REPO_PATH=$(pwd)
+    - export DEPLOY_PATH=/home1/moose/public_html/portfolio
+    - mkdir -p $DEPLOY_PATH
+    - cd $REPO_PATH
+    - cp -R index.html about.html contact.html styles.css script.js $DEPLOY_PATH/ 2>&1
+    - cp -R assets $DEPLOY_PATH/ 2>&1
+    - cp -R auth $DEPLOY_PATH/ 2>&1
+    - cp -R resume $DEPLOY_PATH/ 2>&1
+    - cp -R case-studies $DEPLOY_PATH/ 2>&1
+    - rm -rf $DEPLOY_PATH/assets/pdf/Profile.pdf 2>&1 || true
+    - rm -rf $DEPLOY_PATH/.git $DEPLOY_PATH/.gitignore $DEPLOY_PATH/.cpanel.yml $DEPLOY_PATH/Code.js $DEPLOY_PATH/*.md $DEPLOY_PATH/design 2>&1 || true
