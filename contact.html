@@ -100,14 +100,19 @@
             messageEl.className = 'form-message';
 
             try {
-                // Apps Script Web App URL
+                // Apps Script Web App URL - using form data to avoid CORS preflight
+                const formDataToSend = new FormData();
+                formDataToSend.append('action', 'requestAccess');
+                formDataToSend.append('firstName', formData.firstName);
+                formDataToSend.append('lastName', formData.lastName);
+                formDataToSend.append('email', formData.email);
+                formDataToSend.append('phone', formData.phone || '');
+                formDataToSend.append('message', formData.message || '');
+                formDataToSend.append('requestPassword', formData.requestPassword ? 'true' : 'false');
+                
                 const response = await fetch('https://script.google.com/macros/s/AKfycbyNQWEWnEUvBhVAnBImfHJlqeYKxMoJzwzqC3-UZJN7qL4kWoVnOM89nJzu3SAjMT72/exec', {
                     method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ action: 'requestAccess', ...formData }),
+                    body: formDataToSend,
                     redirect: 'follow'
                 });
 
