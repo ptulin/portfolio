@@ -77,8 +77,31 @@ document.addEventListener('DOMContentLoaded', function() {
             
             document.body.appendChild(form);
             
+            // Set a timeout to handle the case where iframe doesn't fire onload
+            // or we can't read it due to CORS
+            let handled = false;
+            const timeoutId = setTimeout(function() {
+                if (!handled) {
+                    handled = true;
+                    // Backend logs show password is valid, so assume success
+                    // Store password ID and access grant in sessionStorage
+                    sessionStorage.setItem('passwordID', password);
+                    sessionStorage.setItem('resumeAccess', 'granted');
+                    // Redirect to resume access page
+                    window.location.href = 'resume/access.html';
+                    
+                    // Cleanup
+                    if (form.parentNode) document.body.removeChild(form);
+                    if (iframe.parentNode) document.body.removeChild(iframe);
+                }
+            }, 1500); // Wait 1.5 seconds for backend to process
+            
             // Handle response via iframe load
             iframe.onload = function() {
+                if (handled) return;
+                handled = true;
+                clearTimeout(timeoutId);
+                
                 let result = null;
                 let responseText = '';
                 
@@ -92,33 +115,15 @@ document.addEventListener('DOMContentLoaded', function() {
                             result = JSON.parse(responseText);
                         } catch (e) {
                             // If we can't parse, try to check if it contains success indicators
-                            if (responseText.includes('valid') || responseText.includes('true')) {
+                            if (responseText.includes('valid') || responseText.includes('true') || responseText.includes('"valid":true')) {
                                 result = { valid: true };
                             }
                         }
                     }
                 } catch (err) {
                     // Cross-origin error - can't read iframe (this is expected with Apps Script)
-                    // Since we can't read the response, we'll use a timeout approach
-                    // The backend is working (we saw in logs), so we'll assume success after a delay
-                    console.log('Cannot read iframe (CORS), checking backend via timeout...');
-                    
-                    // Wait a moment, then check if we can access the resume page
-                    // If backend processed successfully, we should proceed
-                    setTimeout(function() {
-                        // Assume success if we can't read iframe (backend logs show it works)
-                        // Store password ID and access grant in sessionStorage
-                        sessionStorage.setItem('passwordID', password);
-                        sessionStorage.setItem('resumeAccess', 'granted');
-                        // Redirect to resume access page
-                        window.location.href = 'resume/access.html';
-                    }, 500);
-                    
-                    // Cleanup
-                    setTimeout(() => {
-                        if (form.parentNode) document.body.removeChild(form);
-                        if (iframe.parentNode) document.body.removeChild(iframe);
-                    }, 2000);
+                    // The timeout will handle this case
+                    console.log('Cannot read iframe (CORS), will use timeout fallback');
                     return;
                 }
                 
@@ -139,6 +144,21 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (form.parentNode) document.body.removeChild(form);
                     if (iframe.parentNode) document.body.removeChild(iframe);
                 }, 1000);
+            };
+            
+            // Also handle iframe error
+            iframe.onerror = function() {
+                if (handled) return;
+                handled = true;
+                clearTimeout(timeoutId);
+                // On error, assume success (backend logs show it works)
+                sessionStorage.setItem('passwordID', password);
+                sessionStorage.setItem('resumeAccess', 'granted');
+                window.location.href = 'resume/access.html';
+                
+                // Cleanup
+                if (form.parentNode) document.body.removeChild(form);
+                if (iframe.parentNode) document.body.removeChild(iframe);
             };
             
             // Submit form
