@@ -394,16 +394,44 @@ h1, h2, h3 {
     text-decoration: underline;
 }
 
-/* Contact Page */
-.contact-page {
+/* Contact & About Pages */
+.contact-page,
+.about-page {
     padding: 4rem;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
-.contact-container h1 {
+.contact-container h1,
+.about-container h1 {
+    font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
+    font-weight: 700;
     margin-bottom: 2rem;
+    color: var(--text-dark);
+}
+
+.about-content {
+    line-height: 1.8;
+    font-size: 1.0625rem;
+    color: var(--text-dark);
+}
+
+.about-content p {
+    margin-bottom: 1.5rem;
+}
+
+.about-lead {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 2rem !important;
+}
+
+.about-closing {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-top: 2rem !important;
 }
 
 .form-row {
