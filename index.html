@@ -21,14 +21,32 @@
             </button>
         </div>
         <div class="filters">
-            <select class="filter-dropdown">
-                <option>Area: All</option>
+            <select class="filter-dropdown" id="areaFilter" data-filter="area">
+                <option value="all">Area: All</option>
+                <option value="product-design">Product Design</option>
+                <option value="ux-design">UX Design</option>
+                <option value="ux-research">UX Research</option>
+                <option value="ai-llm-design">AI/LLM Design</option>
             </select>
-            <select class="filter-dropdown">
-                <option>Industry: All</option>
+            <select class="filter-dropdown" id="industryFilter" data-filter="industry">
+                <option value="all">Industry: All</option>
+                <option value="fintech">Fintech / Financial Services</option>
+                <option value="saas">SaaS / Enterprise</option>
+                <option value="nonprofit">Nonprofit / NGO / UN</option>
+                <option value="ecommerce">E-commerce</option>
+                <option value="ai-data">AI / Data Platforms</option>
+                <option value="education">Education / EdTech</option>
             </select>
-            <select class="filter-dropdown">
-                <option>Deliverable: All</option>
+            <select class="filter-dropdown" id="deliverableFilter" data-filter="deliverable">
+                <option value="all">Deliverable: All</option>
+                <option value="case-study">Case Study</option>
+                <option value="design-system">Design System</option>
+                <option value="dashboard">Dashboard / Data Visualization</option>
+                <option value="ai-workflow">AI Workflow / LLM System</option>
+                <option value="service-blueprint">Service Blueprint</option>
+                <option value="research-study">Research Study</option>
+                <option value="prototype">Prototype</option>
+                <option value="strategy">Strategy / Roadmap</option>
             </select>
         </div>
     </header>
