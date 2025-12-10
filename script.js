@@ -1,11 +1,51 @@
 // Homepage interactions
 document.addEventListener('DOMContentLoaded', function() {
-    // Menu toggle (if needed)
-    const menuToggle = document.querySelector('.menu-toggle');
-    if (menuToggle) {
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    if (menuToggle && mobileMenu) {
+        // Create overlay
+        const overlay = document.createElement('div');
+        overlay.className = 'mobile-menu-overlay';
+        document.body.appendChild(overlay);
+        
+        // Toggle menu
         menuToggle.addEventListener('click', function() {
-            // Add menu functionality if needed
-            console.log('Menu clicked');
+            menuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        // Close menu when clicking overlay
+        overlay.addEventListener('click', function() {
+            menuToggle.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // Close menu when clicking a nav link (except current page)
+        const navLinks = mobileMenu.querySelectorAll('.mobile-nav-link:not(.current)');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Detect current page and mark it
+        const currentPath = window.location.pathname;
+        const currentPage = currentPath.split('/').pop() || 'index.html';
+        
+        navLinks.forEach(link => {
+            const linkPath = link.getAttribute('href');
+            if (linkPath === currentPage || (currentPage === '' && linkPath === 'index.html')) {
+                link.classList.add('current');
+            }
         });
     }
 
