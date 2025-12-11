@@ -23,11 +23,11 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Compact Hero */
+        /* Hero Section - PDF Style */
         .case-hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            color: #fff;
-            padding: 3rem 0 2rem;
+            background: #ffffff;
+            padding: 4rem 0 3rem;
+            border-bottom: 1px solid #e8e8e8;
         }
 
         .case-hero-content {
@@ -37,57 +37,70 @@
         }
 
         .case-hero-header {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
         }
 
         .case-hero-text h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 800;
-            letter-spacing: -0.03em;
+            letter-spacing: -0.02em;
             line-height: 1.1;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
+            color: #000;
         }
 
         .case-hero-text .tagline {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             font-weight: 500;
-            color: rgba(255, 255, 255, 0.95);
+            color: #666;
             margin-bottom: 1rem;
         }
 
         .case-hero-text .description {
             font-size: 1rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: #4a4a4a;
             line-height: 1.6;
+            max-width: 800px;
         }
 
-        .case-hero-metrics {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+        /* Metrics Table - PDF Style */
+        .metrics-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: #fff;
         }
 
-        .metric-box {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
+        .metrics-table td {
+            padding: 1.25rem;
+            border: 1px solid #e8e8e8;
+            vertical-align: top;
         }
 
-        .metric-value {
-            font-size: 2rem;
+        .metrics-table .metric-value {
+            font-size: 1.75rem;
             font-weight: 800;
+            color: #000;
             margin-bottom: 0.25rem;
         }
 
-        .metric-label {
+        .metrics-table .metric-label {
             font-size: 0.875rem;
-            color: rgba(255, 255, 255, 0.85);
+            color: #666;
+            font-weight: 500;
+        }
+
+        .metrics-table .meta-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #999;
+            margin-bottom: 0.5rem;
+        }
+
+        .metrics-table .meta-value {
+            font-size: 0.9375rem;
+            color: #333;
         }
 
         /* Main Container */
@@ -107,11 +120,13 @@
         }
 
         .section-title {
-            font-size: 2rem;
+            font-size: 1.75rem;
             font-weight: 700;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.01em;
             margin-bottom: 0.5rem;
-            color: #667eea;
+            color: #000;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .section-subtitle {
@@ -488,37 +503,58 @@
         </div>
     </header>
 
-    <!-- Compact Hero -->
+    <!-- Hero Section - PDF Style -->
     <section class="case-hero" data-area="ux-research,ux-design,product-design" data-industry="fintech" data-deliverable="dashboard,ai-workflow,research-study,prototype" data-year="2024">
         <div class="case-hero-content">
             <div class="case-hero-header">
                 <div class="case-hero-text">
-                    <div style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #999; margin-bottom: 1rem;">Fiserv</div>
                     <h1>Data Compass</h1>
                     <p class="tagline">AI-Powered Financial Analytics Platform</p>
                     <p class="description">Transforming multi-day regulatory reporting into a real-time, conversational analytics workspace for small and mid-size financial institutions.</p>
                 </div>
-                <div class="case-hero-metrics">
-                    <div class="metric-box">
-                        <div class="metric-value">Days → Minutes</div>
-                        <div class="metric-label">Reporting cycles</div>
-                    </div>
-                    <div class="metric-box">
-                        <div class="metric-value">$10K+</div>
-                        <div class="metric-label">Monthly savings</div>
-                    </div>
-                    <div class="metric-box">
-                        <div class="metric-value">30-50%</div>
-                        <div class="metric-label">Rework reduction</div>
-                    </div>
-                    <div class="metric-box">
-                        <div class="metric-value">40-70%</div>
-                        <div class="metric-label">Faster discovery</div>
-                    </div>
-                </div>
             </div>
 
-            <div class="case-study-meta">
+            <!-- Metrics Table - PDF Style -->
+            <table class="metrics-table">
+                <tr>
+                    <td>
+                        <div class="metric-value">Days → Min</div>
+                        <div class="metric-label">Reporting cycles</div>
+                    </td>
+                    <td>
+                        <div class="metric-value">$10K+</div>
+                        <div class="metric-label">Monthly savings</div>
+                    </td>
+                    <td>
+                        <div class="meta-label">Area</div>
+                        <div class="meta-value">UX Research, UX Design, Product Design</div>
+                    </td>
+                    <td>
+                        <div class="meta-label">Industry</div>
+                        <div class="meta-value">Fintech / Financial Services</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="metric-value">30-50%</div>
+                        <div class="metric-label">Rework reduction</div>
+                    </td>
+                    <td>
+                        <div class="metric-value">40-70%</div>
+                        <div class="metric-label">Faster discovery</div>
+                    </td>
+                    <td>
+                        <div class="meta-label">Deliverables</div>
+                        <div class="meta-value">Dashboards, AI Workflow, Interaction Design</div>
+                    </td>
+                    <td>
+                        <div class="meta-label">Year</div>
+                        <div class="meta-value">2024</div>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="case-study-meta" style="display: none;">
                 <div class="meta-item">
                     <span class="meta-label">Area</span>
                     <span class="meta-value">UX Research, UX Design, Product Design</span>
@@ -544,7 +580,7 @@
         <section class="case-section">
             <div class="section-header">
                 <h2 class="section-title">The Challenge</h2>
-                <p class="section-subtitle">Small and mid-sized banks drowning in regulatory reporting</p>
+                <h3 style="font-size: 1.125rem; font-weight: 600; color: #666; margin-bottom: 1rem;">Small and mid-sized banks drowning in regulatory reporting.</h3>
             </div>
             <div class="content-grid">
                 <div class="content-text">
@@ -563,7 +599,7 @@
         <section class="case-section">
             <div class="section-header">
                 <h2 class="section-title">My Role</h2>
-                <p class="section-subtitle">Leading UX research, design strategy, and product design</p>
+                <h3 style="font-size: 1.125rem; font-weight: 600; color: #666; margin-bottom: 1rem;">Leading UX research, design strategy, and product design.</h3>
             </div>
             <div class="role-grid">
                 <div class="role-card">
