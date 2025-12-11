@@ -144,9 +144,10 @@
         .kpi-grid {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
-            grid-template-rows: auto auto;
+            grid-template-rows: 1fr 1fr;
             gap: 1.5rem;
             margin-top: 4rem;
+            align-items: start;
         }
 
         .kpi-tile {
@@ -161,7 +162,8 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            isolation: isolate;
+            height: 100%;
+            max-height: 100%;
         }
 
         .kpi-tile:hover {
@@ -202,34 +204,39 @@
             border-radius: 12px;
             position: relative;
             background: rgba(255, 255, 255, 0.02);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .kpi-tile-a .kpi-visual,
         .kpi-tile-c .kpi-visual,
         .kpi-tile-d .kpi-visual,
         .kpi-tile-e .kpi-visual {
-            max-height: 120px;
-            min-height: 120px;
+            height: 100px;
+            max-height: 100px;
         }
 
         .kpi-tile-b .kpi-visual {
-            max-height: 200px;
-            min-height: 200px;
+            height: 180px;
+            max-height: 180px;
         }
 
         .kpi-visual img {
-            width: 100%;
-            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
             object-fit: contain;
             display: block;
         }
 
         .kpi-tile-content {
             color: #ffffff;
-            flex: 1;
+            flex: 1 1 auto;
             display: flex;
             flex-direction: column;
-            min-height: 0;
+            overflow: hidden;
         }
 
         .kpi-tile-value {
@@ -706,7 +713,7 @@
 
             .kpi-grid {
                 grid-template-columns: repeat(6, 1fr);
-                grid-template-rows: auto auto auto auto;
+                grid-template-rows: repeat(4, auto);
             }
 
             .kpi-tile-a {
@@ -734,9 +741,17 @@
                 grid-row: 4;
             }
 
+            .kpi-tile-a .kpi-visual,
+            .kpi-tile-c .kpi-visual,
+            .kpi-tile-d .kpi-visual,
+            .kpi-tile-e .kpi-visual {
+                height: 80px;
+                max-height: 80px;
+            }
+
             .kpi-tile-b .kpi-visual {
-                max-height: 150px;
-                min-height: 150px;
+                height: 120px;
+                max-height: 120px;
             }
         }
 
@@ -792,13 +807,13 @@
             .kpi-tile-c .kpi-visual,
             .kpi-tile-d .kpi-visual,
             .kpi-tile-e .kpi-visual {
-                max-height: 100px;
-                min-height: 100px;
+                height: 70px;
+                max-height: 70px;
             }
 
             .kpi-tile-b .kpi-visual {
-                max-height: 120px;
-                min-height: 120px;
+                height: 100px;
+                max-height: 100px;
             }
 
             .kpi-tile-value {
