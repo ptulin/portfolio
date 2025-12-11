@@ -5,10 +5,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenu = document.getElementById('mobileMenu');
     
     if (menuToggle && mobileMenu) {
-        // Create overlay
-        const overlay = document.createElement('div');
-        overlay.className = 'mobile-menu-overlay';
-        document.body.appendChild(overlay);
+        // Get existing overlay or create one
+        let overlay = document.getElementById('menuOverlay');
+        if (!overlay) {
+            overlay = document.createElement('div');
+            overlay.className = 'mobile-menu-overlay';
+            overlay.id = 'menuOverlay';
+            document.body.appendChild(overlay);
+        }
         
         // Toggle menu
         menuToggle.addEventListener('click', function() {
