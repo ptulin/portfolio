@@ -157,6 +157,8 @@
             box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .kpi-tile:hover {
@@ -189,16 +191,37 @@
             grid-row: 2;
         }
 
-        .kpi-tile img {
+        .kpi-visual {
+            width: 100%;
+            flex-shrink: 0;
+            margin-bottom: 1.25rem;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .kpi-tile-a .kpi-visual,
+        .kpi-tile-c .kpi-visual,
+        .kpi-tile-d .kpi-visual,
+        .kpi-tile-e .kpi-visual {
+            max-height: 200px;
+        }
+
+        .kpi-tile-b .kpi-visual {
+            max-height: 350px;
+        }
+
+        .kpi-visual img {
             width: 100%;
             height: auto;
-            border-radius: 12px;
-            margin-bottom: 1.25rem;
             display: block;
+            object-fit: contain;
         }
 
         .kpi-tile-content {
             color: #ffffff;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .kpi-tile-value {
@@ -835,7 +858,9 @@
             <div class="kpi-grid">
                 <!-- Tile A: Speed (cols 1-7, row 1) -->
                 <div class="kpi-tile kpi-tile-a">
-                    <img src="../assets/case-studies/fiserv/kpi-tile-speed.svg" alt="Speed metric">
+                    <div class="kpi-visual">
+                        <img src="../assets/case-studies/fiserv/kpi-tile-speed.svg" alt="Speed metric">
+                    </div>
                     <div class="kpi-tile-content">
                         <div class="kpi-tile-value">Days → Min</div>
                         <div class="kpi-tile-label">Reporting cycles</div>
@@ -844,7 +869,9 @@
 
                 <!-- Tile B: Transformation (cols 8-12, rows 1-2) -->
                 <div class="kpi-tile kpi-tile-b">
-                    <img src="../assets/case-studies/fiserv/kpi-tile-transformation.svg" alt="Transformation metric">
+                    <div class="kpi-visual">
+                        <img src="../assets/case-studies/fiserv/kpi-tile-transformation.svg" alt="Transformation metric">
+                    </div>
                     <div class="kpi-tile-content">
                         <div class="kpi-tile-value">30-50%</div>
                         <div class="kpi-tile-label">Rework reduction</div>
@@ -854,7 +881,9 @@
 
                 <!-- Tile C: Consolidation (cols 1-4, row 2) -->
                 <div class="kpi-tile kpi-tile-c">
-                    <img src="../assets/case-studies/fiserv/kpi-tile-consolidation.svg" alt="Consolidation metric">
+                    <div class="kpi-visual">
+                        <img src="../assets/case-studies/fiserv/kpi-tile-consolidation.svg" alt="Consolidation metric">
+                    </div>
                     <div class="kpi-tile-content">
                         <div class="kpi-tile-value">$10K+</div>
                         <div class="kpi-tile-label">Monthly savings</div>
@@ -863,7 +892,9 @@
 
                 <!-- Tile D: Latency (cols 5-8, row 2) -->
                 <div class="kpi-tile kpi-tile-d">
-                    <img src="../assets/case-studies/fiserv/kpi-tile-latency.svg" alt="Latency metric">
+                    <div class="kpi-visual">
+                        <img src="../assets/case-studies/fiserv/kpi-tile-latency.svg" alt="Latency metric">
+                    </div>
                     <div class="kpi-tile-content">
                         <div class="kpi-tile-value">40-70%</div>
                         <div class="kpi-tile-label">Faster discovery</div>
@@ -872,7 +903,9 @@
 
                 <!-- Tile E: Confidence (cols 9-12, row 2) -->
                 <div class="kpi-tile kpi-tile-e">
-                    <img src="../assets/case-studies/fiserv/kpi-tile-confidence.svg" alt="Confidence metric">
+                    <div class="kpi-visual">
+                        <img src="../assets/case-studies/fiserv/kpi-tile-confidence.svg" alt="Confidence metric">
+                    </div>
                     <div class="kpi-tile-content">
                         <div class="kpi-tile-value">95%+</div>
                         <div class="kpi-tile-label">Accuracy rate</div>
