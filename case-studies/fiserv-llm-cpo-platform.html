@@ -25,7 +25,7 @@
 
         /* Compact Hero */
         .case-hero {
-            background: #000;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             color: #fff;
             padding: 3rem 0 2rem;
         }
@@ -55,13 +55,13 @@
         .case-hero-text .tagline {
             font-size: 1.25rem;
             font-weight: 500;
-            color: #ccc;
+            color: rgba(255, 255, 255, 0.95);
             margin-bottom: 1rem;
         }
 
         .case-hero-text .description {
             font-size: 1rem;
-            color: #aaa;
+            color: rgba(255, 255, 255, 0.9);
             line-height: 1.6;
         }
 
@@ -72,9 +72,11 @@
         }
 
         .metric-box {
-            background: #1a1a1a;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
             padding: 1.5rem;
-            border: 1px solid #333;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
         }
 
         .metric-value {
@@ -85,7 +87,7 @@
 
         .metric-label {
             font-size: 0.875rem;
-            color: #999;
+            color: rgba(255, 255, 255, 0.85);
         }
 
         /* Main Container */
@@ -97,16 +99,11 @@
 
         /* Compact Sections */
         .case-section {
-            padding: 3rem 0;
-            border-bottom: 1px solid #e8e8e8;
-        }
-
-        .case-section:last-child {
-            border-bottom: none;
+            padding: 2.5rem 0;
         }
 
         .section-header {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
         }
 
         .section-title {
@@ -114,7 +111,7 @@
             font-weight: 700;
             letter-spacing: -0.02em;
             margin-bottom: 0.5rem;
-            color: #000;
+            color: #667eea;
         }
 
         .section-subtitle {
@@ -138,7 +135,7 @@
         }
 
         .content-text p {
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
 
         /* Role Cards - Compact */
@@ -150,9 +147,14 @@
         }
 
         .role-card {
-            background: #f8f8f8;
+            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
             padding: 1.5rem;
-            border: 1px solid #e8e8e8;
+            border: 1px solid #e0e7ff;
+            border-radius: 8px;
+        }
+
+        .role-card-title {
+            color: #667eea;
         }
 
         .role-card-title {
@@ -185,10 +187,12 @@
 
         /* Key Insight - Compact */
         .key-insight {
-            background: #000;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             color: #fff;
             padding: 2rem;
             margin: 2rem 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(245, 87, 108, 0.2);
         }
 
         .key-insight p {
@@ -240,9 +244,14 @@
         }
 
         .strategy-card {
-            background: #f8f8f8;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
             padding: 1.5rem;
-            border: 1px solid #e8e8e8;
+            border: 1px solid #ffe0e0;
+            border-radius: 8px;
+        }
+
+        .strategy-card strong {
+            color: #f5576c;
         }
 
         .strategy-card strong {
@@ -263,12 +272,12 @@
         /* Lists */
         .content-text ul,
         .content-text ol {
-            margin: 1rem 0;
+            margin: 0.75rem 0;
             padding-left: 1.5rem;
         }
 
         .content-text li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             line-height: 1.7;
         }
 
@@ -286,11 +295,12 @@
 
         .decisions-list li {
             padding: 1rem;
-            border-left: 3px solid #000;
-            background: #f8f8f8;
+            border-left: 4px solid #667eea;
+            background: linear-gradient(90deg, #f8f9ff 0%, #ffffff 100%);
             margin-bottom: 0.75rem;
             font-size: 0.9375rem;
             line-height: 1.6;
+            border-radius: 0 4px 4px 0;
         }
 
         /* Benefits Grid - Compact */
@@ -302,9 +312,14 @@
         }
 
         .benefit-card {
-            background: #f8f8f8;
+            background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
             padding: 1.5rem;
-            border: 1px solid #e8e8e8;
+            border: 1px solid #dcfce7;
+            border-radius: 8px;
+        }
+
+        .benefit-card-title {
+            color: #10b981;
         }
 
         .benefit-card-title {
@@ -344,11 +359,12 @@
 
         .insights-list li {
             padding: 1rem;
-            background: #f8f8f8;
+            background: linear-gradient(90deg, #fef3c7 0%, #ffffff 100%);
             margin-bottom: 0.75rem;
             font-size: 0.9375rem;
             line-height: 1.6;
-            border-left: 3px solid #000;
+            border-left: 4px solid #f59e0b;
+            border-radius: 0 4px 4px 0;
         }
 
         /* Responsive */
