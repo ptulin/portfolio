@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -21,14 +21,13 @@
             background: #ffffff;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Hero Section */
+        /* Compact Hero */
         .case-hero {
-            background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
-            padding: 8rem 0 6rem;
-            border-bottom: 1px solid #e8e8e8;
+            background: #000;
+            color: #fff;
+            padding: 3rem 0 2rem;
         }
 
         .case-hero-content {
@@ -38,83 +37,68 @@
         }
 
         .case-hero-header {
-            max-width: 900px;
-            margin-bottom: 4rem;
-        }
-
-        .case-hero-label {
-            font-size: 0.875rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-
-        .case-hero-title {
-            font-size: 4.5rem;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            line-height: 1.05;
-            margin-bottom: 1.5rem;
-            color: #000;
-        }
-
-        .case-hero-subtitle {
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: #4a4a4a;
-            line-height: 1.5;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
             margin-bottom: 2rem;
         }
 
-        .case-hero-description {
-            font-size: 1.125rem;
-            color: #666;
-            line-height: 1.7;
-            max-width: 700px;
-        }
-
-        /* Impact Metrics */
-        .case-impact {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .impact-item {
-            text-align: left;
-        }
-
-        .impact-value {
-            font-size: 2.5rem;
+        .case-hero-text h1 {
+            font-size: 3.5rem;
             font-weight: 800;
-            color: #000;
+            letter-spacing: -0.03em;
             line-height: 1.1;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
 
-        .impact-label {
-            font-size: 0.875rem;
-            color: #666;
+        .case-hero-text .tagline {
+            font-size: 1.25rem;
             font-weight: 500;
-            line-height: 1.4;
+            color: #ccc;
+            margin-bottom: 1rem;
         }
 
-        /* Main Content */
-        .case-study {
+        .case-hero-text .description {
+            font-size: 1rem;
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        .case-hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .metric-box {
+            background: #1a1a1a;
+            padding: 1.5rem;
+            border: 1px solid #333;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: #999;
+        }
+
+        /* Main Container */
+        .case-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
+        /* Compact Sections */
         .case-section {
-            padding: 6rem 0;
-            border-bottom: 1px solid #f0f0f0;
+            padding: 3rem 0;
+            border-bottom: 1px solid #e8e8e8;
         }
 
         .case-section:last-child {
@@ -122,69 +106,59 @@
         }
 
         .section-header {
-            max-width: 800px;
-            margin-bottom: 3rem;
+            margin-bottom: 1.5rem;
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 700;
             letter-spacing: -0.02em;
-            line-height: 1.2;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             color: #000;
         }
 
         .section-subtitle {
-            font-size: 1.25rem;
+            font-size: 1rem;
             color: #666;
-            line-height: 1.6;
+            font-weight: 500;
         }
 
-        .section-content {
-            font-size: 1.0625rem;
-            line-height: 1.75;
+        /* Two Column Content */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 2rem 0;
+        }
+
+        .content-text {
+            font-size: 1rem;
+            line-height: 1.7;
             color: #2a2a2a;
         }
 
-        .section-content p {
-            margin-bottom: 1.5rem;
+        .content-text p {
+            margin-bottom: 1rem;
         }
 
-        /* Key Insight Box */
-        .key-insight {
-            background: #000;
-            color: #fff;
-            padding: 3rem;
-            margin: 3rem 0;
-            border-radius: 0;
-        }
-
-        .key-insight p {
-            font-size: 1.25rem;
-            line-height: 1.7;
-            font-weight: 500;
-            margin: 0;
-        }
-
-        /* Role Grid */
+        /* Role Cards - Compact */
         .role-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin: 3rem 0;
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
 
         .role-card {
-            padding: 2rem;
+            background: #f8f8f8;
+            padding: 1.5rem;
             border: 1px solid #e8e8e8;
-            background: #fafafa;
         }
 
         .role-card-title {
-            font-size: 1.125rem;
+            font-size: 1rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             color: #000;
         }
 
@@ -194,79 +168,39 @@
         }
 
         .role-card-list li {
-            font-size: 0.9375rem;
-            line-height: 1.7;
+            font-size: 0.875rem;
+            line-height: 1.6;
             color: #4a4a4a;
-            margin-bottom: 0.75rem;
-            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
             position: relative;
         }
 
         .role-card-list li:before {
-            content: "—";
+            content: "•";
             position: absolute;
             left: 0;
             color: #999;
         }
 
-        /* Two Column Layout */
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin: 3rem 0;
-        }
-
-        .column-item {
+        /* Key Insight - Compact */
+        .key-insight {
+            background: #000;
+            color: #fff;
             padding: 2rem;
-            border: 1px solid #e8e8e8;
-            background: #fafafa;
+            margin: 2rem 0;
         }
 
-        .column-item strong {
-            display: block;
+        .key-insight p {
             font-size: 1.125rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: #000;
-        }
-
-        .column-item p {
-            font-size: 0.9375rem;
             line-height: 1.7;
-            color: #4a4a4a;
+            font-weight: 500;
             margin: 0;
         }
 
-        /* Image Grid */
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .image-item {
-            width: 100%;
-        }
-
-        .image-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border: 1px solid #e8e8e8;
-        }
-
-        .image-caption {
-            font-size: 0.875rem;
-            color: #888;
-            margin-top: 0.75rem;
-            line-height: 1.5;
-        }
-
+        /* Image Layouts */
         .image-full {
-            width: 100%;
-            margin: 3rem 0;
+            margin: 2rem 0;
         }
 
         .image-full img {
@@ -276,41 +210,107 @@
             border: 1px solid #e8e8e8;
         }
 
-        /* List Styles */
-        .section-content ul,
-        .section-content ol {
-            margin: 1.5rem 0;
-            padding-left: 1.75rem;
+        .image-caption {
+            font-size: 0.8125rem;
+            color: #888;
+            margin-top: 0.5rem;
+            line-height: 1.4;
         }
 
-        .section-content li {
-            margin-bottom: 0.75rem;
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .image-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid #e8e8e8;
+        }
+
+        /* Design Strategy Cards */
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .strategy-card {
+            background: #f8f8f8;
+            padding: 1.5rem;
+            border: 1px solid #e8e8e8;
+        }
+
+        .strategy-card strong {
+            display: block;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #000;
+        }
+
+        .strategy-card p {
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            color: #4a4a4a;
+            margin: 0;
+        }
+
+        /* Lists */
+        .content-text ul,
+        .content-text ol {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .content-text li {
+            margin-bottom: 0.5rem;
             line-height: 1.7;
         }
 
-        .section-content strong {
+        .content-text strong {
             font-weight: 600;
             color: #000;
         }
 
-        /* Benefits Grid */
+        /* Decisions List - Compact */
+        .decisions-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .decisions-list li {
+            padding: 1rem;
+            border-left: 3px solid #000;
+            background: #f8f8f8;
+            margin-bottom: 0.75rem;
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+
+        /* Benefits Grid - Compact */
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin: 3rem 0;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
 
         .benefit-card {
-            padding: 2rem;
+            background: #f8f8f8;
+            padding: 1.5rem;
             border: 1px solid #e8e8e8;
-            background: #fff;
         }
 
         .benefit-card-title {
-            font-size: 1.125rem;
+            font-size: 1rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             color: #000;
         }
 
@@ -320,11 +320,11 @@
         }
 
         .benefit-card-list li {
-            font-size: 0.9375rem;
-            line-height: 1.7;
+            font-size: 0.875rem;
+            line-height: 1.6;
             color: #4a4a4a;
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
+            margin-bottom: 0.4rem;
+            padding-left: 1rem;
             position: relative;
         }
 
@@ -333,33 +333,38 @@
             position: absolute;
             left: 0;
             color: #000;
-            font-weight: 700;
         }
 
-        /* Design Decisions List */
-        .decisions-list {
+        /* Research Insights - Compact */
+        .insights-list {
             list-style: none;
             padding: 0;
-            margin: 2rem 0;
+            margin: 1.5rem 0;
         }
 
-        .decisions-list li {
-            padding: 1.5rem;
+        .insights-list li {
+            padding: 1rem;
+            background: #f8f8f8;
+            margin-bottom: 0.75rem;
+            font-size: 0.9375rem;
+            line-height: 1.6;
             border-left: 3px solid #000;
-            background: #fafafa;
-            margin-bottom: 1rem;
-            font-size: 1.0625rem;
-            line-height: 1.7;
         }
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .case-hero-title {
-                font-size: 3.5rem;
+            .case-hero-header {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
-            .case-impact {
-                grid-template-columns: repeat(3, 1fr);
+            .case-hero-metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             .role-grid,
@@ -367,84 +372,81 @@
                 grid-template-columns: 1fr;
             }
 
-            .image-grid {
+            .strategy-grid {
                 grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 768px) {
             .case-hero {
-                padding: 5rem 0 4rem;
+                padding: 2rem 0 1.5rem;
             }
 
             .case-hero-content,
-            .case-study {
+            .case-container {
                 padding: 0 1.5rem;
             }
 
-            .case-hero-title {
+            .case-hero-text h1 {
                 font-size: 2.5rem;
             }
 
-            .case-hero-subtitle {
-                font-size: 1.25rem;
-            }
-
-            .case-hero-description {
-                font-size: 1rem;
-            }
-
-            .case-impact {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
-
-            .impact-value {
-                font-size: 2rem;
+            .case-hero-metrics {
+                grid-template-columns: 1fr;
             }
 
             .case-section {
-                padding: 4rem 0;
+                padding: 2rem 0;
             }
 
             .section-title {
-                font-size: 2rem;
-            }
-
-            .section-subtitle {
-                font-size: 1.125rem;
-            }
-
-            .two-column {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .key-insight {
-                padding: 2rem;
-            }
-
-            .key-insight p {
-                font-size: 1.125rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .case-hero-title {
-                font-size: 2rem;
-            }
-
-            .case-impact {
-                grid-template-columns: 1fr;
-            }
-
-            .impact-value {
                 font-size: 1.75rem;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
             }
         }
 
         .case-study-meta {
             display: none;
+        }
+
+        /* Generated Image Placeholders */
+        .generated-image {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .generated-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(0,0,0,0.02) 10px,
+                rgba(0,0,0,0.02) 20px
+            );
+        }
+
+        .generated-image-label {
+            position: relative;
+            z-index: 1;
+            color: #999;
+            font-size: 0.875rem;
+            text-align: center;
+            padding: 1rem;
         }
     </style>
 </head>
@@ -455,36 +457,33 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Compact Hero -->
     <section class="case-hero" data-area="ux-research,ux-design,product-design" data-industry="fintech" data-deliverable="dashboard,ai-workflow,research-study,prototype" data-year="2024">
         <div class="case-hero-content">
             <div class="case-hero-header">
-                <div class="case-hero-label">Fiserv</div>
-                <h1 class="case-hero-title">Data Compass</h1>
-                <p class="case-hero-subtitle">AI-Powered Financial Analytics Platform</p>
-                <p class="case-hero-description">Transforming multi-day regulatory reporting into a real-time, conversational analytics workspace for small and mid-size financial institutions.</p>
-            </div>
-
-            <div class="case-impact">
-                <div class="impact-item">
-                    <div class="impact-value">Days → Minutes</div>
-                    <div class="impact-label">Reporting cycles reduced from days to minutes</div>
+                <div class="case-hero-text">
+                    <div style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #999; margin-bottom: 1rem;">Fiserv</div>
+                    <h1>Data Compass</h1>
+                    <p class="tagline">AI-Powered Financial Analytics Platform</p>
+                    <p class="description">Transforming multi-day regulatory reporting into a real-time, conversational analytics workspace for small and mid-size financial institutions.</p>
                 </div>
-                <div class="impact-item">
-                    <div class="impact-value">$10K+</div>
-                    <div class="impact-label">Monthly cost savings from reduced outsourcing</div>
-                </div>
-                <div class="impact-item">
-                    <div class="impact-value">30-50%</div>
-                    <div class="impact-label">Reduction in rework and errors</div>
-                </div>
-                <div class="impact-item">
-                    <div class="impact-value">40-70%</div>
-                    <div class="impact-label">Faster data discovery and analysis</div>
-                </div>
-                <div class="impact-item">
-                    <div class="impact-value">25-40%</div>
-                    <div class="impact-label">Acceleration in delivery timelines</div>
+                <div class="case-hero-metrics">
+                    <div class="metric-box">
+                        <div class="metric-value">Days → Minutes</div>
+                        <div class="metric-label">Reporting cycles</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value">$10K+</div>
+                        <div class="metric-label">Monthly savings</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value">30-50%</div>
+                        <div class="metric-label">Rework reduction</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value">40-70%</div>
+                        <div class="metric-label">Faster discovery</div>
+                    </div>
                 </div>
             </div>
 
@@ -509,16 +508,20 @@
         </div>
     </section>
 
-    <main class="case-study">
-        <!-- The Challenge -->
+    <main class="case-container">
+        <!-- Challenge -->
         <section class="case-section">
             <div class="section-header">
                 <h2 class="section-title">The Challenge</h2>
-                <p class="section-subtitle">Small and mid-sized banks were drowning in regulatory reporting</p>
+                <p class="section-subtitle">Small and mid-sized banks drowning in regulatory reporting</p>
             </div>
-            <div class="section-content">
-                <p>CFO teams across small and mid-sized banks face a universal problem: too much reporting work, too few people, and no in-house data specialists. Many were outsourcing reporting at extremely high cost simply to stay compliant.</p>
-                <p>As Fiserv began centralizing financial data into Snowflake and exploring LLM capabilities, a transformative opportunity emerged.</p>
+            <div class="content-grid">
+                <div class="content-text">
+                    <p>CFO teams across small and mid-sized banks face a universal problem: too much reporting work, too few people, and no in-house data specialists. Many were outsourcing reporting at extremely high cost simply to stay compliant.</p>
+                </div>
+                <div class="content-text">
+                    <p>As Fiserv began centralizing financial data into Snowflake and exploring LLM capabilities, a transformative opportunity emerged.</p>
+                </div>
             </div>
             <div class="key-insight">
                 <p>Design a reporting workspace where CFOs could analyze, assemble, and generate regulatory outputs through a blend of conversation and direct manipulation — without needing data scientists.</p>
@@ -529,7 +532,7 @@
         <section class="case-section">
             <div class="section-header">
                 <h2 class="section-title">My Role</h2>
-                <p class="section-subtitle">Leading UX research, design strategy, and product design across the entire project</p>
+                <p class="section-subtitle">Leading UX research, design strategy, and product design</p>
             </div>
             <div class="role-grid">
                 <div class="role-card">
@@ -546,7 +549,7 @@
                     <ul class="role-card-list">
                         <li>Three-panel hybrid workspace</li>
                         <li>Bento dashboard layouts</li>
-                        <li>Drag-and-drop composition model</li>
+                        <li>Drag-and-drop composition</li>
                         <li>Multi-mode navigation states</li>
                     </ul>
                 </div>
@@ -555,7 +558,7 @@
                     <ul class="role-card-list">
                         <li>Customizable reporting workflows</li>
                         <li>Collaboration and review patterns</li>
-                        <li>Alignment with Snowflake architecture</li>
+                        <li>Snowflake architecture alignment</li>
                     </ul>
                 </div>
             </div>
@@ -567,57 +570,45 @@
                 <h2 class="section-title">Research Insights</h2>
                 <p class="section-subtitle">Key findings that shaped the design direction</p>
             </div>
-            <div class="section-content">
-                <ul>
-                    <li><strong>Data identification was the biggest bottleneck</strong> — CFOs spent most of their time finding the right data sources rather than analyzing them</li>
-                    <li><strong>No internal analytics resources</strong> — Small banks lacked data science expertise, forcing expensive outsourcing</li>
-                    <li><strong>Outsourcing was expensive but unavoidable</strong> — Many banks were spending tens of thousands monthly on external reporting services</li>
-                    <li><strong>Workflows were consistent enough to automate</strong> — Despite variations, core reporting patterns were similar across institutions</li>
-                    <li><strong>CFOs needed familiar system behavior</strong> — Any solution had to feel intuitive and not require extensive training</li>
-                </ul>
-            </div>
+            <ul class="insights-list">
+                <li><strong>Data identification was the biggest bottleneck</strong> — CFOs spent most time finding data sources rather than analyzing them</li>
+                <li><strong>No internal analytics resources</strong> — Small banks lacked data science expertise, forcing expensive outsourcing</li>
+                <li><strong>Outsourcing was expensive but unavoidable</strong> — Many banks spending tens of thousands monthly on external services</li>
+                <li><strong>Workflows were consistent enough to automate</strong> — Core reporting patterns similar across institutions</li>
+                <li><strong>CFOs needed familiar system behavior</strong> — Solution had to feel intuitive without extensive training</li>
+            </ul>
         </section>
 
         <!-- Design Strategy -->
         <section class="case-section">
             <div class="section-header">
-                <h2 class="section-title">Design Strategy & Approach</h2>
+                <h2 class="section-title">Design Strategy</h2>
                 <p class="section-subtitle">A balanced approach to AI product design</p>
             </div>
-            <div class="section-content">
-                <h3 style="font-size: 1.5rem; font-weight: 700; margin: 2rem 0 1rem; color: #000;">Elements of AI Product Design</h3>
-                <div class="two-column">
-                    <div class="column-item">
-                        <strong>Traditional Visual Design & Wireframing — 10%</strong>
-                        <p>While foundational, these elements form only the basic outline of our product's aesthetic and functional framework.</p>
-                    </div>
-                    <div class="column-item">
-                        <strong>Service Design Integration — 30%</strong>
-                        <p>Transition from classic service paradigms to those augmented by AI capabilities, translating conventional workflows into AI-enhanced processes that deliver a more intuitive customer experience.</p>
-                    </div>
+            <div class="content-text">
+                <h3 style="font-size: 1.25rem; font-weight: 700; margin: 1.5rem 0 1rem; color: #000;">Elements of AI Product Design</h3>
+            </div>
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <strong>Traditional Visual Design & Wireframing — 10%</strong>
+                    <p>While foundational, these elements form only the basic outline of our product's aesthetic and functional framework.</p>
                 </div>
-                <div class="two-column">
-                    <div class="column-item">
-                        <strong>Conversation Design — 30%</strong>
-                        <p>Defining conversational patterns is essential in establishing an engaging dialogue between our AI applications and our users, making interactions as natural and efficient as possible.</p>
-                    </div>
-                    <div class="column-item">
-                        <strong>Interaction Design — 30%</strong>
-                        <p>This focuses on designing the interactive elements that will engage our users, encouraging adoption and long-term adjustment to AI integration.</p>
-                    </div>
+                <div class="strategy-card">
+                    <strong>Service Design Integration — 30%</strong>
+                    <p>Transition from classic service paradigms to those augmented by AI capabilities, translating conventional workflows into AI-enhanced processes.</p>
                 </div>
-
-                <h3 style="font-size: 1.5rem; font-weight: 700; margin: 3rem 0 1rem; color: #000;">Iterative vs. Waterfall Approach</h3>
-                <p>We adopted an iterative approach that:</p>
-                <ul>
-                    <li>Adapts swiftly to evolving tech landscapes</li>
-                    <li>Invents and repurposes interactive patterns dynamically</li>
-                    <li>Enables data-driven feature design & development</li>
-                    <li>Ensures product quality through continuous iteration</li>
-                    <li>Sustains ongoing innovation through constant design & R&D</li>
-                    <li>Allows scheduled feature delivery & testing with client engagement</li>
-                    <li>Makes costs and schedules easily estimable and controllable</li>
-                </ul>
+                <div class="strategy-card">
+                    <strong>Conversation Design — 30%</strong>
+                    <p>Defining conversational patterns is essential in establishing an engaging dialogue between our AI applications and users.</p>
+                </div>
+                <div class="strategy-card">
+                    <strong>Interaction Design — 30%</strong>
+                    <p>This focuses on designing the interactive elements that will engage users, encouraging adoption and long-term adjustment to AI integration.</p>
+                </div>
+            </div>
+            <div class="content-text" style="margin-top: 2rem;">
+                <h3 style="font-size: 1.25rem; font-weight: 700; margin: 1.5rem 0 1rem; color: #000;">Iterative vs. Waterfall Approach</h3>
+                <p>We adopted an iterative approach that adapts swiftly to evolving tech landscapes, invents and repurposes interactive patterns dynamically, enables data-driven feature design, ensures product quality through continuous iteration, and makes costs and schedules easily estimable and controllable.</p>
             </div>
         </section>
 
@@ -627,35 +618,36 @@
                 <h2 class="section-title">Design System</h2>
                 <p class="section-subtitle">Key design patterns and interaction models</p>
             </div>
-            <div class="section-content">
-                <h3 style="font-size: 1.5rem; font-weight: 700; margin: 2rem 0 1rem; color: #000;">Three-Panel Workspace</h3>
+            <div class="content-text">
+                <h3 style="font-size: 1.25rem; font-weight: 700; margin: 1.5rem 0 1rem; color: #000;">Three-Panel Workspace</h3>
                 <p>A three-panel design with automatic content strategy serves well in both traditional and AI design. It can be easily implemented in both systems and allows content reuse from the traditional version.</p>
-                
-                <div class="image-full">
-                    <img src="fiserv/images/three-panel-workspace.png" alt="Three Panel Workspace Overview">
-                    <p class="image-caption">Three Panel Workspace — Main conversation panel, background information panel, and scrapbook panel for visualizations</p>
+            </div>
+            <div class="image-full">
+                <img src="fiserv/images/three-panel-workspace.png" alt="Three Panel Workspace Overview">
+                <p class="image-caption">Three Panel Workspace — Main conversation panel, background information panel, and scrapbook panel for visualizations</p>
+            </div>
+            <div class="content-grid" style="margin-top: 2rem;">
+                <div class="content-text">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #000;">Pattern for AI Version</h3>
+                    <ul>
+                        <li><strong>Interaction in AI</strong> is focused on conversation in the Main Panel</li>
+                        <li><strong>Background Information</strong> provides context for ongoing conversation</li>
+                        <li><strong>Scrapbook Panel</strong> stores visualizations being discussed</li>
+                        <li>Everything is resizable to customize experience</li>
+                    </ul>
                 </div>
-
-                <h3 style="font-size: 1.5rem; font-weight: 700; margin: 3rem 0 1rem; color: #000;">Pattern for AI Version</h3>
-                <ul>
-                    <li><strong>Interaction in AI</strong> is focused on conversation which is performed in the Main Panel</li>
-                    <li><strong>Background Information</strong> is related to the topic of ongoing conversation to give it context</li>
-                    <li><strong>Scrapbook Panel</strong> is a temporary storage of visualizations being discussed in the conversation</li>
-                    <li>Everything is resizable to customize experience</li>
-                </ul>
-
-                <div class="image-full">
+                <div class="image-item">
                     <img src="fiserv/images/scrapbook.png" alt="Scrapbook Working Memory">
-                    <p class="image-caption">Scrapbook Panel — Working memory for visualizations during conversation</p>
+                    <p class="image-caption">Scrapbook Panel — Working memory for visualizations</p>
                 </div>
-
-                <h3 style="font-size: 1.5rem; font-weight: 700; margin: 3rem 0 1rem; color: #000;">Bento Style Layout</h3>
-                <p>Bento Style for design is well suited to AI-based interfaces as well as dashboards. Bento is naturally suited for card-based design, modern and considered one of the design trends in 2024. Dark mode is preferred by data and financial users.</p>
-
-                <div class="image-full">
-                    <img src="fiserv/images/bento-dashboard.png" alt="Bento Dashboard Layout">
-                    <p class="image-caption">Bento Dashboard Layout — Card-based design optimized for financial data visualization</p>
-                </div>
+            </div>
+            <div class="content-text" style="margin-top: 2rem;">
+                <h3 style="font-size: 1.25rem; font-weight: 700; margin: 1.5rem 0 1rem; color: #000;">Bento Style Layout</h3>
+                <p>Bento Style is well suited to AI-based interfaces and dashboards. It's naturally suited for card-based design, modern and considered a key design trend in 2024. Dark mode is preferred by data and financial users.</p>
+            </div>
+            <div class="image-full">
+                <img src="fiserv/images/bento-dashboard.png" alt="Bento Dashboard Layout">
+                <p class="image-caption">Bento Dashboard Layout — Card-based design optimized for financial data visualization</p>
             </div>
         </section>
 
@@ -665,35 +657,38 @@
                 <h2 class="section-title">Interaction Patterns</h2>
                 <p class="section-subtitle">How users navigate and interact with the system</p>
             </div>
-            <div class="section-content">
-                <h3 style="font-size: 1.5rem; font-weight: 700; margin: 2rem 0 1rem; color: #000;">Dashboard Interaction Patterns</h3>
-                <ul>
-                    <li>Each card can serve as a button</li>
-                    <li>When pressed, content in all panels will change to focus on choices and we switch from dashboard mode to data analytics mode</li>
-                    <li>Conversation about chosen visualization will be triggered</li>
-                    <li>Conversation design will be text based with other interaction elements inserted to support best user experience</li>
-                </ul>
-
-                <div class="image-grid">
-                    <div class="image-item">
-                        <img src="fiserv/images/drag-drop.png" alt="Drag and Drop Interaction">
-                        <p class="image-caption">Drag and Drop Interaction</p>
-                    </div>
-                    <div class="image-item">
-                        <img src="fiserv/images/report-composition.png" alt="Report Composition">
-                        <p class="image-caption">Report Composition Interface</p>
-                    </div>
+            <div class="content-grid">
+                <div class="content-text">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #000;">Dashboard Interaction</h3>
+                    <ul>
+                        <li>Each card serves as a button</li>
+                        <li>Content in all panels changes to focus on choices</li>
+                        <li>Switches from dashboard to data analytics mode</li>
+                        <li>Conversation about chosen visualization is triggered</li>
+                        <li>Text-based conversation with supporting interaction elements</li>
+                    </ul>
                 </div>
-
-                <h3 style="font-size: 1.5rem; font-weight: 700; margin: 3rem 0 1rem; color: #000;">Analytics Interaction Patterns</h3>
-                <ul>
-                    <li>User pressed one of the data visualization cards</li>
-                    <li>The same visualization becomes a focal point of conversation</li>
-                    <li>Related Data panel is populated with background data</li>
-                    <li>The visualization is also displayed in the Scrapbook panel. This way it is always in-view when the conversation scrolls</li>
-                    <li>User can interact with the chart via text or interaction with the content</li>
-                    <li>At any point user can return to the dashboard</li>
-                </ul>
+                <div class="content-text">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #000;">Analytics Interaction</h3>
+                    <ul>
+                        <li>Visualization becomes focal point of conversation</li>
+                        <li>Related Data panel populated with background data</li>
+                        <li>Visualization displayed in Scrapbook panel</li>
+                        <li>Always in-view when conversation scrolls</li>
+                        <li>User can interact via text or direct manipulation</li>
+                        <li>Can return to dashboard at any point</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="image-grid">
+                <div class="image-item">
+                    <img src="fiserv/images/drag-drop.png" alt="Drag and Drop Interaction">
+                    <p class="image-caption">Drag and Drop Interaction</p>
+                </div>
+                <div class="image-item">
+                    <img src="fiserv/images/report-composition.png" alt="Report Composition">
+                    <p class="image-caption">Report Composition Interface</p>
+                </div>
             </div>
         </section>
 
@@ -703,13 +698,12 @@
                 <h2 class="section-title">System Architecture</h2>
                 <p class="section-subtitle">Combining conversational AI with direct manipulation</p>
             </div>
-            <div class="section-content">
+            <div class="content-text">
                 <p>The system combines conversational AI with direct manipulation and structured analytical workflows. It integrates with Snowflake for data access and uses LLM capabilities for natural language understanding and generation.</p>
-                
-                <div class="image-full">
-                    <img src="fiserv/images/ai-architecture.png" alt="AI Workflow Architecture">
-                    <p class="image-caption">AI Workflow Architecture — Integration between conversational interface, data layer, and reporting engine</p>
-                </div>
+            </div>
+            <div class="image-full">
+                <img src="fiserv/images/ai-architecture.png" alt="AI Workflow Architecture">
+                <p class="image-caption">AI Workflow Architecture — Integration between conversational interface, data layer, and reporting engine</p>
             </div>
         </section>
 
@@ -719,26 +713,24 @@
                 <h2 class="section-title">Key Design Decisions</h2>
                 <p class="section-subtitle">Critical choices that shaped the product</p>
             </div>
-            <div class="section-content">
-                <ol class="decisions-list">
-                    <li><strong>Conversation as primary navigation</strong> — Making AI conversation the main way users interact with the system, rather than traditional menus and forms</li>
-                    <li><strong>Persistent 3-panel context model</strong> — Maintaining context across panels so users always understand where they are and what they're working with</li>
-                    <li><strong>Direct manipulation via drag-and-drop</strong> — Allowing users to directly manipulate visualizations and reports, not just through conversation</li>
-                    <li><strong>Scrapbook as working memory</strong> — Providing a dedicated space for visualizations being discussed, keeping them in view as conversation scrolls</li>
-                    <li><strong>Snowflake-grounded AI responses</strong> — Ensuring all AI responses are based on actual data from Snowflake, not hallucinations</li>
-                    <li><strong>Built-in collaboration</strong> — Enabling multiple users to work together on reports with review and approval workflows</li>
-                    <li><strong>Bento dashboards for structured KPIs</strong> — Using card-based layouts that are familiar to financial users while supporting modern AI interactions</li>
-                </ol>
-            </div>
+            <ol class="decisions-list">
+                <li><strong>Conversation as primary navigation</strong> — Making AI conversation the main way users interact, rather than traditional menus</li>
+                <li><strong>Persistent 3-panel context model</strong> — Maintaining context across panels so users always understand where they are</li>
+                <li><strong>Direct manipulation via drag-and-drop</strong> — Allowing users to directly manipulate visualizations and reports</li>
+                <li><strong>Scrapbook as working memory</strong> — Providing dedicated space for visualizations being discussed</li>
+                <li><strong>Snowflake-grounded AI responses</strong> — Ensuring all AI responses based on actual data, not hallucinations</li>
+                <li><strong>Built-in collaboration</strong> — Enabling multiple users to work together with review workflows</li>
+                <li><strong>Bento dashboards for structured KPIs</strong> — Using card-based layouts familiar to financial users</li>
+            </ol>
         </section>
 
         <!-- Impact & Outcomes -->
         <section class="case-section">
             <div class="section-header">
                 <h2 class="section-title">Impact & Outcomes</h2>
-                <p class="section-subtitle">Measurable results from the design and implementation</p>
+                <p class="section-subtitle">Measurable results from design and implementation</p>
             </div>
-            <div class="section-content">
+            <div class="content-text">
                 <p>The Data Compass platform has transformed how small and mid-sized banks handle regulatory reporting, delivering significant time and cost savings while improving accuracy and user satisfaction.</p>
             </div>
         </section>
@@ -749,60 +741,59 @@
                 <h2 class="section-title">Reflection</h2>
                 <p class="section-subtitle">Lessons learned and future directions</p>
             </div>
-            <div class="section-content">
+            <div class="content-text">
                 <p>Designing AI for CFOs is about removing friction, not replacing expertise. This hybrid interaction model now serves as a foundation for future AI-powered reporting across Fiserv.</p>
-                
-                <div class="benefits-grid">
-                    <div class="benefit-card">
-                        <h3 class="benefit-card-title">Research Based on Data</h3>
-                        <ul class="benefit-card-list">
-                            <li>Real Data Analytics</li>
-                            <li>Real Users</li>
-                            <li>Real Data</li>
-                        </ul>
-                    </div>
-                    <div class="benefit-card">
-                        <h3 class="benefit-card-title">Design Based on Research</h3>
-                        <ul class="benefit-card-list">
-                            <li>Refinement and validation</li>
-                            <li>Iterative design</li>
-                            <li>Ability to pivot</li>
-                        </ul>
-                    </div>
-                    <div class="benefit-card">
-                        <h3 class="benefit-card-title">Development Based Testing</h3>
-                        <ul class="benefit-card-list">
-                            <li>Refinement and validation</li>
-                            <li>Early problem identification</li>
-                            <li>Ability to pivot</li>
-                        </ul>
-                    </div>
-                    <div class="benefit-card">
-                        <h3 class="benefit-card-title">LLM Development</h3>
-                        <ul class="benefit-card-list">
-                            <li>Beta users</li>
-                            <li>Training Data</li>
-                            <li>Costs and usage estimates</li>
-                        </ul>
-                    </div>
-                    <div class="benefit-card">
-                        <h3 class="benefit-card-title">Product</h3>
-                        <ul class="benefit-card-list">
-                            <li>Gradual exposure</li>
-                            <li>Good alignment with business objective</li>
-                            <li>Early validation of ideas</li>
-                        </ul>
-                    </div>
-                    <div class="benefit-card">
-                        <h3 class="benefit-card-title">Other Teams</h3>
-                        <ul class="benefit-card-list">
-                            <li>Marketing and Sales</li>
-                            <li>Security</li>
-                            <li>Legal</li>
-                            <li>Branding</li>
-                            <li>Infrastructure and Technology</li>
-                        </ul>
-                    </div>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3 class="benefit-card-title">Research Based on Data</h3>
+                    <ul class="benefit-card-list">
+                        <li>Real Data Analytics</li>
+                        <li>Real Users</li>
+                        <li>Real Data</li>
+                    </ul>
+                </div>
+                <div class="benefit-card">
+                    <h3 class="benefit-card-title">Design Based on Research</h3>
+                    <ul class="benefit-card-list">
+                        <li>Refinement and validation</li>
+                        <li>Iterative design</li>
+                        <li>Ability to pivot</li>
+                    </ul>
+                </div>
+                <div class="benefit-card">
+                    <h3 class="benefit-card-title">Development Based Testing</h3>
+                    <ul class="benefit-card-list">
+                        <li>Refinement and validation</li>
+                        <li>Early problem identification</li>
+                        <li>Ability to pivot</li>
+                    </ul>
+                </div>
+                <div class="benefit-card">
+                    <h3 class="benefit-card-title">LLM Development</h3>
+                    <ul class="benefit-card-list">
+                        <li>Beta users</li>
+                        <li>Training Data</li>
+                        <li>Costs and usage estimates</li>
+                    </ul>
+                </div>
+                <div class="benefit-card">
+                    <h3 class="benefit-card-title">Product</h3>
+                    <ul class="benefit-card-list">
+                        <li>Gradual exposure</li>
+                        <li>Business alignment</li>
+                        <li>Early validation</li>
+                    </ul>
+                </div>
+                <div class="benefit-card">
+                    <h3 class="benefit-card-title">Other Teams</h3>
+                    <ul class="benefit-card-list">
+                        <li>Marketing and Sales</li>
+                        <li>Security</li>
+                        <li>Legal</li>
+                        <li>Branding</li>
+                        <li>Infrastructure</li>
+                    </ul>
                 </div>
             </div>
         </section>
