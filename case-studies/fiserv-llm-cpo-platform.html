@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,10 +17,11 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            color: #1a1a1a;
+            color: #1d1d1f;
             background: #ffffff;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         /* Hide header */
@@ -28,189 +29,215 @@
             display: none;
         }
 
-        /* Hero Section - PDF Style */
+        /* Hero Section - Apple/Stripe Style */
         .case-hero {
             background: #ffffff;
-            padding: 4rem 0 3rem;
+            padding: 8rem 0 6rem;
+            text-align: center;
         }
 
         .case-hero-content {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
         .case-hero-author {
-            text-align: center;
-            font-size: 1rem;
-            color: #666;
-            margin-bottom: 3rem;
+            font-size: 0.875rem;
             font-weight: 500;
-        }
-
-        .case-hero-header {
-            text-align: center;
-            margin-bottom: 3rem;
+            color: #86868b;
+            margin-bottom: 4rem;
+            letter-spacing: 0.01em;
         }
 
         .case-hero-text h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
+            font-size: 5.5rem;
             font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-            color: #000;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            color: #1d1d1f;
+            letter-spacing: -0.02em;
         }
 
         .case-hero-text .tagline {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 400;
-            color: #666;
-            margin-bottom: 1.5rem;
+            color: #86868b;
+            margin-bottom: 2rem;
+            letter-spacing: -0.01em;
         }
 
         .case-hero-text .description {
-            font-size: 1rem;
-            color: #4a4a4a;
+            font-size: 1.1875rem;
+            color: #515154;
             line-height: 1.7;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Metrics Table - PDF Style */
-        .metrics-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 3rem auto 0;
-            background: #fff;
-            max-width: 1000px;
-        }
-
-        .metrics-table td {
-            padding: 1.5rem;
-            border: 1px solid #e8e8e8;
-            vertical-align: top;
-            width: 25%;
-        }
-
-        .metrics-table .metric-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #000;
-            margin-bottom: 0.5rem;
-        }
-
-        .metrics-table .metric-label {
-            font-size: 0.875rem;
-            color: #666;
+            max-width: 700px;
+            margin: 0 auto 4rem;
             font-weight: 400;
         }
 
-        .metrics-table .meta-label {
-            font-size: 0.75rem;
+        /* Metrics Grid - Bento Style */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin: 4rem 0 0;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .metric-card {
+            background: #f5f5f7;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: left;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: #86868b;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .meta-label {
+            font-size: 0.6875rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #999;
+            letter-spacing: 0.08em;
+            color: #86868b;
             margin-bottom: 0.75rem;
             font-weight: 600;
         }
 
-        .metrics-table .meta-value {
+        .meta-value {
             font-size: 0.9375rem;
-            color: #333;
+            color: #1d1d1f;
             font-weight: 400;
+            line-height: 1.5;
         }
 
         /* Main Container */
         .case-container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
         /* Sections */
         .case-section {
-            padding: 3rem 0;
+            padding: 6rem 0;
         }
 
         .section-header {
-            margin-bottom: 1.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
         }
 
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.25rem;
+            font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            color: #000;
-            text-transform: uppercase;
-            letter-spacing: 0.02em;
+            color: #1d1d1f;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
         }
 
         .section-subtitle {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #666;
-            margin-bottom: 1.5rem;
+            font-size: 1.375rem;
+            font-weight: 400;
+            color: #86868b;
+            line-height: 1.5;
         }
 
         /* Two Column Content */
         .content-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin: 1.5rem 0;
+            gap: 4rem;
+            margin: 3rem 0;
         }
 
         .content-text {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: #2a2a2a;
+            font-size: 1.125rem;
+            line-height: 1.75;
+            color: #515154;
+            font-weight: 400;
         }
 
         .content-text p {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .content-text strong {
             font-weight: 600;
-            color: #000;
+            color: #1d1d1f;
         }
 
-        /* Key Insight */
+        /* Key Insight - Premium Card */
         .key-insight {
-            background: #f8f8f8;
-            padding: 2rem;
-            margin: 2rem 0;
-            border-left: 3px solid #000;
+            background: #f5f5f7;
+            padding: 3rem;
+            margin: 4rem 0;
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .key-insight p {
-            font-size: 1rem;
+            font-size: 1.375rem;
             line-height: 1.7;
             font-weight: 500;
             margin: 0;
-            color: #000;
+            color: #1d1d1f;
+            letter-spacing: -0.01em;
         }
 
-        /* Role Grid */
+        /* Role Cards - Premium */
         .role-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            margin: 2rem 0;
+            margin: 3rem 0;
         }
 
         .role-card {
-            background: #fff;
-            padding: 0;
+            background: #ffffff;
+            border: 1px solid #e5e5e7;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .role-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
         }
 
         .role-card-title {
-            font-size: 1.125rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-            color: #000;
+            margin-bottom: 1.5rem;
+            color: #1d1d1f;
         }
 
         .role-card-list {
@@ -219,10 +246,10 @@
         }
 
         .role-card-list li {
-            font-size: 0.9375rem;
-            line-height: 1.7;
-            color: #4a4a4a;
-            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            line-height: 1.75;
+            color: #515154;
+            margin-bottom: 1rem;
             padding-left: 1.5rem;
             position: relative;
         }
@@ -231,38 +258,47 @@
             content: "—";
             position: absolute;
             left: 0;
-            color: #999;
+            color: #86868b;
         }
 
-        /* Insights List */
+        /* Insights List - Premium */
         .insights-list {
             list-style: none;
             padding: 0;
-            margin: 1.5rem 0;
+            margin: 3rem 0;
+            display: grid;
+            gap: 2rem;
         }
 
-        .insights-list li {
-            margin-bottom: 2rem;
+        .insights-item {
+            background: #ffffff;
+            border: 1px solid #e5e5e7;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
         }
 
-        .insights-list li strong {
+        .insights-item strong {
             display: block;
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #000;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #1d1d1f;
         }
 
-        .insights-list li p {
-            font-size: 0.9375rem;
-            line-height: 1.7;
-            color: #4a4a4a;
+        .insights-item p {
+            font-size: 1.0625rem;
+            line-height: 1.75;
+            color: #515154;
             margin: 0;
         }
 
         /* Images */
         .image-full {
-            margin: 2rem 0;
+            margin: 4rem 0;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .image-full img,
@@ -270,13 +306,15 @@
             width: 100%;
             height: auto;
             display: block;
-            border: 1px solid #e8e8e8;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
         }
 
         .image-caption {
-            font-size: 0.8125rem;
-            color: #888;
-            margin-top: 0.75rem;
+            font-size: 0.875rem;
+            color: #86868b;
+            margin-top: 1rem;
+            text-align: center;
             line-height: 1.5;
         }
 
@@ -284,53 +322,181 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
-            margin: 2rem 0;
+            margin: 4rem 0;
         }
 
-        .image-item img {
+        .image-item img,
+        .image-item .svg-illustration {
             width: 100%;
             height: auto;
             display: block;
-            border: 1px solid #e8e8e8;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
         }
 
         /* Lists */
         .content-text ul,
         .content-text ol {
-            margin: 1rem 0;
+            margin: 1.5rem 0;
             padding-left: 1.5rem;
         }
 
         .content-text li {
-            margin-bottom: 0.5rem;
-            line-height: 1.7;
+            margin-bottom: 0.75rem;
+            line-height: 1.75;
         }
 
-        /* Design Decisions */
+        /* Design Decisions - Premium Cards */
         .decisions-list {
             list-style: none;
             padding: 0;
-            margin: 1.5rem 0;
+            margin: 3rem 0;
+            display: grid;
+            gap: 1.5rem;
         }
 
-        .decisions-list li {
-            margin-bottom: 1.5rem;
-            padding-left: 0;
+        .decision-item {
+            background: #ffffff;
+            border: 1px solid #e5e5e7;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
         }
 
-        .decisions-list li strong {
+        .decision-item strong {
             display: block;
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #000;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #1d1d1f;
         }
 
-        .decisions-list li p {
-            font-size: 0.9375rem;
-            line-height: 1.7;
-            color: #4a4a4a;
+        .decision-item p {
+            font-size: 1.0625rem;
+            line-height: 1.75;
+            color: #515154;
             margin: 0;
+        }
+
+        /* Strategy Grid - Bento Style */
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .strategy-card {
+            background: #ffffff;
+            border: 1px solid #e5e5e7;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+        }
+
+        .strategy-card strong {
+            display: block;
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1d1d1f;
+        }
+
+        .strategy-card p {
+            font-size: 1.0625rem;
+            line-height: 1.75;
+            color: #515154;
+            margin: 0;
+        }
+
+        /* Architecture Cards */
+        .architecture-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .architecture-card {
+            background: #ffffff;
+            border: 1px solid #e5e5e7;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+            text-align: center;
+        }
+
+        .architecture-card-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #86868b;
+            margin-bottom: 1rem;
+        }
+
+        .architecture-card-title {
+            font-size: 1.375rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1d1d1f;
+        }
+
+        .architecture-card-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .architecture-card-list li {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: #515154;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Dark Impact Section */
+        .impact-section {
+            background: #1d1d1f;
+            color: #f5f5f7;
+            padding: 6rem 0;
+            margin: 6rem 0;
+            border-radius: 24px;
+        }
+
+        .impact-section .section-title {
+            color: #f5f5f7;
+        }
+
+        .impact-section .section-subtitle {
+            color: #a1a1a6;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .impact-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .impact-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #f5f5f7;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .impact-label {
+            font-size: 0.9375rem;
+            color: #a1a1a6;
+            font-weight: 400;
         }
 
         /* Benefits Grid */
@@ -338,19 +504,22 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            margin: 2rem 0;
+            margin: 3rem 0;
         }
 
         .benefit-card {
-            background: #fff;
-            padding: 0;
+            background: #ffffff;
+            border: 1px solid #e5e5e7;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
         }
 
         .benefit-card-title {
-            font-size: 1rem;
+            font-size: 1.125rem;
             font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: #000;
+            margin-bottom: 1.5rem;
+            color: #1d1d1f;
         }
 
         .benefit-card-list {
@@ -359,11 +528,11 @@
         }
 
         .benefit-card-list li {
-            font-size: 0.875rem;
-            line-height: 1.7;
-            color: #4a4a4a;
-            margin-bottom: 0.4rem;
-            padding-left: 1rem;
+            font-size: 1rem;
+            line-height: 1.75;
+            color: #515154;
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
             position: relative;
         }
 
@@ -371,35 +540,7 @@
             content: "•";
             position: absolute;
             left: 0;
-            color: #000;
-        }
-
-        /* Strategy Grid */
-        .strategy-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin: 1.5rem 0;
-        }
-
-        .strategy-card {
-            background: #fff;
-            padding: 0;
-        }
-
-        .strategy-card strong {
-            display: block;
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: #000;
-        }
-
-        .strategy-card p {
-            font-size: 0.9375rem;
-            line-height: 1.7;
-            color: #4a4a4a;
-            margin: 0;
+            color: #86868b;
         }
 
         /* SVG Illustrations */
@@ -407,8 +548,8 @@
             width: 100%;
             height: auto;
             display: block;
-            border: 1px solid #e8e8e8;
-            background: #fff;
+            border-radius: 16px;
+            background: #ffffff;
         }
 
         .svg-illustration svg {
@@ -418,9 +559,26 @@
         }
 
         /* Responsive */
+        @media (max-width: 1024px) {
+            .metrics-grid,
+            .impact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .role-grid,
+            .benefits-grid,
+            .architecture-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .strategy-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .case-hero {
-                padding: 3rem 0 2rem;
+                padding: 5rem 0 4rem;
             }
 
             .case-hero-content,
@@ -429,36 +587,27 @@
             }
 
             .case-hero-text h1 {
-                font-size: 3rem;
+                font-size: 3.5rem;
             }
 
             .case-hero-text .tagline {
-                font-size: 1.25rem;
+                font-size: 1.5rem;
             }
 
-            .metrics-table {
-                display: block;
-            }
-
-            .metrics-table tr {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .metrics-table td {
-                padding: 1rem;
-            }
-
-            .metrics-table .metric-value {
-                font-size: 1.25rem;
+            .case-hero-text .description {
+                font-size: 1.0625rem;
             }
 
             .case-section {
-                padding: 2rem 0;
+                padding: 4rem 0;
             }
 
             .section-title {
-                font-size: 1.75rem;
+                font-size: 2.5rem;
+            }
+
+            .section-subtitle {
+                font-size: 1.25rem;
             }
 
             .content-grid {
@@ -466,17 +615,21 @@
                 gap: 2rem;
             }
 
-            .role-grid,
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .strategy-grid {
+            .metrics-grid,
+            .impact-grid {
                 grid-template-columns: 1fr;
             }
 
             .image-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .key-insight {
+                padding: 2rem;
+            }
+
+            .key-insight p {
+                font-size: 1.25rem;
             }
         }
 
@@ -492,7 +645,7 @@
         </div>
     </header>
 
-    <!-- Hero Section - PDF Style -->
+    <!-- Hero Section - Apple/Stripe Style -->
     <section class="case-hero" data-area="ux-research,ux-design,product-design" data-industry="fintech" data-deliverable="dashboard,ai-workflow,research-study,prototype" data-year="2024">
         <div class="case-hero-content">
             <div class="case-hero-author">Pawel Tulin</div>
@@ -504,45 +657,41 @@
                 </div>
             </div>
 
-            <!-- Metrics Table - PDF Style -->
-            <table class="metrics-table">
-                <tr>
-                    <td>
-                        <div class="metric-value">Days → Min</div>
-                        <div class="metric-label">Reporting cycles</div>
-                    </td>
-                    <td>
-                        <div class="metric-value">$10K+</div>
-                        <div class="metric-label">Monthly savings</div>
-                    </td>
-                    <td>
-                        <div class="meta-label">Area</div>
-                        <div class="meta-value">UX Research, UX Design, Product Design</div>
-                    </td>
-                    <td>
-                        <div class="meta-label">Industry</div>
-                        <div class="meta-value">Fintech / Financial Services</div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="metric-value">30-50%</div>
-                        <div class="metric-label">Rework reduction</div>
-                    </td>
-                    <td>
-                        <div class="metric-value">40-70%</div>
-                        <div class="metric-label">Faster discovery</div>
-                    </td>
-                    <td>
-                        <div class="meta-label">Deliverables</div>
-                        <div class="meta-value">Dashboards, AI Workflow, Interaction Design</div>
-                    </td>
-                    <td>
-                        <div class="meta-label">Year</div>
-                        <div class="meta-value">2024</div>
-                    </td>
-                </tr>
-            </table>
+            <!-- Metrics Grid - Bento Style -->
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">Days → Min</div>
+                    <div class="metric-label">Reporting cycles</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">$10K+</div>
+                    <div class="metric-label">Monthly savings</div>
+                </div>
+                <div class="metric-card">
+                    <div class="meta-label">Area</div>
+                    <div class="meta-value">UX Research, UX Design, Product Design</div>
+                </div>
+                <div class="metric-card">
+                    <div class="meta-label">Industry</div>
+                    <div class="meta-value">Fintech / Financial Services</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">30-50%</div>
+                    <div class="metric-label">Rework reduction</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">40-70%</div>
+                    <div class="metric-label">Faster discovery</div>
+                </div>
+                <div class="metric-card">
+                    <div class="meta-label">Deliverables</div>
+                    <div class="meta-value">Dashboards, AI Workflow, Interaction Design</div>
+                </div>
+                <div class="metric-card">
+                    <div class="meta-label">Year</div>
+                    <div class="meta-value">2024</div>
+                </div>
+            </div>
 
             <div class="case-study-meta">
                 <div class="meta-item">
@@ -570,7 +719,7 @@
         <section class="case-section">
             <div class="section-header">
                 <h2 class="section-title">The Challenge</h2>
-                <h3 class="section-subtitle">Small and mid-sized banks drowning in regulatory reporting.</h3>
+                <p class="section-subtitle">Small and mid-sized banks drowning in regulatory reporting.</p>
             </div>
             <div class="content-grid">
                 <div class="content-text">
@@ -589,7 +738,7 @@
         <section class="case-section">
             <div class="section-header">
                 <h2 class="section-title">My Role</h2>
-                <h3 class="section-subtitle">Leading UX research, design strategy, and product design.</h3>
+                <p class="section-subtitle">Leading UX research, design strategy, and product design.</p>
             </div>
             <div class="role-grid">
                 <div class="role-card">
@@ -625,40 +774,73 @@
         <section class="case-section">
             <div class="section-header">
                 <h2 class="section-title">Research Insights</h2>
-                <h3 class="section-subtitle">Key findings that shaped the design direction.</h3>
+                <p class="section-subtitle">Key findings that shaped the design direction.</p>
             </div>
             <ul class="insights-list">
-                <li>
+                <li class="insights-item">
                     <strong>Data identification was the biggest bottleneck</strong>
                     <p>CFOs spent most time finding data sources rather than analyzing them.</p>
                 </li>
-                <li>
+                <li class="insights-item">
                     <strong>No internal analytics resources</strong>
                     <p>Small banks lacked data science expertise, forcing expensive outsourcing.</p>
                 </li>
-                <li>
+                <li class="insights-item">
                     <strong>Outsourcing was expensive but unavoidable</strong>
                     <p>Many banks spending tens of thousands monthly on external services.</p>
                 </li>
-                <li>
+                <li class="insights-item">
                     <strong>Workflows were consistent enough to automate</strong>
                     <p>Core reporting patterns similar across institutions.</p>
                 </li>
-                <li>
+                <li class="insights-item">
                     <strong>CFOs needed familiar system behavior</strong>
                     <p>Solution had to feel intuitive without extensive training.</p>
                 </li>
             </ul>
         </section>
 
+        <!-- Design Strategy -->
+        <section class="case-section">
+            <div class="section-header">
+                <h2 class="section-title">Design Strategy</h2>
+                <p class="section-subtitle">A balanced approach to AI product design</p>
+            </div>
+            <div class="content-text" style="max-width: 800px; margin: 0 auto 3rem;">
+                <h3 style="font-size: 1.75rem; font-weight: 700; margin: 2rem 0 1rem; color: #1d1d1f;">Elements of AI Product Design</h3>
+            </div>
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <strong>Traditional Visual Design & Wireframing — 10%</strong>
+                    <p>While foundational, these elements form only the basic outline of our product's aesthetic and functional framework.</p>
+                </div>
+                <div class="strategy-card">
+                    <strong>Service Design Integration — 30%</strong>
+                    <p>Transition from classic service paradigms to those augmented by AI capabilities, translating conventional workflows into AI-enhanced processes.</p>
+                </div>
+                <div class="strategy-card">
+                    <strong>Conversation Design — 30%</strong>
+                    <p>Defining conversational patterns is essential in establishing an engaging dialogue between our AI applications and users.</p>
+                </div>
+                <div class="strategy-card">
+                    <strong>Interaction Design — 30%</strong>
+                    <p>This focuses on designing the interactive elements that will engage users, encouraging adoption and long-term adjustment to AI integration.</p>
+                </div>
+            </div>
+            <div class="content-text" style="max-width: 800px; margin: 3rem auto 0;">
+                <h3 style="font-size: 1.75rem; font-weight: 700; margin: 2rem 0 1rem; color: #1d1d1f;">Iterative vs. Waterfall Approach</h3>
+                <p>We adopted an iterative approach that adapts swiftly to evolving tech landscapes, invents and repurposes interactive patterns dynamically, enables data-driven feature design, ensures product quality through continuous iteration, and makes costs and schedules easily estimable and controllable.</p>
+            </div>
+        </section>
+
         <!-- Design System -->
         <section class="case-section">
             <div class="section-header">
                 <h2 class="section-title">Design System</h2>
-                <h3 class="section-subtitle">Key design patterns and interaction models.</h3>
+                <p class="section-subtitle">Key design patterns and interaction models</p>
             </div>
-            <div class="content-text">
-                <h3 style="font-size: 1.5rem; font-weight: 700; margin: 2rem 0 1rem; color: #000;">Three-Panel Workspace</h3>
+            <div class="content-text" style="max-width: 800px; margin: 0 auto 3rem;">
+                <h3 style="font-size: 1.75rem; font-weight: 700; margin: 2rem 0 1rem; color: #1d1d1f;">Three-Panel Workspace</h3>
                 <p>A three-panel design with automatic content strategy serves well in both traditional and AI design. It can be easily implemented in both systems and allows content reuse from the traditional version.</p>
             </div>
             <div class="image-full">
@@ -670,28 +852,28 @@
                                 <stop offset="100%" style="stop-color:#ffffff;stop-opacity:1" />
                             </linearGradient>
                         </defs>
-                        <rect x="20" y="20" width="500" height="560" fill="url(#panelGrad)" stroke="#333" stroke-width="2" rx="4"/>
+                        <rect x="20" y="20" width="500" height="560" fill="url(#panelGrad)" stroke="#333" stroke-width="2" rx="8"/>
                         <text x="30" y="50" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#000">Main Panel</text>
                         <text x="30" y="75" font-family="Inter, sans-serif" font-size="12" fill="#666">Conversation Interface</text>
-                        <rect x="30" y="100" width="460" height="40" fill="#000" rx="4"/>
+                        <rect x="30" y="100" width="460" height="40" fill="#000" rx="6"/>
                         <text x="40" y="125" font-family="Inter, sans-serif" font-size="11" fill="#fff">User: Show me Q4 revenue trends</text>
-                        <rect x="30" y="160" width="400" height="40" fill="#e8e8e8" rx="4"/>
+                        <rect x="30" y="160" width="400" height="40" fill="#e8e8e8" rx="6"/>
                         <text x="40" y="185" font-family="Inter, sans-serif" font-size="11" fill="#333">AI: Here's the Q4 revenue analysis...</text>
-                        <rect x="540" y="20" width="300" height="270" fill="url(#panelGrad)" stroke="#333" stroke-width="2" rx="4"/>
+                        <rect x="540" y="20" width="300" height="270" fill="url(#panelGrad)" stroke="#333" stroke-width="2" rx="8"/>
                         <text x="550" y="50" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#000">Background Information</text>
                         <text x="550" y="75" font-family="Inter, sans-serif" font-size="12" fill="#666">Related Context</text>
-                        <rect x="550" y="100" width="270" height="30" fill="#f0f0f0" rx="2"/>
+                        <rect x="550" y="100" width="270" height="30" fill="#f0f0f0" rx="4"/>
                         <text x="560" y="120" font-family="Inter, sans-serif" font-size="10" fill="#666">• Revenue Data Sources</text>
-                        <rect x="540" y="310" width="300" height="270" fill="url(#panelGrad)" stroke="#333" stroke-width="2" rx="4"/>
+                        <rect x="540" y="310" width="300" height="270" fill="url(#panelGrad)" stroke="#333" stroke-width="2" rx="8"/>
                         <text x="550" y="340" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#000">Scrapbook Panel</text>
                         <text x="550" y="365" font-family="Inter, sans-serif" font-size="12" fill="#666">Working Memory</text>
-                        <rect x="550" y="390" width="270" height="170" fill="#fff" stroke="#ccc" stroke-width="1" rx="2"/>
+                        <rect x="550" y="390" width="270" height="170" fill="#fff" stroke="#ccc" stroke-width="1" rx="4"/>
                     </svg>
                 </div>
                 <p class="image-caption">Three Panel Workspace — Main conversation panel, background information panel, and scrapbook panel for visualizations</p>
             </div>
-            <div class="content-text" style="margin-top: 2rem;">
-                <h3 style="font-size: 1.5rem; font-weight: 700; margin: 2rem 0 1rem; color: #000;">Pattern for AI Version</h3>
+            <div class="content-text" style="max-width: 800px; margin: 3rem auto 0;">
+                <h3 style="font-size: 1.75rem; font-weight: 700; margin: 2rem 0 1rem; color: #1d1d1f;">Pattern for AI Version</h3>
                 <ul>
                     <li><strong>Interaction in AI</strong> is focused on conversation in the Main Panel</li>
                     <li><strong>Background Information</strong> provides context for ongoing conversation</li>
@@ -699,8 +881,8 @@
                     <li>Everything is resizable to customize experience</li>
                 </ul>
             </div>
-            <div class="content-text" style="margin-top: 2rem;">
-                <h3 style="font-size: 1.5rem; font-weight: 700; margin: 2rem 0 1rem; color: #000;">Bento Style Layout</h3>
+            <div class="content-text" style="max-width: 800px; margin: 3rem auto 0;">
+                <h3 style="font-size: 1.75rem; font-weight: 700; margin: 2rem 0 1rem; color: #1d1d1f;">Bento Style Layout</h3>
                 <p>Bento Style is well suited to AI-based interfaces and dashboards. It's naturally suited for card-based design, modern and considered a key design trend in 2024. Dark mode is preferred by data and financial users.</p>
             </div>
             <div class="image-full">
@@ -712,17 +894,17 @@
                                 <stop offset="100%" style="stop-color:#f8f8f8;stop-opacity:1" />
                             </linearGradient>
                         </defs>
-                        <rect x="20" y="20" width="580" height="320" fill="url(#cardGrad)" stroke="#333" stroke-width="2" rx="6"/>
+                        <rect x="20" y="20" width="580" height="320" fill="url(#cardGrad)" stroke="#333" stroke-width="2" rx="12"/>
                         <text x="40" y="60" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#000">Funds Movement</text>
                         <text x="40" y="85" font-family="Inter, sans-serif" font-size="12" fill="#666">Net Interest Margin</text>
                         <line x1="40" y1="100" x2="560" y2="100" stroke="#e8e8e8" stroke-width="1"/>
-                        <rect x="40" y="120" width="520" height="200" fill="#f0f0f0" rx="4"/>
+                        <rect x="40" y="120" width="520" height="200" fill="#f0f0f0" rx="8"/>
                         <text x="500" y="300" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#000">5,987.34</text>
-                        <rect x="620" y="20" width="280" height="150" fill="url(#cardGrad)" stroke="#333" stroke-width="2" rx="6"/>
+                        <rect x="620" y="20" width="280" height="150" fill="url(#cardGrad)" stroke="#333" stroke-width="2" rx="12"/>
                         <text x="640" y="60" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#000">Return on Assets</text>
                         <text x="640" y="85" font-family="Inter, sans-serif" font-size="11" fill="#666">Cost-Income Ratio</text>
                         <text x="640" y="130" font-family="Inter, sans-serif" font-size="24" font-weight="700" fill="#000">5,987.34</text>
-                        <rect x="620" y="190" width="280" height="150" fill="url(#cardGrad)" stroke="#333" stroke-width="2" rx="6"/>
+                        <rect x="620" y="190" width="280" height="150" fill="url(#cardGrad)" stroke="#333" stroke-width="2" rx="12"/>
                         <text x="640" y="230" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#000">Data Transfer</text>
                         <text x="640" y="255" font-family="Inter, sans-serif" font-size="11" fill="#666">System Status</text>
                         <text x="640" y="300" font-family="Inter, sans-serif" font-size="20" font-weight="700" fill="#000">5,987.34</text>
@@ -736,11 +918,11 @@
         <section class="case-section">
             <div class="section-header">
                 <h2 class="section-title">Interaction Patterns</h2>
-                <h3 class="section-subtitle">How users navigate and interact with the system</h3>
+                <p class="section-subtitle">How users navigate and interact with the system</p>
             </div>
             <div class="content-grid">
                 <div class="content-text">
-                    <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #000;">Dashboard Interaction</h3>
+                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: #1d1d1f;">Dashboard Interaction</h3>
                     <ul>
                         <li>Each card serves as a button</li>
                         <li>Content in all panels changes to focus on choices</li>
@@ -750,7 +932,7 @@
                     </ul>
                 </div>
                 <div class="content-text">
-                    <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #000;">Analytics Interaction</h3>
+                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: #1d1d1f;">Analytics Interaction</h3>
                     <ul>
                         <li>Visualization becomes focal point of conversation</li>
                         <li>Related Data panel populated with background data</li>
@@ -765,13 +947,13 @@
                 <div class="image-item">
                     <div class="svg-illustration">
                         <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="20" y="20" width="200" height="360" fill="#f8f8f8" stroke="#333" stroke-width="2" rx="4"/>
+                            <rect x="20" y="20" width="200" height="360" fill="#f8f8f8" stroke="#333" stroke-width="2" rx="8"/>
                             <text x="30" y="50" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#000">Visualizations</text>
-                            <rect x="30" y="70" width="180" height="60" fill="#fff" stroke="#ccc" stroke-width="1" rx="4"/>
-                            <rect x="30" y="230" width="180" height="60" fill="#000" stroke="#333" stroke-width="2" rx="4" opacity="0.8"/>
+                            <rect x="30" y="70" width="180" height="60" fill="#fff" stroke="#ccc" stroke-width="1" rx="6"/>
+                            <rect x="30" y="230" width="180" height="60" fill="#000" stroke="#333" stroke-width="2" rx="6" opacity="0.8"/>
                             <text x="40" y="255" font-family="Inter, sans-serif" font-size="11" fill="#fff">Chart 3</text>
                             <text x="40" y="295" font-family="Inter, sans-serif" font-size="9" fill="#999">← Dragging</text>
-                            <rect x="380" y="20" width="200" height="360" fill="#f8f8f8" stroke="#333" stroke-width="2" stroke-dasharray="5,5" rx="4"/>
+                            <rect x="380" y="20" width="200" height="360" fill="#f8f8f8" stroke="#333" stroke-width="2" stroke-dasharray="5,5" rx="8"/>
                             <text x="390" y="50" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#000">Report Canvas</text>
                         </svg>
                     </div>
@@ -780,11 +962,11 @@
                 <div class="image-item">
                     <div class="svg-illustration">
                         <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="20" y="20" width="560" height="60" fill="#000" rx="4"/>
+                            <rect x="20" y="20" width="560" height="60" fill="#000" rx="8"/>
                             <text x="40" y="50" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#fff">Q4 Financial Report</text>
-                            <rect x="20" y="100" width="560" height="80" fill="#f8f8f8" stroke="#333" stroke-width="1" rx="4"/>
+                            <rect x="20" y="100" width="560" height="80" fill="#f8f8f8" stroke="#333" stroke-width="1" rx="8"/>
                             <text x="40" y="130" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#000">Section 1: Revenue Overview</text>
-                            <rect x="20" y="200" width="560" height="80" fill="#f8f8f8" stroke="#333" stroke-width="1" rx="4"/>
+                            <rect x="20" y="200" width="560" height="80" fill="#f8f8f8" stroke="#333" stroke-width="1" rx="8"/>
                             <text x="40" y="230" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#000">Section 2: Cost Analysis</text>
                         </svg>
                     </div>
@@ -797,10 +979,43 @@
         <section class="case-section">
             <div class="section-header">
                 <h2 class="section-title">System Architecture</h2>
-                <h3 class="section-subtitle">Combining conversational AI with direct manipulation</h3>
+                <p class="section-subtitle">Combining conversational AI with direct manipulation</p>
             </div>
-            <div class="content-text">
+            <div class="content-text" style="max-width: 800px; margin: 0 auto 4rem;">
                 <p>The system combines conversational AI with direct manipulation and structured analytical workflows. It integrates with Snowflake for data access and uses LLM capabilities for natural language understanding and generation.</p>
+            </div>
+            <div class="architecture-grid">
+                <div class="architecture-card">
+                    <div class="architecture-card-number">01</div>
+                    <h3 class="architecture-card-title">User Interface Layer</h3>
+                    <ul class="architecture-card-list">
+                        <li>Conversation Panel</li>
+                        <li>Background Info</li>
+                        <li>Scrapbook Panel</li>
+                        <li>Dashboard View</li>
+                        <li>Report Builder</li>
+                    </ul>
+                </div>
+                <div class="architecture-card">
+                    <div class="architecture-card-number">02</div>
+                    <h3 class="architecture-card-title">AI Processing Layer</h3>
+                    <ul class="architecture-card-list">
+                        <li>LLM Engine</li>
+                        <li>Natural Language Processing</li>
+                        <li>Query Generation</li>
+                        <li>Response Synthesis</li>
+                    </ul>
+                </div>
+                <div class="architecture-card">
+                    <div class="architecture-card-number">03</div>
+                    <h3 class="architecture-card-title">Data Layer</h3>
+                    <ul class="architecture-card-list">
+                        <li>Snowflake Data Warehouse</li>
+                        <li>Financial Data Sources</li>
+                        <li>Regulatory Schema</li>
+                        <li>Analytics Engine</li>
+                    </ul>
+                </div>
             </div>
             <div class="image-full">
                 <div class="svg-illustration">
@@ -814,21 +1029,21 @@
                                 <polygon points="0 0, 10 3, 0 6" fill="#333" />
                             </marker>
                         </defs>
-                        <rect x="20" y="20" width="1160" height="120" fill="url(#layerGrad)" stroke="#333" stroke-width="2" rx="6"/>
+                        <rect x="20" y="20" width="1160" height="120" fill="url(#layerGrad)" stroke="#333" stroke-width="2" rx="12"/>
                         <text x="40" y="60" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#000">User Interface Layer</text>
-                        <rect x="40" y="80" width="200" height="40" fill="#000" rx="4"/>
+                        <rect x="40" y="80" width="200" height="40" fill="#000" rx="6"/>
                         <text x="50" y="105" font-family="Inter, sans-serif" font-size="12" fill="#fff">Conversation Panel</text>
-                        <rect x="260" y="80" width="200" height="40" fill="#e8e8e8" rx="4"/>
+                        <rect x="260" y="80" width="200" height="40" fill="#e8e8e8" rx="6"/>
                         <text x="270" y="105" font-family="Inter, sans-serif" font-size="12" fill="#333">Background Info</text>
                         <line x1="600" y1="160" x2="600" y2="200" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
-                        <rect x="20" y="220" width="1160" height="120" fill="url(#layerGrad)" stroke="#333" stroke-width="2" rx="6"/>
+                        <rect x="20" y="220" width="1160" height="120" fill="url(#layerGrad)" stroke="#333" stroke-width="2" rx="12"/>
                         <text x="40" y="260" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#000">AI Processing Layer</text>
-                        <rect x="40" y="280" width="250" height="40" fill="#1a1a1a" rx="4"/>
+                        <rect x="40" y="280" width="250" height="40" fill="#1a1a1a" rx="6"/>
                         <text x="50" y="305" font-family="Inter, sans-serif" font-size="12" fill="#fff">LLM Engine</text>
                         <line x1="600" y1="360" x2="600" y2="400" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
-                        <rect x="20" y="420" width="1160" height="120" fill="url(#layerGrad)" stroke="#333" stroke-width="2" rx="6"/>
+                        <rect x="20" y="420" width="1160" height="120" fill="url(#layerGrad)" stroke="#333" stroke-width="2" rx="12"/>
                         <text x="40" y="460" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#000">Data Layer</text>
-                        <rect x="40" y="480" width="350" height="40" fill="#1a1a1a" rx="4"/>
+                        <rect x="40" y="480" width="350" height="40" fill="#1a1a1a" rx="6"/>
                         <text x="50" y="505" font-family="Inter, sans-serif" font-size="12" fill="#fff">Snowflake Data Warehouse</text>
                     </svg>
                 </div>
@@ -840,48 +1055,68 @@
         <section class="case-section">
             <div class="section-header">
                 <h2 class="section-title">Key Design Decisions</h2>
-                <h3 class="section-subtitle">Critical choices that shaped the product</h3>
+                <p class="section-subtitle">Critical choices that shaped the product</p>
             </div>
             <ul class="decisions-list">
-                <li>
+                <li class="decision-item">
                     <strong>Conversation as primary navigation</strong>
                     <p>Making AI conversation the main way users interact, rather than traditional menus.</p>
                 </li>
-                <li>
+                <li class="decision-item">
                     <strong>Persistent 3-panel context model</strong>
                     <p>Maintaining context across panels so users always understand where they are.</p>
                 </li>
-                <li>
+                <li class="decision-item">
                     <strong>Direct manipulation via drag-and-drop</strong>
                     <p>Allowing users to directly manipulate visualizations and reports.</p>
                 </li>
-                <li>
+                <li class="decision-item">
                     <strong>Scrapbook as working memory</strong>
                     <p>Providing dedicated space for visualizations being discussed.</p>
                 </li>
-                <li>
+                <li class="decision-item">
                     <strong>Snowflake-grounded AI responses</strong>
                     <p>Ensuring all AI responses based on actual data, not hallucinations.</p>
                 </li>
-                <li>
+                <li class="decision-item">
                     <strong>Built-in collaboration</strong>
                     <p>Enabling multiple users to work together with review workflows.</p>
                 </li>
-                <li>
+                <li class="decision-item">
                     <strong>Bento dashboards for structured KPIs</strong>
                     <p>Using card-based layouts familiar to financial users.</p>
                 </li>
             </ul>
         </section>
 
-        <!-- Impact & Outcomes -->
-        <section class="case-section">
-            <div class="section-header">
-                <h2 class="section-title">Impact & Outcomes</h2>
-                <h3 class="section-subtitle">Measurable results from design and implementation</h3>
-            </div>
-            <div class="content-text">
-                <p>The Data Compass platform has transformed how small and mid-sized banks handle regulatory reporting, delivering significant time and cost savings while improving accuracy and user satisfaction.</p>
+        <!-- Impact & Outcomes - Dark Section -->
+        <section class="impact-section">
+            <div class="case-container">
+                <div class="section-header">
+                    <h2 class="section-title">Impact & Outcomes</h2>
+                    <p class="section-subtitle">Measurable results from design and implementation</p>
+                </div>
+                <div class="content-text" style="max-width: 800px; margin: 0 auto 4rem; color: #a1a1a6;">
+                    <p>The Data Compass platform has transformed how small and mid-sized banks handle regulatory reporting, delivering significant time and cost savings while improving accuracy and user satisfaction.</p>
+                </div>
+                <div class="impact-grid">
+                    <div class="impact-card">
+                        <div class="impact-value">Days → Min</div>
+                        <div class="impact-label">Reporting cycles</div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-value">$10K+</div>
+                        <div class="impact-label">Monthly savings</div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-value">30-50%</div>
+                        <div class="impact-label">Rework reduction</div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-value">40-70%</div>
+                        <div class="impact-label">Faster discovery</div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -889,9 +1124,9 @@
         <section class="case-section">
             <div class="section-header">
                 <h2 class="section-title">Reflection</h2>
-                <h3 class="section-subtitle">Lessons learned and future directions</h3>
+                <p class="section-subtitle">Lessons learned and future directions</p>
             </div>
-            <div class="content-text">
+            <div class="content-text" style="max-width: 800px; margin: 0 auto 3rem;">
                 <p>Designing AI for CFOs is about removing friction, not replacing expertise. This hybrid interaction model now serves as a foundation for future AI-powered reporting across Fiserv.</p>
             </div>
             <div class="benefits-grid">
