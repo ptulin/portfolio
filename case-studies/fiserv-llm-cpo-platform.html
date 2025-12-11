@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -26,8 +26,7 @@
         /* Hero Section - PDF Style */
         .case-hero {
             background: #ffffff;
-            padding: 4rem 0 3rem;
-            border-bottom: 1px solid #e8e8e8;
+            padding: 3rem 0 2rem;
         }
 
         .case-hero-content {
@@ -36,71 +35,91 @@
             padding: 0 2rem;
         }
 
+        .case-hero-author {
+            text-align: center;
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
         .case-hero-header {
+            text-align: center;
             margin-bottom: 2rem;
         }
 
         .case-hero-text h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
             line-height: 1.1;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             color: #000;
         }
 
         .case-hero-text .tagline {
-            font-size: 1.5rem;
-            font-weight: 500;
+            font-size: 1.25rem;
+            font-weight: 400;
             color: #666;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Inter', sans-serif;
         }
 
         .case-hero-text .description {
             font-size: 1rem;
             color: #4a4a4a;
             line-height: 1.6;
-            max-width: 800px;
+            max-width: 900px;
+            margin: 0 auto;
+            font-family: 'Inter', sans-serif;
         }
 
         /* Metrics Table - PDF Style */
         .metrics-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 2rem 0;
+            margin: 3rem auto 0;
             background: #fff;
+            max-width: 1000px;
         }
 
         .metrics-table td {
-            padding: 1.25rem;
+            padding: 1.5rem;
             border: 1px solid #e8e8e8;
             vertical-align: top;
+            width: 25%;
         }
 
         .metrics-table .metric-value {
-            font-size: 1.75rem;
-            font-weight: 800;
+            font-size: 1.5rem;
+            font-weight: 700;
             color: #000;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Inter', sans-serif;
         }
 
         .metrics-table .metric-label {
             font-size: 0.875rem;
             color: #666;
-            font-weight: 500;
+            font-weight: 400;
+            font-family: 'Inter', sans-serif;
         }
 
         .metrics-table .meta-label {
             font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.1em;
             color: #999;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
         }
 
         .metrics-table .meta-value {
             font-size: 0.9375rem;
             color: #333;
+            font-weight: 400;
+            font-family: 'Inter', sans-serif;
         }
 
         /* Main Container */
@@ -112,7 +131,7 @@
 
         /* Compact Sections */
         .case-section {
-            padding: 1.5rem 0;
+            padding: 2.5rem 0;
         }
 
         .section-header {
@@ -120,13 +139,13 @@
         }
 
         .section-title {
-            font-size: 1.75rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
             font-weight: 700;
-            letter-spacing: -0.01em;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
             color: #000;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.02em;
         }
 
         .section-subtitle {
@@ -139,8 +158,8 @@
         .content-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin: 1rem 0;
+            gap: 3rem;
+            margin: 1.5rem 0;
         }
 
         .content-text {
@@ -510,7 +529,7 @@
     </style>
 </head>
 <body>
-    <header class="header">
+    <header class="header" style="display: none;">
         <div class="header-content">
             <div class="logo"><a href="../index.html">Pawel Tulin</a></div>
         </div>
@@ -519,6 +538,7 @@
     <!-- Hero Section - PDF Style -->
     <section class="case-hero" data-area="ux-research,ux-design,product-design" data-industry="fintech" data-deliverable="dashboard,ai-workflow,research-study,prototype" data-year="2024">
         <div class="case-hero-content">
+            <div class="case-hero-author">Pawel Tulin</div>
             <div class="case-hero-header">
                 <div class="case-hero-text">
                     <h1>Data Compass</h1>
@@ -593,10 +613,10 @@
         <section class="case-section">
             <div class="section-header">
                 <h2 class="section-title">The Challenge</h2>
-                <h3 style="font-size: 1.125rem; font-weight: 600; color: #666; margin-bottom: 1rem;">Small and mid-sized banks drowning in regulatory reporting.</h3>
             </div>
             <div class="content-grid">
                 <div class="content-text">
+                    <p style="font-weight: 600; margin-bottom: 1rem;">Small and mid-sized banks drowning in regulatory reporting.</p>
                     <p>CFO teams across small and mid-sized banks face a universal problem: too much reporting work, too few people, and no in-house data specialists. Many were outsourcing reporting at extremely high cost simply to stay compliant.</p>
                 </div>
                 <div class="content-text">
