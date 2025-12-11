@@ -29,107 +29,197 @@
             display: none;
         }
 
-        /* Hero Section - Apple/Stripe Style */
+        /* Hero Section - Two Column Layout */
         .case-hero {
-            background: #ffffff;
-            padding: 8rem 0 6rem;
-            text-align: center;
+            background: #1a1a1c;
+            padding: 6rem 0 0;
+            position: relative;
         }
 
         .case-hero-content {
-            max-width: 900px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 45% 55%;
+            gap: 4rem;
+            align-items: center;
         }
 
-        .case-hero-author {
+        .case-hero-left {
+            padding: 2rem 0;
+        }
+
+        .case-hero-eyebrow {
             font-size: 0.875rem;
             font-weight: 500;
             color: #86868b;
-            margin-bottom: 4rem;
-            letter-spacing: 0.01em;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
 
         .case-hero-text h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 5.5rem;
+            font-size: 4.5rem;
             font-weight: 700;
             line-height: 1.05;
             margin-bottom: 1.5rem;
-            color: #1d1d1f;
+            color: #ffffff;
             letter-spacing: -0.02em;
         }
 
         .case-hero-text .tagline {
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             font-weight: 400;
-            color: #86868b;
+            color: #a1a1a6;
             margin-bottom: 2rem;
             letter-spacing: -0.01em;
+            line-height: 1.5;
         }
 
         .case-hero-text .description {
-            font-size: 1.1875rem;
-            color: #515154;
+            font-size: 1.125rem;
+            color: #86868b;
             line-height: 1.7;
-            max-width: 700px;
-            margin: 0 auto 4rem;
+            margin-bottom: 2.5rem;
             font-weight: 400;
         }
 
-        /* Metrics Grid - Bento Style */
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin: 4rem 0 0;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
+        .case-hero-meta-row {
+            display: flex;
+            gap: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .metric-card {
-            background: #f5f5f7;
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: left;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        .case-hero-meta-item {
+            flex: 1;
         }
 
-        .metric-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .metric-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #1d1d1f;
-            margin-bottom: 0.5rem;
-            line-height: 1.2;
-        }
-
-        .metric-label {
-            font-size: 0.875rem;
-            color: #86868b;
-            font-weight: 400;
-            line-height: 1.4;
-        }
-
-        .meta-label {
-            font-size: 0.6875rem;
+        .case-hero-meta-label {
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.1em;
             color: #86868b;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
             font-weight: 600;
         }
 
-        .meta-value {
+        .case-hero-meta-value {
             font-size: 0.9375rem;
-            color: #1d1d1f;
+            color: #ffffff;
             font-weight: 400;
             line-height: 1.5;
+        }
+
+        .case-hero-visual {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .case-hero-visual img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            display: block;
+        }
+
+        /* KPI Bento Grid Section */
+        .kpi-section {
+            background: #1a1a1c;
+            padding: 0 0 6rem;
+            margin-top: -4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .kpi-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .kpi-tile {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            overflow: hidden;
+        }
+
+        .kpi-tile:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .kpi-tile-a {
+            grid-column: 1 / 8;
+            grid-row: 1;
+        }
+
+        .kpi-tile-b {
+            grid-column: 8 / 13;
+            grid-row: 1 / 3;
+        }
+
+        .kpi-tile-c {
+            grid-column: 1 / 5;
+            grid-row: 2;
+        }
+
+        .kpi-tile-d {
+            grid-column: 5 / 9;
+            grid-row: 2;
+        }
+
+        .kpi-tile-e {
+            grid-column: 9 / 13;
+            grid-row: 2;
+        }
+
+        .kpi-tile img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .kpi-tile-content {
+            color: #ffffff;
+        }
+
+        .kpi-tile-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .kpi-tile-label {
+            font-size: 1rem;
+            color: #a1a1a6;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .kpi-tile-description {
+            font-size: 0.9375rem;
+            color: #86868b;
+            line-height: 1.6;
+            margin-top: 1rem;
         }
 
         /* Main Container */
@@ -576,26 +666,92 @@
             }
         }
 
+        @media (max-width: 1024px) {
+            .case-hero-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .kpi-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+
+            .kpi-tile-a {
+                grid-column: 1 / 7;
+                grid-row: 1;
+            }
+
+            .kpi-tile-b {
+                grid-column: 1 / 7;
+                grid-row: 2;
+            }
+
+            .kpi-tile-c {
+                grid-column: 1 / 4;
+                grid-row: 3;
+            }
+
+            .kpi-tile-d {
+                grid-column: 4 / 7;
+                grid-row: 3;
+            }
+
+            .kpi-tile-e {
+                grid-column: 1 / 7;
+                grid-row: 4;
+            }
+        }
+
         @media (max-width: 768px) {
             .case-hero {
-                padding: 5rem 0 4rem;
+                padding: 4rem 0 0;
             }
 
             .case-hero-content,
-            .case-container {
+            .case-container,
+            .kpi-container {
                 padding: 0 1.5rem;
             }
 
             .case-hero-text h1 {
-                font-size: 3.5rem;
+                font-size: 3rem;
             }
 
             .case-hero-text .tagline {
-                font-size: 1.5rem;
+                font-size: 1.25rem;
             }
 
             .case-hero-text .description {
-                font-size: 1.0625rem;
+                font-size: 1rem;
+            }
+
+            .case-hero-meta-row {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .kpi-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .kpi-tile-a,
+            .kpi-tile-b,
+            .kpi-tile-c,
+            .kpi-tile-d,
+            .kpi-tile-e {
+                grid-column: 1;
+            }
+
+            .kpi-tile-a { grid-row: 1; }
+            .kpi-tile-b { grid-row: 2; }
+            .kpi-tile-c { grid-row: 3; }
+            .kpi-tile-d { grid-row: 4; }
+            .kpi-tile-e { grid-row: 5; }
+
+            .kpi-section {
+                margin-top: -2rem;
+                padding-bottom: 4rem;
             }
 
             .case-section {
@@ -648,67 +804,78 @@
     <!-- Hero Section - Apple/Stripe Style -->
     <section class="case-hero" data-area="ux-research,ux-design,product-design" data-industry="fintech" data-deliverable="dashboard,ai-workflow,research-study,prototype" data-year="2024">
         <div class="case-hero-content">
-            <div class="case-hero-author">Pawel Tulin</div>
-            <div class="case-hero-header">
+            <div class="case-hero-left">
+                <div class="case-hero-eyebrow">Fiserv</div>
                 <div class="case-hero-text">
                     <h1>Data Compass</h1>
                     <p class="tagline">AI-Powered Financial Analytics Platform</p>
                     <p class="description">Transforming multi-day regulatory reporting into a real-time, conversational analytics workspace for small and mid-size financial institutions.</p>
                 </div>
-            </div>
-
-            <!-- Metrics Grid - Bento Style -->
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <div class="metric-value">Days → Min</div>
-                    <div class="metric-label">Reporting cycles</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value">$10K+</div>
-                    <div class="metric-label">Monthly savings</div>
-                </div>
-                <div class="metric-card">
-                    <div class="meta-label">Area</div>
-                    <div class="meta-value">UX Research, UX Design, Product Design</div>
-                </div>
-                <div class="metric-card">
-                    <div class="meta-label">Industry</div>
-                    <div class="meta-value">Fintech / Financial Services</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value">30-50%</div>
-                    <div class="metric-label">Rework reduction</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value">40-70%</div>
-                    <div class="metric-label">Faster discovery</div>
-                </div>
-                <div class="metric-card">
-                    <div class="meta-label">Deliverables</div>
-                    <div class="meta-value">Dashboards, AI Workflow, Interaction Design</div>
-                </div>
-                <div class="metric-card">
-                    <div class="meta-label">Year</div>
-                    <div class="meta-value">2024</div>
+                <div class="case-hero-meta-row">
+                    <div class="case-hero-meta-item">
+                        <div class="case-hero-meta-label">Area</div>
+                        <div class="case-hero-meta-value">UX Research, UX Design, Product Design</div>
+                    </div>
+                    <div class="case-hero-meta-item">
+                        <div class="case-hero-meta-label">Industry</div>
+                        <div class="case-hero-meta-value">Fintech / Financial Services</div>
+                    </div>
                 </div>
             </div>
+            <div class="case-hero-visual">
+                <img src="../assets/case-studies/fiserv/fiserv-hero-data-halo.svg" alt="Data Halo visualization">
+            </div>
+        </div>
+    </section>
 
-            <div class="case-study-meta">
-                <div class="meta-item">
-                    <span class="meta-label">Area</span>
-                    <span class="meta-value">UX Research, UX Design, Product Design</span>
+    <!-- KPI Bento Grid Section -->
+    <section class="kpi-section">
+        <div class="kpi-container">
+            <div class="kpi-grid">
+                <!-- Tile A: Speed (cols 1-7, row 1) -->
+                <div class="kpi-tile kpi-tile-a">
+                    <img src="../assets/case-studies/fiserv/kpi-tile-speed.svg" alt="Speed metric">
+                    <div class="kpi-tile-content">
+                        <div class="kpi-tile-value">Days → Min</div>
+                        <div class="kpi-tile-label">Reporting cycles</div>
+                    </div>
                 </div>
-                <div class="meta-item">
-                    <span class="meta-label">Industry</span>
-                    <span class="meta-value">Fintech / Financial Services</span>
+
+                <!-- Tile B: Transformation (cols 8-12, rows 1-2) -->
+                <div class="kpi-tile kpi-tile-b">
+                    <img src="../assets/case-studies/fiserv/kpi-tile-transformation.svg" alt="Transformation metric">
+                    <div class="kpi-tile-content">
+                        <div class="kpi-tile-value">30-50%</div>
+                        <div class="kpi-tile-label">Rework reduction</div>
+                        <div class="kpi-tile-description">Streamlined workflows eliminate redundant processes and manual corrections.</div>
+                    </div>
                 </div>
-                <div class="meta-item">
-                    <span class="meta-label">Deliverables</span>
-                    <span class="meta-value">Dashboards, AI Workflow, Research Synthesis, Interaction Design</span>
+
+                <!-- Tile C: Consolidation (cols 1-4, row 2) -->
+                <div class="kpi-tile kpi-tile-c">
+                    <img src="../assets/case-studies/fiserv/kpi-tile-consolidation.svg" alt="Consolidation metric">
+                    <div class="kpi-tile-content">
+                        <div class="kpi-tile-value">$10K+</div>
+                        <div class="kpi-tile-label">Monthly savings</div>
+                    </div>
                 </div>
-                <div class="meta-item">
-                    <span class="meta-label">Year</span>
-                    <span class="meta-value">2024</span>
+
+                <!-- Tile D: Latency (cols 5-8, row 2) -->
+                <div class="kpi-tile kpi-tile-d">
+                    <img src="../assets/case-studies/fiserv/kpi-tile-latency.svg" alt="Latency metric">
+                    <div class="kpi-tile-content">
+                        <div class="kpi-tile-value">40-70%</div>
+                        <div class="kpi-tile-label">Faster discovery</div>
+                    </div>
+                </div>
+
+                <!-- Tile E: Confidence (cols 9-12, row 2) -->
+                <div class="kpi-tile kpi-tile-e">
+                    <img src="../assets/case-studies/fiserv/kpi-tile-confidence.svg" alt="Confidence metric">
+                    <div class="kpi-tile-content">
+                        <div class="kpi-tile-value">95%+</div>
+                        <div class="kpi-tile-label">Accuracy rate</div>
+                    </div>
                 </div>
             </div>
         </div>
