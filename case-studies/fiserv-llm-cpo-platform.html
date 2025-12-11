@@ -3,8 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FISERV - LLM CPO Platform - Pawel Tulin</title>
+    <title>Fiserv — CFO AI Office (LLM-Powered Reporting Platform) - Pawel Tulin</title>
     <link rel="stylesheet" href="../styles.css">
+    <style>
+        .case-study {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .case-study-header {
+            margin-bottom: 3rem;
+        }
+
+        .case-study-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .case-study-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .case-study-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta-label {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+        }
+
+        .meta-value {
+            font-size: 1rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .case-study-content {
+            line-height: 1.8;
+            font-size: 1.0625rem;
+            color: var(--text-dark);
+        }
+
+        .case-study-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .case-study-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .case-study-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .case-study-content ul,
+        .case-study-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .case-study-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .case-study-content strong {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .case-study-image {
+            width: 100%;
+            margin: 2rem 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .case-study-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .case-study-image-caption {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        .highlight-box {
+            background: var(--accent-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--text-dark);
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-item {
+            background: var(--accent-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .case-study-header h1 {
+                font-size: 2rem;
+            }
+
+            .case-study-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid var(--border-light);
+            margin: 3rem 0;
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -13,12 +201,292 @@
         </div>
     </header>
 
-    <main class="contact-page">
-        <div class="contact-container">
-            <h1>FISERV - LLM CPO Platform</h1>
-            <p>Case study content coming soon...</p>
+    <main class="case-study">
+        <div class="case-study-header">
+            <h1>Fiserv — CFO AI Office</h1>
+            <p class="case-study-subtitle">LLM-Powered Reporting Platform</p>
+            <p class="case-study-subtitle">Transforming multi-day regulatory reporting into a real-time, conversational analytics workspace for small and mid-size financial institutions.</p>
+            
+            <div class="case-study-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Area</span>
+                    <span class="meta-value">UX Research, UX Design, Product Design</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Industry</span>
+                    <span class="meta-value">Fintech / Financial Services</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Deliverables</span>
+                    <span class="meta-value">Dashboards, AI Workflow, Research Synthesis, Interaction Design</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Year</span>
+                    <span class="meta-value">2024</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-study-content">
+            <h2>The Story</h2>
+            <p>Across small and mid-sized banks, CFO teams face a universal problem: too much reporting work, too few people, and no in-house data specialists. Many were outsourcing reporting at extremely high cost simply to stay compliant.</p>
+            
+            <p>As Fiserv began centralizing financial data into Snowflake and exploring LLM capabilities, a transformative opportunity emerged:</p>
+
+            <div class="highlight-box">
+                <p><strong>Design a reporting workspace where CFOs could analyze, assemble, and generate regulatory outputs through a blend of conversation and direct manipulation — without needing data scientists.</strong></p>
+            </div>
+
+            <hr>
+
+            <h2>What We Set Out to Build</h2>
+            <ol>
+                <li>Automate the most painful parts of reporting.</li>
+                <li>Unify dashboards, analytics, and AI conversation.</li>
+                <li>Support real CFO workflows with minimal onboarding.</li>
+                <li>Enable visual report composition.</li>
+                <li>Guarantee accuracy and auditability.</li>
+            </ol>
+
+            <hr>
+
+            <h2>My Role</h2>
+            
+            <h3>UX Research</h3>
+            <ul>
+                <li>Interviews with CFOs, analysts, SMEs</li>
+                <li>Workflow shadowing</li>
+                <li>Bottleneck mapping</li>
+                <li>Cross-bank insight synthesis</li>
+            </ul>
+
+            <h3>UX Design</h3>
+            <ul>
+                <li>Three-panel hybrid workspace</li>
+                <li>Bento dashboard layouts</li>
+                <li>Drag-and-drop composition model</li>
+                <li>Multi-mode navigation states</li>
+            </ul>
+
+            <h3>Product Design</h3>
+            <ul>
+                <li>Customizable reporting workflows</li>
+                <li>Collaboration and review patterns</li>
+                <li>Alignment with Snowflake architecture</li>
+            </ul>
+
+            <hr>
+
+            <h2>Research Insights</h2>
+            <ul>
+                <li>Data identification was the biggest bottleneck.</li>
+                <li>No internal analytics resources.</li>
+                <li>Outsourcing was expensive but unavoidable.</li>
+                <li>Workflows were consistent enough to automate.</li>
+                <li>CFOs needed familiar system behavior.</li>
+            </ul>
+
+            <hr>
+
+            <h2>Design Strategy & Approach</h2>
+            
+            <h3>Elements of AI Product Design</h3>
+            <div class="two-column">
+                <div>
+                    <p><strong>Traditional Visual Design & Wireframing</strong> — 10%</p>
+                    <p>While foundational, these elements form only the basic outline of our product's aesthetic and functional framework.</p>
+                </div>
+                <div>
+                    <p><strong>Service Design Integration</strong> — 30%</p>
+                    <p>Transition from classic service paradigms to those augmented by AI capabilities, translating conventional workflows into AI-enhanced processes that deliver a more intuitive customer experience.</p>
+                </div>
+            </div>
+            <div class="two-column">
+                <div>
+                    <p><strong>Conversation Design</strong> — 30%</p>
+                    <p>Defining conversational patterns is essential in establishing an engaging dialogue between our AI applications and our users, making interactions as natural and efficient as possible.</p>
+                </div>
+                <div>
+                    <p><strong>Interaction Design</strong> — 30%</p>
+                    <p>This focuses on designing the interactive elements that will engage our users, encouraging adoption and long-term adjustment to AI integration.</p>
+                </div>
+            </div>
+
+            <h3>Iterative vs. Waterfall Approach</h3>
+            <p>We adopted an iterative approach that:</p>
+            <ul>
+                <li>Adapts swiftly to evolving tech landscapes</li>
+                <li>Invents and repurposes interactive patterns dynamically</li>
+                <li>Enables data-driven feature design & development</li>
+                <li>Ensures product quality through continuous iteration</li>
+                <li>Sustains ongoing innovation through constant design & R&D</li>
+                <li>Allows scheduled feature delivery & testing with client engagement</li>
+                <li>Makes costs and schedules easily estimable and controllable</li>
+            </ul>
+
+            <h3>Design Principles</h3>
+            <ul>
+                <li>Initiate design with available resources; evolve iteratively</li>
+                <li>Feature additions grounded in research</li>
+                <li>Experiment with styles; use data for refinements or pivots</li>
+                <li>Adopt continuous development with user data & feedback</li>
+                <li>Use similar design and interaction patterns as in the traditional version</li>
+            </ul>
+
+            <hr>
+
+            <h2>Design Choices</h2>
+            
+            <h3>Bento Style Layout</h3>
+            <p>Bento Style for design is well suited to AI-based interfaces as well as dashboards:</p>
+            <ul>
+                <li>Bento is naturally suited for card-based design</li>
+                <li>Bento is modern and considered one of the design trends in 2024</li>
+                <li>Dark mode is preferred by data and financial users</li>
+            </ul>
+            <p><em>Design styles will be validated by user research and data</em></p>
+
+            <div class="case-study-image">
+                <img src="fiserv/images/bento-dashboard.png" alt="Bento Dashboard Layout">
+                <p class="case-study-image-caption">Bento Dashboard Layout</p>
+            </div>
+
+            <h3>Three-Panel Design Pattern</h3>
+            <p>A three-panel design with automatic content strategy can serve well in both traditional and AI design:</p>
+            <ul>
+                <li>It can be easily implemented in both systems</li>
+                <li>We can also implement this design to content reused from traditional version of the website</li>
+            </ul>
+
+            <div class="case-study-image">
+                <img src="fiserv/images/three-panel-workspace.png" alt="Three Panel Workspace">
+                <p class="case-study-image-caption">Three Panel Workspace Overview</p>
+            </div>
+
+            <h3>Pattern for AI Version</h3>
+            <ul>
+                <li><strong>Interaction in AI</strong> is focused on conversation which is performed in the Main Panel</li>
+                <li><strong>Background Information</strong> is related to the topic of ongoing conversation to give it a context</li>
+                <li><strong>Scrapbook Panel</strong> is a temporary storage of visualizations being discussed in the conversation</li>
+                <li>Everything is resizable to customize experience</li>
+            </ul>
+
+            <div class="case-study-image">
+                <img src="fiserv/images/scrapbook.png" alt="Scrapbook Working Memory">
+                <p class="case-study-image-caption">Scrapbook Panel - Working Memory</p>
+            </div>
+
+            <hr>
+
+            <h2>Interaction Patterns</h2>
+
+            <h3>Dashboard Interaction Patterns</h3>
+            <ul>
+                <li>Each card can serve as a button</li>
+                <li>When pressed, content in all panels will change to focus on choices and we switch from dashboard mode to data analytics mode</li>
+                <li>Conversation about chosen visualization will be triggered</li>
+                <li>Conversation design will be text based with other interaction elements inserted to support best user experience</li>
+            </ul>
+
+            <h3>Analytics Interaction Patterns</h3>
+            <ul>
+                <li>User pressed one of the data visualization cards</li>
+                <li>The same visualization becomes a focal point of conversation</li>
+                <li>Related Data panel is populated with background data</li>
+                <li>The visualization is also displayed in the Scrapbook panel. This way it is always in-view when the conversation scrolls</li>
+                <li>User can interact with the chart via text or interaction with the content</li>
+                <li>At any point user can return to the dashboard</li>
+            </ul>
+
+            <div class="case-study-image">
+                <img src="fiserv/images/drag-drop.png" alt="Drag and Drop Interaction">
+                <p class="case-study-image-caption">Drag and Drop Interaction</p>
+            </div>
+
+            <div class="case-study-image">
+                <img src="fiserv/images/report-composition.png" alt="Report Composition">
+                <p class="case-study-image-caption">Report Composition Interface</p>
+            </div>
+
+            <hr>
+
+            <h2>System Overview</h2>
+            <p>The system combines conversational AI with direct manipulation and structured analytical workflows.</p>
+
+            <div class="case-study-image">
+                <img src="fiserv/images/ai-architecture.png" alt="AI Workflow Architecture">
+                <p class="case-study-image-caption">AI Workflow Architecture</p>
+            </div>
+
+            <hr>
+
+            <h2>Key Design Decisions</h2>
+            <ol>
+                <li>Conversation as primary navigation.</li>
+                <li>Persistent 3-panel context model.</li>
+                <li>Direct manipulation via drag-and-drop.</li>
+                <li>Scrapbook as working memory.</li>
+                <li>Snowflake-grounded AI responses.</li>
+                <li>Built-in collaboration.</li>
+                <li>Bento dashboards for structured KPIs.</li>
+            </ol>
+
+            <hr>
+
+            <h2>Product Impact</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value">Days → Minutes</div>
+                    <div class="stat-label">Reporting Cycles</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">$10K+</div>
+                    <div class="stat-label">Monthly Cost Savings</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">30-50%</div>
+                    <div class="stat-label">Rework Reduction</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">40-70%</div>
+                    <div class="stat-label">Faster Discovery</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">25-40%</div>
+                    <div class="stat-label">Delivery Acceleration</div>
+                </div>
+            </div>
+
+            <hr>
+
+            <h2>Long Term AI Strategy</h2>
+            <ul>
+                <li>Add features incrementally</li>
+                <li>Add voice interaction capabilities</li>
+                <li>Add personal dashboard generation based on usage and data</li>
+                <li>Decide on infrastructure (in-house LLM seems like a cost-effective solution at least for the first version that addresses security)</li>
+                <li>Revenue models need to be developed</li>
+                <li>In about a year from now we should be ready to start a switch to LLM OS</li>
+            </ul>
+
+            <hr>
+
+            <h2>Reflection</h2>
+            <p>Designing AI for CFOs is about removing friction, not replacing expertise.</p>
+            <p>This hybrid interaction model now serves as a foundation for future AI-powered reporting across Fiserv.</p>
+
+            <div class="highlight-box">
+                <p><strong>Everybody benefits:</strong></p>
+                <ul>
+                    <li><strong>Research based on data:</strong> Real Data Analytics, Real Users, Real Data</li>
+                    <li><strong>Design based on research:</strong> Refinement and validation, Iterative design, Ability to pivot</li>
+                    <li><strong>Development based testing:</strong> Refinement and validation, Early problem identification, Ability to pivot</li>
+                    <li><strong>LLM Development:</strong> Beta users, Training Data, Costs and usage estimates</li>
+                    <li><strong>Product:</strong> Gradual exposure, Good alignment with business objective, Early validation of ideas</li>
+                    <li><strong>Other Teams can engage early and prepare:</strong> Marketing and Sales, Security, Legal, Branding, Infrastructure and Technology</li>
+                </ul>
+            </div>
         </div>
     </main>
 </body>
 </html>
-
