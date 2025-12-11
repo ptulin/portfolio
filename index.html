@@ -111,18 +111,25 @@
         /* Hero Section - Apple/Stripe Style */
         .hero {
             padding: 8rem 0 6rem;
-            text-align: center;
             background: #ffffff;
+            position: relative;
+            overflow: hidden;
         }
 
         .hero-content {
-            max-width: 900px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
         .hero-text {
-            margin-bottom: 4rem;
+            text-align: left;
         }
 
         .hero-heading {
@@ -136,12 +143,9 @@
         }
 
         .hero-description {
-            font-size: 1.375rem;
+            font-size: 1.125rem;
             color: #515154;
             margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
             line-height: 1.6;
             font-weight: 400;
         }
@@ -168,18 +172,20 @@
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
         }
 
-        .hero-graphic {
-            margin-top: 4rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .abstract-graphic {
-            width: 100%;
-            height: auto;
-            max-width: 600px;
-            opacity: 0.8;
+        .hero-background {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 70%;
+            height: 100%;
+            background-image: url('assets/images/ai-architecture.png');
+            background-size: cover;
+            background-position: center right;
+            background-repeat: no-repeat;
+            filter: blur(50px);
+            opacity: 0.5;
+            z-index: 1;
+            transform: scale(1.2);
         }
 
         /* Portfolio Grid - Bento Style */
@@ -593,12 +599,22 @@
                 padding: 5rem 0 4rem;
             }
 
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-background {
+                width: 100%;
+                opacity: 0.3;
+            }
+
             .hero-heading {
-                font-size: 3rem;
+                font-size: 2rem;
             }
 
             .hero-description {
-                font-size: 1.125rem;
+                font-size: 1rem;
             }
 
             .portfolio {
@@ -670,6 +686,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <div class="hero-background"></div>
         <div class="hero-content">
             <div class="hero-text">
                 <h1 class="hero-heading">AI-Driven Product Designer,<br>UX Leader & Research Strategist</h1>
@@ -681,32 +698,6 @@
                     </svg>
                     Download Resume
                 </button>
-            </div>
-            <div class="hero-graphic">
-                <svg viewBox="0 0 500 400" class="abstract-graphic" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="40" y="30" width="50" height="50" stroke="#1d1d1f" fill="none" stroke-width="1.5" rx="4"/>
-                    <rect x="50" y="100" width="35" height="35" stroke="#1d1d1f" fill="none" stroke-width="1.5" rx="4"/>
-                    <rect x="60" y="160" width="50" height="50" stroke="#1d1d1f" fill="none" stroke-width="1.5" rx="4"/>
-                    <circle cx="85" cy="185" r="3" fill="#1d1d1f"/>
-                    <rect x="120" y="50" width="120" height="40" stroke="#1d1d1f" fill="none" stroke-width="1.5" rx="4"/>
-                    <rect x="250" y="40" width="25" height="25" stroke="#1d1d1f" fill="none" stroke-width="1.5" rx="4"/>
-                    <rect x="280" y="100" width="50" height="50" stroke="#1d1d1f" fill="none" stroke-width="1.5" rx="4"/>
-                    <rect x="180" y="180" width="40" height="100" stroke="#1d1d1f" fill="none" stroke-width="1.5" rx="4"/>
-                    <rect x="140" y="300" width="30" height="30" stroke="#1d1d1f" fill="none" stroke-width="1.5" rx="4"/>
-                    <rect x="320" y="280" width="80" height="80" stroke="#1d1d1f" fill="none" stroke-width="1.5" rx="4"/>
-                    <line x1="90" y1="55" x2="120" y2="70" stroke="#1d1d1f" stroke-width="1.5"/>
-                    <line x1="180" y1="90" x2="200" y2="180" stroke="#1d1d1f" stroke-width="1.5"/>
-                    <line x1="240" y1="70" x2="250" y2="52" stroke="#1d1d1f" stroke-width="1.5"/>
-                    <line x1="275" y1="65" x2="280" y2="100" stroke="#1d1d1f" stroke-width="1.5"/>
-                    <line x1="305" y1="150" x2="360" y2="280" stroke="#1d1d1f" stroke-width="1.5"/>
-                    <line x1="180" y1="90" x2="200" y2="180" stroke="#1d1d1f" stroke-width="1.5"/>
-                    <circle cx="190" cy="135" r="3" fill="#1d1d1f"/>
-                    <line x1="110" y1="185" x2="140" y2="315" stroke="#1d1d1f" stroke-width="1.5"/>
-                    <circle cx="100" cy="60" r="3" fill="#1d1d1f"/>
-                    <circle cx="240" cy="220" r="3" fill="#1d1d1f"/>
-                    <line x1="155" y1="330" x2="155" y2="350" stroke="#1d1d1f" stroke-width="1.5"/>
-                    <circle cx="155" cy="350" r="3" fill="#1d1d1f"/>
-                </svg>
             </div>
         </div>
     </section>
