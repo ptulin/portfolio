@@ -5,203 +5,276 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fiserv Data Compass — AI-Powered Financial Analytics - Pawel Tulin</title>
     <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .case-study {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #1a1a1a;
+            background: #ffffff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .case-study {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
         .case-study-header {
-            margin-bottom: 2rem;
+            padding: 6rem 0 4rem;
+            border-bottom: 1px solid #e8e8e8;
+            margin-bottom: 4rem;
         }
 
         .case-study-header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
             margin-bottom: 1rem;
-            color: var(--text-dark);
+            color: #000;
         }
 
-        .case-study-subtitle {
-            font-size: 1.25rem;
-            color: var(--text-light);
+        .case-study-tagline {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #666;
             margin-bottom: 1.5rem;
-            line-height: 1.5;
+            line-height: 1.4;
+        }
+
+        .case-study-description {
+            font-size: 1.125rem;
+            color: #4a4a4a;
+            line-height: 1.7;
+            max-width: 700px;
         }
 
         .case-study-meta {
-            display: none; /* Hidden for internal use - will be used for filtering later */
+            display: none;
         }
 
-        .meta-item {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .meta-label {
-            font-size: 0.875rem;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.25rem;
-        }
-
-        .meta-value {
-            font-size: 1rem;
-            color: var(--text-dark);
-            font-weight: 500;
-        }
-
+        /* Content */
         .case-study-content {
-            line-height: 1.5;
             font-size: 1.0625rem;
-            color: var(--text-dark);
+            line-height: 1.75;
+            color: #2a2a2a;
         }
 
         .case-study-content h2 {
-            font-family: 'Playfair Display', serif;
             font-size: 2rem;
             font-weight: 700;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-            line-height: 1.3;
+            letter-spacing: -0.01em;
+            margin: 4rem 0 1.5rem;
+            color: #000;
+            line-height: 1.2;
+        }
+
+        .case-study-content h2:first-of-type {
+            margin-top: 0;
         }
 
         .case-study-content h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 600;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-dark);
+            margin: 2.5rem 0 1rem;
+            color: #000;
             line-height: 1.3;
         }
 
         .case-study-content p {
-            margin-bottom: 1rem;
-            line-height: 1.5;
+            margin-bottom: 1.25rem;
+            line-height: 1.75;
         }
 
         .case-study-content ul,
         .case-study-content ol {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            padding-left: 1.75rem;
         }
 
         .case-study-content li {
-            margin-bottom: 0.5rem;
-            line-height: 1.5;
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
         }
 
         .case-study-content strong {
             font-weight: 600;
-            color: var(--text-dark);
+            color: #000;
         }
 
+        .case-study-content em {
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: #f8f8f8;
+            border-left: 3px solid #000;
+            padding: 2rem;
+            margin: 2.5rem 0;
+            border-radius: 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+
+        .highlight-box ul {
+            margin-top: 1rem;
+            margin-bottom: 0;
+        }
+
+        .highlight-box li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Images */
         .case-study-image {
+            margin: 3rem 0;
             width: 100%;
-            margin: 1.5rem 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .case-study-image img {
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 8px;
+            border: 1px solid #e8e8e8;
         }
 
         .case-study-image-caption {
             font-size: 0.875rem;
-            color: var(--text-light);
-            text-align: center;
-            margin-top: 0.5rem;
-            font-style: italic;
-        }
-
-        .highlight-box {
-            background: var(--accent-gray);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 4px solid var(--text-dark);
-        }
-        
-        .highlight-box ul {
+            color: #888;
             margin-top: 0.75rem;
-        }
-        
-        .highlight-box li {
-            margin-bottom: 0.5rem;
+            text-align: left;
+            font-style: normal;
         }
 
-        .highlight-box p {
-            margin-bottom: 0;
+        /* Two Column Layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 2rem 0;
         }
 
+        .two-column p {
+            margin-bottom: 1rem;
+        }
+
+        /* Stats Grid */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin: 1.5rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.5rem;
+            margin: 2.5rem 0;
         }
 
         .stat-item {
-            background: var(--accent-gray);
-            padding: 1.25rem;
-            border-radius: 8px;
-            text-align: center;
+            padding: 1.5rem;
+            border: 1px solid #e8e8e8;
+            border-radius: 0;
+            text-align: left;
+            background: #fff;
         }
 
         .stat-value {
-            font-size: 2rem;
+            font-size: 1.75rem;
             font-weight: 700;
-            color: var(--text-dark);
+            color: #000;
             margin-bottom: 0.5rem;
+            line-height: 1.2;
         }
 
         .stat-label {
             font-size: 0.875rem;
-            color: var(--text-light);
+            color: #666;
+            font-weight: 400;
+            text-transform: none;
+            letter-spacing: 0;
         }
 
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-        
-        .two-column p {
-            margin-bottom: 0.75rem;
+        /* Dividers */
+        hr {
+            border: none;
+            border-top: 1px solid #e8e8e8;
+            margin: 4rem 0;
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
+            .case-study {
+                padding: 0 1.5rem;
+            }
+
+            .case-study-header {
+                padding: 4rem 0 3rem;
+                margin-bottom: 3rem;
+            }
+
             .case-study-header h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
+            }
+
+            .case-study-tagline {
+                font-size: 1.25rem;
+            }
+
+            .case-study-description {
+                font-size: 1rem;
             }
 
             .case-study-content h2 {
-                font-size: 1.5rem;
+                font-size: 1.75rem;
+                margin: 3rem 0 1.25rem;
+            }
+
+            .case-study-content h3 {
+                font-size: 1.125rem;
+                margin: 2rem 0 0.75rem;
             }
 
             .two-column {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             .stats-grid {
                 grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .case-study-image {
+                margin: 2rem 0;
+            }
+
+            hr {
+                margin: 3rem 0;
             }
         }
 
-        hr {
-            border: none;
-            border-top: 1px solid var(--border-light);
-            margin: 2rem 0;
+        @media (max-width: 480px) {
+            .case-study-header h1 {
+                font-size: 2rem;
+            }
+
+            .case-study-tagline {
+                font-size: 1.125rem;
+            }
         }
     </style>
 </head>
@@ -215,8 +288,8 @@
     <main class="case-study" data-area="ux-research,ux-design,product-design" data-industry="fintech" data-deliverable="dashboard,ai-workflow,research-study,prototype" data-year="2024">
         <div class="case-study-header">
             <h1>Fiserv Data Compass</h1>
-            <p class="case-study-subtitle">AI-Powered Financial Analytics Platform</p>
-            <p class="case-study-subtitle">Transforming multi-day regulatory reporting into a real-time, conversational analytics workspace for small and mid-size financial institutions.</p>
+            <p class="case-study-tagline">AI-Powered Financial Analytics Platform</p>
+            <p class="case-study-description">Transforming multi-day regulatory reporting into a real-time, conversational analytics workspace for small and mid-size financial institutions.</p>
             
             <div class="case-study-meta">
                 <div class="meta-item">
