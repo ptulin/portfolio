@@ -422,8 +422,21 @@
                 font-size: 2.5rem;
             }
 
-            .case-hero-metrics {
-                grid-template-columns: 1fr;
+            .metrics-table {
+                display: block;
+            }
+
+            .metrics-table tr {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .metrics-table td {
+                padding: 1rem;
+            }
+
+            .metrics-table .metric-value {
+                font-size: 1.5rem;
             }
 
             .case-section {
