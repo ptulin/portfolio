@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fiserv — CFO AI Office (LLM-Powered Reporting Platform) - Pawel Tulin</title>
+    <title>Fiserv Data Compass — AI-Powered Financial Analytics - Pawel Tulin</title>
     <link rel="stylesheet" href="../styles.css">
     <style>
         .case-study {
@@ -13,7 +13,7 @@
         }
 
         .case-study-header {
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
         .case-study-header h1 {
@@ -27,17 +27,12 @@
         .case-study-subtitle {
             font-size: 1.25rem;
             color: var(--text-light);
-            margin-bottom: 2rem;
-            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
         }
 
         .case-study-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--border-light);
+            display: none; /* Hidden for internal use - will be used for filtering later */
         }
 
         .meta-item {
@@ -60,7 +55,7 @@
         }
 
         .case-study-content {
-            line-height: 1.8;
+            line-height: 1.5;
             font-size: 1.0625rem;
             color: var(--text-dark);
         }
@@ -69,32 +64,36 @@
             font-family: 'Playfair Display', serif;
             font-size: 2rem;
             font-weight: 700;
-            margin-top: 3rem;
-            margin-bottom: 1.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
             color: var(--text-dark);
+            line-height: 1.3;
         }
 
         .case-study-content h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
             font-weight: 600;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
             color: var(--text-dark);
+            line-height: 1.3;
         }
 
         .case-study-content p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
         }
 
         .case-study-content ul,
         .case-study-content ol {
-            margin-bottom: 1.5rem;
-            padding-left: 2rem;
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
         }
 
         .case-study-content li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
         }
 
         .case-study-content strong {
@@ -104,7 +103,7 @@
 
         .case-study-image {
             width: 100%;
-            margin: 2rem 0;
+            margin: 1.5rem 0;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
@@ -126,10 +125,18 @@
 
         .highlight-box {
             background: var(--accent-gray);
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 8px;
-            margin: 2rem 0;
+            margin: 1.5rem 0;
             border-left: 4px solid var(--text-dark);
+        }
+        
+        .highlight-box ul {
+            margin-top: 0.75rem;
+        }
+        
+        .highlight-box li {
+            margin-bottom: 0.5rem;
         }
 
         .highlight-box p {
@@ -139,13 +146,13 @@
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
+            gap: 1rem;
+            margin: 1.5rem 0;
         }
 
         .stat-item {
             background: var(--accent-gray);
-            padding: 1.5rem;
+            padding: 1.25rem;
             border-radius: 8px;
             text-align: center;
         }
@@ -165,8 +172,12 @@
         .two-column {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin: 2rem 0;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .two-column p {
+            margin-bottom: 0.75rem;
         }
 
         @media (max-width: 768px) {
@@ -189,8 +200,8 @@
 
         hr {
             border: none;
-            border-top: 2px solid var(--border-light);
-            margin: 3rem 0;
+            border-top: 1px solid var(--border-light);
+            margin: 2rem 0;
         }
     </style>
 </head>
@@ -201,10 +212,10 @@
         </div>
     </header>
 
-    <main class="case-study">
+    <main class="case-study" data-area="ux-research,ux-design,product-design" data-industry="fintech" data-deliverable="dashboard,ai-workflow,research-study,prototype" data-year="2024">
         <div class="case-study-header">
-            <h1>Fiserv — CFO AI Office</h1>
-            <p class="case-study-subtitle">LLM-Powered Reporting Platform</p>
+            <h1>Fiserv Data Compass</h1>
+            <p class="case-study-subtitle">AI-Powered Financial Analytics Platform</p>
             <p class="case-study-subtitle">Transforming multi-day regulatory reporting into a real-time, conversational analytics workspace for small and mid-size financial institutions.</p>
             
             <div class="case-study-meta">
