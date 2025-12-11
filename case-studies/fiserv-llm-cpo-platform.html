@@ -19,1411 +19,546 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             color: #1d1d1f;
             background: #ffffff;
-            font-size: 1rem;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Hide header */
+        /* Header - Premium */
         .header {
-            display: none;
-        }
-
-        /* Hero Section - Two Column Layout */
-        .case-hero {
-            background: #1a1a1c;
-            padding: 6rem 0 0;
-            position: relative;
-        }
-
-        .case-hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 45% 55%;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .case-hero-left {
             padding: 2rem 0;
+            border-bottom: 1px solid #e5e5e7;
+            background: #ffffff;
         }
 
-        .case-hero-eyebrow {
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: #86868b;
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
-
-        .case-hero-text h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
-            font-weight: 700;
-            line-height: 1.05;
-            margin-bottom: 1.5rem;
-            color: #ffffff;
-            letter-spacing: -0.02em;
-        }
-
-        .case-hero-text .tagline {
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: #a1a1a6;
-            margin-bottom: 2rem;
-            letter-spacing: -0.01em;
-            line-height: 1.5;
-        }
-
-        .case-hero-text .description {
-            font-size: 1rem;
-            color: #86868b;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            font-weight: 400;
-        }
-
-        .case-hero-meta-row {
+        .header-content {
             display: flex;
-            gap: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .case-hero-meta-item {
-            flex: 1;
-        }
-
-        .case-hero-meta-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #86868b;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .case-hero-meta-value {
-            font-size: 0.9375rem;
-            color: #ffffff;
-            font-weight: 400;
-            line-height: 1.5;
-        }
-
-        .case-hero-visual {
-            position: relative;
-            padding: 2rem 0;
-        }
-
-        .case-hero-visual img {
-            width: 100%;
-            height: auto;
-            border-radius: 16px;
-            display: block;
-        }
-
-        /* KPI Bento Grid Section */
-        .kpi-section {
-            background: #1a1a1c;
-            padding: 0 0 4rem;
-            margin-top: -4rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .kpi-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .kpi-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 1.5rem;
-            margin-top: 4rem;
-        }
-
-        .kpi-tile {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 1.5rem;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-
-        .kpi-tile:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
-
-        .kpi-tile-a {
-            grid-column: 1 / 8;
-            grid-row: 1;
-        }
-
-        .kpi-tile-b {
-            grid-column: 8 / 13;
-            grid-row: 1;
-        }
-
-        .kpi-tile-c {
-            grid-column: 1 / 5;
-            grid-row: 2;
-        }
-
-        .kpi-tile-d {
-            grid-column: 5 / 9;
-            grid-row: 2;
-        }
-
-        .kpi-tile-e {
-            grid-column: 9 / 13;
-            grid-row: 2;
-        }
-
-        .kpi-visual {
-            width: 100%;
-            flex-shrink: 0;
-            margin-bottom: 1rem;
-            overflow: hidden;
-            border-radius: 12px;
-            position: relative;
-            background: rgba(255, 255, 255, 0.02);
-            display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-        }
-
-        .kpi-tile-a .kpi-visual,
-        .kpi-tile-c .kpi-visual,
-        .kpi-tile-d .kpi-visual,
-        .kpi-tile-e .kpi-visual {
-            height: 100px;
-        }
-
-        .kpi-tile-b .kpi-visual {
-            height: 120px;
-        }
-
-        .kpi-visual img {
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            display: block;
-        }
-
-        .kpi-tile-content {
-            color: #ffffff;
-            flex: 1 1 auto;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        .kpi-tile-value {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 0.5rem;
-            line-height: 1.2;
-        }
-
-        .kpi-tile-label {
-            font-size: 0.875rem;
-            color: #a1a1a6;
-            font-weight: 400;
-            line-height: 1.5;
-        }
-
-        .kpi-tile-description {
-            font-size: 0.8125rem;
-            color: #86868b;
-            line-height: 1.5;
-            margin-top: 0.5rem;
-        }
-
-        /* Main Container */
-        .case-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        /* Sections */
-        .case-section {
-            padding: 4rem 0;
-        }
-
-        .section-header {
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.75rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: #1d1d1f;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-        }
-
-        .section-subtitle {
-            font-size: 1.125rem;
-            font-weight: 400;
-            color: #86868b;
-            line-height: 1.5;
-        }
-
-        /* Two Column Content */
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin: 2rem 0;
-        }
-
-        .content-text {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #515154;
-            font-weight: 400;
-        }
-
-        .content-text p {
-            margin-bottom: 1.25rem;
-        }
-
-        .content-text strong {
+        .logo {
+            font-size: 1.25rem;
             font-weight: 600;
             color: #1d1d1f;
         }
 
-        /* Key Insight - Premium Card */
-        .key-insight {
-            background: #f5f5f7;
-            padding: 2.5rem;
-            margin: 3rem 0;
-            border-radius: 16px;
-            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
+        .logo a {
+            text-decoration: none;
+            color: inherit;
         }
 
-        .key-insight p {
-            font-size: 1.125rem;
-            line-height: 1.6;
-            font-weight: 500;
-            margin: 0;
+        .menu-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 0.5rem;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: #1d1d1f;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Filters - Premium */
+        .filters {
+            display: flex;
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            background: #f5f5f7;
+            border-top: 1px solid #e5e5e7;
+        }
+
+        .filter-dropdown {
+            padding: 0.875rem 1.25rem;
+            background: #ffffff;
+            border: 1px solid #e5e5e7;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .filter-dropdown:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Content Area */
+        .case-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .case-header {
+            margin-bottom: 4rem;
+        }
+
+        .case-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: #1d1d1f;
+            letter-spacing: -0.02em;
+        }
+
+        .case-meta {
+            font-size: 1rem;
+            color: #86868b;
+            font-weight: 400;
+            margin-bottom: 3rem;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        .case-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .section-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #86868b;
+            font-weight: 600;
+            position: sticky;
+            top: 2rem;
+        }
+
+        .section-content {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #515154;
+        }
+
+        .section-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
             color: #1d1d1f;
             letter-spacing: -0.01em;
         }
 
-        /* Role Cards - Premium */
-        .role-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin: 2rem 0;
+        .section-content p {
+            margin-bottom: 1.5rem;
         }
 
-        .role-card {
-            background: #ffffff;
-            border: 1px solid #e5e5e7;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .role-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-        }
-
-        .role-card-title {
-            font-size: 1.125rem;
-            font-weight: 700;
-            margin-bottom: 1.25rem;
-            color: #1d1d1f;
-        }
-
-        .role-card-list {
+        .section-content ul {
             list-style: none;
             padding: 0;
+            margin: 1.5rem 0;
         }
 
-        .role-card-list li {
-            font-size: 0.9375rem;
-            line-height: 1.6;
-            color: #515154;
-            margin-bottom: 0.75rem;
-            padding-left: 1.25rem;
+        .section-content li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
             position: relative;
         }
 
-        .role-card-list li:before {
+        .section-content li:before {
             content: "—";
             position: absolute;
             left: 0;
             color: #86868b;
         }
 
-        /* Insights List - Premium */
-        .insights-list {
-            list-style: none;
-            padding: 0;
-            margin: 2rem 0;
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .insights-item {
-            background: #ffffff;
-            border: 1px solid #e5e5e7;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
-        }
-
-        .insights-item strong {
-            display: block;
-            font-size: 1.125rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
+        .section-content strong {
+            font-weight: 600;
             color: #1d1d1f;
         }
 
-        .insights-item p {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #515154;
-            margin: 0;
+        /* Footer - Premium */
+        .footer {
+            padding: 6rem 2rem 4rem;
+            border-top: 1px solid #e5e5e7;
+            margin-top: 6rem;
+            background: #f5f5f7;
         }
 
-        /* Images */
-        .image-full {
-            margin: 3rem 0;
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
             max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
         }
 
-        .image-full img,
-        .svg-illustration {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        .footer-nav {
+            display: flex;
+            gap: 2.5rem;
+            margin-bottom: 2rem;
         }
 
-        .image-caption {
-            font-size: 0.875rem;
+        .footer-nav a {
+            color: #1d1d1f;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .footer-nav a:hover {
             color: #86868b;
-            margin-top: 0.75rem;
-            text-align: center;
-            line-height: 1.5;
         }
 
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin: 3rem 0;
-        }
-
-        .image-item img,
-        .image-item .svg-illustration {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-        }
-
-        /* Lists */
-        .content-text ul,
-        .content-text ol {
-            margin: 1.25rem 0;
-            padding-left: 1.5rem;
-        }
-
-        .content-text li {
-            margin-bottom: 0.5rem;
-            line-height: 1.6;
-        }
-
-        /* Design Decisions - Premium Cards */
-        .decisions-list {
-            list-style: none;
-            padding: 0;
-            margin: 2rem 0;
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .decision-item {
-            background: #ffffff;
-            border: 1px solid #e5e5e7;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
-        }
-
-        .decision-item strong {
-            display: block;
-            font-size: 1.125rem;
-            font-weight: 700;
+        .footer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #86868b;
             margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .footer-email {
+            font-size: 1.125rem;
+            font-weight: 500;
             color: #1d1d1f;
         }
 
-        .decision-item p {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #515154;
-            margin: 0;
+        .footer-right {
+            display: flex;
+            gap: 1rem;
         }
 
-        /* Strategy Grid - Bento Style */
-        .strategy-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .strategy-card {
-            background: #ffffff;
+        .social-icon {
+            width: 44px;
+            height: 44px;
             border: 1px solid #e5e5e7;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
-        }
-
-        .strategy-card strong {
-            display: block;
-            font-size: 1.125rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
             color: #1d1d1f;
-        }
-
-        .strategy-card p {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #515154;
-            margin: 0;
-        }
-
-        /* Architecture Cards */
-        .architecture-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin: 3rem 0;
-        }
-
-        .architecture-card {
+            font-size: 1.125rem;
+            transition: all 0.2s ease;
             background: #ffffff;
-            border: 1px solid #e5e5e7;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
-            text-align: center;
         }
 
-        .architecture-card-number {
-            font-size: 2.25rem;
-            font-weight: 700;
-            color: #86868b;
-            margin-bottom: 0.75rem;
+        .social-icon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        .architecture-card-title {
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 320px;
+            height: 100vh;
+            background: #ffffff;
+            box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 5rem 2.5rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .mobile-nav-link {
+            font-family: 'Inter', sans-serif;
             font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 1.25rem;
+            font-weight: 500;
             color: #1d1d1f;
+            text-decoration: none;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e5e5e7;
+            transition: color 0.2s ease;
         }
 
-        .architecture-card-list {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-        }
-
-        .architecture-card-list li {
-            font-size: 0.9375rem;
-            line-height: 1.6;
-            color: #515154;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Dark Impact Section */
-        .impact-section {
-            background: #1d1d1f;
-            color: #f5f5f7;
-            padding: 4rem 0;
-            margin: 4rem 0;
-            border-radius: 24px;
-        }
-
-        .impact-section .section-title {
-            color: #f5f5f7;
-        }
-
-        .impact-section .section-subtitle {
-            color: #a1a1a6;
-        }
-
-        .impact-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin: 3rem 0;
-        }
-
-        .impact-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 1.75rem;
-            text-align: center;
-        }
-
-        .impact-value {
-            font-size: 2.25rem;
-            font-weight: 700;
-            color: #f5f5f7;
-            margin-bottom: 0.5rem;
-            line-height: 1.2;
-        }
-
-        .impact-label {
-            font-size: 0.875rem;
-            color: #a1a1a6;
-            font-weight: 400;
-        }
-
-        /* Benefits Grid */
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .benefit-card {
-            background: #ffffff;
-            border: 1px solid #e5e5e7;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
-        }
-
-        .benefit-card-title {
-            font-size: 1.125rem;
-            font-weight: 700;
-            margin-bottom: 1.25rem;
-            color: #1d1d1f;
-        }
-
-        .benefit-card-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .benefit-card-list li {
-            font-size: 0.9375rem;
-            line-height: 1.6;
-            color: #515154;
-            margin-bottom: 0.5rem;
-            padding-left: 1.25rem;
-            position: relative;
-        }
-
-        .benefit-card-list li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
+        .mobile-nav-link:hover:not(.current) {
             color: #86868b;
         }
 
-        /* SVG Illustrations */
-        .svg-illustration {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 16px;
-            background: #ffffff;
+        .mobile-nav-link.current {
+            color: #86868b;
+            cursor: default;
+            pointer-events: none;
         }
 
-        .svg-illustration svg {
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: auto;
-            display: block;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
         }
 
         /* Responsive */
-        @media (max-width: 1024px) {
-            .metrics-grid,
-            .impact-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .role-grid,
-            .benefits-grid,
-            .architecture-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .strategy-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 1024px) {
-            .case-hero-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .kpi-grid {
-                grid-template-columns: repeat(6, 1fr);
-                grid-template-rows: repeat(4, auto);
-            }
-
-            .kpi-tile-a {
-                grid-column: 1 / 7;
-                grid-row: 1;
-            }
-
-            .kpi-tile-b {
-                grid-column: 1 / 7;
-                grid-row: 2;
-            }
-
-            .kpi-tile-c {
-                grid-column: 1 / 4;
-                grid-row: 3;
-            }
-
-            .kpi-tile-d {
-                grid-column: 4 / 7;
-                grid-row: 3;
-            }
-
-            .kpi-tile-e {
-                grid-column: 1 / 7;
-                grid-row: 4;
-            }
-
-            .kpi-tile-a .kpi-visual,
-            .kpi-tile-c .kpi-visual,
-            .kpi-tile-d .kpi-visual,
-            .kpi-tile-e .kpi-visual {
-                height: 80px;
-                max-height: 80px;
-            }
-
-            .kpi-tile-b .kpi-visual {
-                height: 120px;
-                max-height: 120px;
-            }
-        }
-
         @media (max-width: 768px) {
-            .case-hero {
-                padding: 4rem 0 0;
+            .case-content {
+                padding: 3rem 1.5rem;
             }
 
-            .case-hero-content,
-            .case-container,
-            .kpi-container {
-                padding: 0 1.5rem;
-            }
-
-            .case-hero-text h1 {
-                font-size: 3rem;
-            }
-
-            .case-hero-text .tagline {
-                font-size: 1.25rem;
-            }
-
-            .case-hero-text .description {
-                font-size: 1rem;
-            }
-
-            .case-hero-meta-row {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .kpi-grid {
-                grid-template-columns: 1fr;
-                grid-template-rows: repeat(5, auto);
-                gap: 1.5rem;
-            }
-
-            .kpi-tile-a,
-            .kpi-tile-b,
-            .kpi-tile-c,
-            .kpi-tile-d,
-            .kpi-tile-e {
-                grid-column: 1;
-            }
-
-            .kpi-tile-a { grid-row: 1; }
-            .kpi-tile-b { grid-row: 2; }
-            .kpi-tile-c { grid-row: 3; }
-            .kpi-tile-d { grid-row: 4; }
-            .kpi-tile-e { grid-row: 5; }
-
-            .kpi-tile-a .kpi-visual,
-            .kpi-tile-c .kpi-visual,
-            .kpi-tile-d .kpi-visual,
-            .kpi-tile-e .kpi-visual {
-                height: 70px;
-                max-height: 70px;
-            }
-
-            .kpi-tile-b .kpi-visual {
-                height: 100px;
-                max-height: 100px;
-            }
-
-            .kpi-tile-value {
-                font-size: 1.5rem;
-            }
-
-            .kpi-section {
-                margin-top: -2rem;
-                padding-bottom: 4rem;
+            .case-title {
+                font-size: 2.5rem;
             }
 
             .case-section {
-                padding: 3rem 0;
-            }
-
-            .section-title {
-                font-size: 2.25rem;
-            }
-
-            .section-subtitle {
-                font-size: 1rem;
-            }
-
-            .content-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
 
-            .metrics-grid,
-            .impact-grid {
-                grid-template-columns: 1fr;
+            .section-label {
+                position: static;
             }
 
-            .image-grid {
-                grid-template-columns: 1fr;
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
             }
 
-            .key-insight {
-                padding: 2rem;
+            .footer-nav {
+                flex-direction: column;
+                gap: 1rem;
             }
 
-            .key-insight p {
-                font-size: 1.25rem;
+            .filters {
+                flex-wrap: wrap;
+                padding: 1rem 1.5rem;
             }
-        }
-
-        .case-study-meta {
-            display: none;
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header class="header">
         <div class="header-content">
             <div class="logo"><a href="../index.html">Pawel Tulin</a></div>
+            <button class="menu-toggle" aria-label="Menu" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="filters">
+            <select class="filter-dropdown" id="areaFilter" data-filter="area">
+                <option value="all">Area: All</option>
+                <option value="product-design">Product Design</option>
+                <option value="ux-design">UX Design</option>
+                <option value="ux-research">UX Research</option>
+                <option value="ai-llm-design">AI/LLM Design</option>
+            </select>
+            <select class="filter-dropdown" id="industryFilter" data-filter="industry">
+                <option value="all">Industry: All</option>
+                <option value="fintech">Fintech / Financial Services</option>
+                <option value="saas">SaaS / Enterprise</option>
+                <option value="nonprofit">Nonprofit / NGO / UN</option>
+                <option value="ecommerce">E-commerce</option>
+                <option value="ai-data">AI / Data Platforms</option>
+                <option value="education">Education / EdTech</option>
+            </select>
+            <select class="filter-dropdown" id="deliverableFilter" data-filter="deliverable">
+                <option value="all">Deliverable: All</option>
+                <option value="case-study">Case Study</option>
+                <option value="design-system">Design System</option>
+                <option value="dashboard">Dashboard / Data Visualization</option>
+                <option value="ai-workflow">AI Workflow / LLM System</option>
+                <option value="service-blueprint">Service Blueprint</option>
+                <option value="research-study">Research Study</option>
+                <option value="prototype">Prototype</option>
+                <option value="strategy">Strategy / Roadmap</option>
+            </select>
         </div>
     </header>
 
-    <!-- Hero Section - Apple/Stripe Style -->
-    <section class="case-hero" data-area="ux-research,ux-design,product-design" data-industry="fintech" data-deliverable="dashboard,ai-workflow,research-study,prototype" data-year="2024">
-        <div class="case-hero-content">
-            <div class="case-hero-left">
-                <div class="case-hero-eyebrow">Fiserv</div>
-                <div class="case-hero-text">
-                    <h1>Data Compass</h1>
-                    <p class="tagline">AI-Powered Financial Analytics Platform</p>
-                    <p class="description">Transforming multi-day regulatory reporting into a real-time, conversational analytics workspace for small and mid-size financial institutions.</p>
-                </div>
-                <div class="case-hero-meta-row">
-                    <div class="case-hero-meta-item">
-                        <div class="case-hero-meta-label">Area</div>
-                        <div class="case-hero-meta-value">UX Research, UX Design, Product Design</div>
-                    </div>
-                    <div class="case-hero-meta-item">
-                        <div class="case-hero-meta-label">Industry</div>
-                        <div class="case-hero-meta-value">Fintech / Financial Services</div>
-                    </div>
+    <!-- Content Area -->
+    <main class="case-content">
+        <div class="case-header">
+            <h1 class="case-title">Fiserv — AI-Driven Data Compass Platform</h1>
+            <p class="case-meta">Product Design · UX Design · UX Research</p>
+        </div>
+
+        <div class="case-grid">
+            <!-- Overview Section -->
+            <div class="case-section">
+                <div class="section-label">Overview</div>
+                <div class="section-content">
+                    <p>Fiserv operates at massive scale, serving financial institutions with complex regulatory, operational, and performance reporting needs. Executive teams and product leaders were overwhelmed by fragmented dashboards, slow reporting cycles, and limited ability to explore data conversationally.</p>
+                    <p>I led product, UX design, and research for an AI-powered analytics workspace designed to consolidate signals from multiple Fiserv data sources into a single, executive-ready decision environment.</p>
+                    <p>The goal was not "another dashboard," but a decision system: fast, trustworthy, and explainable.</p>
                 </div>
             </div>
-            <div class="case-hero-visual">
-                <img src="../assets/case-studies/fiserv/fiserv-hero-data-halo.svg" alt="Data Halo visualization">
+
+            <!-- Product Design Section -->
+            <div class="case-section">
+                <div class="section-label">Product Design</div>
+                <div class="section-content">
+                    <h3>Problem</h3>
+                    <p>C-level executives and product leaders faced:</p>
+                    <ul>
+                        <li>Multi-day reporting cycles</li>
+                        <li>Disconnected tools across finance, risk, and operations</li>
+                        <li>Heavy dependence on analysts for basic questions</li>
+                        <li>Low confidence in data consistency across systems</li>
+                    </ul>
+                    <p>Existing tools were optimized for analysts, not decision-makers.</p>
+
+                    <h3>Product Strategy</h3>
+                    <p>We reframed the product from reporting to data navigation.</p>
+                    <p><strong>Core principles:</strong></p>
+                    <ul>
+                        <li>Time-to-signal over data completeness</li>
+                        <li>Progressive disclosure instead of dense dashboards</li>
+                        <li>AI as an accelerator, not a black box</li>
+                        <li>Trust and explainability as first-class requirements</li>
+                    </ul>
+                    <p>This led to the concept of a Data Compass: a workspace that surfaces high-signal KPIs by default while allowing conversational drill-down across sources when needed.</p>
+
+                    <h3>Key Product Decisions</h3>
+                    <ul>
+                        <li>KPI-first executive home state</li>
+                        <li>Conversational analytics layered on structured data</li>
+                        <li>Proactive alerts for anomalies and risk signals</li>
+                        <li>Clear separation between executive and analyst depth</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- UX Design Section -->
+            <div class="case-section">
+                <div class="section-label">UX Design</div>
+                <div class="section-content">
+                    <h3>Design Challenge</h3>
+                    <p>Designing for executives meant optimizing for speed, clarity, and confidence — not exploration for its own sake.</p>
+
+                    <h3>UX Approach</h3>
+                    <p>We designed a single-page, modular workspace balancing overview and depth:</p>
+                    <ul>
+                        <li>Primary KPI tiles for immediate situational awareness</li>
+                        <li>Visual signal consolidation across disparate sources</li>
+                        <li>Conversational entry points for natural-language questions</li>
+                        <li>Contextual explanations to make AI outputs inspectable</li>
+                    </ul>
+                    <p>The interface deliberately avoided dense tables, over-customization, and exposed system complexity.</p>
+
+                    <h3>Outcomes Observed</h3>
+                    <ul>
+                        <li>Executives answered common questions without analyst support</li>
+                        <li>Reporting cycles shortened from days to minutes</li>
+                        <li>Increased confidence due to consistent, cross-team signals</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- UX Research Section -->
+            <div class="case-section">
+                <div class="section-label">UX Research</div>
+                <div class="section-content">
+                    <h3>Research Constraints</h3>
+                    <ul>
+                        <li>Highly regulated domain</li>
+                        <li>Limited direct access to end users</li>
+                        <li>Senior stakeholders with minimal time</li>
+                    </ul>
+
+                    <h3>Research Methods</h3>
+                    <ul>
+                        <li>Interviews with CFOs, CPOs, and business-line leaders</li>
+                        <li>Workflow mapping of reporting and decision processes</li>
+                        <li>Rapid concept validation with internal proxy users</li>
+                        <li>Iterative design reviews with subject-matter experts</li>
+                    </ul>
+
+                    <h3>Key Insights</h3>
+                    <ul>
+                        <li>Executives value direction and risk over precision</li>
+                        <li>Trust breaks when AI</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </section>
-
-    <!-- KPI Bento Grid Section -->
-    <section class="kpi-section">
-        <div class="kpi-container">
-            <div class="kpi-grid">
-                <!-- Tile A: Speed (cols 1-7, row 1) -->
-                <div class="kpi-tile kpi-tile-a">
-                    <div class="kpi-visual">
-                        <img src="../assets/case-studies/fiserv/kpi-tile-speed.svg" alt="Speed metric">
-                    </div>
-                    <div class="kpi-tile-content">
-                        <div class="kpi-tile-value">Days → Min</div>
-                        <div class="kpi-tile-label">Reporting cycles</div>
-                    </div>
-                </div>
-
-                <!-- Tile B: Transformation (cols 8-12, row 1) -->
-                <div class="kpi-tile kpi-tile-b">
-                    <div class="kpi-visual">
-                        <img src="../assets/case-studies/fiserv/kpi-tile-transformation.svg" alt="Transformation metric">
-                    </div>
-                    <div class="kpi-tile-content">
-                        <div class="kpi-tile-value">30-50%</div>
-                        <div class="kpi-tile-label">Rework reduction</div>
-                        <div class="kpi-tile-description">Streamlined workflows eliminate redundant processes and manual corrections.</div>
-                    </div>
-                </div>
-
-                <!-- Tile C: Consolidation (cols 1-4, row 2) -->
-                <div class="kpi-tile kpi-tile-c">
-                    <div class="kpi-visual">
-                        <img src="../assets/case-studies/fiserv/kpi-tile-consolidation.svg" alt="Consolidation metric">
-                    </div>
-                    <div class="kpi-tile-content">
-                        <div class="kpi-tile-value">$10K+</div>
-                        <div class="kpi-tile-label">Monthly savings</div>
-                    </div>
-                </div>
-
-                <!-- Tile D: Latency (cols 5-8, row 2) -->
-                <div class="kpi-tile kpi-tile-d">
-                    <div class="kpi-visual">
-                        <img src="../assets/case-studies/fiserv/kpi-tile-latency.svg" alt="Latency metric">
-                    </div>
-                    <div class="kpi-tile-content">
-                        <div class="kpi-tile-value">40-70%</div>
-                        <div class="kpi-tile-label">Faster discovery</div>
-                    </div>
-                </div>
-
-                <!-- Tile E: Confidence (cols 9-12, row 2) -->
-                <div class="kpi-tile kpi-tile-e">
-                    <div class="kpi-visual">
-                        <img src="../assets/case-studies/fiserv/kpi-tile-confidence.svg" alt="Confidence metric">
-                    </div>
-                    <div class="kpi-tile-content">
-                        <div class="kpi-tile-value">95%+</div>
-                        <div class="kpi-tile-label">Accuracy rate</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <main class="case-container">
-        <!-- Challenge -->
-        <section class="case-section">
-            <div class="section-header">
-                <h2 class="section-title">The Challenge</h2>
-                <p class="section-subtitle">Small and mid-sized banks drowning in regulatory reporting.</p>
-            </div>
-            <div class="content-grid">
-                <div class="content-text">
-                    <p>CFO teams across small and mid-sized banks face a universal problem: too much reporting work, too few people, and no in-house data specialists. Many were outsourcing reporting at extremely high cost simply to stay compliant.</p>
-                </div>
-                <div class="content-text">
-                    <p>As Fiserv began centralizing financial data into Snowflake and exploring LLM capabilities, a transformative opportunity emerged.</p>
-                </div>
-            </div>
-            <div class="key-insight">
-                <p>Design a reporting workspace where CFOs could analyze, assemble, and generate regulatory outputs through a blend of conversation and direct manipulation — without needing data scientists.</p>
-            </div>
-        </section>
-
-        <!-- My Role -->
-        <section class="case-section">
-            <div class="section-header">
-                <h2 class="section-title">My Role</h2>
-                <p class="section-subtitle">Leading UX research, design strategy, and product design.</p>
-            </div>
-            <div class="role-grid">
-                <div class="role-card">
-                    <h3 class="role-card-title">UX Research</h3>
-                    <ul class="role-card-list">
-                        <li>Interviews with CFOs, analysts, SMEs</li>
-                        <li>Workflow shadowing</li>
-                        <li>Bottleneck mapping</li>
-                        <li>Cross-bank insight synthesis</li>
-                    </ul>
-                </div>
-                <div class="role-card">
-                    <h3 class="role-card-title">UX Design</h3>
-                    <ul class="role-card-list">
-                        <li>Three-panel hybrid workspace</li>
-                        <li>Bento dashboard layouts</li>
-                        <li>Drag-and-drop composition</li>
-                        <li>Multi-mode navigation states</li>
-                    </ul>
-                </div>
-                <div class="role-card">
-                    <h3 class="role-card-title">Product Design</h3>
-                    <ul class="role-card-list">
-                        <li>Customizable reporting workflows</li>
-                        <li>Collaboration and review patterns</li>
-                        <li>Snowflake architecture alignment</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Research Insights -->
-        <section class="case-section">
-            <div class="section-header">
-                <h2 class="section-title">Research Insights</h2>
-                <p class="section-subtitle">Key findings that shaped the design direction.</p>
-            </div>
-            <ul class="insights-list">
-                <li class="insights-item">
-                    <strong>Data identification was the biggest bottleneck</strong>
-                    <p>CFOs spent most time finding data sources rather than analyzing them.</p>
-                </li>
-                <li class="insights-item">
-                    <strong>No internal analytics resources</strong>
-                    <p>Small banks lacked data science expertise, forcing expensive outsourcing.</p>
-                </li>
-                <li class="insights-item">
-                    <strong>Outsourcing was expensive but unavoidable</strong>
-                    <p>Many banks spending tens of thousands monthly on external services.</p>
-                </li>
-                <li class="insights-item">
-                    <strong>Workflows were consistent enough to automate</strong>
-                    <p>Core reporting patterns similar across institutions.</p>
-                </li>
-                <li class="insights-item">
-                    <strong>CFOs needed familiar system behavior</strong>
-                    <p>Solution had to feel intuitive without extensive training.</p>
-                </li>
-            </ul>
-        </section>
-
-        <!-- Design Strategy -->
-        <section class="case-section">
-            <div class="section-header">
-                <h2 class="section-title">Design Strategy</h2>
-                <p class="section-subtitle">A balanced approach to AI product design</p>
-            </div>
-            <div class="content-text" style="max-width: 800px; margin: 0 auto 3rem;">
-                <h3 style="font-size: 1.75rem; font-weight: 700; margin: 2rem 0 1rem; color: #1d1d1f;">Elements of AI Product Design</h3>
-            </div>
-            <div class="strategy-grid">
-                <div class="strategy-card">
-                    <strong>Traditional Visual Design & Wireframing — 10%</strong>
-                    <p>While foundational, these elements form only the basic outline of our product's aesthetic and functional framework.</p>
-                </div>
-                <div class="strategy-card">
-                    <strong>Service Design Integration — 30%</strong>
-                    <p>Transition from classic service paradigms to those augmented by AI capabilities, translating conventional workflows into AI-enhanced processes.</p>
-                </div>
-                <div class="strategy-card">
-                    <strong>Conversation Design — 30%</strong>
-                    <p>Defining conversational patterns is essential in establishing an engaging dialogue between our AI applications and users.</p>
-                </div>
-                <div class="strategy-card">
-                    <strong>Interaction Design — 30%</strong>
-                    <p>This focuses on designing the interactive elements that will engage users, encouraging adoption and long-term adjustment to AI integration.</p>
-                </div>
-            </div>
-            <div class="content-text" style="max-width: 800px; margin: 3rem auto 0;">
-                <h3 style="font-size: 1.75rem; font-weight: 700; margin: 2rem 0 1rem; color: #1d1d1f;">Iterative vs. Waterfall Approach</h3>
-                <p>We adopted an iterative approach that adapts swiftly to evolving tech landscapes, invents and repurposes interactive patterns dynamically, enables data-driven feature design, ensures product quality through continuous iteration, and makes costs and schedules easily estimable and controllable.</p>
-            </div>
-        </section>
-
-        <!-- Design System -->
-        <section class="case-section">
-            <div class="section-header">
-                <h2 class="section-title">Design System</h2>
-                <p class="section-subtitle">Key design patterns and interaction models</p>
-            </div>
-            <div class="content-text" style="max-width: 800px; margin: 0 auto 3rem;">
-                <h3 style="font-size: 1.75rem; font-weight: 700; margin: 2rem 0 1rem; color: #1d1d1f;">Three-Panel Workspace</h3>
-                <p>A three-panel design with automatic content strategy serves well in both traditional and AI design. It can be easily implemented in both systems and allows content reuse from the traditional version.</p>
-            </div>
-            <div class="image-full">
-                <div class="svg-illustration">
-                    <svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="panelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#f8f8f8;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#ffffff;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <rect x="20" y="20" width="500" height="560" fill="url(#panelGrad)" stroke="#333" stroke-width="2" rx="8"/>
-                        <text x="30" y="50" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#000">Main Panel</text>
-                        <text x="30" y="75" font-family="Inter, sans-serif" font-size="12" fill="#666">Conversation Interface</text>
-                        <rect x="30" y="100" width="460" height="40" fill="#000" rx="6"/>
-                        <text x="40" y="125" font-family="Inter, sans-serif" font-size="11" fill="#fff">User: Show me Q4 revenue trends</text>
-                        <rect x="30" y="160" width="400" height="40" fill="#e8e8e8" rx="6"/>
-                        <text x="40" y="185" font-family="Inter, sans-serif" font-size="11" fill="#333">AI: Here's the Q4 revenue analysis...</text>
-                        <rect x="540" y="20" width="300" height="270" fill="url(#panelGrad)" stroke="#333" stroke-width="2" rx="8"/>
-                        <text x="550" y="50" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#000">Background Information</text>
-                        <text x="550" y="75" font-family="Inter, sans-serif" font-size="12" fill="#666">Related Context</text>
-                        <rect x="550" y="100" width="270" height="30" fill="#f0f0f0" rx="4"/>
-                        <text x="560" y="120" font-family="Inter, sans-serif" font-size="10" fill="#666">• Revenue Data Sources</text>
-                        <rect x="540" y="310" width="300" height="270" fill="url(#panelGrad)" stroke="#333" stroke-width="2" rx="8"/>
-                        <text x="550" y="340" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#000">Scrapbook Panel</text>
-                        <text x="550" y="365" font-family="Inter, sans-serif" font-size="12" fill="#666">Working Memory</text>
-                        <rect x="550" y="390" width="270" height="170" fill="#fff" stroke="#ccc" stroke-width="1" rx="4"/>
-                    </svg>
-                </div>
-                <p class="image-caption">Three Panel Workspace — Main conversation panel, background information panel, and scrapbook panel for visualizations</p>
-            </div>
-            <div class="content-text" style="max-width: 800px; margin: 3rem auto 0;">
-                <h3 style="font-size: 1.75rem; font-weight: 700; margin: 2rem 0 1rem; color: #1d1d1f;">Pattern for AI Version</h3>
-                <ul>
-                    <li><strong>Interaction in AI</strong> is focused on conversation in the Main Panel</li>
-                    <li><strong>Background Information</strong> provides context for ongoing conversation</li>
-                    <li><strong>Scrapbook Panel</strong> stores visualizations being discussed</li>
-                    <li>Everything is resizable to customize experience</li>
-                </ul>
-            </div>
-            <div class="content-text" style="max-width: 800px; margin: 3rem auto 0;">
-                <h3 style="font-size: 1.75rem; font-weight: 700; margin: 2rem 0 1rem; color: #1d1d1f;">Bento Style Layout</h3>
-                <p>Bento Style is well suited to AI-based interfaces and dashboards. It's naturally suited for card-based design, modern and considered a key design trend in 2024. Dark mode is preferred by data and financial users.</p>
-            </div>
-            <div class="image-full">
-                <div class="svg-illustration">
-                    <svg viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#f8f8f8;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <rect x="20" y="20" width="580" height="320" fill="url(#cardGrad)" stroke="#333" stroke-width="2" rx="12"/>
-                        <text x="40" y="60" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#000">Funds Movement</text>
-                        <text x="40" y="85" font-family="Inter, sans-serif" font-size="12" fill="#666">Net Interest Margin</text>
-                        <line x1="40" y1="100" x2="560" y2="100" stroke="#e8e8e8" stroke-width="1"/>
-                        <rect x="40" y="120" width="520" height="200" fill="#f0f0f0" rx="8"/>
-                        <text x="500" y="300" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#000">5,987.34</text>
-                        <rect x="620" y="20" width="280" height="150" fill="url(#cardGrad)" stroke="#333" stroke-width="2" rx="12"/>
-                        <text x="640" y="60" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#000">Return on Assets</text>
-                        <text x="640" y="85" font-family="Inter, sans-serif" font-size="11" fill="#666">Cost-Income Ratio</text>
-                        <text x="640" y="130" font-family="Inter, sans-serif" font-size="24" font-weight="700" fill="#000">5,987.34</text>
-                        <rect x="620" y="190" width="280" height="150" fill="url(#cardGrad)" stroke="#333" stroke-width="2" rx="12"/>
-                        <text x="640" y="230" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#000">Data Transfer</text>
-                        <text x="640" y="255" font-family="Inter, sans-serif" font-size="11" fill="#666">System Status</text>
-                        <text x="640" y="300" font-family="Inter, sans-serif" font-size="20" font-weight="700" fill="#000">5,987.34</text>
-                    </svg>
-                </div>
-                <p class="image-caption">Bento Dashboard Layout — Card-based design optimized for financial data visualization</p>
-            </div>
-        </section>
-
-        <!-- Interaction Patterns -->
-        <section class="case-section">
-            <div class="section-header">
-                <h2 class="section-title">Interaction Patterns</h2>
-                <p class="section-subtitle">How users navigate and interact with the system</p>
-            </div>
-            <div class="content-grid">
-                <div class="content-text">
-                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: #1d1d1f;">Dashboard Interaction</h3>
-                    <ul>
-                        <li>Each card serves as a button</li>
-                        <li>Content in all panels changes to focus on choices</li>
-                        <li>Switches from dashboard to data analytics mode</li>
-                        <li>Conversation about chosen visualization is triggered</li>
-                        <li>Text-based conversation with supporting interaction elements</li>
-                    </ul>
-                </div>
-                <div class="content-text">
-                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: #1d1d1f;">Analytics Interaction</h3>
-                    <ul>
-                        <li>Visualization becomes focal point of conversation</li>
-                        <li>Related Data panel populated with background data</li>
-                        <li>Visualization displayed in Scrapbook panel</li>
-                        <li>Always in-view when conversation scrolls</li>
-                        <li>User can interact via text or direct manipulation</li>
-                        <li>Can return to dashboard at any point</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="image-grid">
-                <div class="image-item">
-                    <div class="svg-illustration">
-                        <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="20" y="20" width="200" height="360" fill="#f8f8f8" stroke="#333" stroke-width="2" rx="8"/>
-                            <text x="30" y="50" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#000">Visualizations</text>
-                            <rect x="30" y="70" width="180" height="60" fill="#fff" stroke="#ccc" stroke-width="1" rx="6"/>
-                            <rect x="30" y="230" width="180" height="60" fill="#000" stroke="#333" stroke-width="2" rx="6" opacity="0.8"/>
-                            <text x="40" y="255" font-family="Inter, sans-serif" font-size="11" fill="#fff">Chart 3</text>
-                            <text x="40" y="295" font-family="Inter, sans-serif" font-size="9" fill="#999">← Dragging</text>
-                            <rect x="380" y="20" width="200" height="360" fill="#f8f8f8" stroke="#333" stroke-width="2" stroke-dasharray="5,5" rx="8"/>
-                            <text x="390" y="50" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#000">Report Canvas</text>
-                        </svg>
-                    </div>
-                    <p class="image-caption">Drag and Drop Interaction</p>
-                </div>
-                <div class="image-item">
-                    <div class="svg-illustration">
-                        <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="20" y="20" width="560" height="60" fill="#000" rx="8"/>
-                            <text x="40" y="50" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#fff">Q4 Financial Report</text>
-                            <rect x="20" y="100" width="560" height="80" fill="#f8f8f8" stroke="#333" stroke-width="1" rx="8"/>
-                            <text x="40" y="130" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#000">Section 1: Revenue Overview</text>
-                            <rect x="20" y="200" width="560" height="80" fill="#f8f8f8" stroke="#333" stroke-width="1" rx="8"/>
-                            <text x="40" y="230" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#000">Section 2: Cost Analysis</text>
-                        </svg>
-                    </div>
-                    <p class="image-caption">Report Composition Interface</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- System Architecture -->
-        <section class="case-section">
-            <div class="section-header">
-                <h2 class="section-title">System Architecture</h2>
-                <p class="section-subtitle">Combining conversational AI with direct manipulation</p>
-            </div>
-            <div class="content-text" style="max-width: 800px; margin: 0 auto 4rem;">
-                <p>The system combines conversational AI with direct manipulation and structured analytical workflows. It integrates with Snowflake for data access and uses LLM capabilities for natural language understanding and generation.</p>
-            </div>
-            <div class="architecture-grid">
-                <div class="architecture-card">
-                    <div class="architecture-card-number">01</div>
-                    <h3 class="architecture-card-title">User Interface Layer</h3>
-                    <ul class="architecture-card-list">
-                        <li>Conversation Panel</li>
-                        <li>Background Info</li>
-                        <li>Scrapbook Panel</li>
-                        <li>Dashboard View</li>
-                        <li>Report Builder</li>
-                    </ul>
-                </div>
-                <div class="architecture-card">
-                    <div class="architecture-card-number">02</div>
-                    <h3 class="architecture-card-title">AI Processing Layer</h3>
-                    <ul class="architecture-card-list">
-                        <li>LLM Engine</li>
-                        <li>Natural Language Processing</li>
-                        <li>Query Generation</li>
-                        <li>Response Synthesis</li>
-                    </ul>
-                </div>
-                <div class="architecture-card">
-                    <div class="architecture-card-number">03</div>
-                    <h3 class="architecture-card-title">Data Layer</h3>
-                    <ul class="architecture-card-list">
-                        <li>Snowflake Data Warehouse</li>
-                        <li>Financial Data Sources</li>
-                        <li>Regulatory Schema</li>
-                        <li>Analytics Engine</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="image-full">
-                <div class="svg-illustration">
-                    <svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="layerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#f8f8f8;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#ffffff;stop-opacity:1" />
-                            </linearGradient>
-                            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                                <polygon points="0 0, 10 3, 0 6" fill="#333" />
-                            </marker>
-                        </defs>
-                        <rect x="20" y="20" width="1160" height="120" fill="url(#layerGrad)" stroke="#333" stroke-width="2" rx="12"/>
-                        <text x="40" y="60" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#000">User Interface Layer</text>
-                        <rect x="40" y="80" width="200" height="40" fill="#000" rx="6"/>
-                        <text x="50" y="105" font-family="Inter, sans-serif" font-size="12" fill="#fff">Conversation Panel</text>
-                        <rect x="260" y="80" width="200" height="40" fill="#e8e8e8" rx="6"/>
-                        <text x="270" y="105" font-family="Inter, sans-serif" font-size="12" fill="#333">Background Info</text>
-                        <line x1="600" y1="160" x2="600" y2="200" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
-                        <rect x="20" y="220" width="1160" height="120" fill="url(#layerGrad)" stroke="#333" stroke-width="2" rx="12"/>
-                        <text x="40" y="260" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#000">AI Processing Layer</text>
-                        <rect x="40" y="280" width="250" height="40" fill="#1a1a1a" rx="6"/>
-                        <text x="50" y="305" font-family="Inter, sans-serif" font-size="12" fill="#fff">LLM Engine</text>
-                        <line x1="600" y1="360" x2="600" y2="400" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
-                        <rect x="20" y="420" width="1160" height="120" fill="url(#layerGrad)" stroke="#333" stroke-width="2" rx="12"/>
-                        <text x="40" y="460" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#000">Data Layer</text>
-                        <rect x="40" y="480" width="350" height="40" fill="#1a1a1a" rx="6"/>
-                        <text x="50" y="505" font-family="Inter, sans-serif" font-size="12" fill="#fff">Snowflake Data Warehouse</text>
-                    </svg>
-                </div>
-                <p class="image-caption">AI Workflow Architecture — Integration between conversational interface, data layer, and reporting engine</p>
-            </div>
-        </section>
-
-        <!-- Key Design Decisions -->
-        <section class="case-section">
-            <div class="section-header">
-                <h2 class="section-title">Key Design Decisions</h2>
-                <p class="section-subtitle">Critical choices that shaped the product</p>
-            </div>
-            <ul class="decisions-list">
-                <li class="decision-item">
-                    <strong>Conversation as primary navigation</strong>
-                    <p>Making AI conversation the main way users interact, rather than traditional menus.</p>
-                </li>
-                <li class="decision-item">
-                    <strong>Persistent 3-panel context model</strong>
-                    <p>Maintaining context across panels so users always understand where they are.</p>
-                </li>
-                <li class="decision-item">
-                    <strong>Direct manipulation via drag-and-drop</strong>
-                    <p>Allowing users to directly manipulate visualizations and reports.</p>
-                </li>
-                <li class="decision-item">
-                    <strong>Scrapbook as working memory</strong>
-                    <p>Providing dedicated space for visualizations being discussed.</p>
-                </li>
-                <li class="decision-item">
-                    <strong>Snowflake-grounded AI responses</strong>
-                    <p>Ensuring all AI responses based on actual data, not hallucinations.</p>
-                </li>
-                <li class="decision-item">
-                    <strong>Built-in collaboration</strong>
-                    <p>Enabling multiple users to work together with review workflows.</p>
-                </li>
-                <li class="decision-item">
-                    <strong>Bento dashboards for structured KPIs</strong>
-                    <p>Using card-based layouts familiar to financial users.</p>
-                </li>
-            </ul>
-        </section>
-
-        <!-- Impact & Outcomes - Dark Section -->
-        <section class="impact-section">
-            <div class="case-container">
-                <div class="section-header">
-                    <h2 class="section-title">Impact & Outcomes</h2>
-                    <p class="section-subtitle">Measurable results from design and implementation</p>
-                </div>
-                <div class="content-text" style="max-width: 800px; margin: 0 auto 4rem; color: #a1a1a6;">
-                    <p>The Data Compass platform has transformed how small and mid-sized banks handle regulatory reporting, delivering significant time and cost savings while improving accuracy and user satisfaction.</p>
-                </div>
-                <div class="impact-grid">
-                    <div class="impact-card">
-                        <div class="impact-value">Days → Min</div>
-                        <div class="impact-label">Reporting cycles</div>
-                    </div>
-                    <div class="impact-card">
-                        <div class="impact-value">$10K+</div>
-                        <div class="impact-label">Monthly savings</div>
-                    </div>
-                    <div class="impact-card">
-                        <div class="impact-value">30-50%</div>
-                        <div class="impact-label">Rework reduction</div>
-                    </div>
-                    <div class="impact-card">
-                        <div class="impact-value">40-70%</div>
-                        <div class="impact-label">Faster discovery</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Reflection -->
-        <section class="case-section">
-            <div class="section-header">
-                <h2 class="section-title">Reflection</h2>
-                <p class="section-subtitle">Lessons learned and future directions</p>
-            </div>
-            <div class="content-text" style="max-width: 800px; margin: 0 auto 3rem;">
-                <p>Designing AI for CFOs is about removing friction, not replacing expertise. This hybrid interaction model now serves as a foundation for future AI-powered reporting across Fiserv.</p>
-            </div>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <h3 class="benefit-card-title">Research Based on Data</h3>
-                    <ul class="benefit-card-list">
-                        <li>Real Data Analytics</li>
-                        <li>Real Users</li>
-                        <li>Real Data</li>
-                    </ul>
-                </div>
-                <div class="benefit-card">
-                    <h3 class="benefit-card-title">Design Based on Research</h3>
-                    <ul class="benefit-card-list">
-                        <li>Refinement and validation</li>
-                        <li>Iterative design</li>
-                        <li>Ability to pivot</li>
-                    </ul>
-                </div>
-                <div class="benefit-card">
-                    <h3 class="benefit-card-title">Development Based Testing</h3>
-                    <ul class="benefit-card-list">
-                        <li>Refinement and validation</li>
-                        <li>Early problem identification</li>
-                        <li>Ability to pivot</li>
-                    </ul>
-                </div>
-                <div class="benefit-card">
-                    <h3 class="benefit-card-title">LLM Development</h3>
-                    <ul class="benefit-card-list">
-                        <li>Beta users</li>
-                        <li>Training Data</li>
-                        <li>Costs and usage estimates</li>
-                    </ul>
-                </div>
-                <div class="benefit-card">
-                    <h3 class="benefit-card-title">Product</h3>
-                    <ul class="benefit-card-list">
-                        <li>Gradual exposure</li>
-                        <li>Business alignment</li>
-                        <li>Early validation</li>
-                    </ul>
-                </div>
-                <div class="benefit-card">
-                    <h3 class="benefit-card-title">Other Teams</h3>
-                    <ul class="benefit-card-list">
-                        <li>Marketing and Sales</li>
-                        <li>Security</li>
-                        <li>Legal</li>
-                        <li>Branding</li>
-                        <li>Infrastructure</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
     </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <nav class="footer-nav">
+                    <a href="../about.html">About</a>
+                    <a href="../contact.html">Contact</a>
+                    <a href="../resume/index.html">Resume</a>
+                    <a href="#">Share <span>↗</span></a>
+                </nav>
+                <div class="footer-contact">
+                    <p class="footer-label">GET IN TOUCH</p>
+                    <p class="footer-email">ptulin@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-right">
+                <a href="https://linkedin.com/in/paweltulin" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">in</a>
+                <a href="mailto:ptulin@gmail.com?subject=Contact%20via%20Portfolio%20Website" class="social-icon" aria-label="Email">✉</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-nav">
+            <a href="../index.html" class="mobile-nav-link">Home</a>
+            <a href="../about.html" class="mobile-nav-link">About</a>
+            <a href="../contact.html" class="mobile-nav-link">Contact</a>
+        </nav>
+    </div>
+
+    <div class="mobile-menu-overlay" id="menuOverlay"></div>
+
+    <script src="../script.js"></script>
 </body>
 </html>
