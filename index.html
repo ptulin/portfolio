@@ -110,29 +110,41 @@
 
         /* Hero Section */
         .hero {
-            min-height: 70vh;
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 40%, rgba(255, 255, 255, 0.7) 60%, rgba(255, 255, 255, 0.5) 100%), url('assets/images/ai-architecture.png');
-            background-size: cover;
-            background-position: right center;
-            background-repeat: no-repeat;
             position: relative;
-            display: flex;
-            align-items: center;
         }
 
         .hero-content {
             max-width: 1400px;
             width: 100%;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 80px 64px;
+            min-height: 520px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: minmax(420px, 520px) 1fr;
             align-items: center;
+            background-image: url('assets/herobg.png');
+            background-size: cover;
+            background-position: right center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .hero-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 30%, rgba(255, 255, 255, 0.4) 60%, transparent 100%);
+            z-index: 1;
         }
 
         .hero-text {
-            max-width: 640px;
+            max-width: 520px;
+            text-align: left;
+            position: relative;
+            z-index: 2;
         }
 
         .hero-heading {
@@ -176,7 +188,8 @@
         }
 
         .hero-visual {
-            min-height: 400px;
+            position: relative;
+            z-index: 1;
         }
 
         /* Portfolio Grid - Bento Style */
@@ -586,19 +599,15 @@
                 flex-wrap: wrap;
             }
 
-            .hero {
-                min-height: 60vh;
-            }
-
             .hero-content {
                 grid-template-columns: 1fr;
-                gap: 3rem;
-                padding: 3rem 1.5rem;
+                padding: 48px 32px;
+                min-height: auto;
             }
 
             .hero-text {
                 max-width: 100%;
-                text-align: center;
+                text-align: left;
             }
 
             .hero-heading {
@@ -607,10 +616,6 @@
 
             .hero-description {
                 font-size: 1.125rem;
-            }
-
-            .hero-visual {
-                min-height: 300px;
             }
 
             .portfolio {
