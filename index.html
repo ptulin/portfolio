@@ -290,7 +290,14 @@
             overflow: hidden;
         }
 
-        .case-image-placeholder:after {
+        .case-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .case-image-placeholder:not(:has(img)):after {
             content: "";
             position: absolute;
             top: 50%;
@@ -733,8 +740,12 @@
                 <ul class="case-features">
                     <li>Automated regulatory workflows</li>
                     <li>Allegations & dashboards</li>
+                    <li>AI Report Generation</li>
+                    <li>Custom Workflows & Data Analysis</li>
                 </ul>
-                <div class="case-image-placeholder"></div>
+                <div class="case-image-placeholder">
+                    <img src="assets/case-studies/fiserv/images/frontModule.png" alt="Fiserv LLM CPO Platform Dashboard" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                </div>
                 <div class="case-actions">
                     <a href="case-studies/fiserv-llm-cpo-platform.html" class="case-link">View Case <span>↗</span></a>
                     <a href="#" class="case-link">PDF <span>📄</span></a>
