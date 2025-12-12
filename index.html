@@ -108,54 +108,45 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
-        /* Hero Section - Apple/Stripe Style */
+        /* Hero Section */
         .hero {
-            padding: 8rem 0 6rem;
-            background-image: url('assets/images/ai-architecture.png');
+            min-height: 70vh;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 40%, rgba(255, 255, 255, 0.7) 60%, rgba(255, 255, 255, 0.5) 100%), url('assets/images/ai-architecture.png');
             background-size: cover;
-            background-position: center right;
+            background-position: right center;
             background-repeat: no-repeat;
             position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.85);
-            z-index: 1;
+            display: flex;
+            align-items: center;
         }
 
         .hero-content {
             max-width: 1400px;
+            width: 100%;
             margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 2;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
         .hero-text {
-            text-align: left;
-            margin-left: 200px;
-            max-width: 600px;
+            max-width: 640px;
         }
 
         .hero-heading {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             font-weight: 700;
-            line-height: 1.2;
+            line-height: 1.1;
             margin-bottom: 2rem;
             color: #1d1d1f;
             letter-spacing: -0.02em;
         }
 
         .hero-description {
-            font-size: 1.125rem;
+            font-size: 1.25rem;
             color: #515154;
             margin-bottom: 3rem;
             line-height: 1.6;
@@ -182,6 +173,10 @@
         .resume-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-visual {
+            min-height: 400px;
         }
 
         /* Portfolio Grid - Bento Style */
@@ -592,20 +587,30 @@
             }
 
             .hero {
-                padding: 5rem 0 4rem;
+                min-height: 60vh;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                padding: 3rem 1.5rem;
             }
 
             .hero-text {
-                margin-left: 0;
                 max-width: 100%;
+                text-align: center;
             }
 
             .hero-heading {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
             .hero-description {
-                font-size: 1rem;
+                font-size: 1.125rem;
+            }
+
+            .hero-visual {
+                min-height: 300px;
             }
 
             .portfolio {
@@ -689,6 +694,7 @@
                     Download Resume
                 </button>
             </div>
+            <div class="hero-visual"></div>
         </div>
     </section>
 
