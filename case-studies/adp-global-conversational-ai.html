@@ -3,22 +3,647 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADP/GLOBAL - Conversational AI - Pawel Tulin</title>
+    <title>ADP / Global — Customer Support Chatbots - Pawel Tulin</title>
     <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #1d1d1f;
+            background: #ffffff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header - Premium */
+        .header {
+            padding: 2rem 0;
+            border-bottom: 1px solid #e5e5e7;
+            background: #ffffff;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+
+        .logo a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 0.5rem;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: #1d1d1f;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Filters - Premium */
+        .filters {
+            display: flex;
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            background: #f5f5f7;
+            border-top: 1px solid #e5e5e7;
+        }
+
+        .filter-dropdown {
+            padding: 0.875rem 1.25rem;
+            background: #ffffff;
+            border: 1px solid #e5e5e7;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .filter-dropdown:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Content Area */
+        .case-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .case-header {
+            margin-bottom: 4rem;
+        }
+
+        .case-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: #1d1d1f;
+            letter-spacing: -0.02em;
+        }
+
+        .case-meta {
+            font-size: 1rem;
+            color: #86868b;
+            font-weight: 400;
+            margin-bottom: 3rem;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        .case-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .section-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #86868b;
+            font-weight: 600;
+            position: sticky;
+            top: 2rem;
+        }
+
+        .section-content {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #515154;
+        }
+
+        .section-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1d1d1f;
+            letter-spacing: -0.01em;
+        }
+
+        .section-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .section-content li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .section-content li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #86868b;
+        }
+
+        .section-content strong {
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+
+        /* Footer - Premium */
+        .footer {
+            padding: 6rem 2rem 4rem;
+            border-top: 1px solid #e5e5e7;
+            margin-top: 6rem;
+            background: #f5f5f7;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-nav a {
+            color: #1d1d1f;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .footer-nav a:hover {
+            color: #86868b;
+        }
+
+        .footer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #86868b;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .footer-email {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: #1d1d1f;
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            border: 1px solid #e5e5e7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #1d1d1f;
+            font-size: 1.125rem;
+            transition: all 0.2s ease;
+            background: #ffffff;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 320px;
+            height: 100vh;
+            background: #ffffff;
+            box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 5rem 2.5rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .mobile-nav-link {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #1d1d1f;
+            text-decoration: none;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e5e5e7;
+            transition: color 0.2s ease;
+        }
+
+        .mobile-nav-link:hover:not(.current) {
+            color: #86868b;
+        }
+
+        .mobile-nav-link.current {
+            color: #86868b;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .case-content {
+                padding: 3rem 1.5rem;
+            }
+
+            .case-title {
+                font-size: 2.5rem;
+            }
+
+            .case-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-label {
+                position: static;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .footer-nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .filters {
+                flex-wrap: wrap;
+                padding: 1rem 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
     <header class="header">
         <div class="header-content">
             <div class="logo"><a href="../index.html">Pawel Tulin</a></div>
+            <button class="menu-toggle" aria-label="Menu" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="filters">
+            <select class="filter-dropdown" id="areaFilter" data-filter="area">
+                <option value="all">Area: All</option>
+                <option value="product-design">Product Design</option>
+                <option value="ux-design">UX Design</option>
+                <option value="ux-research">UX Research</option>
+                <option value="ai-llm-design">AI/LLM Design</option>
+            </select>
+            <select class="filter-dropdown" id="industryFilter" data-filter="industry">
+                <option value="all">Industry: All</option>
+                <option value="fintech">Fintech / Financial Services</option>
+                <option value="saas">SaaS / Enterprise</option>
+                <option value="nonprofit">Nonprofit / NGO / UN</option>
+                <option value="ecommerce">E-commerce</option>
+                <option value="ai-data">AI / Data Platforms</option>
+                <option value="education">Education / EdTech</option>
+            </select>
+            <select class="filter-dropdown" id="deliverableFilter" data-filter="deliverable">
+                <option value="all">Deliverable: All</option>
+                <option value="case-study">Case Study</option>
+                <option value="design-system">Design System</option>
+                <option value="dashboard">Dashboard / Data Visualization</option>
+                <option value="ai-workflow">AI Workflow / LLM System</option>
+                <option value="service-blueprint">Service Blueprint</option>
+                <option value="research-study">Research Study</option>
+                <option value="prototype">Prototype</option>
+                <option value="strategy">Strategy / Roadmap</option>
+            </select>
         </div>
     </header>
 
-    <main class="contact-page">
-        <div class="contact-container">
-            <h1>ADP/GLOBAL - Conversational AI</h1>
-            <p>Case study content coming soon...</p>
+    <!-- Content Area -->
+    <main class="case-content">
+        <div class="case-header">
+            <h1 class="case-title">ADP / Global — Customer Support Chatbots</h1>
+            <p class="case-meta">Conversational AI · UX Research · Product Design</p>
+        </div>
+
+        <div class="case-grid">
+            <!-- Overview Section -->
+            <div class="case-section">
+                <div class="section-label">Overview</div>
+                <div class="section-content">
+                    <p>ADP is one of the world's largest payroll and HR services providers, supporting millions of businesses and customers globally. Customer support operates at massive scale, spanning payroll, tax, benefits, compliance, and account management across regions, languages, and regulatory environments.</p>
+                    <p>This project focused on designing and scaling AI-powered customer support chatbots to handle high-volume customer inquiries, reduce operational burden on human support teams, and dramatically improve response speed without compromising accuracy or trust.</p>
+                    <p>The work combined deep UX research, rigorous conversation design, and enterprise AI implementation using IBM Watson, at a time when conversational systems had to be explicitly designed and hardcoded rather than prompt-driven.</p>
+                </div>
+            </div>
+
+            <!-- Problem Space Section -->
+            <div class="case-section">
+                <div class="section-label">Problem Space</div>
+                <div class="section-content">
+                    <h3>Business Challenges</h3>
+                    <ul>
+                        <li>Extremely high global customer support volume operating 24/7</li>
+                        <li>Large percentage of repetitive, well-understood inquiries overwhelming support teams</li>
+                        <li>Support costs scaling directly with business growth</li>
+                        <li>Inconsistent customer experience across channels and regions</li>
+                        <li>Limited ability for human agents to focus on complex, high-value cases</li>
+                    </ul>
+
+                    <h3>User (Customer) Challenges</h3>
+                    <ul>
+                        <li>Customers needed fast, accurate answers to time-sensitive payroll and HR questions</li>
+                        <li>Long wait times for basic inquiries</li>
+                        <li>Repetitive calls for issues that could be resolved instantly</li>
+                        <li>Frustration when simple questions blocked access to human help for complex issues</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Research & Discovery Section -->
+            <div class="case-section">
+                <div class="section-label">Research & Discovery</div>
+                <div class="section-content">
+                    <p>This project was grounded in extensive, hands-on research.</p>
+
+                    <h3>Research Activities</h3>
+                    <ul>
+                        <li>Hundreds of hours shadowing customer service representatives</li>
+                        <li>Deep analysis of support logs, transcripts, and call recordings</li>
+                        <li>Systematic classification of:
+                            <ul>
+                                <li>Customer questions</li>
+                                <li>Utterances and phrasing variations</li>
+                                <li>Ambiguity patterns</li>
+                                <li>Failure and escalation points</li>
+                            </ul>
+                        </li>
+                        <li>Identification and prioritization of high-volume, automation-safe intents</li>
+                    </ul>
+
+                    <h3>Key Outcomes</h3>
+                    <ul>
+                        <li>Clear taxonomy of customer intents across payroll, benefits, and compliance</li>
+                        <li>Rules for intent disambiguation in ambiguous or incomplete queries</li>
+                        <li>Identification of where automation was appropriate versus risky</li>
+                        <li>Foundational data for conversation design and system logic</li>
+                    </ul>
+
+                    <p>These insights directly informed every design and technical decision that followed.</p>
+                </div>
+            </div>
+
+            <!-- Product & Conversation Design Section -->
+            <div class="case-section">
+                <div class="section-label">Product & Conversation Design</div>
+                <div class="section-content">
+                    <p>Based on research insights, I designed large-scale, cohesive conversational flows covering the majority of customer support needs.</p>
+
+                    <p><strong>Key aspects of the conversation design included:</strong></p>
+                    <ul>
+                        <li>Deep conversation maps with explicit branching logic</li>
+                        <li>Clear rules for intent recognition and disambiguation</li>
+                        <li>Progressive clarification strategies for ambiguous requests</li>
+                        <li>Explicit recovery paths when confidence dropped</li>
+                    </ul>
+
+                    <p>Because the system was built on IBM Watson, all logic had to be explicitly modeled, rule-based, and hardcoded. There was no generative prompting or probabilistic behavior. This required a high level of rigor and discipline in conversation design to ensure predictability, reliability, and compliance.</p>
+                </div>
+            </div>
+
+            <!-- AI Implementation Section -->
+            <div class="case-section">
+                <div class="section-label">AI Implementation</div>
+                <div class="section-content">
+                    <h3>Technical Constraints</h3>
+                    <ul>
+                        <li>No generative prompting</li>
+                        <li>All intents, entities, and flows explicitly defined</li>
+                        <li>High emphasis on deterministic behavior and predictability</li>
+                        <li>Strong alignment with compliance and operational requirements</li>
+                    </ul>
+
+                    <h3>Core Capabilities</h3>
+                    <ul>
+                        <li>Intent detection and routing across large support domains</li>
+                        <li>Context-aware follow-up questions</li>
+                        <li>Confidence thresholds triggering human escalation</li>
+                        <li>Seamless handoff to live agents with full conversation context preserved</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Analytics, Feedback & Continuous Improvement Section -->
+            <div class="case-section">
+                <div class="section-label">Analytics & Feedback</div>
+                <div class="section-content">
+                    <p>Alongside the conversational system, we designed analytics and feedback mechanisms to ensure long-term effectiveness and continuous improvement.</p>
+
+                    <p><strong>This included:</strong></p>
+                    <ul>
+                        <li>Tracking intent coverage and failure rates</li>
+                        <li>Monitoring escalation frequency and root causes</li>
+                        <li>Identifying conversation dead ends and confusion points</li>
+                        <li>Feeding insights back into conversation refinement and system updates</li>
+                    </ul>
+
+                    <p>This transformed the chatbot from a static system into a continuously improving support platform.</p>
+                </div>
+            </div>
+
+            <!-- Human Fallback & Trust Design Section -->
+            <div class="case-section">
+                <div class="section-label">Human Fallback & Trust</div>
+                <div class="section-content">
+                    <p>A core design principle was acknowledging that not all conversations succeed.</p>
+
+                    <p><strong>The system included:</strong></p>
+                    <ul>
+                        <li>Clear confidence thresholds for escalation</li>
+                        <li>Smooth handoff to human agents</li>
+                        <li>Preservation of conversation context to avoid repetition</li>
+                    </ul>
+
+                    <p>This ensured customers never felt trapped by automation and maintained trust in the support experience.</p>
+                </div>
+            </div>
+
+            <!-- Outcomes & Impact Section -->
+            <div class="case-section">
+                <div class="section-label">Outcomes & Impact</div>
+                <div class="section-content">
+                    <p>Once deployed, the system delivered immediate and measurable results:</p>
+                    <ul>
+                        <li>Customers received instant answers, 24/7</li>
+                        <li>Human support agents were relieved from repetitive, low-value inquiries</li>
+                        <li>Agents were able to spend more time on complex, high-impact customer issues</li>
+                        <li>Customer satisfaction increased</li>
+                        <li>Support costs dropped immediately</li>
+                        <li>The project paid for itself in approximately one year</li>
+                    </ul>
+
+                    <p>This was a rare outcome where customers, support teams, and leadership all benefited simultaneously.</p>
+                </div>
+            </div>
+
+            <!-- My Role Section -->
+            <div class="case-section">
+                <div class="section-label">My Role</div>
+                <div class="section-content">
+                    <ul>
+                        <li>Led UX research across global customer support operations</li>
+                        <li>Designed large-scale conversational logic and flow systems</li>
+                        <li>Defined intent taxonomies and disambiguation rules</li>
+                        <li>Partnered with IBM Watson teams on AI implementation</li>
+                        <li>Designed analytics and feedback mechanisms</li>
+                        <li>Balanced automation, trust, compliance, and operational constraints</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Why This Project Matters Section -->
+            <div class="case-section">
+                <div class="section-label">Why This Matters</div>
+                <div class="section-content">
+                    <p>This project demonstrates enterprise-scale conversational AI before the rise of modern LLMs, grounded in deep UX research and rigorous conversation design. It shows how disciplined design, analytics, and trust mechanisms can turn AI automation into real business impact rather than experimentation.</p>
+                    <p>It remains one of the most rewarding and complete AI product initiatives I've worked on.</p>
+                </div>
+            </div>
         </div>
     </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <nav class="footer-nav">
+                    <a href="../about.html">About</a>
+                    <a href="../contact.html">Contact</a>
+                    <a href="../resume/index.html">Resume</a>
+                    <a href="#">Share <span>↗</span></a>
+                </nav>
+                <div class="footer-contact">
+                    <p class="footer-label">GET IN TOUCH</p>
+                    <p class="footer-email">ptulin@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-right">
+                <a href="https://linkedin.com/in/paweltulin" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">in</a>
+                <a href="mailto:ptulin@gmail.com?subject=Contact%20via%20Portfolio%20Website" class="social-icon" aria-label="Email">✉</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-nav">
+            <a href="../index.html" class="mobile-nav-link">Home</a>
+            <a href="../about.html" class="mobile-nav-link">About</a>
+            <a href="../contact.html" class="mobile-nav-link">Contact</a>
+        </nav>
+    </div>
+
+    <div class="mobile-menu-overlay" id="menuOverlay"></div>
+
+    <script src="../script.js"></script>
 </body>
 </html>
-
