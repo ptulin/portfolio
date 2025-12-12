@@ -295,8 +295,12 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
+        .case-image-placeholder:empty:after,
         .case-image-placeholder:not(:has(img)):after {
             content: "";
             position: absolute;
