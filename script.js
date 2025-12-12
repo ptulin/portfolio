@@ -1,65 +1,74 @@
-// Homepage interactions
+/**
+ * Homepage interactions and mobile menu functionality
+ */
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu toggle
+    initMobileMenu();
+    initFilters();
+});
+
+/**
+ * Initialize mobile menu toggle and navigation
+ */
+function initMobileMenu() {
     const menuToggle = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
     
-    if (menuToggle && mobileMenu) {
-        // Get existing overlay or create one
-        let overlay = document.getElementById('menuOverlay');
-        if (!overlay) {
-            overlay = document.createElement('div');
-            overlay.className = 'mobile-menu-overlay';
-            overlay.id = 'menuOverlay';
-            document.body.appendChild(overlay);
-        }
-        
-        // Toggle menu
-        menuToggle.addEventListener('click', function() {
-            menuToggle.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            overlay.classList.toggle('active');
-            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-        });
-        
-        // Close menu when clicking overlay
-        overlay.addEventListener('click', function() {
-            menuToggle.classList.remove('active');
-            mobileMenu.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-        
-        // Close menu when clicking a nav link (except current page)
-        const navLinks = mobileMenu.querySelectorAll('.mobile-nav-link:not(.current)');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                menuToggle.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                overlay.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
-        
-        // Detect current page and mark it
-        const currentPath = window.location.pathname;
-        const currentPage = currentPath.split('/').pop() || 'index.html';
-        
-        navLinks.forEach(link => {
-            const linkPath = link.getAttribute('href');
-            if (linkPath === currentPage || (currentPage === '' && linkPath === 'index.html')) {
-                link.classList.add('current');
-            }
-        });
+    if (!menuToggle || !mobileMenu) return;
+    
+    // Get or create overlay
+    let overlay = document.getElementById('menuOverlay');
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'mobile-menu-overlay';
+        overlay.id = 'menuOverlay';
+        document.body.appendChild(overlay);
     }
+    
+    // Toggle menu function
+    const toggleMenu = (isOpen) => {
+        menuToggle.classList.toggle('active', isOpen);
+        mobileMenu.classList.toggle('active', isOpen);
+        overlay.classList.toggle('active', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    };
+    
+    // Open/close menu
+    menuToggle.addEventListener('click', () => {
+        const isOpen = !mobileMenu.classList.contains('active');
+        toggleMenu(isOpen);
+    });
+    
+    // Close menu when clicking overlay
+    overlay.addEventListener('click', () => toggleMenu(false));
+    
+    // Close menu when clicking nav link
+    const navLinks = mobileMenu.querySelectorAll('.mobile-nav-link:not(.current)');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => toggleMenu(false));
+    });
+    
+    // Mark current page in navigation
+    const currentPath = window.location.pathname;
+    const currentPage = currentPath.split('/').pop() || 'index.html';
+    
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        if (linkPath === currentPage || (currentPage === '' && linkPath === 'index.html')) {
+            link.classList.add('current');
+        }
+    });
+}
 
-    // Filter functionality (placeholder)
+/**
+ * Initialize filter dropdowns (placeholder for future functionality)
+ */
+function initFilters() {
     const filterDropdowns = document.querySelectorAll('.filter-dropdown');
     filterDropdowns.forEach(dropdown => {
         dropdown.addEventListener('change', function() {
-            // Add filter logic
+            // Filter logic to be implemented
             console.log('Filter changed:', this.value);
         });
     });
-});
+}
 

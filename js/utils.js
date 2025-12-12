@@ -1,4 +1,8 @@
-// Shared utilities for portfolio website
+/**
+ * Shared utilities for portfolio website
+ * Handles form submissions to Google Apps Script backend
+ */
+
 // Apps Script Web App URL - update this if the deployment changes
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyNQWEWnEUvBhVAnBImfHJlqeYKxMoJzwzqC3-UZJN7qL4kWoVnOM89nJzu3SAjMT72/exec';
 
