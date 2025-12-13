@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TD Ameritrade — UX Competitive Analysis & Heuristic Evaluation - Pawel Tulin</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #1d1d1f;
+            background: #ffffff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header - Premium */
+        .header {
+            padding: 2rem 0;
+            border-bottom: 1px solid #e5e5e7;
+            background: #ffffff;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+
+        .logo a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 0.5rem;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: #1d1d1f;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Filters - Premium */
+        .filters {
+            display: flex;
+            gap: 1rem;
+            max-width: 1400px;
+            width: 100%;
+            margin: 20px auto 0;
+            padding: 1.5rem 64px;
+            background: #f5f5f7;
+            box-sizing: border-box;
+        }
+
+        .filter-dropdown {
+            padding: 0.875rem 1.25rem;
+            background: #ffffff;
+            border: 1px solid #e5e5e7;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .filter-dropdown:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Content Area */
+        .case-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .case-header {
+            margin-bottom: 4rem;
+        }
+
+        .case-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: #1d1d1f;
+            letter-spacing: -0.02em;
+        }
+
+        .case-meta {
+            font-size: 1rem;
+            color: #86868b;
+            font-weight: 400;
+            margin-bottom: 3rem;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        .case-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .section-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #86868b;
+            font-weight: 600;
+            position: sticky;
+            top: 2rem;
+        }
+
+        .section-content {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #515154;
+        }
+
+        .section-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1d1d1f;
+            letter-spacing: -0.01em;
+        }
+
+        .section-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .section-content li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .section-content li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #86868b;
+        }
+
+        .section-content strong {
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+
+        /* Footer - Premium */
+        .footer {
+            padding: 6rem 2rem 4rem;
+            border-top: 1px solid #e5e5e7;
+            margin-top: 6rem;
+            background: #f5f5f7;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-nav a {
+            color: #1d1d1f;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .footer-nav a:hover {
+            color: #86868b;
+        }
+
+        .footer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #86868b;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .footer-email {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: #1d1d1f;
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            border: 1px solid #e5e5e7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #1d1d1f;
+            font-size: 1.125rem;
+            transition: all 0.2s ease;
+            background: #ffffff;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 320px;
+            height: 100vh;
+            background: #ffffff;
+            box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 5rem 2.5rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .mobile-nav-link {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #1d1d1f;
+            text-decoration: none;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e5e5e7;
+            transition: color 0.2s ease;
+        }
+
+        .mobile-nav-link:hover:not(.current) {
+            color: #86868b;
+        }
+
+        .mobile-nav-link.current {
+            color: #86868b;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .case-content {
+                padding: 3rem 1.5rem;
+            }
+
+            .case-title {
+                font-size: 2.5rem;
+            }
+
+            .case-section {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .section-label {
+                position: static;
+            }
+
+            .filters {
+                padding: 1rem 1.5rem;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo"><a href="../index.html">Pawel Tulin</a></div>
+            <button class="menu-toggle" aria-label="Menu" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="filters">
+            <select class="filter-dropdown" id="areaFilter" data-filter="area">
+                <option value="all">Area: All</option>
+                <option value="product-design">Product Design</option>
+                <option value="ux-design">UX Design</option>
+                <option value="ux-research">UX Research</option>
+                <option value="ai-llm-design">AI/LLM Design</option>
+            </select>
+            <select class="filter-dropdown" id="industryFilter" data-filter="industry">
+                <option value="all">Industry: All</option>
+                <option value="fintech">Fintech / Financial Services</option>
+                <option value="saas">SaaS / Enterprise</option>
+                <option value="nonprofit">Nonprofit / NGO / UN</option>
+                <option value="ecommerce">E-commerce</option>
+                <option value="ai-data">AI / Data Platforms</option>
+                <option value="education">Education / EdTech</option>
+            </select>
+            <select class="filter-dropdown" id="deliverableFilter" data-filter="deliverable">
+                <option value="all">Deliverable: All</option>
+                <option value="case-study">Case Study</option>
+                <option value="design-system">Design System</option>
+                <option value="dashboard">Dashboard / Data Visualization</option>
+                <option value="ai-workflow">AI Workflow / LLM System</option>
+                <option value="service-blueprint">Service Blueprint</option>
+                <option value="research-study">Research Study</option>
+                <option value="prototype">Prototype</option>
+                <option value="strategy">Strategy / Roadmap</option>
+            </select>
+        </div>
+    </header>
+
+    <!-- Content Area -->
+    <main class="case-content">
+        <div class="case-header">
+            <h1 class="case-title">TD Ameritrade — UX Competitive Analysis & Heuristic Evaluation</h1>
+            <p class="case-meta">Director of UX · UX Research · Heuristic Evaluation</p>
+        </div>
+
+        <div class="case-grid">
+            <!-- Context Section -->
+            <div class="case-section">
+                <div class="section-label">Context</div>
+                <div class="section-content">
+                    <p>While serving as <strong>Director of UX</strong> at a design consultancy, I was asked to step in and support a short-term research engagement for TD Ameritrade — outside the scope of my primary project work.</p>
+                    <p>The research team was short on resources, and the client needed a <strong>rapid but rigorous UX assessment</strong> of the TD Ameritrade web experience and trading platform interface. My role was to apply core UX research methodologies to identify usability issues and competitive opportunities that could inform future design work.</p>
+                </div>
+            </div>
+
+            <!-- Challenge Section -->
+            <div class="case-section">
+                <div class="section-label">Challenge</div>
+                <div class="section-content">
+                    <p>TD Ameritrade's digital presence is broad and complex, covering:</p>
+                    <ul>
+                        <li>Retail investor onboarding and education</li>
+                        <li>Account management and funding</li>
+                        <li>Market research tools</li>
+                        <li>Real-time trading interfaces</li>
+                        <li>Options and advanced trading workflows</li>
+                    </ul>
+                    <p>This complexity posed two key research challenges:</p>
+                    <ol>
+                        <li><strong>Usability gaps and inconsistencies</strong> across functional areas</li>
+                        <li>A fragmented experience relative to emerging digital competitors</li>
+                    </ol>
+                    <p>Given limited time and resources, the deliverables needed to be focused, actionable, and rigorously structured.</p>
+                </div>
+            </div>
+
+            <!-- My Role Section -->
+            <div class="case-section">
+                <div class="section-label">My Role</div>
+                <div class="section-content">
+                    <p>As Director of UX, I deployed two complementary research methods:</p>
+                    
+                    <h3>Heuristic Evaluation</h3>
+                    <p>A systematic usability assessment using established UX principles to identify interface issues, interaction breakdowns, and cognitive friction points.</p>
+
+                    <h3>Competitive Analysis</h3>
+                    <p>A comparative study of key competitors (e.g., Schwab, E*TRADE, thinkorswim) to benchmark patterns, strengths, and opportunities across high-impact user flows.</p>
+
+                    <p>I led both analyses from end to end, synthesizing findings and articulating insights in formal deliverables.</p>
+                </div>
+            </div>
+
+            <!-- Heuristic Evaluation Section -->
+            <div class="case-section">
+                <div class="section-label">Heuristic Evaluation</div>
+                <div class="section-content">
+                    <p>The heuristic evaluation focused on:</p>
+                    <ul>
+                        <li>Clarity of information hierarchy</li>
+                        <li>Efficiency of key flows (e.g., login, account access, trade execution)</li>
+                        <li>Feedback and error prevention</li>
+                        <li>Consistency of UI patterns</li>
+                        <li>Learnability and novice support</li>
+                    </ul>
+                    <p><strong>Findings included:</strong></p>
+                    <ul>
+                        <li>Redundant navigation elements causing cognitive overhead</li>
+                        <li>Inconsistent labeling across similar tasks</li>
+                        <li>Opportunities to streamline task flows for frequent users</li>
+                        <li>UI density contributing to visual clutter</li>
+                    </ul>
+                    <p>Recommendations were prioritized by impact and effort, with clear examples and references to known usability principles.</p>
+                </div>
+            </div>
+
+            <!-- Competitive Analysis Section -->
+            <div class="case-section">
+                <div class="section-label">Competitive Analysis</div>
+                <div class="section-content">
+                    <p>The competitive analysis examined TD Ameritrade relative to key industry peers, evaluating:</p>
+                    <ul>
+                        <li>Onboarding and account setup</li>
+                        <li>Market research and educational tools</li>
+                        <li>Trading interface layouts and controls</li>
+                        <li>Mobile responsiveness</li>
+                        <li>Trust signals and information transparency</li>
+                    </ul>
+                    <p><strong>Insights emerged around:</strong></p>
+                    <ul>
+                        <li>Best practices in onboarding that reduced user anxiety</li>
+                        <li>Successful integration of educational assets into workflows</li>
+                        <li>Competitive gaps in visual trade consoles and data presentation</li>
+                    </ul>
+                    <p>These findings helped contextualize TD Ameritrade's strengths and identify targeted opportunities for improvement.</p>
+                </div>
+            </div>
+
+            <!-- Deliverables Section -->
+            <div class="case-section">
+                <div class="section-label">Deliverables</div>
+                <div class="section-content">
+                    <p><strong>Heuristic Evaluation Report</strong><br>
+                    Detailing UX violations, severity ratings, and recommended actions</p>
+                    
+                    <p><strong>Competitive Analysis Summary</strong><br>
+                    Benchmarking key competitors and identifying strategic implications</p>
+                    
+                    <p>Both reports were delivered to the product and design teams and used as reference tools for future design planning and prioritization.</p>
+                </div>
+            </div>
+
+            <!-- Outcome & Impact Section -->
+            <div class="case-section">
+                <div class="section-label">Outcome & Impact</div>
+                <div class="section-content">
+                    <p>Although this was a short-term engagement, it provided:</p>
+                    <ul>
+                        <li>Actionable UX insights grounded in established methodologies</li>
+                        <li>A clear baseline for prioritizing improvements</li>
+                        <li>Strategic context from competitor benchmarks</li>
+                        <li>Validation of existing strengths and targeted opportunity areas</li>
+                    </ul>
+                    <p>For my portfolio, this case highlights:</p>
+                    <ul>
+                        <li>Strong research breadth (heuristics + competitive)</li>
+                        <li>Ability to deliver high-quality outputs under time and resource constraints</li>
+                        <li>Domain fluency in financial UX and complex interfaces</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <nav class="footer-nav">
+                    <a href="../about.html">About</a>
+                    <a href="../contact.html">Contact</a>
+                    <a href="../resume/index.html">Resume</a>
+                    <a href="#">Share <span>↗</span></a>
+                </nav>
+                <div class="footer-contact">
+                    <p class="footer-label">GET IN TOUCH</p>
+                    <p class="footer-email">ptulin@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-right">
+                <a href="https://linkedin.com/in/paweltulin" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">in</a>
+                <a href="mailto:ptulin@gmail.com?subject=Contact%20via%20Portfolio%20Website" class="social-icon" aria-label="Email">✉</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-nav">
+            <a href="../index.html" class="mobile-nav-link">Home</a>
+            <a href="../about.html" class="mobile-nav-link">About</a>
+            <a href="../contact.html" class="mobile-nav-link">Contact</a>
+        </nav>
+    </div>
+
+    <div class="mobile-menu-overlay" id="menuOverlay"></div>
+
+    <script src="../script.js"></script>
+</body>
+</html>
+
