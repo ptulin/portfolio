@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G2A — Global E-Commerce Platform Transformation - Pawel Tulin</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #1d1d1f;
+            background: #ffffff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header - Premium */
+        .header {
+            padding: 2rem 0;
+            border-bottom: 1px solid #e5e5e7;
+            background: #ffffff;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+
+        .logo a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 0.5rem;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: #1d1d1f;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Filters - Premium */
+        .filters {
+            display: flex;
+            gap: 1rem;
+            max-width: 1400px;
+            width: 100%;
+            margin: 20px auto 0;
+            padding: 1.5rem 64px;
+            background: #f5f5f7;
+            box-sizing: border-box;
+        }
+
+        .filter-dropdown {
+            padding: 0.875rem 1.25rem;
+            background: #ffffff;
+            border: 1px solid #e5e5e7;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .filter-dropdown:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Content Area */
+        .case-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .case-header {
+            margin-bottom: 4rem;
+        }
+
+        .case-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: #1d1d1f;
+            letter-spacing: -0.02em;
+        }
+
+        .case-meta {
+            font-size: 1rem;
+            color: #86868b;
+            font-weight: 400;
+            margin-bottom: 3rem;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        .case-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .section-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #86868b;
+            font-weight: 600;
+            position: sticky;
+            top: 2rem;
+        }
+
+        .section-content {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #515154;
+        }
+
+        .section-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1d1d1f;
+            letter-spacing: -0.01em;
+        }
+
+        .section-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .section-content li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .section-content li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #86868b;
+        }
+
+        .section-content strong {
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+
+        /* Footer - Premium */
+        .footer {
+            padding: 6rem 2rem 4rem;
+            border-top: 1px solid #e5e5e7;
+            margin-top: 6rem;
+            background: #f5f5f7;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-nav a {
+            color: #1d1d1f;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .footer-nav a:hover {
+            color: #86868b;
+        }
+
+        .footer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #86868b;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .footer-email {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: #1d1d1f;
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            border: 1px solid #e5e5e7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #1d1d1f;
+            font-size: 1.125rem;
+            transition: all 0.2s ease;
+            background: #ffffff;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 320px;
+            height: 100vh;
+            background: #ffffff;
+            box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 5rem 2.5rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .mobile-nav-link {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #1d1d1f;
+            text-decoration: none;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e5e5e7;
+            transition: color 0.2s ease;
+        }
+
+        .mobile-nav-link:hover:not(.current) {
+            color: #86868b;
+        }
+
+        .mobile-nav-link.current {
+            color: #86868b;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .case-content {
+                padding: 3rem 1.5rem;
+            }
+
+            .case-title {
+                font-size: 2.5rem;
+            }
+
+            .case-section {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .section-label {
+                position: static;
+            }
+
+            .filters {
+                padding: 1rem 1.5rem;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo"><a href="../index.html">Pawel Tulin</a></div>
+            <button class="menu-toggle" aria-label="Menu" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="filters">
+            <select class="filter-dropdown" id="areaFilter" data-filter="area">
+                <option value="all">Area: All</option>
+                <option value="product-design">Product Design</option>
+                <option value="ux-design">UX Design</option>
+                <option value="ux-research">UX Research</option>
+                <option value="ai-llm-design">AI/LLM Design</option>
+            </select>
+            <select class="filter-dropdown" id="industryFilter" data-filter="industry">
+                <option value="all">Industry: All</option>
+                <option value="fintech">Fintech / Financial Services</option>
+                <option value="saas">SaaS / Enterprise</option>
+                <option value="nonprofit">Nonprofit / NGO / UN</option>
+                <option value="ecommerce">E-commerce</option>
+                <option value="ai-data">AI / Data Platforms</option>
+                <option value="education">Education / EdTech</option>
+            </select>
+            <select class="filter-dropdown" id="deliverableFilter" data-filter="deliverable">
+                <option value="all">Deliverable: All</option>
+                <option value="case-study">Case Study</option>
+                <option value="design-system">Design System</option>
+                <option value="dashboard">Dashboard / Data Visualization</option>
+                <option value="ai-workflow">AI Workflow / LLM System</option>
+                <option value="service-blueprint">Service Blueprint</option>
+                <option value="research-study">Research Study</option>
+                <option value="prototype">Prototype</option>
+                <option value="strategy">Strategy / Roadmap</option>
+            </select>
+        </div>
+    </header>
+
+    <!-- Content Area -->
+    <main class="case-content">
+        <div class="case-header">
+            <h1 class="case-title">G2A — Global E-Commerce Platform Transformation</h1>
+            <p class="case-meta">UX Strategy · UX Research · Product Design · Service Design</p>
+        </div>
+
+        <div class="case-grid">
+            <!-- Overview Section -->
+            <div class="case-section">
+                <div class="section-label">Overview</div>
+                <div class="section-content">
+                    <p>G2A is one of the world's largest digital marketplaces for games and digital goods, serving millions of users globally. When I joined, the platform had strong market traction but suffered from fragmented UX practices, limited research maturity, weak mobile experiences, and growing operational complexity across product, marketing, and engineering teams.</p>
+                    <p>I was brought in to lead UX strategy and research, build a scalable UX organization, and modernize the platform across web, mobile, data, and emerging technologies.</p>
+                </div>
+            </div>
+
+            <!-- Problem Section -->
+            <div class="case-section">
+                <div class="section-label">Problem</div>
+                <div class="section-content">
+                    <p>G2A faced several interconnected challenges:</p>
+                    <ul>
+                        <li>Fragmented user experience across web, mobile, and internal tools</li>
+                        <li>No formal UX research or analytics-driven decision-making</li>
+                        <li>Weak personalization and recommendation quality at scale</li>
+                        <li>Declining mobile performance and conversion</li>
+                        <li>Internal friction between product, engineering, and business teams</li>
+                        <li>Loyalty mechanics that lacked long-term engagement incentives</li>
+                    </ul>
+                    <p>At the same time, the platform was operating at massive scale, requiring solutions that worked reliably across countries, currencies, regulations, and user segments.</p>
+                </div>
+            </div>
+
+            <!-- Context & Constraints Section -->
+            <div class="case-section">
+                <div class="section-label">Context & Constraints</div>
+                <div class="section-content">
+                    <ul>
+                        <li>Global e-commerce platform with millions of users</li>
+                        <li>High transaction volume and complex marketplace dynamics</li>
+                        <li>Strong business pressure for growth, conversion, and retention</li>
+                        <li>Distributed teams and rapidly evolving product roadmap</li>
+                        <li>Need to balance speed, experimentation, and operational stability</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Approach Section -->
+            <div class="case-section">
+                <div class="section-label">Approach</div>
+                <div class="section-content">
+                    <p>I focused on <strong>raising UX maturity across the organization</strong>, not just redesigning screens.</p>
+                    <p><strong>Key pillars of the approach:</strong></p>
+                    
+                    <h3>1. Build the UX organization</h3>
+                    <ul>
+                        <li>Scaled the UX team from 9 to 21 people</li>
+                        <li>Hired designers, researchers, and data specialists</li>
+                        <li>Introduced clear roles, rituals, pairing, and mentorship</li>
+                    </ul>
+
+                    <h3>2. Introduce research & analytics as decision drivers</h3>
+                    <ul>
+                        <li>Established continuous UX research practices</li>
+                        <li>Implemented analytics-driven UX validation</li>
+                        <li>Shifted product discussions from opinions to evidence</li>
+                    </ul>
+
+                    <h3>3. Modernize core user experiences</h3>
+                    <ul>
+                        <li>Redesigned major web and mobile flows</li>
+                        <li>Improved checkout, discovery, and account management</li>
+                        <li>Focused on reducing friction and cognitive load</li>
+                    </ul>
+
+                    <h3>4. Design for personalization and scale</h3>
+                    <ul>
+                        <li>Led UX strategy for AI-powered product recommendation systems</li>
+                        <li>Defined interaction patterns for personalization without loss of trust</li>
+                        <li>Balanced automation with user control</li>
+                    </ul>
+
+                    <h3>5. Innovate with loyalty and emerging tech</h3>
+                    <ul>
+                        <li>Designed blockchain-based loyalty and reward systems</li>
+                        <li>Created new engagement mechanics tied to long-term retention</li>
+                        <li>Ensured usability and transparency around complex concepts</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Methods Section -->
+            <div class="case-section">
+                <div class="section-label">Methods</div>
+                <div class="section-content">
+                    <ul>
+                        <li>UX research (qualitative + quantitative)</li>
+                        <li>Funnel and behavioral analysis</li>
+                        <li>Service design and journey mapping</li>
+                        <li>Information architecture redesign</li>
+                        <li>Rapid prototyping and experimentation</li>
+                        <li>Cross-functional workshops</li>
+                        <li>Design systems and component libraries</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Key Contributions Section -->
+            <div class="case-section">
+                <div class="section-label">Key Contributions</div>
+                <div class="section-content">
+                    <ul>
+                        <li>Built and led a high-performing, multidisciplinary UX organization</li>
+                        <li>Introduced analytics-driven UX decision-making across teams</li>
+                        <li>Designed AI-powered product recommendation experiences</li>
+                        <li>Led design of blockchain-based loyalty systems</li>
+                        <li>Modernized mobile and web UX across key user journeys</li>
+                        <li>Improved internal operations using service design principles</li>
+                        <li>Established UX rituals, governance, and quality standards</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Outcomes & Impact Section -->
+            <div class="case-section">
+                <div class="section-label">Outcomes & Impact</div>
+                <div class="section-content">
+                    <ul>
+                        <li>Improved conversion and engagement across major funnels</li>
+                        <li>Increased retention through personalized recommendations and loyalty mechanics</li>
+                        <li>Stronger mobile performance and usability</li>
+                        <li>Reduced internal friction and clearer cross-team alignment</li>
+                        <li>Higher overall UX quality and consistency across products</li>
+                    </ul>
+                    <p>G2A's UX transformation and leadership approach received external recognition, including being featured in <strong>Harvard Business Review (Poland Edition)</strong>.</p>
+                </div>
+            </div>
+
+            <!-- Role & Responsibility Section -->
+            <div class="case-section">
+                <div class="section-label">Role & Responsibility</div>
+                <div class="section-content">
+                    <p><strong>UX Strategy & Research Lead</strong></p>
+                    <ul>
+                        <li>Owned UX strategy across multiple product lines</li>
+                        <li>Led hiring, team growth, and organizational design</li>
+                        <li>Partnered closely with product, engineering, marketing, and leadership</li>
+                        <li>Balanced strategic vision with hands-on execution</li>
+                        <li>Acted as internal advocate for user-centered, evidence-driven design</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Why This Project Matters Section -->
+            <div class="case-section">
+                <div class="section-label">Why This Project Matters</div>
+                <div class="section-content">
+                    <p>This project represents a full <strong>UX maturity transformation at scale</strong> — combining leadership, research, AI-driven personalization, service design, and emerging technologies in a high-pressure, global e-commerce environment.</p>
+                    <p>It shaped my approach to:</p>
+                    <ul>
+                        <li>Building UX organizations</li>
+                        <li>Designing AI-powered systems responsibly</li>
+                        <li>Balancing innovation with operational reality</li>
+                        <li>Leading design as a strategic business function</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <nav class="footer-nav">
+                    <a href="../about.html">About</a>
+                    <a href="../contact.html">Contact</a>
+                    <a href="../resume/index.html">Resume</a>
+                    <a href="#">Share <span>↗</span></a>
+                </nav>
+                <div class="footer-contact">
+                    <p class="footer-label">GET IN TOUCH</p>
+                    <p class="footer-email">ptulin@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-right">
+                <a href="https://linkedin.com/in/paweltulin" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">in</a>
+                <a href="mailto:ptulin@gmail.com?subject=Contact%20via%20Portfolio%20Website" class="social-icon" aria-label="Email">✉</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-nav">
+            <a href="../index.html" class="mobile-nav-link">Home</a>
+            <a href="../about.html" class="mobile-nav-link">About</a>
+            <a href="../contact.html" class="mobile-nav-link">Contact</a>
+        </nav>
+    </div>
+
+    <div class="mobile-menu-overlay" id="menuOverlay"></div>
+
+    <script src="../script.js"></script>
+</body>
+</html>
+
