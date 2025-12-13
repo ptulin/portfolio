@@ -422,167 +422,48 @@
     <!-- Content Area -->
     <main class="case-content">
         <div class="case-header">
-            <h1 class="case-title">ADP / Global — Customer Support Chatbots</h1>
-            <p class="case-meta">Conversational AI · UX Research · Product Design</p>
+            <h1 class="case-title">ADP — Global Customer Support Chatbots (IBM Watson)</h1>
+            <p class="case-meta">UX Designer · Conversation Designer · UX Research</p>
         </div>
 
         <div class="case-grid">
-            <!-- Overview Section -->
+            <!-- Context Section -->
             <div class="case-section">
-                <div class="section-label">Overview</div>
+                <div class="section-label">Context</div>
                 <div class="section-content">
-                    <p>ADP is one of the world's largest payroll and HR services providers, supporting millions of businesses and customers globally. Customer support operates at massive scale, spanning payroll, tax, benefits, compliance, and account management across regions, languages, and regulatory environments.</p>
-                    <p>This project focused on designing and scaling AI-powered customer support chatbots to handle high-volume customer inquiries, reduce operational burden on human support teams, and dramatically improve response speed without compromising accuracy or trust.</p>
-                    <p>The work combined deep UX research, rigorous conversation design, and enterprise AI implementation using IBM Watson, at a time when conversational systems had to be explicitly designed and hardcoded rather than prompt-driven.</p>
+                    <p>ADP is one of the world's largest payroll and human capital management companies, serving millions of businesses and employees globally. The scale and complexity of ADP's operations generate an enormous volume of customer support interactions, spanning payroll, taxes, benefits, compliance, and HR administration.</p>
+                    <p>I worked on the design and delivery of <strong>AI-powered customer support chatbots</strong> built on <strong>IBM Watson</strong>, focused on reducing support load, improving response times, and increasing satisfaction for both customers and support teams.</p>
                 </div>
             </div>
 
-            <!-- Problem Space Section -->
+            <!-- Challenge Section -->
             <div class="case-section">
-                <div class="section-label">Problem Space</div>
+                <div class="section-label">Challenge</div>
                 <div class="section-content">
-                    <h3>Business Challenges</h3>
+                    <p>ADP's support organization faced several critical challenges:</p>
                     <ul>
-                        <li>Extremely high global customer support volume operating 24/7</li>
-                        <li>Large percentage of repetitive, well-understood inquiries overwhelming support teams</li>
-                        <li>Support costs scaling directly with business growth</li>
-                        <li>Inconsistent customer experience across channels and regions</li>
-                        <li>Limited ability for human agents to focus on complex, high-value cases</li>
+                        <li>Extremely high volume of repetitive, time-sensitive customer inquiries</li>
+                        <li>Long wait times and heavy reliance on human agents</li>
+                        <li>Complex domain knowledge required to answer payroll and compliance questions</li>
+                        <li>Inconsistent customer experience across channels</li>
+                        <li>Limited scalability of traditional support models</li>
                     </ul>
-
-                    <h3>User (Customer) Challenges</h3>
-                    <ul>
-                        <li>Customers needed fast, accurate answers to time-sensitive payroll and HR questions</li>
-                        <li>Long wait times for basic inquiries</li>
-                        <li>Repetitive calls for issues that could be resolved instantly</li>
-                        <li>Frustration when simple questions blocked access to human help for complex issues</li>
-                    </ul>
+                    <p>The goal was to introduce automation <strong>without degrading trust, clarity, or service quality</strong>.</p>
                 </div>
             </div>
 
-            <!-- Research & Discovery Section -->
+            <!-- Scope Clarification Section -->
             <div class="case-section">
-                <div class="section-label">Research & Discovery</div>
+                <div class="section-label">Scope Clarification</div>
                 <div class="section-content">
-                    <p>This project was grounded in extensive, hands-on research.</p>
-
-                    <h3>Research Activities</h3>
+                    <p>While employees used the system internally, the <strong>primary users were customers</strong> — businesses and individuals interacting with ADP's support ecosystem at massive scale.</p>
+                    <p>Any solution had to:</p>
                     <ul>
-                        <li>Hundreds of hours shadowing customer service representatives</li>
-                        <li>Deep analysis of support logs, transcripts, and call recordings</li>
-                        <li>Systematic classification of:
-                            <ul>
-                                <li>Customer questions</li>
-                                <li>Utterances and phrasing variations</li>
-                                <li>Ambiguity patterns</li>
-                                <li>Failure and escalation points</li>
-                            </ul>
-                        </li>
-                        <li>Identification and prioritization of high-volume, automation-safe intents</li>
+                        <li>Work 24/7</li>
+                        <li>Handle ambiguity safely</li>
+                        <li>Escalate to humans when needed</li>
+                        <li>Be accurate in a legally sensitive domain</li>
                     </ul>
-
-                    <h3>Key Outcomes</h3>
-                    <ul>
-                        <li>Clear taxonomy of customer intents across payroll, benefits, and compliance</li>
-                        <li>Rules for intent disambiguation in ambiguous or incomplete queries</li>
-                        <li>Identification of where automation was appropriate versus risky</li>
-                        <li>Foundational data for conversation design and system logic</li>
-                    </ul>
-
-                    <p>These insights directly informed every design and technical decision that followed.</p>
-                </div>
-            </div>
-
-            <!-- Product & Conversation Design Section -->
-            <div class="case-section">
-                <div class="section-label">Product & Conversation Design</div>
-                <div class="section-content">
-                    <p>Based on research insights, I designed large-scale, cohesive conversational flows covering the majority of customer support needs.</p>
-
-                    <p><strong>Key aspects of the conversation design included:</strong></p>
-                    <ul>
-                        <li>Deep conversation maps with explicit branching logic</li>
-                        <li>Clear rules for intent recognition and disambiguation</li>
-                        <li>Progressive clarification strategies for ambiguous requests</li>
-                        <li>Explicit recovery paths when confidence dropped</li>
-                    </ul>
-
-                    <p>Because the system was built on IBM Watson, all logic had to be explicitly modeled, rule-based, and hardcoded. There was no generative prompting or probabilistic behavior. This required a high level of rigor and discipline in conversation design to ensure predictability, reliability, and compliance.</p>
-                </div>
-            </div>
-
-            <!-- AI Implementation Section -->
-            <div class="case-section">
-                <div class="section-label">AI Implementation</div>
-                <div class="section-content">
-                    <h3>Technical Constraints</h3>
-                    <ul>
-                        <li>No generative prompting</li>
-                        <li>All intents, entities, and flows explicitly defined</li>
-                        <li>High emphasis on deterministic behavior and predictability</li>
-                        <li>Strong alignment with compliance and operational requirements</li>
-                    </ul>
-
-                    <h3>Core Capabilities</h3>
-                    <ul>
-                        <li>Intent detection and routing across large support domains</li>
-                        <li>Context-aware follow-up questions</li>
-                        <li>Confidence thresholds triggering human escalation</li>
-                        <li>Seamless handoff to live agents with full conversation context preserved</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Analytics, Feedback & Continuous Improvement Section -->
-            <div class="case-section">
-                <div class="section-label">Analytics & Feedback</div>
-                <div class="section-content">
-                    <p>Alongside the conversational system, we designed analytics and feedback mechanisms to ensure long-term effectiveness and continuous improvement.</p>
-
-                    <p><strong>This included:</strong></p>
-                    <ul>
-                        <li>Tracking intent coverage and failure rates</li>
-                        <li>Monitoring escalation frequency and root causes</li>
-                        <li>Identifying conversation dead ends and confusion points</li>
-                        <li>Feeding insights back into conversation refinement and system updates</li>
-                    </ul>
-
-                    <p>This transformed the chatbot from a static system into a continuously improving support platform.</p>
-                </div>
-            </div>
-
-            <!-- Human Fallback & Trust Design Section -->
-            <div class="case-section">
-                <div class="section-label">Human Fallback & Trust</div>
-                <div class="section-content">
-                    <p>A core design principle was acknowledging that not all conversations succeed.</p>
-
-                    <p><strong>The system included:</strong></p>
-                    <ul>
-                        <li>Clear confidence thresholds for escalation</li>
-                        <li>Smooth handoff to human agents</li>
-                        <li>Preservation of conversation context to avoid repetition</li>
-                    </ul>
-
-                    <p>This ensured customers never felt trapped by automation and maintained trust in the support experience.</p>
-                </div>
-            </div>
-
-            <!-- Outcomes & Impact Section -->
-            <div class="case-section">
-                <div class="section-label">Outcomes & Impact</div>
-                <div class="section-content">
-                    <p>Once deployed, the system delivered immediate and measurable results:</p>
-                    <ul>
-                        <li>Customers received instant answers, 24/7</li>
-                        <li>Human support agents were relieved from repetitive, low-value inquiries</li>
-                        <li>Agents were able to spend more time on complex, high-impact customer issues</li>
-                        <li>Customer satisfaction increased</li>
-                        <li>Support costs dropped immediately</li>
-                        <li>The project paid for itself in approximately one year</li>
-                    </ul>
-
-                    <p>This was a rare outcome where customers, support teams, and leadership all benefited simultaneously.</p>
                 </div>
             </div>
 
@@ -590,23 +471,112 @@
             <div class="case-section">
                 <div class="section-label">My Role</div>
                 <div class="section-content">
+                    <p><strong>UX Designer / Conversation Designer</strong></p>
+                    <p>I was responsible for:</p>
                     <ul>
-                        <li>Led UX research across global customer support operations</li>
-                        <li>Designed large-scale conversational logic and flow systems</li>
-                        <li>Defined intent taxonomies and disambiguation rules</li>
-                        <li>Partnered with IBM Watson teams on AI implementation</li>
-                        <li>Designed analytics and feedback mechanisms</li>
-                        <li>Balanced automation, trust, compliance, and operational constraints</li>
+                        <li>Research and analysis of customer support behavior</li>
+                        <li>Conversation design and dialog modeling</li>
+                        <li>Designing logic flows and disambiguation rules</li>
+                        <li>Defining analytics and feedback loops</li>
+                        <li>Designing fallback and escalation mechanisms</li>
+                    </ul>
+                    <p>This was a deeply hands-on role in a highly constrained AI environment.</p>
+                </div>
+            </div>
+
+            <!-- Research & Discovery Section -->
+            <div class="case-section">
+                <div class="section-label">Research & Discovery</div>
+                <div class="section-content">
+                    <p>We conducted extensive research to understand real support needs:</p>
+                    <ul>
+                        <li>Shadowed customer service representatives</li>
+                        <li>Reviewed large volumes of support logs and call transcripts</li>
+                        <li>Classified questions, intents, and utterances</li>
+                        <li>Identified ambiguity patterns and failure points</li>
+                    </ul>
+                    <p>This research formed the foundation of all conversation design decisions.</p>
+                </div>
+            </div>
+
+            <!-- Conversation Design at Scale Section -->
+            <div class="case-section">
+                <div class="section-label">Conversation Design at Scale</div>
+                <div class="section-content">
+                    <p>Because this work predated modern prompt-based LLM systems, <strong>everything had to be explicitly designed and programmed</strong>:</p>
+                    <ul>
+                        <li>Intents and entities were manually defined</li>
+                        <li>Dialog trees and logic maps were carefully constructed</li>
+                        <li>Disambiguation rules were crafted for edge cases</li>
+                        <li>Error handling was explicitly designed, not inferred</li>
+                    </ul>
+                    <p>I created <strong>large-scale conversation logic maps</strong> to ensure:</p>
+                    <ul>
+                        <li>Consistency</li>
+                        <li>Predictability</li>
+                        <li>Safe handling of sensitive topics</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Why This Project Matters Section -->
+            <!-- Analytics & Continuous Improvement Section -->
             <div class="case-section">
-                <div class="section-label">Why This Matters</div>
+                <div class="section-label">Analytics & Continuous Improvement</div>
                 <div class="section-content">
-                    <p>This project demonstrates enterprise-scale conversational AI before the rise of modern LLMs, grounded in deep UX research and rigorous conversation design. It shows how disciplined design, analytics, and trust mechanisms can turn AI automation into real business impact rather than experimentation.</p>
-                    <p>It remains one of the most rewarding and complete AI product initiatives I've worked on.</p>
+                    <p>To improve performance over time, we designed:</p>
+                    <ul>
+                        <li>Usage tracking and intent success metrics</li>
+                        <li>Drop-off and escalation analysis</li>
+                        <li>Feedback loops tied to conversation outcomes</li>
+                    </ul>
+                    <p>These insights allowed continuous refinement of both logic and content.</p>
+                </div>
+            </div>
+
+            <!-- Human Fallback & Trust Section -->
+            <div class="case-section">
+                <div class="section-label">Human Fallback & Trust</div>
+                <div class="section-content">
+                    <p>Automation was never absolute.</p>
+                    <p>We designed:</p>
+                    <ul>
+                        <li>Seamless escalation paths to human agents</li>
+                        <li>Context preservation during handoff</li>
+                        <li>Clear signaling when a bot could not safely proceed</li>
+                    </ul>
+                    <p>This protected both customers and support staff from frustration and risk.</p>
+                </div>
+            </div>
+
+            <!-- Outcomes Section -->
+            <div class="case-section">
+                <div class="section-label">Outcomes</div>
+                <div class="section-content">
+                    <p>Once deployed, the system delivered immediate and sustained impact:</p>
+                    <ul>
+                        <li><strong>~90% of human support interactions automated</strong></li>
+                        <li><strong>~70% reduction in support costs</strong></li>
+                        <li>Faster response times and 24/7 availability</li>
+                        <li>Higher customer satisfaction for routine inquiries</li>
+                        <li>Reduced workload for support agents, allowing focus on complex cases</li>
+                        <li>Rapid ROI — the project paid for itself in approximately one year</li>
+                    </ul>
+                    <p>The solution was a success across all stakeholder groups: customers, support teams, and leadership.</p>
+                </div>
+            </div>
+
+            <!-- What This Project Demonstrates Section -->
+            <div class="case-section">
+                <div class="section-label">What This Project Demonstrates</div>
+                <div class="section-content">
+                    <ul>
+                        <li>Conversation design before modern LLM tooling</li>
+                        <li>AI UX in highly regulated, sensitive domains</li>
+                        <li>Large-scale intent modeling and disambiguation</li>
+                        <li>Research-driven automation design</li>
+                        <li>Analytics-informed iteration</li>
+                        <li>Designing trust and fallback into AI systems</li>
+                    </ul>
                 </div>
             </div>
         </div>
