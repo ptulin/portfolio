@@ -3,22 +3,674 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PEARSON - EdTech Platform Research - Pawel Tulin</title>
+    <title>Pearson — Online Education Platform - Pawel Tulin</title>
     <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #1d1d1f;
+            background: #ffffff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header - Premium */
+        .header {
+            padding: 2rem 0;
+            border-bottom: 1px solid #e5e5e7;
+            background: #ffffff;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+
+        .logo a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 0.5rem;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: #1d1d1f;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Filters - Premium */
+        .filters {
+            display: flex;
+            gap: 1rem;
+            max-width: 1400px;
+            width: 100%;
+            margin: 20px auto 0;
+            padding: 1.5rem 64px;
+            background: #f5f5f7;
+            box-sizing: border-box;
+        }
+
+        .filter-dropdown {
+            padding: 0.875rem 1.25rem;
+            background: #ffffff;
+            border: 1px solid #e5e5e7;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .filter-dropdown:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Content Area */
+        .case-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .case-header {
+            margin-bottom: 4rem;
+        }
+
+        .case-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: #1d1d1f;
+            letter-spacing: -0.02em;
+        }
+
+        .case-meta {
+            font-size: 1rem;
+            color: #86868b;
+            font-weight: 400;
+            margin-bottom: 3rem;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        .case-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .section-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #86868b;
+            font-weight: 600;
+            position: sticky;
+            top: 2rem;
+        }
+
+        .section-content {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #515154;
+        }
+
+        .section-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1d1d1f;
+            letter-spacing: -0.01em;
+        }
+
+        .section-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .section-content li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .section-content li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #86868b;
+        }
+
+        .section-content strong {
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+
+        /* Footer - Premium */
+        .footer {
+            padding: 6rem 2rem 4rem;
+            border-top: 1px solid #e5e5e7;
+            margin-top: 6rem;
+            background: #f5f5f7;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-nav a {
+            color: #1d1d1f;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .footer-nav a:hover {
+            color: #86868b;
+        }
+
+        .footer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #86868b;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .footer-email {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: #1d1d1f;
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            border: 1px solid #e5e5e7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #1d1d1f;
+            font-size: 1.125rem;
+            transition: all 0.2s ease;
+            background: #ffffff;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 320px;
+            height: 100vh;
+            background: #ffffff;
+            box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 5rem 2.5rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .mobile-nav-link {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #1d1d1f;
+            text-decoration: none;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e5e5e7;
+            transition: color 0.2s ease;
+        }
+
+        .mobile-nav-link:hover:not(.current) {
+            color: #86868b;
+        }
+
+        .mobile-nav-link.current {
+            color: #86868b;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .case-content {
+                padding: 3rem 1.5rem;
+            }
+
+            .case-title {
+                font-size: 2.5rem;
+            }
+
+            .case-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-label {
+                position: static;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .footer-nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .filters {
+                padding: 1rem 1.5rem;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
     <header class="header">
         <div class="header-content">
             <div class="logo"><a href="../index.html">Pawel Tulin</a></div>
+            <button class="menu-toggle" aria-label="Menu" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="filters">
+            <select class="filter-dropdown" id="areaFilter" data-filter="area">
+                <option value="all">Area: All</option>
+                <option value="product-design">Product Design</option>
+                <option value="ux-design">UX Design</option>
+                <option value="ux-research">UX Research</option>
+                <option value="ai-llm-design">AI/LLM Design</option>
+            </select>
+            <select class="filter-dropdown" id="industryFilter" data-filter="industry">
+                <option value="all">Industry: All</option>
+                <option value="fintech">Fintech / Financial Services</option>
+                <option value="saas">SaaS / Enterprise</option>
+                <option value="nonprofit">Nonprofit / NGO / UN</option>
+                <option value="ecommerce">E-commerce</option>
+                <option value="ai-data">AI / Data Platforms</option>
+                <option value="education">Education / EdTech</option>
+            </select>
+            <select class="filter-dropdown" id="deliverableFilter" data-filter="deliverable">
+                <option value="all">Deliverable: All</option>
+                <option value="case-study">Case Study</option>
+                <option value="design-system">Design System</option>
+                <option value="dashboard">Dashboard / Data Visualization</option>
+                <option value="ai-workflow">AI Workflow / LLM System</option>
+                <option value="service-blueprint">Service Blueprint</option>
+                <option value="research-study">Research Study</option>
+                <option value="prototype">Prototype</option>
+                <option value="strategy">Strategy / Roadmap</option>
+            </select>
         </div>
     </header>
 
-    <main class="contact-page">
-        <div class="contact-container">
-            <h1>PEARSON - EdTech Platform Research</h1>
-            <p>Case study content coming soon...</p>
+    <!-- Content Area -->
+    <main class="case-content">
+        <div class="case-header">
+            <h1 class="case-title">Pearson — Online Education Platform</h1>
+            <p class="case-meta">Product Design · UX Research · National-Scale Education Platform</p>
+        </div>
+
+        <div class="case-grid">
+            <!-- Context Section -->
+            <div class="case-section">
+                <div class="section-label">Context</div>
+                <div class="section-content">
+                    <p>Pearson, in collaboration with the <strong>U.S. Department of Education</strong>, led the development and nationwide rollout of the <strong>Common Core Standards</strong>, establishing a unified framework for K–12 education across the United States. As part of this initiative, Pearson partnered with <strong>Apple</strong> to deploy iPads to students and teachers across public schools.</p>
+                    <p>The objective was to design and build a <strong>large-scale digital education platform</strong> supporting students, teachers, administrators, and system operators—serving millions of users concurrently while aligning tightly with Common Core requirements.</p>
+                </div>
+            </div>
+
+            <!-- Challenge Section -->
+            <div class="case-section">
+                <div class="section-label">Challenge</div>
+                <div class="section-content">
+                    <p>This initiative was not a single product but a <strong>national-scale education ecosystem</strong> with extreme complexity:</p>
+
+                    <h3>Multiple primary user groups:</h3>
+                    <ul>
+                        <li>Students (across ages, abilities, and special needs)</li>
+                        <li>Teachers</li>
+                        <li>School administrators and principals</li>
+                        <li>District and system administrators</li>
+                    </ul>
+
+                    <h3>Massive content requirements:</h3>
+                    <ul>
+                        <li>Digital lessons, exercises, exams, and assessments</li>
+                        <li>Curriculum aligned to Common Core standards</li>
+                    </ul>
+
+                    <h3>Technical scale and performance constraints:</h3>
+                    <ul>
+                        <li>Millions of simultaneous users</li>
+                        <li>Strict latency and responsiveness requirements</li>
+                    </ul>
+
+                    <h3>Continuous delivery:</h3>
+                    <ul>
+                        <li>Agile development with frequent releases</li>
+                        <li>Real-time design iteration embedded in engineering teams</li>
+                    </ul>
+
+                    <p>The platform needed to be <strong>pedagogically sound</strong>, <strong>highly usable</strong>, <strong>secure</strong>, and <strong>scalable at a national level</strong>.</p>
+                </div>
+            </div>
+
+            <!-- Role Section -->
+            <div class="case-section">
+                <div class="section-label">Role</div>
+                <div class="section-content">
+                    <p>Initially hired as a <strong>Product Designer</strong>, working within a distributed design organization across multiple U.S. cities. Embedded directly within a large engineering team in New York City.</p>
+
+                    <p><strong>Responsibilities included:</strong></p>
+                    <ul>
+                        <li>Designing student, teacher, and administrator experiences</li>
+                        <li>Leading and conducting user research and usability testing</li>
+                        <li>Collaborating closely with product, engineering, and education experts</li>
+                        <li>Rapid iteration and real-time design support within an agile environment</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Research & Discovery Section -->
+            <div class="case-section">
+                <div class="section-label">Research & Discovery</div>
+                <div class="section-content">
+                    <p>Research was extensive and foundational:</p>
+                    <ul>
+                        <li>Hundreds of hours observing students and teachers in real classroom environments</li>
+                        <li>Contextual inquiry in public schools across multiple regions</li>
+                        <li>Design thinking workshops with educators and stakeholders</li>
+                        <li>Collection and analysis of qualitative and quantitative research data</li>
+                    </ul>
+
+                    <h3>Key insights:</h3>
+                    <ul>
+                        <li>Younger students required <strong>playful, game-oriented experiences</strong></li>
+                        <li>Older students needed a more <strong>academic, structured interface</strong></li>
+                        <li>Teachers required fast, efficient tools for lesson creation, assessment, and monitoring</li>
+                        <li>Administrators needed <strong>high-level dashboards</strong> to track performance, adoption, and outcomes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Design & Solution Section -->
+            <div class="case-section">
+                <div class="section-label">Design & Solution</div>
+                <div class="section-content">
+                    <h3>Student Experience</h3>
+                    <ul>
+                        <li>Hundreds of interactive lessons, exercises, and exams</li>
+                        <li>Personalized learning paths based on:
+                            <ul>
+                                <li>Grade level</li>
+                                <li>Performance</li>
+                                <li>Special educational needs</li>
+                            </ul>
+                        </li>
+                        <li>Age-appropriate design paradigms:
+                            <ul>
+                                <li>Playful, exploratory UI for younger students</li>
+                                <li>More academic and focused UI for older students</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3>Teacher Tools</h3>
+                    <ul>
+                        <li>Dashboards for:
+                            <ul>
+                                <li>Lesson creation and curriculum management</li>
+                                <li>Assessment review and grading</li>
+                                <li>Monitoring individual and class-level progress</li>
+                            </ul>
+                        </li>
+                        <li>Interfaces designed to reduce administrative burden and support instruction at scale</li>
+                    </ul>
+
+                    <h3>Administrator & Principal Dashboards</h3>
+                    <ul>
+                        <li>High-level views into:
+                            <ul>
+                                <li>Student performance trends</li>
+                                <li>Curriculum coverage</li>
+                                <li>Engagement and adoption metrics</li>
+                            </ul>
+                        </li>
+                        <li>Tools supporting data-driven decisions at school and district levels</li>
+                    </ul>
+
+                    <h3>Platform & System Considerations</h3>
+                    <ul>
+                        <li>Designed for <strong>millions of concurrent users</strong></li>
+                        <li>UX decisions accounted for:
+                            <ul>
+                                <li>Latency</li>
+                                <li>System feedback under load</li>
+                                <li>Response times at scale</li>
+                            </ul>
+                        </li>
+                        <li>Close collaboration with engineering to ensure technical feasibility</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Testing & Validation Section -->
+            <div class="case-section">
+                <div class="section-label">Testing & Validation</div>
+                <div class="section-content">
+                    <p>Once initial prototypes were developed, the team conducted <strong>in-depth usability testing</strong>:</p>
+                    <ul>
+                        <li>Built a custom, state-of-the-art usability lab:
+                            <ul>
+                                <li>Cameras and one-way mirrors</li>
+                                <li>Eye-tracking and screen-tracking technology</li>
+                            </ul>
+                        </li>
+                        <li>Tested with:
+                            <ul>
+                                <li>Students</li>
+                                <li>Teachers</li>
+                                <li>Administrators</li>
+                            </ul>
+                        </li>
+                        <li>Continuous iteration based on research findings</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Delivery & Scale Section -->
+            <div class="case-section">
+                <div class="section-label">Delivery & Scale</div>
+                <div class="section-content">
+                    <ul>
+                        <li>Agile, continuous development methodology</li>
+                        <li>Design embedded within engineering teams</li>
+                        <li>Rapid iteration cycles and real-time design adjustments</li>
+                        <li>Multi-year initiative with a <strong>multi-billion-dollar budget</strong></li>
+                        <li>One of the largest digital education platforms ever delivered</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Impact Section -->
+            <div class="case-section">
+                <div class="section-label">Impact</div>
+                <div class="section-content">
+                    <ul>
+                        <li>Enabled nationwide adoption of Common Core-aligned digital learning</li>
+                        <li>Delivered personalized education at unprecedented scale</li>
+                        <li>Improved teaching efficiency and visibility into student progress</li>
+                        <li>Established a new benchmark for standards-based, large-scale educational platforms</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- What This Project Demonstrates Section -->
+            <div class="case-section">
+                <div class="section-label">What This Project Demonstrates</div>
+                <div class="section-content">
+                    <ul>
+                        <li>Designing and delivering at national scale</li>
+                        <li>Deep, research-driven UX practice</li>
+                        <li>Supporting radically different user groups within a single ecosystem</li>
+                        <li>Operating effectively inside agile, high-pressure engineering environments</li>
+                        <li>Translating educational policy and pedagogy into usable digital products</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <nav class="footer-nav">
+                    <a href="../about.html">About</a>
+                    <a href="../contact.html">Contact</a>
+                    <a href="../resume/index.html">Resume</a>
+                    <a href="#">Share <span>↗</span></a>
+                </nav>
+                <div class="footer-contact">
+                    <p class="footer-label">GET IN TOUCH</p>
+                    <p class="footer-email">ptulin@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-right">
+                <a href="https://linkedin.com/in/paweltulin" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">in</a>
+                <a href="mailto:ptulin@gmail.com?subject=Contact%20via%20Portfolio%20Website" class="social-icon" aria-label="Email">✉</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-nav">
+            <a href="../index.html" class="mobile-nav-link">Home</a>
+            <a href="../about.html" class="mobile-nav-link">About</a>
+            <a href="../contact.html" class="mobile-nav-link">Contact</a>
+        </nav>
+    </div>
+
+    <div class="mobile-menu-overlay" id="menuOverlay"></div>
+
+    <script src="../script.js"></script>
 </body>
 </html>
-
