@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerson Lehrman Group — Expert Network Platform - Pawel Tulin</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #1d1d1f;
+            background: #ffffff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header - Premium */
+        .header {
+            padding: 2rem 0;
+            border-bottom: 1px solid #e5e5e7;
+            background: #ffffff;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+
+        .logo a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 0.5rem;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: #1d1d1f;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Filters - Premium */
+        .filters {
+            display: flex;
+            gap: 1rem;
+            max-width: 1400px;
+            width: 100%;
+            margin: 20px auto 0;
+            padding: 1.5rem 64px;
+            background: #f5f5f7;
+            box-sizing: border-box;
+        }
+
+        .filter-dropdown {
+            padding: 0.875rem 1.25rem;
+            background: #ffffff;
+            border: 1px solid #e5e5e7;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .filter-dropdown:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Content Area */
+        .case-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .case-header {
+            margin-bottom: 4rem;
+        }
+
+        .case-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: #1d1d1f;
+            letter-spacing: -0.02em;
+        }
+
+        .case-meta {
+            font-size: 1rem;
+            color: #86868b;
+            font-weight: 400;
+            margin-bottom: 3rem;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        .case-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .section-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #86868b;
+            font-weight: 600;
+            position: sticky;
+            top: 2rem;
+        }
+
+        .section-content {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #515154;
+        }
+
+        .section-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1d1d1f;
+            letter-spacing: -0.01em;
+        }
+
+        .section-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .section-content li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .section-content li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #86868b;
+        }
+
+        .section-content strong {
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+
+        /* Footer - Premium */
+        .footer {
+            padding: 6rem 2rem 4rem;
+            border-top: 1px solid #e5e5e7;
+            margin-top: 6rem;
+            background: #f5f5f7;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-nav a {
+            color: #1d1d1f;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .footer-nav a:hover {
+            color: #86868b;
+        }
+
+        .footer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #86868b;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .footer-email {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: #1d1d1f;
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            border: 1px solid #e5e5e7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #1d1d1f;
+            font-size: 1.125rem;
+            transition: all 0.2s ease;
+            background: #ffffff;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 320px;
+            height: 100vh;
+            background: #ffffff;
+            box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 5rem 2.5rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .mobile-nav-link {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #1d1d1f;
+            text-decoration: none;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e5e5e7;
+            transition: color 0.2s ease;
+        }
+
+        .mobile-nav-link:hover:not(.current) {
+            color: #86868b;
+        }
+
+        .mobile-nav-link.current {
+            color: #86868b;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .case-content {
+                padding: 3rem 1.5rem;
+            }
+
+            .case-title {
+                font-size: 2.5rem;
+            }
+
+            .case-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-label {
+                position: static;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .footer-nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .filters {
+                padding: 1rem 1.5rem;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo"><a href="../index.html">Pawel Tulin</a></div>
+            <button class="menu-toggle" aria-label="Menu" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="filters">
+            <select class="filter-dropdown" id="areaFilter" data-filter="area">
+                <option value="all">Area: All</option>
+                <option value="product-design">Product Design</option>
+                <option value="ux-design">UX Design</option>
+                <option value="ux-research">UX Research</option>
+                <option value="ai-llm-design">AI/LLM Design</option>
+            </select>
+            <select class="filter-dropdown" id="industryFilter" data-filter="industry">
+                <option value="all">Industry: All</option>
+                <option value="fintech">Fintech / Financial Services</option>
+                <option value="saas">SaaS / Enterprise</option>
+                <option value="nonprofit">Nonprofit / NGO / UN</option>
+                <option value="ecommerce">E-commerce</option>
+                <option value="ai-data">AI / Data Platforms</option>
+                <option value="education">Education / EdTech</option>
+            </select>
+            <select class="filter-dropdown" id="deliverableFilter" data-filter="deliverable">
+                <option value="all">Deliverable: All</option>
+                <option value="case-study">Case Study</option>
+                <option value="design-system">Design System</option>
+                <option value="dashboard">Dashboard / Data Visualization</option>
+                <option value="ai-workflow">AI Workflow / LLM System</option>
+                <option value="service-blueprint">Service Blueprint</option>
+                <option value="research-study">Research Study</option>
+                <option value="prototype">Prototype</option>
+                <option value="strategy">Strategy / Roadmap</option>
+            </select>
+        </div>
+    </header>
+
+    <!-- Content Area -->
+    <main class="case-content">
+        <div class="case-header">
+            <h1 class="case-title">Gerson Lehrman Group — Client & Internal Platform Redesign</h1>
+            <p class="case-meta">Information Architecture · Product Design · Compliance-by-Design UX</p>
+        </div>
+
+        <div class="case-grid">
+            <!-- Context Section -->
+            <div class="case-section">
+                <div class="section-label">Context</div>
+                <div class="section-content">
+                    <p>Gerson Lehrman Group (GLG) is the world's leading expert network, operating at the intersection of finance, consulting, healthcare, government, and industry. The platform connects institutional clients with subject-matter experts globally, enabling time-sensitive, high-stakes decision-making.</p>
+                    <p>Because GLG operates in heavily regulated environments (SEC, FINRA, confidentiality and non-public information handling), <strong>compliance, conflict avoidance, and information security are not features — they are core system requirements</strong>.</p>
+                    <p>I worked as an Information Architect and Product Designer across both <strong>client-facing platforms</strong> and <strong>internal enterprise systems</strong>, modeling strict legal and compliance constraints directly into product interactions, workflows, and training experiences.</p>
+                </div>
+            </div>
+
+            <!-- The Challenge Section -->
+            <div class="case-section">
+                <div class="section-label">The Challenge</div>
+                <div class="section-content">
+                    <p>GLG's platform needed to support:</p>
+                    <ul>
+                        <li>Millions of expert profiles across industries and geographies</li>
+                        <li>High-risk, high-value expert–client engagements</li>
+                        <li>Strict confidentiality and conflict-of-interest rules</li>
+                        <li>Complex screening, matching, and approval workflows</li>
+                        <li>Internal tooling used by globally distributed GLG employees</li>
+                        <li>Real-time visibility and control for clients</li>
+                    </ul>
+                    <p>The challenge was to design <strong>powerful systems that remain safe by default</strong>, even under speed, scale, and pressure.</p>
+                </div>
+            </div>
+
+            <!-- Compliance as a First-Class UX Constraint Section -->
+            <div class="case-section">
+                <div class="section-label">Compliance as a First-Class UX Constraint</div>
+                <div class="section-content">
+                    <h3>Expert Contracts & Training</h3>
+                    <p>Experts are required to:</p>
+                    <ul>
+                        <li>Sign and annually renew contracts agreeing to confidentiality obligations</li>
+                        <li>Decline engagements that could violate employer or legal restrictions</li>
+                        <li>Avoid sharing confidential or non-public information</li>
+                        <li>Terminate engagements that become non-compliant</li>
+                    </ul>
+                    <p>I worked on <strong>modeling these obligations directly into digital interactions</strong>, including:</p>
+                    <ul>
+                        <li>Interactive, sector-specific training modules</li>
+                        <li>Annual compliance tutorials in multiple languages</li>
+                        <li>Scenario-based exercises highlighting inadvertent disclosure risks</li>
+                    </ul>
+                    <p>Compliance was embedded into onboarding, renewal flows, and engagement touchpoints — not handled as static documentation.</p>
+
+                    <h3>Conflict Screening & Risk Management</h3>
+                    <p>GLG uses:</p>
+                    <ul>
+                        <li>Extensive expert profile questionnaires</li>
+                        <li>A large historical database of screening responses</li>
+                        <li>Real-time conflict detection during expert matching</li>
+                    </ul>
+                    <p>I contributed to the design of:</p>
+                    <ul>
+                        <li>Screening workflows that automatically disqualify unsuitable experts</li>
+                        <li>Assisted decision paths for trained GLG professionals handling edge cases</li>
+                        <li>Graceful exits allowing experts to withdraw from engagements early while preserving trust and fairness</li>
+                    </ul>
+                    <p>These systems balanced <strong>automation with human judgment</strong>, especially in ambiguous or high-risk scenarios.</p>
+                </div>
+            </div>
+
+            <!-- Blinding Models Embedded in Product Design Section -->
+            <div class="case-section">
+                <div class="section-label">Blinding Models Embedded in Product Design</div>
+                <div class="section-content">
+                    <p>To minimize conflicts of interest and prevent targeted disclosures, GLG employs multiple blinding strategies — implemented through UX and system logic rather than labeled explicitly:</p>
+
+                    <h3>Single-Blind Matching</h3>
+                    <p>Clients see expert profiles; experts do not see full client or project sponsor details.</p>
+
+                    <h3>Double-Blind Matching</h3>
+                    <p>Neither party sees identifying details until screening and approvals are complete.</p>
+
+                    <h3>Triple-Blind / Full Anonymization</h3>
+                    <p>Applied in highly sensitive engagements, limiting visibility even internally during early vetting stages.</p>
+
+                    <p>I worked on <strong>modeling these blinding methods in online interactions</strong>, ensuring:</p>
+                    <ul>
+                        <li>The correct level of anonymity is enforced automatically</li>
+                        <li>Client-defined rules are respected</li>
+                        <li>Transitions between states are clear, auditable, and compliant</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Client Protections & Transparency Section -->
+            <div class="case-section">
+                <div class="section-label">Client Protections & Transparency</div>
+                <div class="section-content">
+                    <p>Clients were given direct control via a <strong>real-time compliance dashboard</strong>, allowing them to:</p>
+                    <ul>
+                        <li>Monitor all active engagements</li>
+                        <li>Review expert credentials and disclosures</li>
+                        <li>Define custom rules (e.g., pre-approvals, additional screening questions)</li>
+                        <li>Control how and when data is shared</li>
+                    </ul>
+                    <p>This reduced the risk of soliciting confidential information and increased institutional trust in the platform.</p>
+                </div>
+            </div>
+
+            <!-- Employer Constraints Section -->
+            <div class="case-section">
+                <div class="section-label">Employer Constraints</div>
+                <div class="section-content">
+                    <p>Many experts are employed by corporations, institutions, or government entities. I worked on flows that enforced:</p>
+                    <ul>
+                        <li>Automatic blocking of experts from consulting on their employer's projects</li>
+                        <li>Employer-specific restrictions stored in a centralized preferences database</li>
+                        <li>Requirements for written consent for deeper or longer engagements</li>
+                    </ul>
+                    <p>These constraints were <strong>invisible to users when irrelevant, and unavoidable when required</strong>.</p>
+                </div>
+            </div>
+
+            <!-- Internal Search & Intelligence Platform Section -->
+            <div class="case-section">
+                <div class="section-label">Internal Search & Intelligence Platform</div>
+                <div class="section-content">
+                    <p>A major part of my work focused on <strong>internal GLG systems</strong> used by employees worldwide.</p>
+
+                    <p>GLG had access to:</p>
+                    <ul>
+                        <li>Hundreds of governmental, medical, industrial, and scientific databases</li>
+                        <li>One of the largest non-governmental collections of expert, company, and industry data</li>
+                    </ul>
+
+                    <p>I designed:</p>
+                    <ul>
+                        <li>A highly advanced internal search engine</li>
+                        <li>Deep filtering systems supporting complex queries across people, companies, and topics</li>
+                        <li>Interactive data visualizations (graphs, relationship maps, timelines)</li>
+                    </ul>
+
+                    <p>These tools allowed employees to:</p>
+                    <ul>
+                        <li>Follow individuals, companies, or industries over time</li>
+                        <li>Understand relationships, influence, and exposure</li>
+                        <li>Make informed matching decisions quickly and safely</li>
+                    </ul>
+
+                    <p>The search and visualization capabilities exceeded public search engines in depth and precision, while remaining usable under daily operational pressure.</p>
+                </div>
+            </div>
+
+            <!-- Research & Collaboration Section -->
+            <div class="case-section">
+                <div class="section-label">Research & Collaboration</div>
+                <div class="section-content">
+                    <p>Because these tools were internal:</p>
+                    <ul>
+                        <li>I had direct access to employees across roles and regions</li>
+                        <li>Research was continuous and deeply collaborative</li>
+                        <li>Users were highly motivated to improve the product they relied on daily</li>
+                    </ul>
+
+                    <p>This resulted in:</p>
+                    <ul>
+                        <li>Rapid feedback loops</li>
+                        <li>High adoption</li>
+                        <li>Strong internal ownership of outcomes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- My Role Section -->
+            <div class="case-section">
+                <div class="section-label">My Role</div>
+                <div class="section-content">
+                    <ul>
+                        <li>Information Architect</li>
+                        <li>Product Designer</li>
+                        <li>Compliance-by-Design UX</li>
+                        <li>Internal Platform Design</li>
+                        <li>Search & Data Visualization</li>
+                        <li>Complex Workflow Modeling</li>
+                        <li>Enterprise Systems</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Impact Section -->
+            <div class="case-section">
+                <div class="section-label">Impact</div>
+                <div class="section-content">
+                    <ul>
+                        <li>Legal and compliance requirements embedded directly into UX</li>
+                        <li>Safer, faster expert–client matching</li>
+                        <li>Increased trust from institutional clients</li>
+                        <li>Powerful internal tooling supporting global operations</li>
+                        <li>Strong internal adoption and long-term platform scalability</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <nav class="footer-nav">
+                    <a href="../about.html">About</a>
+                    <a href="../contact.html">Contact</a>
+                    <a href="../resume/index.html">Resume</a>
+                    <a href="#">Share <span>↗</span></a>
+                </nav>
+                <div class="footer-contact">
+                    <p class="footer-label">GET IN TOUCH</p>
+                    <p class="footer-email">ptulin@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-right">
+                <a href="https://linkedin.com/in/paweltulin" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">in</a>
+                <a href="mailto:ptulin@gmail.com?subject=Contact%20via%20Portfolio%20Website" class="social-icon" aria-label="Email">✉</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-nav">
+            <a href="../index.html" class="mobile-nav-link">Home</a>
+            <a href="../about.html" class="mobile-nav-link">About</a>
+            <a href="../contact.html" class="mobile-nav-link">Contact</a>
+        </nav>
+    </div>
+
+    <div class="mobile-menu-overlay" id="menuOverlay"></div>
+
+    <script src="../script.js"></script>
+</body>
+</html>
+
