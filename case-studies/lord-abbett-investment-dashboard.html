@@ -3,22 +3,670 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LORD ABBETT - Investment Dashboard - Pawel Tulin</title>
+    <title>Lord Abbett — Digital Ecosystem Transformation - Pawel Tulin</title>
     <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #1d1d1f;
+            background: #ffffff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header - Premium */
+        .header {
+            padding: 2rem 0;
+            border-bottom: 1px solid #e5e5e7;
+            background: #ffffff;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+
+        .logo a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 0.5rem;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: #1d1d1f;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Filters - Premium */
+        .filters {
+            display: flex;
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            background: #f5f5f7;
+            border-top: 1px solid #e5e5e7;
+        }
+
+        .filter-dropdown {
+            padding: 0.875rem 1.25rem;
+            background: #ffffff;
+            border: 1px solid #e5e5e7;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .filter-dropdown:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Content Area */
+        .case-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .case-header {
+            margin-bottom: 4rem;
+        }
+
+        .case-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: #1d1d1f;
+            letter-spacing: -0.02em;
+        }
+
+        .case-meta {
+            font-size: 1rem;
+            color: #86868b;
+            font-weight: 400;
+            margin-bottom: 3rem;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        .case-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .section-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #86868b;
+            font-weight: 600;
+            position: sticky;
+            top: 2rem;
+        }
+
+        .section-content {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #515154;
+        }
+
+        .section-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1d1d1f;
+            letter-spacing: -0.01em;
+        }
+
+        .section-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .section-content li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .section-content li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #86868b;
+        }
+
+        .section-content strong {
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+
+        /* Footer - Premium */
+        .footer {
+            padding: 6rem 2rem 4rem;
+            border-top: 1px solid #e5e5e7;
+            margin-top: 6rem;
+            background: #f5f5f7;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-nav a {
+            color: #1d1d1f;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .footer-nav a:hover {
+            color: #86868b;
+        }
+
+        .footer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #86868b;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .footer-email {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: #1d1d1f;
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            border: 1px solid #e5e5e7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #1d1d1f;
+            font-size: 1.125rem;
+            transition: all 0.2s ease;
+            background: #ffffff;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 320px;
+            height: 100vh;
+            background: #ffffff;
+            box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 5rem 2.5rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .mobile-nav-link {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #1d1d1f;
+            text-decoration: none;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e5e5e7;
+            transition: color 0.2s ease;
+        }
+
+        .mobile-nav-link:hover:not(.current) {
+            color: #86868b;
+        }
+
+        .mobile-nav-link.current {
+            color: #86868b;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .case-content {
+                padding: 3rem 1.5rem;
+            }
+
+            .case-title {
+                font-size: 2.5rem;
+            }
+
+            .case-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-label {
+                position: static;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .footer-nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .filters {
+                flex-wrap: wrap;
+                padding: 1rem 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
     <header class="header">
         <div class="header-content">
             <div class="logo"><a href="../index.html">Pawel Tulin</a></div>
+            <button class="menu-toggle" aria-label="Menu" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="filters">
+            <select class="filter-dropdown" id="areaFilter" data-filter="area">
+                <option value="all">Area: All</option>
+                <option value="product-design">Product Design</option>
+                <option value="ux-design">UX Design</option>
+                <option value="ux-research">UX Research</option>
+                <option value="ai-llm-design">AI/LLM Design</option>
+            </select>
+            <select class="filter-dropdown" id="industryFilter" data-filter="industry">
+                <option value="all">Industry: All</option>
+                <option value="fintech">Fintech / Financial Services</option>
+                <option value="saas">SaaS / Enterprise</option>
+                <option value="nonprofit">Nonprofit / NGO / UN</option>
+                <option value="ecommerce">E-commerce</option>
+                <option value="ai-data">AI / Data Platforms</option>
+                <option value="education">Education / EdTech</option>
+            </select>
+            <select class="filter-dropdown" id="deliverableFilter" data-filter="deliverable">
+                <option value="all">Deliverable: All</option>
+                <option value="case-study">Case Study</option>
+                <option value="design-system">Design System</option>
+                <option value="dashboard">Dashboard / Data Visualization</option>
+                <option value="ai-workflow">AI Workflow / LLM System</option>
+                <option value="service-blueprint">Service Blueprint</option>
+                <option value="research-study">Research Study</option>
+                <option value="prototype">Prototype</option>
+                <option value="strategy">Strategy / Roadmap</option>
+            </select>
         </div>
     </header>
 
-    <main class="contact-page">
-        <div class="contact-container">
-            <h1>LORD ABBETT - Investment Dashboard</h1>
-            <p>Case study content coming soon...</p>
+    <!-- Content Area -->
+    <main class="case-content">
+        <div class="case-header">
+            <h1 class="case-title">Lord Abbett — Digital Ecosystem Transformation</h1>
+            <p class="case-meta">VP of UX · Product Design · UX Research · Information Architecture</p>
+        </div>
+
+        <div class="case-grid">
+            <!-- Overview Section -->
+            <div class="case-section">
+                <div class="section-label">Overview</div>
+                <div class="section-content">
+                    <p>Lord Abbett is a global asset management firm serving individual investors, financial advisors, and institutional clients. The company engaged HNW (High Net Worth Digital Products) to redesign and rebuild its entire digital ecosystem — spanning public websites, transactional platforms, internal tools, and mobile applications.</p>
+                    <p>This was a multi-year, mission-critical transformation involving massive data volumes, complex financial workflows, strict security requirements, and a highly diverse user base. Dashboards were only one component of a much larger system.</p>
+                    <p>I joined the project initially as an Information Architect and UX Designer and was later promoted to VP of UX, taking full ownership of UX strategy, delivery, team leadership, and account responsibility.</p>
+                </div>
+            </div>
+
+            <!-- Scope & Responsibility Section -->
+            <div class="case-section">
+                <div class="section-label">Scope & Responsibility</div>
+                <div class="section-content">
+                    <ul>
+                        <li>UX strategy and information architecture for a large-scale financial platform</li>
+                        <li>End-to-end product and experience design across web and mobile</li>
+                        <li>Executive ownership of UX delivery, scheduling, staffing, and P&L</li>
+                        <li>Hiring and leading multidisciplinary design teams</li>
+                        <li>Client leadership and account management</li>
+                        <li>Cross-functional coordination with engineering, data teams, vendors, and external banks</li>
+                    </ul>
+                    <p>The project ran for over two years and involved continuous discovery, design, prototyping, testing, and iteration.</p>
+                </div>
+            </div>
+
+            <!-- Users & Complexity Section -->
+            <div class="case-section">
+                <div class="section-label">Users & Complexity</div>
+                <div class="section-content">
+                    <p>Through extensive qualitative research, interviews, and field studies, we identified multiple primary and secondary user groups:</p>
+
+                    <h3>Primary users:</h3>
+                    <ul>
+                        <li>Individual investors</li>
+                        <li>Financial advisors</li>
+                        <li>Institutional investors</li>
+                    </ul>
+
+                    <h3>Secondary and backend users:</h3>
+                    <ul>
+                        <li>Data analysts</li>
+                        <li>System administrators</li>
+                        <li>Internal operations teams</li>
+                        <li>External data vendors</li>
+                        <li>Partner banks and financial institutions</li>
+                    </ul>
+
+                    <p>Each group had fundamentally different goals, data needs, decision-making patterns, risk tolerance, and interaction models. Designing a single system that could serve all of them required deep personalization, role-based experiences, and rigorous access control.</p>
+                </div>
+            </div>
+
+            <!-- Research & Discovery Section -->
+            <div class="case-section">
+                <div class="section-label">Research & Discovery</div>
+                <div class="section-content">
+                    <p>We conducted extensive upfront and ongoing research, including:</p>
+                    <ul>
+                        <li>In-depth interviews with all major user groups</li>
+                        <li>Journey mapping across investment, research, and transaction workflows</li>
+                        <li>Shadowing and observation of real-world financial decision processes</li>
+                        <li>Analysis of legacy systems, data sources, and operational constraints</li>
+                    </ul>
+
+                    <p>The platform handled enormous volumes of data from both internal and external sources, making this one of the most data-heavy products I've worked on.</p>
+
+                    <p>Research insights directly informed information architecture, navigation models, data visualization strategies, and transaction flow design.</p>
+                </div>
+            </div>
+
+            <!-- Information Architecture & Navigation Section -->
+            <div class="case-section">
+                <div class="section-label">Information Architecture & Navigation</div>
+                <div class="section-content">
+                    <p>The website and platform were extremely large — with thousands of dynamically generated pages at any given time.</p>
+
+                    <h3>Key challenges:</h3>
+                    <ul>
+                        <li>Preventing users from getting lost in complex data structures</li>
+                        <li>Ensuring fast access to relevant information</li>
+                        <li>Supporting very different mental models across user types</li>
+                    </ul>
+
+                    <p>I designed a new information architecture and multiple navigation systems tailored to each primary user group. IA decisions became the foundation for the entire platform and were critical to its scalability and usability.</p>
+                </div>
+            </div>
+
+            <!-- Product & UX Design Section -->
+            <div class="case-section">
+                <div class="section-label">Product & UX Design</div>
+                <div class="section-content">
+                    <h3>Data Visualization</h3>
+                    <p>One of the most difficult challenges was presenting large volumes of financial data in a way that was accurate, trustworthy, immediately understandable, and drill-down capable without overwhelming users.</p>
+
+                    <p>We developed a custom visual language for data representation, allowing users to:</p>
+                    <ul>
+                        <li>Compare portfolios and funds</li>
+                        <li>Identify trends and anomalies quickly</li>
+                        <li>Drill deeper into areas of interest on demand</li>
+                    </ul>
+
+                    <h3>Transaction Design & Security</h3>
+                    <p>Because large sums of money were being transferred — especially for institutional investors — there was zero tolerance for error.</p>
+
+                    <p>We:</p>
+                    <ul>
+                        <li>Mapped hundreds of transaction flows in detail</li>
+                        <li>Designed multiple checks, validations, and confirmation states</li>
+                        <li>Built fallback and recovery mechanisms for failure scenarios</li>
+                        <li>Carefully coordinated UX with backend constraints and legacy systems</li>
+                    </ul>
+
+                    <p>Security, clarity, and error prevention were treated as first-class design requirements.</p>
+                </div>
+            </div>
+
+            <!-- Testing & Validation Section -->
+            <div class="case-section">
+                <div class="section-label">Testing & Validation</div>
+                <div class="section-content">
+                    <p>We partnered with a professional usability testing firm to conduct extensive testing across all major user groups.</p>
+                    <ul>
+                        <li>Developed detailed testing scripts and real-world scenarios</li>
+                        <li>Iterated designs repeatedly based on findings</li>
+                        <li>Validated both usability and decision confidence</li>
+                    </ul>
+
+                    <p>Testing was continuous and directly informed refinements to IA, interaction patterns, and transaction flows.</p>
+                </div>
+            </div>
+
+            <!-- Systems & Integration Section -->
+            <div class="case-section">
+                <div class="section-label">Systems & Integration</div>
+                <div class="section-content">
+                    <p>On the backend, the platform had to integrate with:</p>
+                    <ul>
+                        <li>Multiple legacy systems and databases (non-modifiable)</li>
+                        <li>External data providers</li>
+                        <li>Partner banks and financial institutions</li>
+                    </ul>
+
+                    <p>UX design had to work within strict technical constraints while still delivering a modern, coherent experience.</p>
+                </div>
+            </div>
+
+            <!-- Mobile Strategy Section -->
+            <div class="case-section">
+                <div class="section-label">Mobile Strategy</div>
+                <div class="section-content">
+                    <p>Insights gained from the main platform led us to propose and design multiple mobile applications, each optimized for specific use cases:</p>
+                    <ul>
+                        <li>Advisor apps to support sales conversations and pitches</li>
+                        <li>Investor apps for account monitoring, research, and transactions</li>
+                        <li>Institutional tools for rapid response to market changes</li>
+                    </ul>
+
+                    <p>Each app was purpose-built, rather than a simplified version of the desktop experience.</p>
+                </div>
+            </div>
+
+            <!-- Design System & CMS Section -->
+            <div class="case-section">
+                <div class="section-label">Design System & CMS</div>
+                <div class="section-content">
+                    <p>I designed and led the creation of a Component System Library — effectively a design system tightly integrated with a custom CMS built from scratch.</p>
+                    <ul>
+                        <li>Design rules were encoded directly into the CMS</li>
+                        <li>New pages and content automatically adhered to system standards</li>
+                        <li>Ensured consistency, scalability, and governance across thousands of pages</li>
+                    </ul>
+
+                    <p>This allowed Lord Abbett teams to scale content and features without breaking the experience.</p>
+                </div>
+            </div>
+
+            <!-- Outcome Section -->
+            <div class="case-section">
+                <div class="section-label">Outcome</div>
+                <div class="section-content">
+                    <ul>
+                        <li>Successfully redesigned Lord Abbett's digital ecosystem end to end</li>
+                        <li>Delivered personalized, role-based experiences for diverse user groups</li>
+                        <li>Improved clarity and usability in highly complex, data-heavy workflows</li>
+                        <li>Established a scalable UX and component foundation for future growth</li>
+                        <li>Received strong positive feedback from users and client leadership</li>
+                    </ul>
+
+                    <p>Beyond the product outcomes, the project provided deep insight into the operational, technical, and human realities of global finance at scale.</p>
+                </div>
+            </div>
+
+            <!-- What This Project Demonstrates Section -->
+            <div class="case-section">
+                <div class="section-label">What This Project Demonstrates</div>
+                <div class="section-content">
+                    <ul>
+                        <li>Enterprise-scale UX and product leadership</li>
+                        <li>Deep expertise in data-heavy, regulated environments</li>
+                        <li>Ability to bridge research, design, technology, and business</li>
+                        <li>Proven experience owning complex programs end to end</li>
+                        <li>Designing for trust, security, and decision-making under pressure</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <nav class="footer-nav">
+                    <a href="../about.html">About</a>
+                    <a href="../contact.html">Contact</a>
+                    <a href="../resume/index.html">Resume</a>
+                    <a href="#">Share <span>↗</span></a>
+                </nav>
+                <div class="footer-contact">
+                    <p class="footer-label">GET IN TOUCH</p>
+                    <p class="footer-email">ptulin@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-right">
+                <a href="https://linkedin.com/in/paweltulin" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">in</a>
+                <a href="mailto:ptulin@gmail.com?subject=Contact%20via%20Portfolio%20Website" class="social-icon" aria-label="Email">✉</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-nav">
+            <a href="../index.html" class="mobile-nav-link">Home</a>
+            <a href="../about.html" class="mobile-nav-link">About</a>
+            <a href="../contact.html" class="mobile-nav-link">Contact</a>
+        </nav>
+    </div>
+
+    <div class="mobile-menu-overlay" id="menuOverlay"></div>
+
+    <script src="../script.js"></script>
 </body>
 </html>
-
