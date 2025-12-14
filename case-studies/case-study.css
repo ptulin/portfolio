@@ -1,0 +1,143 @@
+/* ============================================
+   Case Study Page Styles
+   ============================================ */
+
+/* Content Area */
+.case-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.case-header {
+    margin-bottom: 4rem;
+}
+
+.case-title {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+}
+
+.case-meta {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    font-weight: 400;
+    margin-bottom: 3rem;
+}
+
+.case-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+}
+
+.case-section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.section-label {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    font-weight: 600;
+    position: sticky;
+    top: 2rem;
+}
+
+.section-content {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+}
+
+.section-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+}
+
+.section-content p {
+    margin-bottom: 1.5rem;
+}
+
+.section-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.section-content li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.section-content li:before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--color-text-muted);
+}
+
+.section-content ol {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    counter-reset: item;
+}
+
+.section-content ol li {
+    counter-increment: item;
+    padding-left: 2rem;
+}
+
+.section-content ol li:before {
+    content: counter(item) ".";
+    position: absolute;
+    left: 0;
+    color: var(--color-text-muted);
+    font-weight: 600;
+}
+
+.section-content strong {
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .case-content {
+        padding: 3rem 1.5rem;
+    }
+
+    .case-title {
+        font-size: 2.5rem;
+    }
+
+    .case-section {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .section-label {
+        position: static;
+    }
+
+    .filters {
+        padding: 1rem 1.5rem;
+        flex-wrap: wrap;
+    }
+}
+
