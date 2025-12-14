@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobBot — AI Email Automation Experiment - Pawel Tulin</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #1d1d1f;
+            background: #ffffff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header - Premium */
+        .header {
+            padding: 2rem 0;
+            border-bottom: 1px solid #e5e5e7;
+            background: #ffffff;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+
+        .logo a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 0.5rem;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: #1d1d1f;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Filters - Premium */
+        .filters {
+            display: flex;
+            gap: 1rem;
+            max-width: 1400px;
+            width: 100%;
+            margin: 20px auto 0;
+            padding: 1.5rem 64px;
+            background: #f5f5f7;
+            box-sizing: border-box;
+        }
+
+        .filter-dropdown {
+            padding: 0.875rem 1.25rem;
+            background: #ffffff;
+            border: 1px solid #e5e5e7;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .filter-dropdown:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Content Area */
+        .case-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .case-header {
+            margin-bottom: 4rem;
+        }
+
+        .case-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: #1d1d1f;
+            letter-spacing: -0.02em;
+        }
+
+        .case-meta {
+            font-size: 1rem;
+            color: #86868b;
+            font-weight: 400;
+            margin-bottom: 3rem;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        .case-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .section-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #86868b;
+            font-weight: 600;
+            position: sticky;
+            top: 2rem;
+        }
+
+        .section-content {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #515154;
+        }
+
+        .section-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1d1d1f;
+            letter-spacing: -0.01em;
+        }
+
+        .section-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .section-content li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .section-content li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #86868b;
+        }
+
+        .section-content ol {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+            counter-reset: item;
+        }
+
+        .section-content ol li {
+            counter-increment: item;
+            padding-left: 2rem;
+        }
+
+        .section-content ol li:before {
+            content: counter(item) ".";
+            position: absolute;
+            left: 0;
+            color: #86868b;
+            font-weight: 600;
+        }
+
+        .section-content strong {
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+
+        /* Footer - Premium */
+        .footer {
+            padding: 6rem 2rem 4rem;
+            border-top: 1px solid #e5e5e7;
+            margin-top: 6rem;
+            background: #f5f5f7;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-nav a {
+            color: #1d1d1f;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .footer-nav a:hover {
+            color: #86868b;
+        }
+
+        .footer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #86868b;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .footer-email {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: #1d1d1f;
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            border: 1px solid #e5e5e7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #1d1d1f;
+            font-size: 1.125rem;
+            transition: all 0.2s ease;
+            background: #ffffff;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 320px;
+            height: 100vh;
+            background: #ffffff;
+            box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 5rem 2.5rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .mobile-nav-link {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #1d1d1f;
+            text-decoration: none;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e5e5e7;
+            transition: color 0.2s ease;
+        }
+
+        .mobile-nav-link:hover:not(.current) {
+            color: #86868b;
+        }
+
+        .mobile-nav-link.current {
+            color: #86868b;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .case-content {
+                padding: 3rem 1.5rem;
+            }
+
+            .case-title {
+                font-size: 2.5rem;
+            }
+
+            .case-section {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .section-label {
+                position: static;
+            }
+
+            .filters {
+                padding: 1rem 1.5rem;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo"><a href="../index.html">Pawel Tulin</a></div>
+            <button class="menu-toggle" aria-label="Menu" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="filters">
+            <select class="filter-dropdown" id="areaFilter" data-filter="area">
+                <option value="all">Area: All</option>
+                <option value="product-design">Product Design</option>
+                <option value="ux-design">UX Design</option>
+                <option value="ux-research">UX Research</option>
+                <option value="ai-llm-design">AI/LLM Design</option>
+            </select>
+            <select class="filter-dropdown" id="industryFilter" data-filter="industry">
+                <option value="all">Industry: All</option>
+                <option value="fintech">Fintech / Financial Services</option>
+                <option value="saas">SaaS / Enterprise</option>
+                <option value="nonprofit">Nonprofit / NGO / UN</option>
+                <option value="ecommerce">E-commerce</option>
+                <option value="ai-data">AI / Data Platforms</option>
+                <option value="education">Education / EdTech</option>
+            </select>
+            <select class="filter-dropdown" id="deliverableFilter" data-filter="deliverable">
+                <option value="all">Deliverable: All</option>
+                <option value="case-study">Case Study</option>
+                <option value="design-system">Design System</option>
+                <option value="dashboard">Dashboard / Data Visualization</option>
+                <option value="ai-workflow">AI Workflow / LLM System</option>
+                <option value="service-blueprint">Service Blueprint</option>
+                <option value="research-study">Research Study</option>
+                <option value="prototype">Prototype</option>
+                <option value="strategy">Strategy / Roadmap</option>
+            </select>
+        </div>
+    </header>
+
+    <!-- Content Area -->
+    <main class="case-content">
+        <div class="case-header">
+            <h1 class="case-title">JobBot — AI Email Automation Experiment</h1>
+            <p class="case-meta">System Architecture · AI Automation · Cost Optimization</p>
+        </div>
+
+        <div class="case-grid">
+            <!-- Overview Section -->
+            <div class="case-section">
+                <div class="section-label">Overview</div>
+                <div class="section-content">
+                    <p>JobBot is a private, self-initiated experiment designed to solve a very practical problem: the time and cognitive overhead of handling dozens of recruiter emails daily, each requiring a tailored response and a customized resume.</p>
+                    <p>The goal was <strong>not</strong> to design a polished consumer-facing product, but to prove that a powerful AI-driven automation system could be built <strong>cheaply, quickly, and almost entirely on top of free, existing tools</strong>. This project serves as both a personal productivity system and an MVP for a potential future commercial product.</p>
+                </div>
+            </div>
+
+            <!-- Problem Section -->
+            <div class="case-section">
+                <div class="section-label">Problem</div>
+                <div class="section-content">
+                    <p>Recruiter outreach follows a predictable but time-consuming pattern:</p>
+                    <ul>
+                        <li>Incoming emails vary in quality and relevance</li>
+                        <li>Each legitimate opportunity requires:
+                            <ul>
+                                <li>Careful reading of the job description</li>
+                                <li>A personalized reply</li>
+                                <li>A resume tailored to the role</li>
+                            </ul>
+                        </li>
+                        <li>Context switching and repetition significantly slow down the job search</li>
+                    </ul>
+                    <p>The cost was not just time, but <strong>mental energy</strong>.</p>
+                </div>
+            </div>
+
+            <!-- Solution Section -->
+            <div class="case-section">
+                <div class="section-label">Solution</div>
+                <div class="section-content">
+                    <p>JobBot automates the entire workflow:</p>
+                    <ul>
+                        <li>Detects and classifies recruiter emails</li>
+                        <li>Extracts job context and requirements</li>
+                        <li>Generates:
+                            <ul>
+                                <li>A personalized email response</li>
+                                <li>A role-specific resume</li>
+                            </ul>
+                        </li>
+                        <li>Tracks activity and sends daily summaries</li>
+                    </ul>
+                    <p>All while keeping <strong>infrastructure costs close to zero</strong>.</p>
+                </div>
+            </div>
+
+            <!-- Key Principles Section -->
+            <div class="case-section">
+                <div class="section-label">Key Principles</div>
+                <div class="section-content">
+                    <ul>
+                        <li><strong>Almost no cost</strong>: only AI API usage is paid</li>
+                        <li><strong>Built on free tools</strong>: Google ecosystem</li>
+                        <li><strong>Simple, transparent architecture</strong></li>
+                        <li><strong>Easy to replicate by others</strong></li>
+                        <li><strong>Non-technical friendly operation</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- High-Level Flow Section -->
+            <div class="case-section">
+                <div class="section-label">High-Level Flow</div>
+                <div class="section-content">
+                    <ol>
+                        <li>Recruiter email arrives in Gmail</li>
+                        <li>Email is filtered and parsed automatically</li>
+                        <li>Job description and context are extracted</li>
+                        <li>AI generates:
+                            <ul>
+                                <li>Custom reply email</li>
+                                <li>Tailored resume</li>
+                            </ul>
+                        </li>
+                        <li>Draft is prepared and sent</li>
+                        <li>Activity is logged</li>
+                        <li>Daily summary email is sent to the user</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- System Architecture Section -->
+            <div class="case-section">
+                <div class="section-label">System Architecture (Plain English)</div>
+                <div class="section-content">
+                    <p>JobBot runs entirely on top of standard Google tools:</p>
+                    
+                    <h3>Core Components</h3>
+                    
+                    <p><strong>Gmail</strong><br>
+                    Receives recruiter emails and sends replies</p>
+
+                    <p><strong>Google Sheets</strong><br>
+                    Acts as the admin interface:
+                    <ul>
+                        <li>Logs all activity</li>
+                        <li>Stores configuration and rules</li>
+                        <li>Tracks recruiters, jobs, responses, and outcomes</li>
+                    </ul>
+                    </p>
+
+                    <p><strong>Google Apps Script</strong><br>
+                    The "brain" of the system:
+                    <ul>
+                        <li>Watches Gmail</li>
+                        <li>Processes emails</li>
+                        <li>Calls AI APIs</li>
+                        <li>Writes data to Sheets</li>
+                        <li>Sends reports</li>
+                    </ul>
+                    </p>
+
+                    <p><strong>AI API (GPT)</strong><br>
+                    Used only when needed to:
+                    <ul>
+                        <li>Analyze job descriptions</li>
+                        <li>Generate resumes</li>
+                        <li>Write personalized responses</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Why This Architecture Section -->
+            <div class="case-section">
+                <div class="section-label">Why This Architecture</div>
+                <div class="section-content">
+                    <p>This setup was chosen deliberately:</p>
+                    <ul>
+                        <li>No servers to maintain</li>
+                        <li>No databases to manage</li>
+                        <li>No custom UI required</li>
+                        <li>No vendor lock-in beyond the AI API</li>
+                    </ul>
+                    <p>Anyone with:</p>
+                    <ul>
+                        <li>A Google account</li>
+                        <li>Basic scripting knowledge</li>
+                    </ul>
+                    <p>can copy, modify, and deploy the system.</p>
+                </div>
+            </div>
+
+            <!-- Cost Control Strategy Section -->
+            <div class="case-section">
+                <div class="section-label">Cost Control Strategy</div>
+                <div class="section-content">
+                    <ul>
+                        <li>AI calls are only triggered for relevant emails</li>
+                        <li>No embeddings or vector databases running continuously</li>
+                        <li>No background processing unless needed</li>
+                        <li>Google infrastructure handles scheduling and execution for free</li>
+                    </ul>
+                    <p>Result: <strong>API costs remain minimal and predictable</strong>.</p>
+                </div>
+            </div>
+
+            <!-- Admin & Monitoring Section -->
+            <div class="case-section">
+                <div class="section-label">Admin & Monitoring</div>
+                <div class="section-content">
+                    <p>There is no custom dashboard.</p>
+                    <p>Instead:</p>
+                    <ul>
+                        <li>Google Sheets serves as the admin panel</li>
+                        <li>Every action is logged</li>
+                        <li>System sends a <strong>daily email report</strong> summarizing:
+                            <ul>
+                                <li>Emails processed</li>
+                                <li>Responses sent</li>
+                                <li>Resumes generated</li>
+                                <li>Any errors or edge cases</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>This keeps the system understandable and auditable.</p>
+                </div>
+            </div>
+
+            <!-- UX Considerations Section -->
+            <div class="case-section">
+                <div class="section-label">UX Considerations (Intentionally Minimal)</div>
+                <div class="section-content">
+                    <p>This is <strong>not</strong> a UX-heavy project by design.</p>
+                    <ul>
+                        <li>No user-facing interface</li>
+                        <li>No visual dashboards</li>
+                        <li>No complex interaction models</li>
+                    </ul>
+                    <p>The "UX" is:</p>
+                    <ul>
+                        <li>Fewer interruptions</li>
+                        <li>Less manual work</li>
+                        <li>Clear daily summaries</li>
+                        <li>Confidence that nothing is missed</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Product Impact Section -->
+            <div class="case-section">
+                <div class="section-label">Product Impact</div>
+                <div class="section-content">
+                    <ul>
+                        <li>Reduced daily email handling time dramatically</li>
+                        <li>Eliminated repetitive resume editing</li>
+                        <li>Improved consistency and quality of recruiter responses</li>
+                        <li>Freed cognitive space for actual interviews and preparation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Future Potential Section -->
+            <div class="case-section">
+                <div class="section-label">Future Potential</div>
+                <div class="section-content">
+                    <p>JobBot intentionally stops short of becoming a full product.</p>
+                    <p><strong>Next steps (if commercialized):</strong></p>
+                    <ul>
+                        <li>Custom web interface</li>
+                        <li>Multi-user support</li>
+                        <li>Advanced analytics</li>
+                        <li>Recruiter response optimization</li>
+                        <li>Paid tiers</li>
+                    </ul>
+                    <p>For now, it functions as:</p>
+                    <ul>
+                        <li>A <strong>working MVP</strong></li>
+                        <li>A <strong>proof of concept</strong></li>
+                        <li>A <strong>live experiment</strong> gathering real-world feedback</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- My Role Section -->
+            <div class="case-section">
+                <div class="section-label">My Role</div>
+                <div class="section-content">
+                    <ul>
+                        <li>Concept & strategy</li>
+                        <li>System architecture</li>
+                        <li>Automation logic</li>
+                        <li>AI prompt design</li>
+                        <li>Cost optimization</li>
+                        <li>End-to-end implementation</li>
+                    </ul>
+                    <p>This project demonstrates applied AI thinking, system design, and pragmatic automation — not just theoretical UX or AI concepts.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <nav class="footer-nav">
+                    <a href="../about.html">About</a>
+                    <a href="../contact.html">Contact</a>
+                    <a href="../resume/index.html">Resume</a>
+                    <a href="#">Share <span>↗</span></a>
+                </nav>
+                <div class="footer-contact">
+                    <p class="footer-label">GET IN TOUCH</p>
+                    <p class="footer-email">ptulin@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-right">
+                <a href="https://linkedin.com/in/paweltulin" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">in</a>
+                <a href="mailto:ptulin@gmail.com?subject=Contact%20via%20Portfolio%20Website" class="social-icon" aria-label="Email">✉</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-nav">
+            <a href="../index.html" class="mobile-nav-link">Home</a>
+            <a href="../about.html" class="mobile-nav-link">About</a>
+            <a href="../contact.html" class="mobile-nav-link">Contact</a>
+        </nav>
+    </div>
+
+    <div class="mobile-menu-overlay" id="menuOverlay"></div>
+
+    <script src="../script.js"></script>
+</body>
+</html>
+
