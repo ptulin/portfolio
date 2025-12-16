@@ -134,6 +134,8 @@ function doPost(e) {
         return handleVerifyPassword(data);
       case 'logAccess':
         return handleLogAccess(data);
+      case 'forgotPassword':
+        return handleForgotPassword(data);
       default:
         return createCorsResponse({ 
           success: false, 
@@ -326,6 +328,130 @@ Pawel`;
     Logger.log(`Confirmation email sent to ${email}`);
   } catch (error) {
     Logger.log(`Error sending confirmation email: ${error.toString()}`);
+  }
+}
+
+/**
+ * Handle forgot password request
+ * Looks up password by email and sends it to the user
+ * Also logs the request for analytics tracking
+ * @param {Object} data - Request data containing email
+ * @return {Object} Response with success status
+ */
+function handleForgotPassword(data) {
+  try {
+    const email = data.email ? data.email.trim().toLowerCase() : '';
+    
+    if (!email) {
+      return createCorsResponse({ 
+        success: false, 
+        error: 'Email is required' 
+      });
+    }
+    
+    // Get password from Passwords sheet
+    const passwordsSheet = getSheet(SHEET_NAMES.PASSWORDS);
+    
+    if (!passwordsSheet) {
+      Logger.log('Password sheet not found');
+      logForgotPasswordRequest(email, false);
+      return createCorsResponse({ 
+        success: true, 
+        message: 'If an account exists with this email, your password has been sent.' 
+      });
+    }
+    
+    // Get all data from the sheet (same approach as verifyPassword)
+    const lastRow = passwordsSheet.getLastRow();
+    if (lastRow <= 1) {
+      logForgotPasswordRequest(email, false);
+      return createCorsResponse({ 
+        success: true, 
+        message: 'If an account exists with this email, your password has been sent.' 
+      });
+    }
+    
+    const passwordData = passwordsSheet.getRange(2, 1, lastRow - 1, 6).getValues();
+    
+    // Passwords sheet structure:
+    // Column A (index 0): PasswordID (e.g., "PT-00001")
+    // Column B (index 1): AssignedToEmail
+    // Column C (index 2): AssignedToName
+    // Column D (index 3): Active
+    // Column E (index 4): DateCreated
+    // Column F (index 5): DateUsed
+    
+    const passwordIDColumnIndex = 0; // Column A - PasswordID
+    const emailColumnIndex = 1; // Column B - AssignedToEmail
+    const nameColumnIndex = 2; // Column C - AssignedToName
+    const activeColumnIndex = 3; // Column D - Active
+    
+    // Search for matching email
+    let password = null;
+    let firstName = '';
+    
+    for (let i = 0; i < passwordData.length; i++) {
+      const rowEmail = passwordData[i][emailColumnIndex] ? passwordData[i][emailColumnIndex].toString().trim().toLowerCase() : '';
+      const active = String(passwordData[i][activeColumnIndex] || '').toUpperCase();
+      const isActive = active === 'TRUE' || active === 'YES' || active === '1';
+      
+      if (rowEmail === email && isActive) {
+        password = passwordData[i][passwordIDColumnIndex] ? passwordData[i][passwordIDColumnIndex].toString().trim() : null;
+        const assignedToName = passwordData[i][nameColumnIndex] ? passwordData[i][nameColumnIndex].toString() : '';
+        firstName = assignedToName ? assignedToName.split(' ')[0] : '';
+        break;
+      }
+    }
+    
+    // Log the request for analytics (regardless of whether email exists)
+    logForgotPasswordRequest(email, !!password);
+    
+    // Always return success message (security: don't reveal if email exists)
+    // But only send email if password exists
+    if (password) {
+      sendPasswordEmail(email, firstName || 'User', password);
+    }
+    
+    // Return success (same message whether email exists or not)
+    return createCorsResponse({ 
+      success: true, 
+      message: 'If an account exists with this email, your password has been sent.' 
+    });
+    
+  } catch (error) {
+    Logger.log('Forgot password error: ' + error.toString());
+    return createCorsResponse({ 
+      success: false, 
+      error: 'An error occurred' 
+    });
+  }
+}
+
+/**
+ * Log forgot password request for analytics
+ * Tracks: email, timestamp, whether password was found
+ * Uses existing AccessLog structure
+ * @param {string} email - Email address that requested password
+ * @param {boolean} passwordFound - Whether password was found
+ */
+function logForgotPasswordRequest(email, passwordFound) {
+  try {
+    // Log to existing AccessLog tab (same structure as verifyPassword)
+    const accessLogSheet = getSheet(SHEET_NAMES.ACCESS_LOG);
+    
+    // AccessLog columns: Timestamp, PasswordID, Email, Result, IP, UserAgent
+    accessLogSheet.appendRow([
+      new Date(),
+      '', // PasswordID - empty for forgot password requests
+      email,
+      passwordFound ? 'ForgotPassword-Success' : 'ForgotPassword-NotFound',
+      '', // IP
+      ''  // UserAgent
+    ]);
+    
+  } catch (error) {
+    Logger.log('Error logging forgot password request: ' + error.toString());
+    // Don't fail the request if logging fails
   }
 }
 
