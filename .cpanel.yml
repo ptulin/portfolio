@@ -1,0 +1,21 @@
+---
+# cPanel Git Version Control Deployment Configuration
+# This file configures automatic deployment when code is pushed to GitHub
+# cPanel will automatically execute these tasks after pulling from the repository
+
+deployment:
+  tasks:
+    # Set deployment path
+    - export DEPLOYPATH=/home1/moose/public_html/portfolio
+    - export REPOPATH=/home1/moose/repositories/portfolio
+    
+    # Copy all files from sandbox-new to deployment path
+    - cd $REPOPATH
+    - /bin/cp -Rf sandbox-new/* $DEPLOYPATH/
+    - /bin/cp -Rf sandbox-new/.* $DEPLOYPATH/ 2>/dev/null || true
+    
+    # Set proper permissions
+    - /bin/chmod -R 755 $DEPLOYPATH
+    - /bin/find $DEPLOYPATH -type f -exec chmod 644 {} \;
+    - /bin/find $DEPLOYPATH -type d -exec chmod 755 {} \;
+

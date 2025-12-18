@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ======================================================================
+         META TAGS & DOCUMENT CONFIGURATION
+         ====================================================================== -->
+    
+    <!-- Character Encoding -->
+    <meta charset="UTF-8">
+    
+    <!-- Viewport Configuration for Responsive Design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- IE Compatibility -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- ======================================================================
+         PRIMARY META TAGS (SEO)
+         ====================================================================== -->
+    
+    <title>Contact - Pawel Tulin | AI-Driven Product Designer & UX Leader</title>
+    <meta name="title" content="Contact - Pawel Tulin">
+    <meta name="description" content="Get in touch with Pawel Tulin. Let's discuss your next project or collaboration opportunity.">
+    <meta name="author" content="Pawel Tulin">
+    <meta name="keywords" content="contact, get in touch, collaboration, project inquiry">
+    
+    <!-- ======================================================================
+         OPEN GRAPH META TAGS (Social Media Sharing)
+         ====================================================================== -->
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contact - Pawel Tulin">
+    <meta property="og:description" content="Get in touch to discuss your next project or collaboration opportunity.">
+    <meta property="og:url" content="https://paweltulin.com/contact">
+    
+    <!-- ======================================================================
+         TWITTER CARD META TAGS
+         ====================================================================== -->
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact - Pawel Tulin">
+    <meta name="twitter:description" content="Get in touch to discuss your next project or collaboration opportunity.">
+    
+    <!-- ======================================================================
+         FAVICON
+         ====================================================================== -->
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico">
+    
+    <!-- ======================================================================
+         PERFORMANCE OPTIMIZATION (Resource Hints)
+         ====================================================================== -->
+    
+    <!-- Preconnect to external domains for faster resource loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- ======================================================================
+         TYPOGRAPHY (Google Fonts)
+         ====================================================================== -->
+    
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- ======================================================================
+         STYLESHEET
+         ====================================================================== -->
+    
+    <link rel="stylesheet" href="common.css">
+    
+    <!-- ======================================================================
+         STRUCTURED DATA (JSON-LD) for SEO
+         ====================================================================== -->
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Contact Pawel Tulin",
+        "description": "Get in touch with Pawel Tulin for product design, UX consulting, or collaboration opportunities.",
+        "url": "https://disruptiveexperience.com/contact.html",
+        "mainEntity": {
+            "@type": "Person",
+            "name": "Pawel Tulin",
+            "email": "ptulin@gmail.com",
+            "sameAs": [
+                "https://linkedin.com/in/paweltulin"
+            ]
+        }
+    }
+    </script>
+    
+    <!-- ======================================================================
+         PAGE-SPECIFIC STYLES
+         ====================================================================== -->
+    
+    <style>
+        /* Contact Page Specific Styles */
+        .contactpage-section {
+            padding-top: 8rem;
+            padding-bottom: 6rem;
+            min-height: calc(100vh - 5rem);
+        }
+        
+        .contactpage-container {
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+        
+        .contactpage-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .contactpage-label {
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-primary);
+            display: block;
+            margin-bottom: 1rem;
+        }
+        
+        .contactpage-title {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--color-foreground);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        @media (min-width: 768px) {
+            .contactpage-title {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .contactpage-title {
+                font-size: 3.75rem;
+            }
+        }
+        
+        .contactpage-description {
+            font-family: var(--font-body);
+            font-size: 1.125rem;
+            color: var(--color-muted-foreground);
+            max-width: 42rem;
+            margin: 0 auto;
+        }
+        
+        /* Form Styles */
+        .contactpage-form {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius-lg);
+            padding: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        @media (min-width: 768px) {
+            .contactpage-form {
+                padding: 3rem;
+            }
+        }
+        
+        .contactpage-form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        @media (min-width: 640px) {
+            .contactpage-form-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .contactpage-form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .contactpage-form-group label {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--color-foreground);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contactpage-form-group input,
+        .contactpage-form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--color-background);
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius);
+            color: var(--color-foreground);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: border-color var(--transition-base);
+        }
+        
+        .contactpage-form-group input:focus,
+        .contactpage-form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(26, 211, 196, 0.1);
+        }
+        
+        .contactpage-form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .contactpage-checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .contactpage-checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+        
+        .contactpage-checkbox-group label {
+            margin: 0;
+            font-weight: 400;
+            cursor: pointer;
+        }
+        
+        .contactpage-btn-submit {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            background: var(--gradient-primary);
+            color: var(--color-primary-foreground);
+            font-family: var(--font-body);
+            font-weight: 600;
+            border-radius: var(--border-radius);
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            width: 100%;
+            justify-content: center;
+        }
+        
+        @media (min-width: 640px) {
+            .contactpage-btn-submit {
+                width: auto;
+            }
+        }
+        
+        .contactpage-btn-submit:hover {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(26, 211, 196, 0.3);
+        }
+        
+        .contactpage-btn-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .contactpage-form-message {
+            margin-top: 1rem;
+            margin-bottom: 0;
+            padding: 0.75rem 1rem;
+            border-radius: var(--border-radius);
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            display: none;
+            min-height: 0;
+        }
+        
+        .contactpage-form-message.success {
+            display: block;
+            background: rgba(26, 211, 196, 0.1);
+            color: var(--color-primary);
+            border: 1px solid rgba(26, 211, 196, 0.3);
+        }
+        
+        .contactpage-form-message.error {
+            display: block;
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        .contactpage-forgot-password-link {
+            display: block;
+            margin-top: 30px;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color var(--transition-base);
+        }
+        
+        .contactpage-forgot-password-link:hover {
+            color: var(--color-primary-hover);
+            text-decoration: underline;
+        }
+        
+        .contactpage-forgot-password-form {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-border);
+        }
+        
+        .contactpage-forgot-password-form.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="contactpage-page">
+    <!-- ======================================================================
+         NAVIGATION HEADER
+         ====================================================================== -->
+    
+    <header class="navbar" role="banner">
+        <nav class="container" aria-label="Main navigation">
+            <div class="nav-content">
+                <div class="nav-brand">
+                    <a href="index.html" class="brand-link" aria-label="Pawel Tulin - Home"><span class="text-gradient">Pawel</span> Tulin</a>
+                </div>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="index.html#work" class="nav-link" role="menuitem">Work</a></li>
+                    <li role="none"><a href="about.html" class="nav-link" role="menuitem">About</a></li>
+                    <li role="none"><a href="index.html#expertise" class="nav-link" role="menuitem">Service</a></li>
+                    <li role="none"><a href="contact.html" class="nav-link" role="menuitem">Contact</a></li>
+                    <li role="none"><a href="contact.html" class="nav-button" role="menuitem">Let's Talk</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ======================================================================
+         MAIN CONTENT AREA
+         ====================================================================== -->
+    
+    <main>
+        <!-- ==================================================================
+             CONTACT SECTION
+             ================================================================== -->
+        
+        <section class="contactpage-section" aria-labelledby="contact-title">
+            <div class="container">
+                <div class="contactpage-container">
+                    <div class="contactpage-header">
+                        <span class="contactpage-label">Get in Touch</span>
+                        <h1 id="contact-title" class="contactpage-title">
+                            Let's Create Something <span class="text-gradient">Extraordinary</span>
+                        </h1>
+                        <p class="contactpage-description">
+                            Have a project in mind? I'm always open to discussing new opportunities, creative ideas, or potential partnerships.
+                        </p>
+                    </div>
+
+                    <form id="contactForm" class="contactpage-form" aria-label="Contact form">
+                        <div class="contactpage-form-row">
+                            <div class="contactpage-form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required aria-required="true">
+                            </div>
+                            <div class="contactpage-form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required aria-required="true">
+                            </div>
+                        </div>
+                        
+                        <div class="contactpage-form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required aria-required="true">
+                        </div>
+                        
+                        <div class="contactpage-form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="contactpage-form-group">
+                            <label for="message">Message / Comment</label>
+                            <textarea id="message" name="message" rows="5" aria-label="Message or comment"></textarea>
+                        </div>
+                        
+                        <div class="contactpage-form-group contactpage-checkbox-group">
+                            <input type="checkbox" id="requestPassword" name="requestPassword">
+                            <label for="requestPassword">Request Password for Resume</label>
+                        </div>
+                        
+                        <button type="submit" class="contactpage-btn-submit" id="submitBtn" aria-label="Submit contact form">
+                            Submit
+                        </button>
+                        
+                        <div class="contactpage-form-message" id="formMessage" role="alert" aria-live="polite"></div>
+                        
+                        <a href="#" id="forgotPasswordLink" class="contactpage-forgot-password-link">Forgot your resume password? Retrieve it here.</a>
+                    </form>
+
+                    <!-- Forgot Password Form -->
+                    <div id="forgotPasswordForm" class="contactpage-forgot-password-form hidden">
+                        <div class="contactpage-form">
+                            <h2 class="contactpage-title" style="font-size: 1.875rem; margin-bottom: 1rem;">Retrieve Resume Password</h2>
+                            <p class="contactpage-description" style="margin-bottom: 1.5rem; text-align: left;">
+                                Enter your email address and we'll send you your resume access password.
+                            </p>
+                            
+                            <div class="contactpage-form-group">
+                                <label for="forgotEmail">Email Address *</label>
+                                <input type="email" id="forgotEmail" name="forgotEmail" required aria-required="true">
+                            </div>
+                            
+                            <button type="button" class="contactpage-btn-submit" id="forgotPasswordBtn" aria-label="Send password to email">
+                                Send Password
+                            </button>
+                            
+                            <div class="contactpage-form-message" id="forgotPasswordMessage" role="alert" aria-live="polite"></div>
+                            
+                            <a href="#" id="backToContactLink" class="contactpage-forgot-password-link">Back to contact form</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ======================================================================
+         FOOTER
+         ====================================================================== -->
+    
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <span class="footer-name"><span class="text-gradient">Pawel</span> Tulin</span>
+                    <nav class="footer-nav" aria-label="Footer navigation">
+                        <a href="about.html" class="footer-link">About</a>
+                        <a href="contact.html" class="footer-link">Contact</a>
+                        <a href="resume/index.html" class="footer-link">Resume</a>
+                    </nav>
+                </div>
+                <p class="footer-copyright">
+                    © <span id="currentYear" aria-label="Current year">2025</span> All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ======================================================================
+         SCRIPTS
+         ====================================================================== -->
+    
+    <!-- Backend integration utility - loaded first -->
+    <script src="js/utils.js" defer></script>
+    
+    <!-- Configuration file - loaded for global access -->
+    <script src="config.js" defer></script>
+    
+    <!-- Main JavaScript file - loaded with defer for non-blocking execution -->
+    <script src="common.js" defer></script>
+    
+    <!-- ======================================================================
+         CONTACT PAGE SPECIFIC JAVASCRIPT
+         ====================================================================== -->
+    
+    <script>
+        // Wait for DOM and utils to be ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu is handled by common.js initMobileMenu() function
+            // This will be called automatically when common.js loads
+            
+            // Set current year
+            const yearElement = document.getElementById('currentYear');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+            
+            // Forgot Password Toggle
+            const forgotPasswordLink = document.getElementById('forgotPasswordLink');
+            const forgotPasswordForm = document.getElementById('forgotPasswordForm');
+            const backToContactLink = document.getElementById('backToContactLink');
+            const contactForm = document.getElementById('contactForm');
+            
+            if (forgotPasswordLink && forgotPasswordForm) {
+                forgotPasswordLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    contactForm.style.display = 'none';
+                    forgotPasswordForm.classList.remove('hidden');
+                });
+            }
+            
+            if (backToContactLink && forgotPasswordForm) {
+                backToContactLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    forgotPasswordForm.classList.add('hidden');
+                    contactForm.style.display = 'block';
+                });
+            }
+            
+            // Contact form submission
+            const contactFormEl = document.getElementById('contactForm');
+            if (contactFormEl && typeof submitToAppsScript !== 'undefined') {
+                contactFormEl.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const submitBtn = document.getElementById('submitBtn');
+                    const messageEl = document.getElementById('formMessage');
+                    
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Sending...';
+                    
+                    // Enhanced validation
+                    const firstName = document.getElementById('firstName').value.trim();
+                    const lastName = document.getElementById('lastName').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const phone = document.getElementById('phone').value.trim();
+                    const message = document.getElementById('message').value.trim();
+                    
+                    // Clear previous errors
+                    messageEl.textContent = '';
+                    messageEl.className = 'contactpage-form-message';
+                    messageEl.style.display = 'none';
+                    
+                    // Validate required fields
+                    if (!firstName || !lastName || !email) {
+                        messageEl.textContent = 'Please fill in all required fields.';
+                        messageEl.className = 'contactpage-form-message error';
+                        messageEl.style.display = 'block';
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Submit';
+                        return;
+                    }
+                    
+                    // Validate email format
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        messageEl.textContent = 'Please enter a valid email address.';
+                        messageEl.className = 'contactpage-form-message error';
+                        messageEl.style.display = 'block';
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Submit';
+                        return;
+                    }
+                    
+                    const formData = {
+                        firstName: firstName,
+                        lastName: lastName,
+                        email: email,
+                        phone: phone || '',
+                        message: message || '',
+                        requestPassword: document.getElementById('requestPassword').checked ? 'true' : 'false'
+                    };
+                    
+                    messageEl.textContent = 'Sending...';
+                    messageEl.className = 'contactpage-form-message';
+                    messageEl.style.display = 'block';
+                    
+                    submitToAppsScript(
+                        {
+                            firstName: formData.firstName,
+                            lastName: formData.lastName,
+                            email: formData.email,
+                            phone: formData.phone,
+                            message: formData.message,
+                            requestPassword: formData.requestPassword
+                        },
+                        'requestAccess',
+                        function(result) {
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'Submit';
+                            
+                            if (formData.requestPassword === 'true') {
+                                messageEl.textContent = 'Check your email for your personal access code.';
+                            } else {
+                                messageEl.textContent = 'Thanks for your message. I\'ll get back to you soon.';
+                            }
+                            messageEl.className = 'contactpage-form-message success';
+                            contactFormEl.reset();
+                        },
+                        function(error) {
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'Submit';
+                            messageEl.textContent = 'Error sending message. Please try again.';
+                            messageEl.className = 'contactpage-form-message error';
+                        }
+                    );
+                });
+            }
+            
+            // Forgot Password form submission
+            const forgotPasswordBtn = document.getElementById('forgotPasswordBtn');
+            if (forgotPasswordBtn && typeof submitToAppsScript !== 'undefined') {
+                forgotPasswordBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const email = document.getElementById('forgotEmail').value.trim();
+                    if (!email) {
+                        const messageEl = document.getElementById('forgotPasswordMessage');
+                        messageEl.textContent = 'Please enter your email address.';
+                        messageEl.className = 'contactpage-form-message error';
+                        messageEl.style.display = 'block';
+                        return;
+                    }
+                    
+                    const submitBtn = document.getElementById('forgotPasswordBtn');
+                    const messageEl = document.getElementById('forgotPasswordMessage');
+                    
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Sending...';
+                    
+                    messageEl.textContent = 'Sending password to your email...';
+                    messageEl.className = 'contactpage-form-message';
+                    messageEl.style.display = 'block';
+                    
+                    submitToAppsScript(
+                        { email: email },
+                        'forgotPassword',
+                        function(result) {
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'Send Password';
+                            messageEl.textContent = 'If an account exists with this email, your password has been sent.';
+                            messageEl.className = 'contactpage-form-message success';
+                            document.getElementById('forgotEmail').value = '';
+                        },
+                        function(error) {
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'Send Password';
+                            messageEl.textContent = 'Error sending password. Please try again.';
+                            messageEl.className = 'contactpage-form-message error';
+                        }
+                    );
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
