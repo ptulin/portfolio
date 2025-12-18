@@ -1,5 +1,11 @@
 # GitHub Deployment Guide
 
+## ✅ Current Status
+
+**Repository**: https://github.com/ptulin/portfolio  
+**Live Site**: https://disruptiveexperience.com/portfolio/  
+**Deployment**: Automatic via cPanel Git Version Control
+
 ## Pre-Deployment Checklist
 
 ### ✅ Files Ready for Deployment
@@ -83,38 +89,48 @@ git push -u origin main
 
 ## Repository Structure
 
-The repository will contain:
-- `sandbox-new/` - Main project directory with all files
+The repository contains:
+- `sandbox-new/` - Main project directory with all files (deployed to production)
+- `.cpanel.yml` - cPanel deployment configuration
 - `.gitignore` - Git ignore rules
-- Documentation files
+- Documentation files (README.md, DEPLOYMENT_GUIDE.md, etc.)
+
+## Branch Structure
+
+- **`main`** - Production branch
+  - Auto-deploys to https://disruptiveexperience.com/portfolio/
+  - Protected branch (should be stable)
+  
+- **`develop`** - Development branch
+  - For testing new features
+  - Merge to main when ready for production
 
 ## Post-Deployment
 
-### GitHub Pages Setup (Optional)
+### Current Deployment Setup
 
-If you want to host the site on GitHub Pages:
+The site is deployed via **cPanel Git Version Control**:
 
-1. Go to repository Settings
-2. Navigate to "Pages"
-3. Select source branch: `main`
-4. Select folder: `/sandbox-new` (or root if you move files)
-5. Click "Save"
+1. **Repository**: https://github.com/ptulin/portfolio
+2. **Deployment Path**: `/home1/moose/public_html/portfolio/`
+3. **Auto-Deploy**: Enabled via `.cpanel.yml`
+4. **Source**: Files from `sandbox-new/` directory
+5. **Live URL**: https://disruptiveexperience.com/portfolio/
 
-**Note**: GitHub Pages serves from root or `/docs` folder. You may need to:
-- Move files to root, or
-- Use a custom domain with proper configuration
+### Deployment Configuration
 
-### Custom Domain Setup (Optional)
+The `.cpanel.yml` file automatically:
+- Copies files from `sandbox-new/` to deployment path
+- Sets proper file permissions (644 for files, 755 for directories)
+- Executes on every push to `main` branch
 
-1. Add `CNAME` file in repository root:
-   ```
-   yourdomain.com
-   ```
+### Verifying Deployment
 
-2. Configure DNS:
-   - Type: CNAME
-   - Name: @ or www
-   - Value: YOUR_USERNAME.github.io
+After pushing to `main`:
+1. Wait 1-2 minutes for cPanel to process
+2. Check https://disruptiveexperience.com/portfolio/
+3. Verify all pages load correctly
+4. Test forms and functionality
 
 ## File Organization Options
 
@@ -130,17 +146,33 @@ If you want to host the site on GitHub Pages:
 
 ## Continuous Deployment
 
-### Manual Deployment
+### Current Workflow
+
+**Development:**
 ```bash
+# Work on develop branch
+git checkout develop
+# Make changes
 git add .
-git commit -m "Update: Description of changes"
-git push origin main
+git commit -m "Feature: Description"
+git push origin develop
 ```
 
-### Automated Deployment (Future)
-- Set up GitHub Actions
-- Configure deployment to hosting service
-- Add automated testing
+**Production:**
+```bash
+# Merge develop to main
+git checkout main
+git merge develop
+git push origin main
+# cPanel automatically deploys
+```
+
+### Automated Deployment
+
+✅ **Currently Active**: cPanel Git Version Control
+- Automatically deploys on push to `main` branch
+- No manual steps required
+- Deployment configured via `.cpanel.yml`
 
 ## Security Notes
 

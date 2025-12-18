@@ -4,16 +4,25 @@ A modern, responsive portfolio website showcasing AI-driven product design work 
 
 ## 🚀 Quick Start
 
+### Repository
+
+**GitHub**: https://github.com/ptulin/portfolio  
+**Live Site**: https://disruptiveexperience.com/portfolio/
+
 ### Local Development
+
+Navigate to the `sandbox-new` directory:
 
 **Option 1: Node.js Server**
 ```bash
+cd sandbox-new
 node server.js
 ```
 Access at: http://localhost:5177
 
 **Option 2: Python Server**
 ```bash
+cd sandbox-new
 python3 server.py
 ```
 Access at: http://localhost:5177

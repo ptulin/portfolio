@@ -2,6 +2,11 @@
 
 A modern, responsive portfolio website showcasing AI-driven product design work and case studies.
 
+## 🌐 Live Site & Repository
+
+**Live Website**: https://disruptiveexperience.com/portfolio/  
+**GitHub Repository**: https://github.com/ptulin/portfolio
+
 ## 🚀 Quick Start
 
 ### Local Development
@@ -26,7 +31,7 @@ Access at: http://localhost:5177
 
 ```
 portfolioRedesign/
-├── sandbox-new/          # Main project directory
+├── sandbox-new/          # Main project directory (deployed to production)
 │   ├── index.html        # Homepage
 │   ├── about.html        # About page
 │   ├── contact.html      # Contact form page
@@ -37,9 +42,25 @@ portfolioRedesign/
 │   ├── common.js         # Unified JavaScript
 │   ├── config.js         # Configuration
 │   └── ...               # See sandbox-new/README.md for full structure
+├── .cpanel.yml           # cPanel deployment configuration
 ├── .gitignore            # Git ignore rules
 └── README.md             # This file
 ```
+
+## 🔀 Git Branches
+
+- **`main`** - Production branch (auto-deploys to https://disruptiveexperience.com/portfolio/)
+- **`develop`** - Development branch (for testing and new features)
+
+## 🚢 Deployment
+
+The site is automatically deployed via cPanel Git Version Control:
+
+1. Push changes to GitHub: `git push origin main`
+2. cPanel automatically pulls and deploys via `.cpanel.yml`
+3. Files sync to `/home1/moose/public_html/portfolio/`
+
+See `DEPLOYMENT_GUIDE.md` for detailed deployment instructions.
 
 ## 📚 Documentation
 

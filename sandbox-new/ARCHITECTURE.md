@@ -347,19 +347,45 @@ if (body.classList.contains('newpage-page') || document.getElementById('newpageC
 
 ## Development Workflow
 
+### Repository & Deployment
+
+**GitHub**: https://github.com/ptulin/portfolio  
+**Live Site**: https://disruptiveexperience.com/portfolio/  
+**Branches**: `main` (production), `develop` (development)
+
 ### Local Development
 
-1. **Node.js Server**:
+1. **Clone Repository**:
    ```bash
-   node server.js
+   git clone https://github.com/ptulin/portfolio.git
+   cd portfolio
    ```
-   Access at: http://localhost:5177
 
-2. **Python Server** (alternative):
+2. **Start Development Server**:
    ```bash
+   cd sandbox-new
+   node server.js
+   # OR
    python3 server.py
    ```
    Access at: http://localhost:5177
+
+3. **Work on Develop Branch**:
+   ```bash
+   git checkout develop
+   # Make changes
+   git add .
+   git commit -m "Description"
+   git push origin develop
+   ```
+
+4. **Deploy to Production**:
+   ```bash
+   git checkout main
+   git merge develop
+   git push origin main
+   # cPanel automatically deploys
+   ```
 
 ### File Organization
 
