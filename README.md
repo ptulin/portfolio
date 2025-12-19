@@ -4,7 +4,7 @@ A modern, responsive portfolio website showcasing AI-driven product design work 
 
 ## 🌐 Live Site & Repository
 
-**Live Website**: https://disruptiveexperience.com/portfolio/  
+**Live Website**: https://disruptiveexperience.com/pawel/  
 **GitHub Repository**: https://github.com/ptulin/portfolio
 
 ## 🚀 Quick Start
@@ -49,7 +49,7 @@ portfolioRedesign/
 
 ## 🔀 Git Branches
 
-- **`main`** - Production branch (auto-deploys to https://disruptiveexperience.com/portfolio/)
+- **`main`** - Production branch (auto-deploys to https://disruptiveexperience.com/pawel/)
 - **`develop`** - Development branch (for testing and new features)
 
 ## 🚢 Deployment

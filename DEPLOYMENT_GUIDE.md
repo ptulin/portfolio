@@ -3,7 +3,7 @@
 ## ✅ Current Status
 
 **Repository**: https://github.com/ptulin/portfolio  
-**Live Site**: https://disruptiveexperience.com/portfolio/  
+**Live Site**: https://disruptiveexperience.com/pawel/  
 **Deployment**: Automatic via cPanel Git Version Control
 
 ## Pre-Deployment Checklist
@@ -98,7 +98,7 @@ The repository contains:
 ## Branch Structure
 
 - **`main`** - Production branch
-  - Auto-deploys to https://disruptiveexperience.com/portfolio/
+  - Auto-deploys to https://disruptiveexperience.com/pawel/
   - Protected branch (should be stable)
   
 - **`develop`** - Development branch
@@ -112,7 +112,7 @@ The repository contains:
 The site is deployed via **cPanel Git Version Control**:
 
 1. **Repository**: https://github.com/ptulin/portfolio
-2. **Deployment Path**: `/home1/moose/public_html/portfolio/`
+2. **Deployment Path**: `/home1/moose/public_html/pawel/`
 3. **Auto-Deploy**: Enabled via `.cpanel.yml`
 4. **Source**: Files from `sandbox-new/` directory
 5. **Live URL**: https://disruptiveexperience.com/portfolio/
@@ -128,7 +128,7 @@ The `.cpanel.yml` file automatically:
 
 After pushing to `main`:
 1. Wait 1-2 minutes for cPanel to process
-2. Check https://disruptiveexperience.com/portfolio/
+2. Check https://disruptiveexperience.com/pawel/
 3. Verify all pages load correctly
 4. Test forms and functionality
 

@@ -350,7 +350,7 @@ if (body.classList.contains('newpage-page') || document.getElementById('newpageC
 ### Repository & Deployment
 
 **GitHub**: https://github.com/ptulin/portfolio  
-**Live Site**: https://disruptiveexperience.com/portfolio/  
+**Live Site**: https://disruptiveexperience.com/pawel/  
 **Branches**: `main` (production), `develop` (development)
 
 ### Local Development

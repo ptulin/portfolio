@@ -7,7 +7,7 @@ A modern, responsive portfolio website showcasing AI-driven product design work 
 ### Repository
 
 **GitHub**: https://github.com/ptulin/portfolio  
-**Live Site**: https://disruptiveexperience.com/portfolio/
+**Live Site**: https://disruptiveexperience.com/pawel/
 
 ### Local Development
 
