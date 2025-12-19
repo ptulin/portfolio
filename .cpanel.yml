@@ -7,7 +7,7 @@ deployment:
   tasks:
     # Set deployment path
     - export DEPLOYPATH=/home1/moose/public_html/pawel
-    - export REPOPATH=/home1/moose/repositories/portfolio
+    - export REPOPATH=/home1/moose/repositories/pawel
     
     # Copy all files from sandbox-new to deployment path
     - cd $REPOPATH
