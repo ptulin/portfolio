@@ -1060,6 +1060,21 @@ const casestudyUpdateHero = (data) => {
         if (data.title) {
             document.title = `${data.title} | Case Study`;
         }
+        
+        // Update hero image based on case study slug
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectSlug = urlParams.get('project') || 'fiserv-cfo-ai-automation';
+        const heroImage = document.querySelector('.casestudy-hero-image');
+        
+        if (heroImage) {
+            // Set image based on case study slug
+            if (projectSlug === 'fiserv-cfo-ai-automation') {
+                heroImage.src = 'images/fiserv/dashboard-fiserv.png';
+            } else {
+                // Default image for other case studies
+                heroImage.src = 'images/case-study-hero-D8N--dk8.jpg';
+            }
+        }
     } catch (error) {
         console.error('[casestudyUpdateHero] Error updating hero:', error);
     }
@@ -1078,6 +1093,21 @@ const casestudyInit = () => {
         const projectSlug = urlParams.get('project') || 'fiserv-cfo-ai-automation'; // Default to Fiserv
         
         console.debug(`[casestudyInit] Loading case study: ${projectSlug}`);
+        
+        // Apply Fiserv theme and hero image if this is the Fiserv case study
+        // To revert theme: Remove 'fiserv-theme' class from body element
+        const heroImage = document.querySelector('.casestudy-hero-image');
+        if (projectSlug === 'fiserv-cfo-ai-automation') {
+            document.body.classList.add('fiserv-theme');
+            if (heroImage) {
+                heroImage.src = 'images/fiserv/dashboard-fiserv.png';
+            }
+        } else {
+            document.body.classList.remove('fiserv-theme');
+            if (heroImage) {
+                heroImage.src = 'images/case-study-hero-D8N--dk8.jpg';
+            }
+        }
         
         // Load case study data
         const caseStudyData = getCaseStudyData(projectSlug);

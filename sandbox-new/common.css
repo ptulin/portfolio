@@ -93,6 +93,53 @@
 }
 
 /* ==========================================================================
+   FISERV THEME - ORANGE/BROWN COLOR PALETTE
+   Based on the CFO Dashboard design
+   ========================================================================== */
+
+/**
+ * Fiserv Theme Color Palette
+ * 
+ * To apply: Add class "fiserv-theme" to body element
+ * To revert: Remove "fiserv-theme" class from body element
+ * 
+ * Color scheme matches the dashboard image:
+ * - Dark brown backgrounds
+ * - Vibrant orange accents
+ * - Lighter brown cards/panels
+ * - Warm grays for text
+ */
+
+.fiserv-theme {
+    /* Background Colors - Dark Browns */
+    --color-background: hsl(25, 20%, 10%);
+    --color-card: hsl(25, 18%, 15%);
+    --color-secondary: hsl(25, 18%, 18%);
+    --color-muted: hsl(25, 15%, 20%);
+    
+    /* Foreground Colors - Warm Grays/Creams */
+    --color-foreground: hsl(30, 15%, 88%);
+    --color-card-foreground: hsl(30, 15%, 88%);
+    --color-muted-foreground: hsl(25, 10%, 60%);
+    
+    /* Primary Colors - Vibrant Oranges */
+    --color-primary: hsl(25, 95%, 55%);
+    --color-primary-foreground: hsl(25, 20%, 10%);
+    --color-primary-hover: hsl(25, 95%, 50%);
+    
+    /* Borders - Warm Browns */
+    --color-border: hsl(25, 18%, 25%);
+    --color-border-opacity: rgba(255, 140, 0, 0.15);
+    
+    /* Gradients - Orange/Brown Tones */
+    --gradient-accent: linear-gradient(135deg, hsl(25, 95%, 55%) 0%, hsl(30, 90%, 60%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(25, 95%, 55%) 0%, hsl(30, 90%, 60%) 100%);
+    
+    /* Shadows - Warm Orange Glow */
+    --shadow-glow: 0 0 20px rgba(255, 140, 0, 0.4);
+}
+
+/* ==========================================================================
    RESET & BASE STYLES
    ========================================================================== */
 
