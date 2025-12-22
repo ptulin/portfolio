@@ -1136,6 +1136,10 @@ const casestudyUpdateHero = (data) => {
                 heroImage.src = 'images/adp/Dashboard.png';
                 heroImage.width = 1536;
                 heroImage.height = 1024;
+            } else if (projectSlug === 'lord-abbett-data-users') {
+                heroImage.src = 'images/lordabbett/dashboard.png';
+                heroImage.width = 1536;
+                heroImage.height = 1024;
             } else {
                 // Default image for other case studies
                 heroImage.src = 'images/case-study-hero-D8N--dk8.jpg';
@@ -1160,9 +1164,18 @@ const casestudyInit = () => {
         
         console.debug(`[casestudyInit] Loading case study: ${projectSlug}`);
         
-        // Apply case study-specific theme and images dynamically
-        // Each case study can have its own color theme and custom images
-        // Themes are applied via CSS classes on the body element
+        /**
+         * Apply case study-specific theme and images dynamically
+         * 
+         * Each case study can have its own color theme and custom images:
+         * - Fiserv: Orange/Brown theme
+         * - JobBot: Blue/Cyan theme
+         * - ADP: Red/Black theme
+         * - Lord Abbett: Green/Blue-Green theme
+         * 
+         * Themes are applied via CSS classes on the body element.
+         * Images are set dynamically based on the project slug.
+         */
         const heroImage = document.querySelector('.casestudy-hero-image');
         const processImage = document.querySelector('.casestudy-process-image');
         const resultsImage = document.querySelector('.casestudy-results-image');
@@ -1172,6 +1185,7 @@ const casestudyInit = () => {
             document.body.classList.add('fiserv-theme');
             document.body.classList.remove('jobbot-theme');
             document.body.classList.remove('adp-theme');
+            document.body.classList.remove('lordabbett-theme');
             if (heroImage) {
                 heroImage.src = 'images/fiserv/dashboard-fiserv.png';
             }
@@ -1192,6 +1206,7 @@ const casestudyInit = () => {
             document.body.classList.remove('fiserv-theme');
             document.body.classList.add('jobbot-theme');
             document.body.classList.remove('adp-theme');
+            document.body.classList.remove('lordabbett-theme');
             if (heroImage) {
                 heroImage.src = 'images/jobbot/Main.png';
                 heroImage.alt = 'Job automation dashboard showing email processing and resume generation interface';
@@ -1216,6 +1231,7 @@ const casestudyInit = () => {
             document.body.classList.remove('fiserv-theme');
             document.body.classList.remove('jobbot-theme');
             document.body.classList.add('adp-theme');
+            document.body.classList.remove('lordabbett-theme');
             if (heroImage) {
                 heroImage.src = 'images/adp/Dashboard.png';
                 heroImage.alt = 'Customer Support Chatbots dashboard showing AI-powered conversation automation';
@@ -1234,11 +1250,36 @@ const casestudyInit = () => {
                 resultsImage.width = 1536;
                 resultsImage.height = 1024;
             }
+        // Lord Abbett Case Study: Green/Blue-Green theme with custom hero image
+        } else if (projectSlug === 'lord-abbett-data-users') {
+            document.body.classList.remove('fiserv-theme');
+            document.body.classList.remove('jobbot-theme');
+            document.body.classList.remove('adp-theme');
+            document.body.classList.add('lordabbett-theme');
+            if (heroImage) {
+                heroImage.src = 'images/lordabbett/dashboard.png';
+                heroImage.alt = 'Lord Abbett data analysis dashboard showing user interviews and data visualizations';
+                heroImage.width = 1536;
+                heroImage.height = 1024;
+            }
+            if (processImage) {
+                processImage.src = 'images/lordabbett/Process.png';
+                processImage.alt = 'Lord Abbett user research and personas process: User Research, Data Visualization Design, UI Personalization System, and Error Handling & Security';
+                processImage.width = 1024;
+                processImage.height = 1024;
+            }
+            if (resultsImage) {
+                resultsImage.src = 'images/lordabbett/BeforeAfter.png';
+                resultsImage.alt = 'Before and after comparison showing transformation from text-heavy interface to modern Lord Abbett dashboard with data visualizations';
+                resultsImage.width = 1536;
+                resultsImage.height = 1024;
+            }
         // Default: Generic theme and images for other case studies
         } else {
             document.body.classList.remove('fiserv-theme');
             document.body.classList.remove('jobbot-theme');
             document.body.classList.remove('adp-theme');
+            document.body.classList.remove('lordabbett-theme');
             if (heroImage) {
                 heroImage.src = 'images/case-study-hero-D8N--dk8.jpg';
             }

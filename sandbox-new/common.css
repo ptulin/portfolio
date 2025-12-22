@@ -234,6 +234,53 @@
 }
 
 /* ==========================================================================
+   LORD ABBETT THEME - GREEN/BLUE-GREEN COLOR PALETTE
+   Based on the Data Analysis Dashboard design
+   ========================================================================== */
+
+/**
+ * Lord Abbett Theme - Green/Blue-Green Color Palette
+ * 
+ * To apply: Add class "lordabbett-theme" to body element
+ * To revert: Remove "lordabbett-theme" class from body element
+ * 
+ * Color scheme matches the dashboard image:
+ * - Dark blue-green backgrounds
+ * - Bright green accents for data visualizations
+ * - Modern financial/institutional aesthetic
+ * - White text for contrast
+ */
+
+.lordabbett-theme {
+    /* Background Colors - Dark Blue-Greens */
+    --color-background: hsl(180, 25%, 8%);
+    --color-card: hsl(180, 20%, 12%);
+    --color-secondary: hsl(180, 20%, 15%);
+    --color-muted: hsl(180, 15%, 18%);
+    
+    /* Foreground Colors - Light Grays/Whites */
+    --color-foreground: hsl(0, 0%, 95%);
+    --color-card-foreground: hsl(0, 0%, 95%);
+    --color-muted-foreground: hsl(180, 10%, 60%);
+    
+    /* Primary Colors - Vibrant Greens */
+    --color-primary: hsl(150, 85%, 45%);
+    --color-primary-foreground: hsl(180, 25%, 8%);
+    --color-primary-hover: hsl(150, 85%, 40%);
+    
+    /* Borders - Blue-Green Tones */
+    --color-border: hsl(180, 20%, 25%);
+    --color-border-opacity: rgba(0, 255, 150, 0.2);
+    
+    /* Gradients - Green/Blue-Green Tones */
+    --gradient-accent: linear-gradient(135deg, hsl(150, 85%, 45%) 0%, hsl(170, 80%, 50%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(150, 85%, 45%) 0%, hsl(170, 80%, 50%) 100%);
+    
+    /* Shadows - Green Glow */
+    --shadow-glow: 0 0 20px rgba(0, 255, 150, 0.4);
+}
+
+/* ==========================================================================
    RESET & BASE STYLES
    ========================================================================== */
 

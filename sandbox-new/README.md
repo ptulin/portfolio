@@ -145,6 +145,10 @@ Each case study can have its own color theme and custom images:
 - Theme: Red/Black (`adp-theme` CSS class)
 - Images: `images/adp/Dashboard.png`, `Process.png`, `BeforeAfter.png`
 
+**Lord Abbett Case Study** (`lord-abbett-data-users`):
+- Theme: Green/Blue-Green (`lordabbett-theme` CSS class)
+- Images: `images/lordabbett/dashboard.png`, `Process.png`, `BeforeAfter.png`
+
 Themes are defined in `common.css` using CSS custom properties. Images are dynamically set in `common.js` based on the case study slug.
 
 ### Backend Integration
