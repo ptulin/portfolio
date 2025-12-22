@@ -115,7 +115,7 @@ const CASE_STUDY_DATA = {
     "meta": {
       "Duration": "8 Months",
       "Team Size": "12 Members",
-      "My Role": "Lead UX Designer"
+      "My Role": "Lead UX Architect and Researcher"
     },
     "overview_cards": [
       {

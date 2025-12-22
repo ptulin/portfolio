@@ -51,7 +51,7 @@ const CASE_STUDIES = {
         meta: {
             duration: '8 Months',
             teamSize: '12 Members',
-            role: 'Lead UX Designer'
+            role: 'Lead UX Architect and Researcher'
         }
     },
     'lord-abbett-data-users': {
