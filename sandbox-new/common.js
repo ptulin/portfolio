@@ -964,6 +964,64 @@ const casestudyRenderInsightsCards = (data = null) => {
 };
 
 /**
+ * Renders testimonial section with dynamic content
+ * 
+ * @param {Object} testimonialData - Testimonial data object with quote, author_name, author_title
+ * @returns {void}
+ */
+const casestudyRenderTestimonial = (testimonialData = null) => {
+    const quoteElement = document.querySelector('.casestudy-testimonial-quote');
+    const authorElement = document.querySelector('.casestudy-testimonial-author');
+    
+    if (!quoteElement || !authorElement) {
+        return; // Not on case study page
+    }
+    
+    try {
+        if (testimonialData && testimonialData.quote) {
+            // Extract text from quote (remove quotes if present)
+            let quoteText = testimonialData.quote.replace(/^["']|["']$/g, '');
+            
+            // Add gradient to a key word (find a word like "transformed", "quickly", "never", etc.)
+            const gradientWords = ['transformed', 'quickly', 'never', 'always', 'custom', 'tailored'];
+            for (const word of gradientWords) {
+                if (quoteText.toLowerCase().includes(word.toLowerCase())) {
+                    const regex = new RegExp(`(${word})`, 'gi');
+                    quoteText = quoteText.replace(regex, `<span class="text-gradient">$1</span>`);
+                    break; // Only highlight one word
+                }
+            }
+            
+            quoteElement.innerHTML = `"${quoteText}"`;
+            
+            // Update author info if provided
+            if (testimonialData.author_name) {
+                const authorNameElement = authorElement.querySelector('.casestudy-author-name');
+                const authorTitleElement = authorElement.querySelector('.casestudy-author-title');
+                const authorAvatarElement = authorElement.querySelector('.casestudy-author-avatar');
+                
+                if (authorNameElement) {
+                    authorNameElement.textContent = testimonialData.author_name;
+                }
+                if (authorTitleElement) {
+                    authorTitleElement.textContent = testimonialData.author_title || '';
+                }
+                if (authorAvatarElement && testimonialData.author_name) {
+                    // Set initials for avatar
+                    const names = testimonialData.author_name.split(' ');
+                    const initials = names.length >= 2 
+                        ? (names[0][0] + names[names.length - 1][0]).toUpperCase()
+                        : testimonialData.author_name.substring(0, 2).toUpperCase();
+                    authorAvatarElement.textContent = initials;
+                }
+            }
+        }
+    } catch (error) {
+        console.error('[casestudyRenderTestimonial] Error rendering testimonial:', error);
+    }
+};
+
+/**
  * Gets case study data by slug from CASE_STUDY_DATA
  * Falls back to default Fiserv data if slug not found or data not available
  * 
@@ -1070,6 +1128,14 @@ const casestudyUpdateHero = (data) => {
             // Set image based on case study slug
             if (projectSlug === 'fiserv-cfo-ai-automation') {
                 heroImage.src = 'images/fiserv/dashboard-fiserv.png';
+            } else if (projectSlug === 'jobbot-email-automation') {
+                heroImage.src = 'images/jobbot/Main.png';
+                heroImage.width = 1536;
+                heroImage.height = 1024;
+            } else if (projectSlug === 'adp-customer-support-chatbots') {
+                heroImage.src = 'images/adp/Dashboard.png';
+                heroImage.width = 1536;
+                heroImage.height = 1024;
             } else {
                 // Default image for other case studies
                 heroImage.src = 'images/case-study-hero-D8N--dk8.jpg';
@@ -1094,18 +1160,99 @@ const casestudyInit = () => {
         
         console.debug(`[casestudyInit] Loading case study: ${projectSlug}`);
         
-        // Apply Fiserv theme and hero image if this is the Fiserv case study
-        // To revert theme: Remove 'fiserv-theme' class from body element
+        // Apply case study-specific theme and images dynamically
+        // Each case study can have its own color theme and custom images
+        // Themes are applied via CSS classes on the body element
         const heroImage = document.querySelector('.casestudy-hero-image');
+        const processImage = document.querySelector('.casestudy-process-image');
+        const resultsImage = document.querySelector('.casestudy-results-image');
+        
+        // Fiserv Case Study: Orange/Brown theme with custom images
         if (projectSlug === 'fiserv-cfo-ai-automation') {
             document.body.classList.add('fiserv-theme');
+            document.body.classList.remove('jobbot-theme');
+            document.body.classList.remove('adp-theme');
             if (heroImage) {
                 heroImage.src = 'images/fiserv/dashboard-fiserv.png';
             }
+            if (processImage) {
+                processImage.src = 'images/fiserv/DataCompasHome.png';
+                processImage.alt = 'Data Compass home page showcasing AI-powered analytics dashboard';
+                processImage.width = 1024;
+                processImage.height = 1024;
+            }
+            if (resultsImage) {
+                resultsImage.src = 'images/fiserv/FiservBeforeAfterNew.png';
+                resultsImage.alt = 'Before and after comparison showing transformation from manual spreadsheets to automated dashboard';
+                resultsImage.width = 2454;
+                resultsImage.height = 1276;
+            }
+        // JobBot Case Study: Blue/Cyan theme with custom images
+        } else if (projectSlug === 'jobbot-email-automation') {
+            document.body.classList.remove('fiserv-theme');
+            document.body.classList.add('jobbot-theme');
+            document.body.classList.remove('adp-theme');
+            if (heroImage) {
+                heroImage.src = 'images/jobbot/Main.png';
+                heroImage.alt = 'Job automation dashboard showing email processing and resume generation interface';
+                heroImage.width = 1536;
+                heroImage.height = 1024;
+                console.debug('[casestudyInit] Set JobBot hero image to images/jobbot/Main.png');
+            }
+            if (processImage) {
+                processImage.src = 'images/jobbot/Image1.png';
+                processImage.alt = 'JobBot automation workflow showing email scanning, AI analysis, and draft creation process';
+                processImage.width = 1024;
+                processImage.height = 1024;
+            }
+            if (resultsImage) {
+                resultsImage.src = 'images/jobbot/BeforeAfter.png';
+                resultsImage.alt = 'Before and after comparison showing transformation from manual email processing to automated JobBot dashboard';
+                resultsImage.width = 1536;
+                resultsImage.height = 1024;
+            }
+        // ADP Case Study: Red/Black theme with custom images
+        } else if (projectSlug === 'adp-customer-support-chatbots') {
+            document.body.classList.remove('fiserv-theme');
+            document.body.classList.remove('jobbot-theme');
+            document.body.classList.add('adp-theme');
+            if (heroImage) {
+                heroImage.src = 'images/adp/Dashboard.png';
+                heroImage.alt = 'Customer Support Chatbots dashboard showing AI-powered conversation automation';
+                heroImage.width = 1536;
+                heroImage.height = 1024;
+            }
+            if (processImage) {
+                processImage.src = 'images/adp/Process.png';
+                processImage.alt = 'ADP chatbot development process: Support Volume Analysis, Conversation Design, Interface Prototyping, and Training & Optimization';
+                processImage.width = 1024;
+                processImage.height = 1024;
+            }
+            if (resultsImage) {
+                resultsImage.src = 'images/adp/BeforeAfter.png';
+                resultsImage.alt = 'Before and after comparison showing transformation from manual ticket management to AI-powered customer support chatbots';
+                resultsImage.width = 1536;
+                resultsImage.height = 1024;
+            }
+        // Default: Generic theme and images for other case studies
         } else {
             document.body.classList.remove('fiserv-theme');
+            document.body.classList.remove('jobbot-theme');
+            document.body.classList.remove('adp-theme');
             if (heroImage) {
                 heroImage.src = 'images/case-study-hero-D8N--dk8.jpg';
+            }
+            if (processImage) {
+                processImage.src = 'images/automation-process-DeeIjsdF.jpg';
+                processImage.alt = 'AI automation workflow visualization showing connected processes';
+                processImage.width = 1024;
+                processImage.height = 1024;
+            }
+            if (resultsImage) {
+                resultsImage.src = 'images/results-impact-B0j-uv-D.jpg';
+                resultsImage.alt = 'Before and after comparison showing transformation from manual spreadsheets to automated dashboard';
+                resultsImage.width = 1024;
+                resultsImage.height = 1024;
             }
         }
         
@@ -1122,6 +1269,7 @@ const casestudyInit = () => {
             casestudyRenderWorkedWellList();
             casestudyRenderChallengesList();
             casestudyRenderInsightsCards();
+            // Keep default testimonial from HTML
         } else {
             // Update hero section with dynamic content
             casestudyUpdateHero(caseStudyData);
@@ -1134,6 +1282,7 @@ const casestudyInit = () => {
             casestudyRenderWorkedWellList(caseStudyData.worked_well || []);
             casestudyRenderChallengesList(caseStudyData.challenges || []);
             casestudyRenderInsightsCards(caseStudyData.insights || []);
+            casestudyRenderTestimonial(caseStudyData.testimonial || null);
         }
         
         initMobileMenu();

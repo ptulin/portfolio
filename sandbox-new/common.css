@@ -140,6 +140,100 @@
 }
 
 /* ==========================================================================
+   JOBOT THEME - BLUE/CYAN COLOR PALETTE
+   Based on the Job Automation Dashboard design
+   ========================================================================== */
+
+/**
+ * JobBot Theme - Blue/Cyan Color Palette
+ * 
+ * To apply: Add class "jobbot-theme" to body element
+ * To revert: Remove "jobbot-theme" class from body element
+ * 
+ * Color scheme matches the dashboard image:
+ * - Dark blue backgrounds
+ * - Glowing blue/cyan accents
+ * - Modern digital aesthetic
+ * - Light grays for text
+ */
+
+.jobbot-theme {
+    /* Background Colors - Dark Blues */
+    --color-background: hsl(220, 30%, 8%);
+    --color-card: hsl(220, 25%, 12%);
+    --color-secondary: hsl(220, 25%, 15%);
+    --color-muted: hsl(220, 20%, 18%);
+    
+    /* Foreground Colors - Light Grays/Blues */
+    --color-foreground: hsl(220, 10%, 90%);
+    --color-card-foreground: hsl(220, 10%, 90%);
+    --color-muted-foreground: hsl(220, 10%, 60%);
+    
+    /* Primary Colors - Vibrant Blues/Cyan */
+    --color-primary: hsl(200, 90%, 55%);
+    --color-primary-foreground: hsl(220, 30%, 8%);
+    --color-primary-hover: hsl(200, 90%, 50%);
+    
+    /* Borders - Blue Tones */
+    --color-border: hsl(220, 25%, 25%);
+    --color-border-opacity: rgba(0, 191, 255, 0.2);
+    
+    /* Gradients - Blue/Cyan Tones */
+    --gradient-accent: linear-gradient(135deg, hsl(200, 90%, 55%) 0%, hsl(210, 85%, 60%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(200, 90%, 55%) 0%, hsl(210, 85%, 60%) 100%);
+    
+    /* Shadows - Blue Glow */
+    --shadow-glow: 0 0 20px rgba(0, 191, 255, 0.4);
+}
+
+/* ==========================================================================
+   ADP THEME - RED/BLACK COLOR PALETTE
+   Based on the Customer Support Chatbots Dashboard design
+   ========================================================================== */
+
+/**
+ * ADP Theme - Red/Black Color Palette
+ * 
+ * To apply: Add class "adp-theme" to body element
+ * To revert: Remove "adp-theme" class from body element
+ * 
+ * Color scheme matches the dashboard image:
+ * - Dark gray/black backgrounds
+ * - Vibrant red accents
+ * - Modern digital aesthetic
+ * - Light grays for text
+ */
+
+.adp-theme {
+    /* Background Colors - Dark Grays/Blacks */
+    --color-background: hsl(0, 0%, 8%);
+    --color-card: hsl(0, 0%, 12%);
+    --color-secondary: hsl(0, 0%, 15%);
+    --color-muted: hsl(0, 0%, 18%);
+    
+    /* Foreground Colors - Light Grays */
+    --color-foreground: hsl(0, 0%, 90%);
+    --color-card-foreground: hsl(0, 0%, 90%);
+    --color-muted-foreground: hsl(0, 0%, 60%);
+    
+    /* Primary Colors - Vibrant Reds */
+    --color-primary: hsl(0, 85%, 55%);
+    --color-primary-foreground: hsl(0, 0%, 8%);
+    --color-primary-hover: hsl(0, 85%, 50%);
+    
+    /* Borders - Dark Grays with Red Tint */
+    --color-border: hsl(0, 10%, 25%);
+    --color-border-opacity: rgba(255, 0, 0, 0.2);
+    
+    /* Gradients - Red Tones */
+    --gradient-accent: linear-gradient(135deg, hsl(0, 85%, 55%) 0%, hsl(10, 80%, 60%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(0, 85%, 55%) 0%, hsl(10, 80%, 60%) 100%);
+    
+    /* Shadows - Red Glow */
+    --shadow-glow: 0 0 20px rgba(255, 0, 0, 0.4);
+}
+
+/* ==========================================================================
    RESET & BASE STYLES
    ========================================================================== */
 

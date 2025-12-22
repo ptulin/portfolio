@@ -76,10 +76,13 @@ sandbox-new/
 
 4. **Case Study Pages** (`case-study.html?project=slug`)
    - Dynamic content loading based on URL parameter
+   - Custom color themes per case study (Fiserv: Orange/Brown, JobBot: Blue/Cyan, ADP: Red/Black)
+   - Custom images per case study (hero, process, results sections)
    - Overview cards
    - Process steps
    - Results and impact
    - Challenges and insights
+   - Dynamic testimonials
    - Back to portfolio link
 
 5. **Resume Pages** (`resume/`)
@@ -92,6 +95,8 @@ sandbox-new/
 
 - **Responsive Design**: Mobile-first, works on all devices
 - **Dynamic Content**: Case studies loaded based on URL parameters
+- **Dynamic Theming**: Each case study can have its own color theme applied via CSS classes
+- **Custom Images**: Case study-specific images for hero, process, and results sections
 - **Form Handling**: Contact form and resume password verification via Google Apps Script
 - **Smooth Scrolling**: Enhanced navigation experience
 - **Accessibility**: WCAG compliant, semantic HTML, ARIA labels, skip links
@@ -123,6 +128,24 @@ const CASE_STUDIES = {
 ```
 
 Content for case studies is stored in `case_studies_data.js`.
+
+### Case Study Themes and Images
+
+Each case study can have its own color theme and custom images:
+
+**Fiserv Case Study** (`fiserv-cfo-ai-automation`):
+- Theme: Orange/Brown (`fiserv-theme` CSS class)
+- Images: `images/fiserv/dashboard-fiserv.png`, `DataCompasHome.png`, `FiservBeforeAfterNew.png`
+
+**JobBot Case Study** (`jobbot-email-automation`):
+- Theme: Blue/Cyan (`jobbot-theme` CSS class)
+- Images: `images/jobbot/Main.png`, `Image1.png`, `BeforeAfter.png`
+
+**ADP Case Study** (`adp-customer-support-chatbots`):
+- Theme: Red/Black (`adp-theme` CSS class)
+- Images: `images/adp/Dashboard.png`, `Process.png`, `BeforeAfter.png`
+
+Themes are defined in `common.css` using CSS custom properties. Images are dynamically set in `common.js` based on the case study slug.
 
 ### Backend Integration
 

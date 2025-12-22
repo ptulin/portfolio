@@ -38,7 +38,7 @@ const CASE_STUDIES = {
         slug: 'jobbot-email-automation',
         category: 'AI Automation',
         meta: {
-            duration: '3 Months',
+            duration: '3 Weeks',
             teamSize: 'Solo Project',
             role: 'Full-Stack Designer'
         }

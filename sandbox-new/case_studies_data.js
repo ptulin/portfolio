@@ -11,7 +11,7 @@ const CASE_STUDY_DATA = {
     "title": "AI Email Automation Experiment",
     "description": "A personal automation project that intelligently processes job application emails, generates custom replies, and creates tailored resumes—all with minimal cost using Google Apps Script and GPT APIs.",
     "meta": {
-      "Duration": "3 Months",
+      "Duration": "3 Weeks",
       "Team Size": "Solo Project",
       "My Role": "Full-Stack Designer"
     },
@@ -78,9 +78,9 @@ const CASE_STUDY_DATA = {
       }
     ],
     "testimonial": {
-      "quote": "\"This automation experiment proved that powerful AI tools can be accessible and affordable. What started as a personal project became a game-changer for managing job applications efficiently.\"",
-      "author_name": "",
-      "author_title": ""
+      "quote": "\"JobBot has transformed my job search process. I can now quickly respond to recruiters with custom emails and tailored resumes for each position. The system keeps track of all my applications, handles follow-ups, and helps me schedule interviews—ensuring I never miss an opportunity and always present my best self to potential employers.\"",
+      "author_name": "Pawel Tulin",
+      "author_title": "Creator & User"
     },
     "worked_well": [
       "Leveraging free Google infrastructure eliminated hosting costs",
