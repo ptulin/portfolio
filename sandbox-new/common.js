@@ -1148,6 +1148,10 @@ const casestudyUpdateHero = (data) => {
                 heroImage.src = 'images/g2a/dashboard.png';
                 heroImage.width = 1536;
                 heroImage.height = 1024;
+            } else if (projectSlug === 'ibm-bluedot-intelligence') {
+                heroImage.src = 'images/ibm/dashboard.png';
+                heroImage.width = 1536;
+                heroImage.height = 1024;
             } else {
                 // Default image for other case studies
                 heroImage.src = 'images/case-study-hero-D8N--dk8.jpg';
@@ -1182,6 +1186,7 @@ const casestudyInit = () => {
          * - Lord Abbett: Green/Blue-Green theme
          * - Pearson: Dark Blue/Light Blue theme
          * - G2A: Orange/White theme
+         * - IBM: Dark Blue/Glowing Blue theme
          * 
          * Themes are applied via CSS classes on the body element.
          * Images are set dynamically based on the project slug.
@@ -1195,7 +1200,7 @@ const casestudyInit = () => {
          * Ensures clean theme switching without conflicts
          */
         const removeAllThemes = () => {
-            document.body.classList.remove('fiserv-theme', 'jobbot-theme', 'adp-theme', 'lordabbett-theme', 'pearson-theme', 'g2a-theme');
+            document.body.classList.remove('fiserv-theme', 'jobbot-theme', 'adp-theme', 'lordabbett-theme', 'pearson-theme', 'g2a-theme', 'ibm-theme');
         };
         
         // Fiserv Case Study: Orange/Brown theme with custom images
@@ -1329,6 +1334,30 @@ const casestudyInit = () => {
             if (resultsImage) {
                 resultsImage.src = 'images/g2a/beforeAfter.png';
                 resultsImage.alt = 'Before and after comparison showing G2A platform improvements: Revenue Growth (18% to 52%), Customer Loyalty (+22% to +63%), Daily Orders (8,900 to 17,500), and Refunds Declined (2,100 to 8,400)';
+                resultsImage.width = 1536;
+                resultsImage.height = 1024;
+            }
+        // IBM Case Study: Dark Blue/Glowing Blue theme with custom images
+        } else if (projectSlug === 'ibm-bluedot-intelligence') {
+            removeAllThemes();
+            document.body.classList.add('ibm-theme');
+            if (heroImage) {
+                heroImage.src = 'images/ibm/dashboard.png';
+                heroImage.alt = 'IBM Bluedot Intelligence Dashboard showing intelligence-driven research platform with NLP entities, intelligence briefs, opportunities tracker, and market development funnel';
+                heroImage.width = 1536;
+                heroImage.height = 1024;
+            }
+            // IBM process image: 4-step intelligence platform workflow
+            if (processImage) {
+                processImage.src = 'images/ibm/process.png';
+                processImage.alt = 'IBM Bluedot Intelligence process: User Research & Personas, Natural Language Processing, Rapid Prototyping, and User Journey Mapping';
+                processImage.width = 1024;
+                processImage.height = 1024;
+            }
+            // IBM results image: Before/After comparison
+            if (resultsImage) {
+                resultsImage.src = 'images/ibm/beforeAfter.png';
+                resultsImage.alt = 'Before and after comparison showing transformation from traditional Rational Software Architect interface to modern IBM Bluedot Intelligence-driven research dashboard';
                 resultsImage.width = 1536;
                 resultsImage.height = 1024;
             }

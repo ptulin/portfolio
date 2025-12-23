@@ -491,16 +491,16 @@ const CASE_STUDY_DATA = {
       "author_title": ""
     },
     "worked_well": [
-      "AI product recommenders significantly improved product discovery and conversion",
-      "Blockchain loyalty systems provided transparent, secure rewards that increased retention",
-      "Service design approach enabled consistent experiences across global markets",
-      "Team building initiatives created strong cross-functional collaboration"
+      "Personalization as a growth lever - Strategic use of ML-driven recommendations improved discovery and engagement in a high-volume, global marketplace without sacrificing user trust.",
+      "Trust-first loyalty strategy - Blockchain-based rewards shifted loyalty from promotional mechanics to transparent value exchange, strengthening long-term retention.",
+      "System-level experience alignment - Service design created coherence across payments, discovery, and post-purchase journeys in a highly fragmented ecosystem.",
+      "UX maturity as an organizational advantage - Scaling the UX organization and embedding research elevated decision quality and reduced cross-team friction at product scale."
     ],
     "challenges": [
-      "AI product recommenders significantly improved product discovery and conversion",
-      "Blockchain loyalty systems provided transparent, secure rewards that increased retention",
-      "Service design approach enabled consistent experiences across global markets",
-      "Team building initiatives created strong cross-functional collaboration"
+      "Balancing automation with control - Recommendation systems required continuous governance to avoid bias, over-optimization, and unintended marketplace dynamics.",
+      "Abstracting technical complexity for users - Blockchain and advanced personalization demanded careful UX framing to deliver value without increasing cognitive load.",
+      "Global scale without dilution - Maintaining experience consistency across markets while respecting regional constraints required constant prioritization trade-offs.",
+      "Introducing structure without slowing velocity - As teams scaled, adding process and governance had to be done carefully to preserve speed while improving sustainability."
     ],
     "insights": [
       {
