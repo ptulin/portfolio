@@ -1140,6 +1140,10 @@ const casestudyUpdateHero = (data) => {
                 heroImage.src = 'images/lordabbett/dashboard.png';
                 heroImage.width = 1536;
                 heroImage.height = 1024;
+            } else if (projectSlug === 'pearson-online-education') {
+                heroImage.src = 'images/pearson/dashboard.png';
+                heroImage.width = 1536;
+                heroImage.height = 1024;
             } else {
                 // Default image for other case studies
                 heroImage.src = 'images/case-study-hero-D8N--dk8.jpg';
@@ -1172,6 +1176,7 @@ const casestudyInit = () => {
          * - JobBot: Blue/Cyan theme
          * - ADP: Red/Black theme
          * - Lord Abbett: Green/Blue-Green theme
+         * - Pearson: Dark Blue/Light Blue theme
          * 
          * Themes are applied via CSS classes on the body element.
          * Images are set dynamically based on the project slug.
@@ -1180,12 +1185,18 @@ const casestudyInit = () => {
         const processImage = document.querySelector('.casestudy-process-image');
         const resultsImage = document.querySelector('.casestudy-results-image');
         
+        /**
+         * Helper function to remove all theme classes
+         * Ensures clean theme switching without conflicts
+         */
+        const removeAllThemes = () => {
+            document.body.classList.remove('fiserv-theme', 'jobbot-theme', 'adp-theme', 'lordabbett-theme', 'pearson-theme');
+        };
+        
         // Fiserv Case Study: Orange/Brown theme with custom images
         if (projectSlug === 'fiserv-cfo-ai-automation') {
+            removeAllThemes();
             document.body.classList.add('fiserv-theme');
-            document.body.classList.remove('jobbot-theme');
-            document.body.classList.remove('adp-theme');
-            document.body.classList.remove('lordabbett-theme');
             if (heroImage) {
                 heroImage.src = 'images/fiserv/dashboard-fiserv.png';
             }
@@ -1203,10 +1214,8 @@ const casestudyInit = () => {
             }
         // JobBot Case Study: Blue/Cyan theme with custom images
         } else if (projectSlug === 'jobbot-email-automation') {
-            document.body.classList.remove('fiserv-theme');
+            removeAllThemes();
             document.body.classList.add('jobbot-theme');
-            document.body.classList.remove('adp-theme');
-            document.body.classList.remove('lordabbett-theme');
             if (heroImage) {
                 heroImage.src = 'images/jobbot/Main.png';
                 heroImage.alt = 'Job automation dashboard showing email processing and resume generation interface';
@@ -1228,10 +1237,8 @@ const casestudyInit = () => {
             }
         // ADP Case Study: Red/Black theme with custom images
         } else if (projectSlug === 'adp-customer-support-chatbots') {
-            document.body.classList.remove('fiserv-theme');
-            document.body.classList.remove('jobbot-theme');
+            removeAllThemes();
             document.body.classList.add('adp-theme');
-            document.body.classList.remove('lordabbett-theme');
             if (heroImage) {
                 heroImage.src = 'images/adp/Dashboard.png';
                 heroImage.alt = 'Customer Support Chatbots dashboard showing AI-powered conversation automation';
@@ -1252,9 +1259,7 @@ const casestudyInit = () => {
             }
         // Lord Abbett Case Study: Green/Blue-Green theme with custom hero image
         } else if (projectSlug === 'lord-abbett-data-users') {
-            document.body.classList.remove('fiserv-theme');
-            document.body.classList.remove('jobbot-theme');
-            document.body.classList.remove('adp-theme');
+            removeAllThemes();
             document.body.classList.add('lordabbett-theme');
             if (heroImage) {
                 heroImage.src = 'images/lordabbett/dashboard.png';
@@ -1274,12 +1279,33 @@ const casestudyInit = () => {
                 resultsImage.width = 1536;
                 resultsImage.height = 1024;
             }
+        // Pearson Case Study: Dark Blue/Light Blue theme with custom hero image
+        } else if (projectSlug === 'pearson-online-education') {
+            removeAllThemes();
+            document.body.classList.add('pearson-theme');
+            if (heroImage) {
+                heroImage.src = 'images/pearson/dashboard.png';
+                heroImage.alt = 'Pearson Online Education Platform dashboard showing learning progression, personalized reports, assessments, and grade banding';
+                heroImage.width = 1536;
+                heroImage.height = 1024;
+            }
+            // Pearson process image: 4-step educational workflow
+            if (processImage) {
+                processImage.src = 'images/pearson/process.png';
+                processImage.alt = 'Pearson online education process: User Research, Personalized Learning, Assessment Tools, and Educational Content';
+                processImage.width = 1024;
+                processImage.height = 1024;
+            }
+            // Pearson results image: Before/After comparison
+            if (resultsImage) {
+                resultsImage.src = 'images/pearson/beforeAfter.png';
+                resultsImage.alt = 'Before and after comparison showing transformation from cluttered light-themed interface to modern dark-themed Pearson educational platform with improved navigation and data visualization';
+                resultsImage.width = 1536;
+                resultsImage.height = 1024;
+            }
         // Default: Generic theme and images for other case studies
         } else {
-            document.body.classList.remove('fiserv-theme');
-            document.body.classList.remove('jobbot-theme');
-            document.body.classList.remove('adp-theme');
-            document.body.classList.remove('lordabbett-theme');
+            removeAllThemes();
             if (heroImage) {
                 heroImage.src = 'images/case-study-hero-D8N--dk8.jpg';
             }

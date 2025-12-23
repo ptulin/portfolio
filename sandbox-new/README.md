@@ -149,6 +149,10 @@ Each case study can have its own color theme and custom images:
 - Theme: Green/Blue-Green (`lordabbett-theme` CSS class)
 - Images: `images/lordabbett/dashboard.png`, `Process.png`, `BeforeAfter.png`
 
+**Pearson Case Study** (`pearson-online-education`):
+- Theme: Dark Blue/Light Blue (`pearson-theme` CSS class)
+- Images: `images/pearson/dashboard.png`, `process.png`, `beforeAfter.png`
+
 Themes are defined in `common.css` using CSS custom properties. Images are dynamically set in `common.js` based on the case study slug.
 
 ### Backend Integration
