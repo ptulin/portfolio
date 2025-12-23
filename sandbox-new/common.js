@@ -1144,6 +1144,10 @@ const casestudyUpdateHero = (data) => {
                 heroImage.src = 'images/pearson/dashboard.png';
                 heroImage.width = 1536;
                 heroImage.height = 1024;
+            } else if (projectSlug === 'g2a-global-ecommerce') {
+                heroImage.src = 'images/g2a/dashboard.png';
+                heroImage.width = 1536;
+                heroImage.height = 1024;
             } else {
                 // Default image for other case studies
                 heroImage.src = 'images/case-study-hero-D8N--dk8.jpg';
@@ -1177,6 +1181,7 @@ const casestudyInit = () => {
          * - ADP: Red/Black theme
          * - Lord Abbett: Green/Blue-Green theme
          * - Pearson: Dark Blue/Light Blue theme
+         * - G2A: Orange/White theme
          * 
          * Themes are applied via CSS classes on the body element.
          * Images are set dynamically based on the project slug.
@@ -1190,7 +1195,7 @@ const casestudyInit = () => {
          * Ensures clean theme switching without conflicts
          */
         const removeAllThemes = () => {
-            document.body.classList.remove('fiserv-theme', 'jobbot-theme', 'adp-theme', 'lordabbett-theme', 'pearson-theme');
+            document.body.classList.remove('fiserv-theme', 'jobbot-theme', 'adp-theme', 'lordabbett-theme', 'pearson-theme', 'g2a-theme');
         };
         
         // Fiserv Case Study: Orange/Brown theme with custom images
@@ -1300,6 +1305,30 @@ const casestudyInit = () => {
             if (resultsImage) {
                 resultsImage.src = 'images/pearson/beforeAfter.png';
                 resultsImage.alt = 'Before and after comparison showing transformation from cluttered light-themed interface to modern dark-themed Pearson educational platform with improved navigation and data visualization';
+                resultsImage.width = 1536;
+                resultsImage.height = 1024;
+            }
+        // G2A Case Study: Orange/White theme with custom hero image
+        } else if (projectSlug === 'g2a-global-ecommerce') {
+            removeAllThemes();
+            document.body.classList.add('g2a-theme');
+            if (heroImage) {
+                heroImage.src = 'images/g2a/dashboard.png';
+                heroImage.alt = 'G2A Global E-Commerce Platform dashboard showing sales analytics, revenue tracking, top selling products, and payment preferences';
+                heroImage.width = 1536;
+                heroImage.height = 1024;
+            }
+            // G2A process image: 4-step service design workflow
+            if (processImage) {
+                processImage.src = 'images/g2a/process.png';
+                processImage.alt = 'G2A service design process: Service Design & Research, AI Recommender System, Blockchain Loyalty Design, and Team Building & Scaling';
+                processImage.width = 1024;
+                processImage.height = 1024;
+            }
+            // G2A results image: Before/After comparison showing KPI improvements
+            if (resultsImage) {
+                resultsImage.src = 'images/g2a/beforeAfter.png';
+                resultsImage.alt = 'Before and after comparison showing G2A platform improvements: Revenue Growth (18% to 52%), Customer Loyalty (+22% to +63%), Daily Orders (8,900 to 17,500), and Refunds Declined (2,100 to 8,400)';
                 resultsImage.width = 1536;
                 resultsImage.height = 1024;
             }

@@ -317,6 +317,43 @@
     --shadow-glow: 0 0 20px rgba(100, 180, 255, 0.4);
 }
 
+/**
+ * G2A Theme
+ * Orange/white e-commerce platform aesthetic
+ * - Modern e-commerce dashboard design
+ * - Dark backgrounds with orange accents
+ * - Clean, professional interface
+ */
+
+.g2a-theme {
+    /* Background Colors - Dark Grays/Blacks */
+    --color-background: hsl(0, 0%, 8%);
+    --color-card: hsl(0, 0%, 12%);
+    --color-secondary: hsl(0, 0%, 15%);
+    --color-muted: hsl(0, 0%, 18%);
+    
+    /* Foreground Colors - Light Grays/Whites */
+    --color-foreground: hsl(0, 0%, 95%);
+    --color-card-foreground: hsl(0, 0%, 95%);
+    --color-muted-foreground: hsl(0, 0%, 60%);
+    
+    /* Primary Colors - Orange (G2A Brand) */
+    --color-primary: hsl(25, 100%, 50%);
+    --color-primary-foreground: hsl(0, 0%, 8%);
+    --color-primary-hover: hsl(25, 100%, 45%);
+    
+    /* Borders - Gray/Orange Tones */
+    --color-border: hsl(0, 0%, 25%);
+    --color-border-opacity: rgba(255, 140, 0, 0.2);
+    
+    /* Gradients - Orange Tones */
+    --gradient-accent: linear-gradient(135deg, hsl(25, 100%, 50%) 0%, hsl(30, 100%, 55%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(25, 100%, 50%) 0%, hsl(30, 100%, 55%) 100%);
+    
+    /* Shadows - Orange Glow */
+    --shadow-glow: 0 0 20px rgba(255, 140, 0, 0.4);
+}
+
 /* ==========================================================================
    RESET & BASE STYLES
    ========================================================================== */
