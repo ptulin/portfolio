@@ -9,13 +9,18 @@ deployment:
     - export DEPLOYPATH=/home1/moose/public_html/pawel
     - export REPOPATH=/home1/moose/repositories/pawel
     
-    # Copy all files from sandbox-new to deployment path
+    # Copy all files from repository root to deployment path
     - cd $REPOPATH
-    - /bin/cp -Rf sandbox-new/* $DEPLOYPATH/
-    - /bin/cp -Rf sandbox-new/.* $DEPLOYPATH/ 2>/dev/null || true
+    - /bin/cp -Rf * $DEPLOYPATH/ 2>/dev/null || true
+    - /bin/cp -Rf .[^.]* $DEPLOYPATH/ 2>/dev/null || true
+    
+    # Exclude development files
+    - /bin/rm -rf $DEPLOYPATH/sandbox* 2>/dev/null || true
+    - /bin/rm -rf $DEPLOYPATH/production 2>/dev/null || true
+    - /bin/rm -rf $DEPLOYPATH/backups 2>/dev/null || true
+    - /bin/rm -rf $DEPLOYPATH/node_modules 2>/dev/null || true
     
     # Set proper permissions
     - /bin/chmod -R 755 $DEPLOYPATH
     - /bin/find $DEPLOYPATH -type f -exec chmod 644 {} \;
     - /bin/find $DEPLOYPATH -type d -exec chmod 755 {} \;
-
