@@ -1,0 +1,941 @@
+// Case Study Data - Auto-generated from extracted content
+// This data structure contains all case study content for dynamic loading
+
+/**
+ * Complete case study data structure
+ * Maps case study slugs to their complete content
+ * @type {Object.<string, Object>}
+ */
+const CASE_STUDY_DATA = {
+  "jobbot-email-automation": {
+    "title": "AI Email Automation Experiment",
+    "description": "A personal automation project that intelligently processes job application emails, generates custom replies, and creates tailored resumes—all with minimal cost using Google Apps Script and GPT APIs.",
+    "meta": {
+      "Duration": "3 Weeks",
+      "Team Size": "Solo Project",
+      "My Role": "Full-Stack Designer"
+    },
+    "overview_cards": [
+      {
+        "title": "The Challenge",
+        "description": "Managing job application emails manually was time-consuming, with hours spent on reading, categorizing, and responding to opportunities. Each application required a tailored resume, making the process even more labor-intensive."
+      },
+      {
+        "title": "The Approach",
+        "description": "Built an intelligent email automation system using Google Apps Script that scans Gmail, uses GPT APIs to analyze relevance, generates custom email replies, and creates tailored resumes based on job descriptions."
+      },
+      {
+        "title": "The Outcome",
+        "description": "Reduced email processing time by 90%, automated resume generation for each application, and achieved near-zero operational costs by leveraging free Google services and cost-effective GPT API calls."
+      },
+      {
+        "title": "Key Innovation",
+        "description": "Implemented intelligent relevance scoring that automatically categorizes emails, skips low-relevance opportunities, and only generates responses for high-value job applications—maximizing efficiency while minimizing costs."
+      }
+    ],
+    "process_steps": [
+      {
+        "number": "01",
+        "title": "Email Scanning & Labeling",
+        "description": "Designed a Gmail scanning system that automatically identifies job application emails, extracts key information, and applies intelligent labels based on relevance and job type."
+      },
+      {
+        "number": "02",
+        "title": "AI-Powered Analysis",
+        "description": "Integrated GPT APIs to analyze job descriptions, score relevance, determine if a resume should be included, and generate personalized email subject lines and body content."
+      },
+      {
+        "number": "03",
+        "title": "Dynamic Resume Generation",
+        "description": "Created a system that generates tailored resumes by matching job requirements with relevant experience, ensuring each application receives a customized document."
+      },
+      {
+        "number": "04",
+        "title": "Draft Creation & Review",
+        "description": "Automated the creation of Gmail drafts with HTML-formatted email bodies and attached PDF resumes, ready for final review before sending."
+      }
+    ],
+    "result_stats": [
+      {
+        "value": "90%",
+        "label": "Time Reduction",
+        "description": "Automated email processing"
+      },
+      {
+        "value": "$5",
+        "label": "Monthly Cost",
+        "description": "GPT API usage only"
+      },
+      {
+        "value": "100%",
+        "label": "Custom Resumes",
+        "description": "Tailored per application"
+      },
+      {
+        "value": "24/7",
+        "label": "Automation",
+        "description": "Continuous processing"
+      }
+    ],
+    "testimonial": {
+      "quote": "\"JobBot has transformed my job search process. I can now quickly respond to recruiters with custom emails and tailored resumes for each position. The system keeps track of all my applications, handles follow-ups, and helps me schedule interviews—ensuring I never miss an opportunity and always present my best self to potential employers.\"",
+      "author_name": "Pawel Tulin",
+      "author_title": "Creator & User"
+    },
+    "worked_well": [
+      "Leveraging free Google infrastructure eliminated hosting costs",
+      "GPT API integration provided intelligent analysis at minimal cost",
+      "Automated labeling system improved email organization significantly",
+      "Draft-based workflow allowed for human review before sending"
+    ],
+    "challenges": [
+      "Leveraging free Google infrastructure eliminated hosting costs",
+      "GPT API integration provided intelligent analysis at minimal cost",
+      "Automated labeling system improved email organization significantly",
+      "Draft-based workflow allowed for human review before sending"
+    ],
+    "insights": [
+      {
+        "title": "Cost-Effective AI",
+        "description": "Proved that powerful AI automation doesn't require expensive infrastructure. By leveraging free Google services and strategic GPT API usage, complex automation becomes accessible to individuals."
+      },
+      {
+        "title": "Human-in-the-Loop",
+        "description": "The draft-based approach maintained human oversight while gaining automation benefits. This balance between automation and control proved essential for quality and peace of mind."
+      },
+      {
+        "title": "Intelligent Filtering",
+        "description": "Relevance scoring wasn't just about efficiency—it prevented wasted effort on low-quality opportunities, allowing focus on high-value applications that matched career goals."
+      }
+    ]
+  },
+  "adp-customer-support-chatbots": {
+    "title": "Customer Support Chatbots",
+    "description": "Transforming customer support operations through IBM Watson-powered conversational AI, automating 90% of customer interactions while reducing support costs by 70% and dramatically improving response times.",
+    "meta": {
+      "Duration": "8 Months",
+      "Team Size": "12 Members",
+      "My Role": "Lead UX Architect and Researcher"
+    },
+    "overview_cards": [
+      {
+        "title": "The Challenge",
+        "description": "The support team faced extremely high support volume with thousands of daily inquiries, combined with long response times averaging 24-48 hours. This created customer frustration and overwhelmed support staff."
+      },
+      {
+        "title": "The Approach",
+        "description": "Designed and implemented IBM Watson-powered conversational AI chatbots that handle common inquiries instantly, with intelligent escalation to human agents for complex issues requiring personalized attention."
+      },
+      {
+        "title": "The Outcome",
+        "description": "Achieved 90% automation of customer interactions, reduced average response time from 24-48 hours to under 30 seconds, and cut support costs by 70% while improving customer satisfaction scores."
+      },
+      {
+        "title": "Key Innovation",
+        "description": "Implemented intelligent intent recognition and context-aware responses that learn from each interaction, continuously improving accuracy and reducing the need for human escalation."
+      }
+    ],
+    "process_steps": [
+      {
+        "number": "01",
+        "title": "Support Volume Analysis",
+        "description": "Analyzed 6 months of support tickets to identify common inquiry patterns, response times, and escalation triggers, creating a data-driven foundation for automation priorities."
+      },
+      {
+        "number": "02",
+        "title": "Conversation Design",
+        "description": "Designed natural conversation flows using IBM Watson Assistant, mapping user intents to responses and creating seamless handoff protocols for complex issues requiring human agents."
+      },
+      {
+        "number": "03",
+        "title": "Interface Prototyping",
+        "description": "Created chat interface prototypes that felt natural and conversational, with clear visual indicators for bot vs. human responses and smooth transitions during escalations."
+      },
+      {
+        "number": "04",
+        "title": "Training & Optimization",
+        "description": "Trained Watson with thousands of conversation examples, continuously refined intent recognition, and optimized response accuracy through iterative testing with real customer scenarios."
+      }
+    ],
+    "result_stats": [
+      {
+        "value": "90%",
+        "label": "Interactions Automated",
+        "description": "IBM Watson-powered"
+      },
+      {
+        "value": "30s",
+        "label": "Average Response Time",
+        "description": "Down from 24-48 hours"
+      },
+      {
+        "value": "70%",
+        "label": "Cost Reduction",
+        "description": "Support operations"
+      },
+      {
+        "value": "4.8/5",
+        "label": "Customer Satisfaction",
+        "description": "Up from 3.2/5"
+      }
+    ],
+    "testimonial": {
+      "quote": "\"The chatbot implementation transformed our support operations. We went from drowning in tickets with 24-hour response times to providing instant answers to 90% of inquiries. Our team can now focus on what they do best—solving complex problems.\"",
+      "author_name": "",
+      "author_title": ""
+    },
+    "worked_well": [
+      "IBM Watson's natural language understanding handled complex queries effectively",
+      "Clear escalation paths maintained customer trust during handoffs",
+      "Continuous learning from interactions improved accuracy over time",
+      "Support team embraced the tool as it freed them from repetitive tasks"
+    ],
+    "challenges": [
+      "IBM Watson's natural language understanding handled complex queries effectively",
+      "Clear escalation paths maintained customer trust during handoffs",
+      "Continuous learning from interactions improved accuracy over time",
+      "Support team embraced the tool as it freed them from repetitive tasks"
+    ],
+    "insights": [
+      {
+        "title": "Transparency Builds Trust",
+        "description": "Customers appreciated knowing when they were talking to a bot vs. a human. Clear indicators and smooth handoffs maintained trust throughout the interaction."
+      },
+      {
+        "title": "The 90/10 Rule",
+        "description": "Automating 90% of interactions freed human agents to handle the 10% that truly required expertise, dramatically improving both efficiency and job satisfaction."
+      },
+      {
+        "title": "Continuous Learning",
+        "description": "The chatbot's accuracy improved significantly over time as it learned from interactions. Regular review and refinement cycles were essential for maintaining quality."
+      }
+    ]
+  },
+  "lord-abbett-data-users": {
+    "title": "Data & Users",
+    "description": "Designing mission-critical financial data dashboards with advanced data visualization, UI personalization, and comprehensive error handling for institutional investment management.",
+    "meta": {
+      "Duration": "10 Months",
+      "Team Size": "10 Members",
+      "My Role": "Lead Product Designer"
+    },
+    "overview_cards": [
+      {
+        "title": "The Challenge",
+        "description": "Investment professionals needed a unified platform to access complex financial data, with personalized views for different user roles, while maintaining mission-critical security standards and handling data errors gracefully."
+      },
+      {
+        "title": "The Approach",
+        "description": "Designed interactive financial data dashboards with advanced visualization capabilities, role-based UI personalization, comprehensive error handling, and enterprise-grade security protocols."
+      },
+      {
+        "title": "The Outcome",
+        "description": "Delivered a mission-critical platform that improved data accessibility by 85%, reduced time-to-insight by 60%, and maintained zero security incidents while providing personalized experiences for each user role."
+      },
+      {
+        "title": "Key Innovation",
+        "description": "Implemented advanced error handling that gracefully manages data inconsistencies, network failures, and edge cases without disrupting user workflows, ensuring reliability in mission-critical financial operations."
+      }
+    ],
+    "process_steps": [
+      {
+        "number": "01",
+        "title": "User Research & Personas",
+        "description": "Conducted extensive research with portfolio managers, analysts, and compliance officers to understand their data needs, workflows, and security requirements across different user roles."
+      },
+      {
+        "number": "02",
+        "title": "Data Visualization Design",
+        "description": "Designed interactive charts, graphs, and data tables that make complex financial information accessible, with customizable views and drill-down capabilities for detailed analysis."
+      },
+      {
+        "number": "03",
+        "title": "UI Personalization System",
+        "description": "Built a flexible personalization engine that allows users to customize dashboards, save preferred views, and adapt the interface to their specific role and workflow requirements."
+      },
+      {
+        "number": "04",
+        "title": "Error Handling & Security",
+        "description": "Designed comprehensive error handling patterns and security protocols that ensure data integrity, graceful failure recovery, and protection of sensitive financial information."
+      }
+    ],
+    "result_stats": [
+      {
+        "value": "85%",
+        "label": "Improved Accessibility",
+        "description": "Data visibility"
+      },
+      {
+        "value": "60%",
+        "label": "Faster Insights",
+        "description": "Time-to-decision"
+      },
+      {
+        "value": "0",
+        "label": "Security Incidents",
+        "description": "Mission-critical"
+      },
+      {
+        "value": "92%",
+        "label": "User Satisfaction",
+        "description": "Personalization"
+      }
+    ],
+    "testimonial": {
+      "quote": "\"The financial data dashboards transformed how our team accesses and analyzes portfolio information. The personalization features and advanced visualizations have made our workflows significantly more efficient, while the robust error handling ensures we can always rely on the system.\"",
+      "author_name": "",
+      "author_title": ""
+    },
+    "worked_well": [
+      "Role-based personalization significantly improved user satisfaction",
+      "Advanced error handling built user trust in system reliability",
+      "Interactive data visualizations made complex information accessible",
+      "Mission-critical security protocols maintained zero incidents"
+    ],
+    "challenges": [
+      "Role-based personalization significantly improved user satisfaction",
+      "Advanced error handling built user trust in system reliability",
+      "Interactive data visualizations made complex information accessible",
+      "Mission-critical security protocols maintained zero incidents"
+    ],
+    "insights": [
+      {
+        "title": "Personalization Drives Adoption",
+        "description": "Users embraced the platform when they could customize it to their workflow. Role-based personalization wasn't just nice-to-have—it was essential for adoption in a diverse user base."
+      },
+      {
+        "title": "Error Handling Builds Trust",
+        "description": "In mission-critical systems, how errors are handled matters as much as preventing them. Graceful error recovery and clear messaging maintained user confidence even during edge cases."
+      },
+      {
+        "title": "Visualization Simplifies Complexity",
+        "description": "Complex financial data became accessible through thoughtful visualization. Interactive charts and drill-down capabilities transformed overwhelming spreadsheets into clear, actionable insights."
+      }
+    ]
+  },
+  "pearson-online-education": {
+    "title": "Online Education Platform",
+    "description": "Designing a comprehensive learning platform that delivers personalized learning experiences, trusted educational content, comprehensive assessments, and data-driven insights for students and educators.",
+    "meta": {
+      "Duration": "12 Months",
+      "Team Size": "15 Members",
+      "My Role": "Lead UX Designer"
+    },
+    "overview_cards": [
+      {
+        "title": "The Challenge",
+        "description": "Students needed a more engaging, personalized learning experience with trusted content, while educators required comprehensive assessment tools and data-driven insights to track progress effectively."
+      },
+      {
+        "title": "The Approach",
+        "description": "Designed an adaptive learning platform with personalized content recommendations, comprehensive assessment tools, and analytics dashboards that provide actionable insights for both students and educators."
+      },
+      {
+        "title": "The Outcome",
+        "description": "Improved student engagement by 75%, increased learning outcomes by 40%, and provided educators with comprehensive tools to track progress and personalize instruction effectively."
+      },
+      {
+        "title": "Key Innovation",
+        "description": "Implemented adaptive learning algorithms that personalize content delivery based on individual student performance, learning style, and progress, ensuring optimal learning outcomes."
+      }
+    ],
+    "process_steps": [
+      {
+        "number": "01",
+        "title": "User Research & Learning Analysis",
+        "description": "Conducted extensive research with students, educators, and administrators to understand learning patterns, content needs, assessment requirements, and data insights priorities."
+      },
+      {
+        "number": "02",
+        "title": "Personalization Engine Design",
+        "description": "Designed adaptive learning algorithms that analyze student performance, learning style, and progress to deliver personalized content recommendations and learning paths."
+      },
+      {
+        "number": "03",
+        "title": "Assessment & Analytics Design",
+        "description": "Created comprehensive assessment tools and data visualization dashboards that provide actionable insights for both students tracking their progress and educators monitoring class performance."
+      },
+      {
+        "number": "04",
+        "title": "Content Integration & Testing",
+        "description": "Integrated trusted educational content, tested personalized learning flows with real students, and refined the platform based on learning outcome data and user feedback."
+      }
+    ],
+    "result_stats": [
+      {
+        "value": "75%",
+        "label": "Engagement Increase",
+        "description": "Student participation"
+      },
+      {
+        "value": "40%",
+        "label": "Learning Outcomes",
+        "description": "Improved performance"
+      },
+      {
+        "value": "90%",
+        "label": "Content Trust",
+        "description": "Trusted educational resources"
+      },
+      {
+        "value": "85%",
+        "label": "Educator Satisfaction",
+        "description": "Assessment tools"
+      }
+    ],
+    "testimonial": {
+      "quote": "\"The personalized learning platform has transformed how our students engage with content. The adaptive algorithms and comprehensive assessments provide insights we never had before, enabling us to support each student's unique learning journey effectively.\"",
+      "author_name": "",
+      "author_title": ""
+    },
+    "worked_well": [
+      "Personalized learning paths significantly improved student engagement",
+      "Trusted content library ensured quality and curriculum alignment",
+      "Comprehensive assessments provided actionable insights for educators",
+      "Data-driven insights enabled early intervention for struggling students"
+    ],
+    "challenges": [
+      "Personalized learning paths significantly improved student engagement",
+      "Trusted content library ensured quality and curriculum alignment",
+      "Comprehensive assessments provided actionable insights for educators",
+      "Data-driven insights enabled early intervention for struggling students"
+    ],
+    "insights": [
+      {
+        "title": "Personalization Drives Engagement",
+        "description": "Students engaged more deeply when content was tailored to their learning style and progress. Adaptive algorithms that responded to individual performance created a more effective learning experience."
+      },
+      {
+        "title": "Trust in Content Quality",
+        "description": "Maintaining a curated library of trusted educational content was essential. Students and educators needed confidence that the platform provided accurate, curriculum-aligned resources."
+      },
+      {
+        "title": "Data Enables Intervention",
+        "description": "Comprehensive assessments and analytics gave educators the insights needed to identify struggling students early and provide targeted support, improving overall learning outcomes."
+      }
+    ]
+  },
+  "g2a-global-ecommerce": {
+    "title": "Global E-Commerce Platform",
+    "description": "Designing a next-generation e-commerce platform featuring AI product recommenders, blockchain loyalty systems, comprehensive service design, and team building initiatives for a global marketplace.",
+    "meta": {
+      "Duration": "18 Months",
+      "Team Size": "25 Members",
+      "My Role": "Lead Service Designer"
+    },
+    "overview_cards": [
+      {
+        "title": "The Challenge",
+        "description": "The platform needed to scale globally while improving product discovery, implementing innovative loyalty systems, and creating cohesive service experiences across multiple touchpoints."
+      },
+      {
+        "title": "The Approach",
+        "description": "Designed AI product recommenders, implemented blockchain-based loyalty systems, created comprehensive service blueprints, and built cross-functional teams to deliver a unified global experience."
+      },
+      {
+        "title": "The Outcome",
+        "description": "Increased conversion rates by 45%, improved customer retention through blockchain loyalty rewards, and established scalable service design patterns for global expansion."
+      },
+      {
+        "title": "Key Innovation",
+        "description": "Pioneered blockchain-based loyalty systems that provided transparent, secure rewards while enabling innovative service design patterns that improved customer experience across all touchpoints."
+      }
+    ],
+    "process_steps": [
+      {
+        "number": "01",
+        "title": "Service Design & Research",
+        "description": "Mapped customer journeys across global markets, identified pain points in product discovery and loyalty programs, and designed service blueprints for seamless experiences."
+      },
+      {
+        "number": "02",
+        "title": "AI Recommender System",
+        "description": "Designed machine learning algorithms that analyze user behavior, purchase history, and preferences to deliver personalized product recommendations that increase discovery and conversion."
+      },
+      {
+        "number": "03",
+        "title": "Blockchain Loyalty Design",
+        "description": "Architected blockchain-based loyalty systems that provide transparent, secure rewards, enabling innovative gamification and customer retention strategies."
+      },
+      {
+        "number": "04",
+        "title": "Team Building & Scaling",
+        "description": "Built cross-functional design and engineering teams, established design systems, and created scalable service patterns for global market expansion."
+      }
+    ],
+    "result_stats": [
+      {
+        "value": "45%",
+        "label": "Conversion Increase",
+        "description": "AI recommendations"
+      },
+      {
+        "value": "60%",
+        "label": "Customer Retention",
+        "description": "Blockchain loyalty"
+      },
+      {
+        "value": "25+",
+        "label": "Global Markets",
+        "description": "Service design"
+      },
+      {
+        "value": "3x",
+        "label": "Team Growth",
+        "description": "Team building"
+      }
+    ],
+    "testimonial": {
+      "quote": "\"The AI recommenders and blockchain loyalty system transformed our platform. We've seen dramatic improvements in conversion and customer retention, while the service design approach enabled us to scale globally with confidence.\"",
+      "author_name": "",
+      "author_title": ""
+    },
+    "worked_well": [
+      "Personalization as a growth lever - Strategic use of ML-driven recommendations improved discovery and engagement in a high-volume, global marketplace without sacrificing user trust.",
+      "Trust-first loyalty strategy - Blockchain-based rewards shifted loyalty from promotional mechanics to transparent value exchange, strengthening long-term retention.",
+      "System-level experience alignment - Service design created coherence across payments, discovery, and post-purchase journeys in a highly fragmented ecosystem.",
+      "UX maturity as an organizational advantage - Scaling the UX organization and embedding research elevated decision quality and reduced cross-team friction at product scale."
+    ],
+    "challenges": [
+      "Balancing automation with control - Recommendation systems required continuous governance to avoid bias, over-optimization, and unintended marketplace dynamics.",
+      "Abstracting technical complexity for users - Blockchain and advanced personalization demanded careful UX framing to deliver value without increasing cognitive load.",
+      "Global scale without dilution - Maintaining experience consistency across markets while respecting regional constraints required constant prioritization trade-offs.",
+      "Introducing structure without slowing velocity - As teams scaled, adding process and governance had to be done carefully to preserve speed while improving sustainability."
+    ],
+    "insights": [
+      {
+        "title": "AI Recommendations Drive Discovery",
+        "description": "Personalized product recommendations weren't just nice-to-have—they were essential for helping customers navigate vast product catalogs and discover relevant items, directly impacting conversion rates."
+      },
+      {
+        "title": "Blockchain Enables Trust",
+        "description": "Transparent, secure blockchain-based loyalty systems built customer trust while enabling innovative reward structures that traditional systems couldn't support."
+      },
+      {
+        "title": "Service Design Unifies Experience",
+        "description": "Comprehensive service design ensured consistent customer experiences across global markets while allowing for local customization, enabling scalable expansion."
+      }
+    ]
+  },
+  "glg-expert-network": {
+    "title": "Expert Network Platform",
+    "description": "Designing the world's largest expert network platform with custom search engines, interactive data visualization, and complex compliance workflows that connect professionals with industry experts.",
+    "meta": {
+      "Duration": "14 Months",
+      "Team Size": "20 Members",
+      "My Role": "Lead UX Designer"
+    },
+    "overview_cards": [
+      {
+        "title": "The Challenge",
+        "description": "Professionals needed to efficiently search and connect with industry experts from the world's largest network, while navigating complex compliance requirements and visualizing expert data effectively."
+      },
+      {
+        "title": "The Approach",
+        "description": "Designed a custom search engine with advanced filtering, created interactive data visualizations for expert networks, and built comprehensive compliance workflows that ensure regulatory adherence."
+      },
+      {
+        "title": "The Outcome",
+        "description": "Improved expert discovery by 80%, reduced search time by 65%, and maintained 100% compliance across all expert engagements through automated workflow systems."
+      },
+      {
+        "title": "Key Innovation",
+        "description": "Built a custom search engine that understands expert expertise, industry context, and relationship networks, enabling precise matching between professionals and experts."
+      }
+    ],
+    "process_steps": [
+      {
+        "number": "01",
+        "title": "Expert Network Research",
+        "description": "Conducted extensive research with professionals and experts to understand search patterns, connection needs, and compliance requirements across industries and use cases."
+      },
+      {
+        "number": "02",
+        "title": "Custom Search Engine Design",
+        "description": "Designed a sophisticated search engine that understands expertise domains, industry context, and relationship networks, enabling precise expert matching and discovery."
+      },
+      {
+        "number": "03",
+        "title": "Interactive Data Visualization",
+        "description": "Created interactive visualizations that map expert networks, display relationship connections, and provide insights into expertise distribution and availability."
+      },
+      {
+        "number": "04",
+        "title": "Compliance Workflow Design",
+        "description": "Built comprehensive compliance workflows that automate regulatory checks, manage expert engagements, and ensure adherence to complex industry and legal requirements."
+      }
+    ],
+    "result_stats": [
+      {
+        "value": "80%",
+        "label": "Discovery Improvement",
+        "description": "Expert matching"
+      },
+      {
+        "value": "65%",
+        "label": "Faster Search",
+        "description": "Custom engine"
+      },
+      {
+        "value": "100%",
+        "label": "Compliance Rate",
+        "description": "Automated workflows"
+      },
+      {
+        "value": "1M+",
+        "label": "Expert Network",
+        "description": "Largest platform"
+      }
+    ],
+    "testimonial": {
+      "quote": "\"The custom search engine and interactive visualizations have transformed how we connect with experts. Finding the right expert used to take hours—now it takes minutes, and the compliance workflows ensure we stay compliant every step of the way.\"",
+      "author_name": "",
+      "author_title": ""
+    },
+    "worked_well": [
+      "Custom search engine dramatically improved expert discovery and matching",
+      "Interactive data visualizations made complex expert networks understandable",
+      "Automated compliance workflows ensured 100% regulatory adherence",
+      "Scalable architecture supported growth to 1M+ experts"
+    ],
+    "challenges": [
+      "Custom search engine dramatically improved expert discovery and matching",
+      "Interactive data visualizations made complex expert networks understandable",
+      "Automated compliance workflows ensured 100% regulatory adherence",
+      "Scalable architecture supported growth to 1M+ experts"
+    ],
+    "insights": [
+      {
+        "title": "Context-Aware Search",
+        "description": "The custom search engine's ability to understand expertise domains, industry context, and relationship networks was crucial. Simple keyword search wasn't enough—users needed intelligent matching that considered multiple dimensions."
+      },
+      {
+        "title": "Visualization Reveals Patterns",
+        "description": "Interactive data visualizations transformed how users understood expert networks. Seeing relationship connections and expertise distribution helped professionals make better decisions about which experts to engage."
+      },
+      {
+        "title": "Compliance as a Feature",
+        "description": "Complex compliance workflows weren't a burden—they were a competitive advantage. Automated compliance checks built trust and enabled faster expert engagements while maintaining regulatory adherence."
+      }
+    ]
+  },
+  "ibm-bluedot-intelligence": {
+    "title": "Bluedot Intelligence",
+    "description": "Rapid prototyping and design of an intelligence platform featuring custom research capabilities, natural language processing, user journey mapping, and persona development for enterprise analytics.",
+    "meta": {
+      "Duration": "5 Months",
+      "Team Size": "6 Members",
+      "My Role": "UX Designer & Researcher"
+    },
+    "overview_cards": [
+      {
+        "title": "The Challenge",
+        "description": "Enterprise teams needed a platform to conduct custom research, analyze natural language data, and gain intelligence insights, requiring rapid prototyping and user-centered design."
+      },
+      {
+        "title": "The Approach",
+        "description": "Conducted user research to develop personas and journey maps, designed custom research tools, integrated natural language processing capabilities, and rapidly prototyped the intelligence platform."
+      },
+      {
+        "title": "The Outcome",
+        "description": "Delivered a functional prototype in 5 months, improved research efficiency by 50%, and established user-centered design patterns that informed the final product development."
+      },
+      {
+        "title": "Key Innovation",
+        "description": "Integrated natural language processing with custom research workflows, enabling users to analyze unstructured text data and extract actionable intelligence insights efficiently."
+      }
+    ],
+    "process_steps": [
+      {
+        "number": "01",
+        "title": "User Research & Personas",
+        "description": "Conducted in-depth research with enterprise users to understand research workflows, intelligence needs, and pain points, developing detailed personas and user journey maps."
+      },
+      {
+        "number": "02",
+        "title": "Natural Language Processing",
+        "description": "Integrated NLP capabilities that analyze unstructured text data, extract key insights, and enable users to query intelligence through natural language interfaces."
+      },
+      {
+        "number": "03",
+        "title": "Rapid Prototyping",
+        "description": "Created functional prototypes of custom research tools and intelligence dashboards, enabling quick iteration and validation of design concepts with real users."
+      },
+      {
+        "number": "04",
+        "title": "User Journey Mapping",
+        "description": "Mapped complete user journeys from research initiation to intelligence delivery, identifying touchpoints and optimizing workflows for efficiency and clarity."
+      }
+    ],
+    "result_stats": [
+      {
+        "value": "50%",
+        "label": "Research Efficiency",
+        "description": "Custom research tools"
+      },
+      {
+        "value": "5",
+        "label": "Months to Prototype",
+        "description": "Rapid development"
+      },
+      {
+        "value": "85%",
+        "label": "User Satisfaction",
+        "description": "Persona-driven design"
+      },
+      {
+        "value": "4",
+        "label": "User Personas",
+        "description": "Journey mapping"
+      }
+    ],
+    "testimonial": {
+      "quote": "\"The rapid prototyping approach and user-centered design delivered a platform that truly understands our research needs. The natural language processing and custom research tools have made intelligence gathering significantly more efficient.\"",
+      "author_name": "",
+      "author_title": ""
+    },
+    "worked_well": [
+      "User personas and journey maps guided design decisions effectively",
+      "Rapid prototyping enabled quick validation and iteration",
+      "Natural language processing made intelligence queries more intuitive",
+      "Custom research tools improved research efficiency significantly"
+    ],
+    "challenges": [
+      "User personas and journey maps guided design decisions effectively",
+      "Rapid prototyping enabled quick validation and iteration",
+      "Natural language processing made intelligence queries more intuitive",
+      "Custom research tools improved research efficiency significantly"
+    ],
+    "insights": [
+      {
+        "title": "Personas Drive Design",
+        "description": "Developing detailed user personas wasn't just documentation—it was essential for making design decisions. Personas helped prioritize features and ensure the platform met diverse user needs."
+      },
+      {
+        "title": "Rapid Prototyping Validates",
+        "description": "Functional prototypes enabled early validation with real users. Getting working software in front of users quickly revealed insights that would have been missed with static designs alone."
+      },
+      {
+        "title": "NLP Makes Intelligence Accessible",
+        "description": "Natural language processing transformed how users interacted with intelligence data. Querying through natural language made complex research more accessible to non-technical users."
+      }
+    ]
+  },
+  "td-ameritrade-ux-analysis": {
+    "title": "UX Competitive Analysis & Heuristic Evaluation",
+    "description": "Conducting comprehensive heuristic usability audits and comparative UX studies of trading platforms, analyzing competitors including TrendSpider, Tastyworks, TradingView, and TradeStation to identify opportunities and best practices.",
+    "meta": {
+      "Duration": "4 Months",
+      "Team Size": "5 Members",
+      "My Role": "UX Researcher & Analyst"
+    },
+    "overview_cards": [
+      {
+        "title": "The Challenge",
+        "description": "TD Ameritrade needed to understand how their trading platform compared to competitors and identify usability issues that could impact user experience and platform adoption."
+      },
+      {
+        "title": "The Approach",
+        "description": "Conducted heuristic usability audits using established UX principles, performed comparative UX studies analyzing TrendSpider, Tastyworks, TradingView, and TradeStation, and identified opportunities for improvement."
+      },
+      {
+        "title": "The Outcome",
+        "description": "Delivered comprehensive analysis reports identifying 40+ usability issues, competitive advantages and gaps, and actionable recommendations that informed platform improvements and strategic decisions."
+      },
+      {
+        "title": "Key Innovation",
+        "description": "Developed a systematic evaluation framework that combined heuristic principles with competitive benchmarking, enabling data-driven UX improvements and strategic positioning against market leaders."
+      }
+    ],
+    "process_steps": [
+      {
+        "number": "01",
+        "title": "Heuristic Usability Audit",
+        "description": "Conducted comprehensive heuristic evaluation of TD Ameritrade's platform using established UX principles, identifying usability issues, navigation problems, and interaction design gaps."
+      },
+      {
+        "number": "02",
+        "title": "Competitive UX Study",
+        "description": "Analyzed leading trading platforms including TrendSpider, Tastyworks, TradingView, and TradeStation, comparing features, workflows, and user experience patterns to identify best practices and competitive advantages."
+      },
+      {
+        "number": "03",
+        "title": "Pattern Analysis & Benchmarking",
+        "description": "Identified common UX patterns across competitors, benchmarked key workflows, and documented innovative features that could inform TD Ameritrade's platform improvements."
+      },
+      {
+        "number": "04",
+        "title": "Recommendations & Strategy",
+        "description": "Synthesized findings into actionable recommendations, prioritized improvements based on impact and feasibility, and provided strategic guidance for platform enhancements."
+      }
+    ],
+    "result_stats": [
+      {
+        "value": "40+",
+        "label": "Usability Issues",
+        "description": "Heuristic audit findings"
+      },
+      {
+        "value": "5",
+        "label": "Competitors Analyzed",
+        "description": "TrendSpider, Tastyworks, TradingView, TradeStation"
+      },
+      {
+        "value": "25+",
+        "label": "Best Practices",
+        "description": "Competitive insights"
+      },
+      {
+        "value": "100%",
+        "label": "Actionable Recommendations",
+        "description": "Prioritized improvements"
+      }
+    ],
+    "testimonial": {
+      "quote": "\"The competitive analysis and heuristic evaluation provided invaluable insights into our platform's UX. Understanding how we compare to TrendSpider, TradingView, and other leaders helped us prioritize improvements and identify opportunities we hadn't considered. The recommendations were actionable and directly informed our product roadmap.\"",
+      "author_name": "",
+      "author_title": ""
+    },
+    "worked_well": [
+      "Systematic heuristic evaluation framework identified comprehensive usability issues",
+      "Comparative analysis revealed competitive advantages and gaps",
+      "Actionable recommendations directly informed product roadmap",
+      "Benchmarking against TrendSpider, TradingView, and others provided strategic insights"
+    ],
+    "challenges": [
+      "Systematic heuristic evaluation framework identified comprehensive usability issues",
+      "Comparative analysis revealed competitive advantages and gaps",
+      "Actionable recommendations directly informed product roadmap",
+      "Benchmarking against TrendSpider, TradingView, and others provided strategic insights"
+    ],
+    "insights": [
+      {
+        "title": "Heuristics Reveal Patterns",
+        "description": "Systematic heuristic evaluation using established UX principles (Nielsen's heuristics) revealed patterns of usability issues that weren't obvious from casual observation. The structured approach ensured comprehensive coverage."
+      },
+      {
+        "title": "Competitive Context Matters",
+        "description": "Analyzing TrendSpider, Tastyworks, TradingView, and TradeStation provided crucial context. Understanding what competitors did well—and where they struggled—helped identify opportunities and avoid common pitfalls."
+      },
+      {
+        "title": "Prioritization Enables Action",
+        "description": "Not all findings are equally important. Prioritizing recommendations based on user impact, business value, and implementation feasibility ensured the analysis led to actionable improvements rather than overwhelming lists."
+      }
+    ]
+  },
+  "fiserv-cfo-ai-automation": {
+    "title": "CFO AI Office Automation",
+    "description": "Transforming financial operations through intelligent automation, reducing manual workload by 70% while improving accuracy and compliance.",
+    "meta": {
+      "Duration": "6 Months",
+      "Team Size": "8 Members",
+      "My Role": "Lead Product Designer"
+    },
+    "overview_cards": [
+      {
+        "title": "The Challenge",
+        "description": "Financial teams spent 60+ hours weekly on manual data entry, reconciliation, and report generation, leading to delays and human errors."
+      },
+      {
+        "title": "The Approach",
+        "description": "Designed an AI-powered automation system that intelligently processes financial data, automates workflows, and generates real-time insights."
+      },
+      {
+        "title": "The Outcome",
+        "description": "Achieved 70% reduction in manual workload, 95% accuracy improvement, and enabled real-time financial visibility across the organization."
+      },
+      {
+        "title": "Key Innovation",
+        "description": "Implemented smart anomaly detection that flags potential issues before they become problems, ensuring compliance and reducing risk."
+      }
+    ],
+    "process_steps": [
+      {
+        "number": "01",
+        "title": "Discovery & Research",
+        "description": "Conducted extensive user research with CFO teams across 12 organizations to understand pain points, workflows, and automation opportunities."
+      },
+      {
+        "number": "02",
+        "title": "AI Architecture Design",
+        "description": "Designed the machine learning pipeline for document processing, data extraction, and intelligent categorization of financial transactions."
+      },
+      {
+        "number": "03",
+        "title": "Interface Prototyping",
+        "description": "Created high-fidelity prototypes focusing on dashboard visualization, workflow automation triggers, and exception handling interfaces."
+      },
+      {
+        "number": "04",
+        "title": "Iterative Testing",
+        "description": "Ran 6 rounds of usability testing with real CFO teams, continuously refining the AI models and user experience based on feedback."
+      }
+    ],
+    "result_stats": [
+      {
+        "value": "70%",
+        "label": "Reduction in Manual Work",
+        "description": "Automated repetitive tasks"
+      },
+      {
+        "value": "95%",
+        "label": "Accuracy Rate",
+        "description": "AI-powered validation"
+      },
+      {
+        "value": "3x",
+        "label": "Faster Reporting",
+        "description": "Real-time analytics"
+      },
+      {
+        "value": "$2.4M",
+        "label": "Annual Savings",
+        "description": "Operational efficiency"
+      }
+    ],
+    "result_cards": [
+      {
+        "title": "User Satisfaction",
+        "description": "92% of CFO teams reported significantly improved work-life balance due to reduced overtime requirements."
+      },
+      {
+        "title": "Compliance Improvement",
+        "description": "Zero compliance violations post-implementation, compared to an average of 3 per quarter previously."
+      },
+      {
+        "title": "Scalability",
+        "description": "System successfully scaled to handle 5x transaction volume during peak periods without performance degradation."
+      }
+    ],
+    "testimonial": {
+      "quote": "\"This AI automation solution has completely transformed how we operate. What used to take our team days now happens in minutes. It's not just about efficiency—it's about giving our people time to focus on strategic work that matters.\"",
+      "author_name": "Sarah Mitchell",
+      "author_title": "Chief Financial Officer, TechCorp Industries"
+    },
+    "worked_well": [
+      "Early involvement of end-users in AI model training",
+      "Progressive disclosure of automation complexity",
+      "Real-time feedback loops for continuous improvement",
+      "Human-in-the-loop for critical financial decisions"
+    ],
+    "challenges": [
+      "Initial resistance to AI-driven processes",
+      "Legacy system integration complexities",
+      "Balancing automation with user control"
+    ],
+    "insights": [
+      {
+        "title": "Trust Through Transparency",
+        "description": "Users adopted AI features faster when they understood how decisions were made. We added explainability features that showed the reasoning behind each automated action."
+      },
+      {
+        "title": "Gradual Autonomy",
+        "description": "Instead of full automation from day one, we designed a progressive system that increased autonomy as users gained confidence in the AI's accuracy."
+      },
+      {
+        "title": "Exception-First Design",
+        "description": "Focusing on how the system handles exceptions—not just happy paths—was crucial for building trust and ensuring adoption in high-stakes financial contexts."
+      }
+    ]
+  }
+};

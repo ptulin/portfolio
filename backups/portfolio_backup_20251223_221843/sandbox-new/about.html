@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ======================================================================
+         META TAGS & DOCUMENT CONFIGURATION
+         ====================================================================== -->
+    
+    <!-- Character Encoding -->
+    <meta charset="UTF-8">
+    
+    <!-- Viewport Configuration for Responsive Design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- IE Compatibility -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- ======================================================================
+         PRIMARY META TAGS (SEO)
+         ====================================================================== -->
+    
+    <title>About - Pawel Tulin | AI-Driven Product Designer & UX Leader</title>
+    <meta name="title" content="About - Pawel Tulin">
+    <meta name="description" content="Learn about Pawel Tulin's 15+ years of experience designing enterprise platforms, AI-enabled workflows, and complex systems for leading organizations.">
+    <meta name="author" content="Pawel Tulin">
+    <meta name="keywords" content="product designer, UX designer, AI design, user experience, about, portfolio">
+    
+    <!-- ======================================================================
+         OPEN GRAPH META TAGS (Social Media Sharing)
+         ====================================================================== -->
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="About - Pawel Tulin">
+    <meta property="og:description" content="15+ years designing enterprise platforms and AI-enabled workflows.">
+    <meta property="og:url" content="https://paweltulin.com/about">
+    
+    <!-- ======================================================================
+         TWITTER CARD META TAGS
+         ====================================================================== -->
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About - Pawel Tulin">
+    <meta name="twitter:description" content="15+ years designing enterprise platforms and AI-enabled workflows.">
+    
+    <!-- ======================================================================
+         FAVICON
+         ====================================================================== -->
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico">
+    
+    <!-- ======================================================================
+         PERFORMANCE OPTIMIZATION (Resource Hints)
+         ====================================================================== -->
+    
+    <!-- Preconnect to external domains for faster resource loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- ======================================================================
+         TYPOGRAPHY (Google Fonts)
+         ====================================================================== -->
+    
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- ======================================================================
+         STYLESHEET
+         ====================================================================== -->
+    
+    <link rel="stylesheet" href="common.css">
+    
+    <!-- ======================================================================
+         STRUCTURED DATA (JSON-LD) for SEO
+         ====================================================================== -->
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Pawel Tulin",
+        "jobTitle": "AI-Driven Product Designer & UX Leader",
+        "description": "15+ years of experience designing enterprise platforms, AI-enabled workflows, and complex systems for leading organizations.",
+        "url": "https://disruptiveexperience.com",
+        "sameAs": [
+            "https://linkedin.com/in/paweltulin"
+        ],
+        "email": "ptulin@gmail.com",
+        "knowsAbout": [
+            "Product Design",
+            "UX Design",
+            "AI Design",
+            "Enterprise Design",
+            "User Research"
+        ]
+    }
+    </script>
+    
+    <!-- ======================================================================
+         PAGE-SPECIFIC STYLES
+         ====================================================================== -->
+    
+    <style>
+        /* About Page Specific Styles */
+        .aboutpage-section {
+            padding-top: 8rem;
+            padding-bottom: 6rem;
+        }
+        
+        .aboutpage-header {
+            margin-bottom: 4rem;
+        }
+        
+        .aboutpage-label {
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-primary);
+            display: block;
+            margin-bottom: 1rem;
+        }
+        
+        .aboutpage-title {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--color-foreground);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        @media (min-width: 768px) {
+            .aboutpage-title {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .aboutpage-title {
+                font-size: 3.75rem;
+            }
+        }
+        
+        .aboutpage-lead {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-foreground);
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+        
+        @media (min-width: 768px) {
+            .aboutpage-lead {
+                font-size: 1.875rem;
+            }
+        }
+        
+        .aboutpage-content {
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+        
+        .aboutpage-content p {
+            font-family: var(--font-body);
+            font-size: 1.125rem;
+            line-height: 1.75;
+            color: var(--color-muted-foreground);
+            margin-bottom: 1.5rem;
+        }
+        
+        .aboutpage-content p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .aboutpage-closing {
+            font-family: var(--font-body);
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--color-foreground);
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-border);
+        }
+        
+        .aboutpage-companies-section {
+            padding: 6rem 0;
+            background: var(--color-secondary);
+        }
+        
+        .aboutpage-companies-section .section-header {
+            text-align: center;
+            max-width: 48rem;
+            margin: 0 auto 4rem;
+        }
+        
+        .aboutpage-companies-section .section-description {
+            text-align: center;
+            margin: 0 auto;
+            max-width: 42rem;
+        }
+        
+        .aboutpage-companies-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+        
+        @media (min-width: 640px) {
+            .aboutpage-companies-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .aboutpage-company-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 4rem;
+            padding: 0 1rem;
+            background: var(--color-card);
+            border-radius: var(--border-radius);
+            transition: background-color var(--transition-base);
+        }
+        
+        .aboutpage-company-item:hover {
+            background: var(--color-muted);
+        }
+        
+        .aboutpage-company-name {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.875rem;
+            color: var(--color-muted-foreground);
+        }
+    </style>
+</head>
+<body class="aboutpage-page">
+    <!-- ======================================================================
+         NAVIGATION HEADER
+         ====================================================================== -->
+    
+    <header class="navbar" role="banner">
+        <nav class="container" aria-label="Main navigation">
+            <div class="nav-content">
+                <div class="nav-brand">
+                    <a href="index.html" class="brand-link" aria-label="Pawel Tulin - Home"><span class="text-gradient">Pawel</span> Tulin</a>
+                </div>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="index.html#work" class="nav-link" role="menuitem">Work</a></li>
+                    <li role="none"><a href="about.html" class="nav-link" role="menuitem">About</a></li>
+                    <li role="none"><a href="index.html#expertise" class="nav-link" role="menuitem">Service</a></li>
+                    <li role="none"><a href="contact.html" class="nav-link" role="menuitem">Contact</a></li>
+                    <li role="none"><a href="contact.html" class="nav-button" role="menuitem">Let's Talk</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ======================================================================
+         MAIN CONTENT AREA
+         ====================================================================== -->
+    
+    <main>
+        <!-- ==================================================================
+             ABOUT SECTION
+             ================================================================== -->
+        
+        <section class="aboutpage-section" aria-labelledby="about-title">
+            <div class="container">
+                <div class="aboutpage-header">
+                    <span class="aboutpage-label">About</span>
+                    <h1 id="about-title" class="aboutpage-title">
+                        Designing the <span class="text-gradient">Future</span> of Human-AI Interaction
+                    </h1>
+                </div>
+
+                <div class="aboutpage-content">
+                    <p class="aboutpage-lead">I design clarity in messy, complex systems.</p>
+                    
+                    <p>My work sits at the intersection of UX, research, AI, and service design—usually in environments with large datasets, multiple stakeholders, strict constraints, and high expectations for accuracy.</p>
+                    
+                    <p>Over the last 15+ years, I've shaped enterprise platforms, AI-enabled workflows, data-heavy dashboards, multilingual applications, and global nonprofit systems. My background spans fintech (Fiserv, ADP), AI/ML ecosystems (IBM Watson), e-commerce at scale (G2A), global organizations (UNESCO, JNF), and government-adjacent environments. Across all of them, the themes are consistent: make the complex understandable, reduce cognitive load, and build experiences that teams can actually implement and trust.</p>
+                    
+                    <p>I'm both strategic and hands-on.</p>
+                    
+                    <p>I run research, map workflows, design IA and interaction models, prototype, and work directly with engineering. But I also lead cross-functional alignment, define UX frameworks, shape AI-enhanced processes, and bring structure to chaotic program spaces. I use AI where it makes sense—research synthesis, clustering, content modeling, and decision-support workflows—without sacrificing rigor or qualitative depth.</p>
+                    
+                    <p>My approach is grounded in systems thinking: understanding the ecosystem, clarifying constraints, aligning teams, then building simple, scalable patterns that hold up in real operations. I've reduced reporting cycles from days to minutes, automated global support interactions, improved conversion and retention, and helped teams move from ambiguity to actionable direction.</p>
+                    
+                    <p>When I take on a project, I focus on clarity, structure, and long-term usability. It's never just screens—it's the data, the workflows, the governance, the operations, and the people who will own it after launch.</p>
+                    
+                    <p class="aboutpage-closing">If you're building something complex, data-driven, or AI-enabled—and you need someone who can make it usable, understandable, and real—I'm your person.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================================================================
+             COMPANIES SECTION
+             ================================================================== -->
+        
+        <section class="aboutpage-companies-section" aria-labelledby="companies-title">
+            <div class="container">
+                <header class="section-header">
+                    <p class="section-subtitle">Experience</p>
+                    <h2 id="companies-title" class="section-title">
+                        Companies I've <span class="text-gradient">Worked With</span>
+                    </h2>
+                    <p class="section-description">
+                        Building enterprise solutions for leading organizations across fintech, AI, e-commerce, and global systems.
+                    </p>
+                </header>
+
+                <div class="aboutpage-companies-grid">
+                    <div class="aboutpage-company-item">
+                        <span class="aboutpage-company-name">IBM</span>
+                    </div>
+                    <div class="aboutpage-company-item">
+                        <span class="aboutpage-company-name">Fiserv</span>
+                    </div>
+                    <div class="aboutpage-company-item">
+                        <span class="aboutpage-company-name">Pearson</span>
+                    </div>
+                    <div class="aboutpage-company-item">
+                        <span class="aboutpage-company-name">TD Ameritrade</span>
+                    </div>
+                    <div class="aboutpage-company-item">
+                        <span class="aboutpage-company-name">Lord Abbett</span>
+                    </div>
+                    <div class="aboutpage-company-item">
+                        <span class="aboutpage-company-name">G2A</span>
+                    </div>
+                    <div class="aboutpage-company-item">
+                        <span class="aboutpage-company-name">ADP</span>
+                    </div>
+                    <div class="aboutpage-company-item">
+                        <span class="aboutpage-company-name">GLG</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================================================================
+             CONTACT SECTION
+             ================================================================== -->
+        
+        <section id="contact" class="homepage-contact-section" aria-labelledby="contact-title">
+            <div class="container">
+                <header class="homepage-contact-header">
+                    <p class="section-subtitle">Get In Touch</p>
+                    <h2 id="contact-title" class="section-title">
+                        Let's Create Something <span class="text-gradient">Extraordinary</span>
+                    </h2>
+                    <p class="section-description">
+                        Have a project in mind? I'm always open to discussing new opportunities, creative ideas, or partnerships.
+                    </p>
+                </header>
+                <div class="homepage-contact-links">
+                    <a href="mailto:ptulin@gmail.com" class="homepage-contact-email" aria-label="Send email to ptulin@gmail.com">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        <span>Email Me</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/in/paweltulin" target="_blank" rel="noopener noreferrer" class="homepage-contact-linkedin" aria-label="Visit LinkedIn profile">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ======================================================================
+         FOOTER
+         ====================================================================== -->
+    
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <span class="footer-name"><span class="text-gradient">Pawel</span> Tulin</span>
+                    <nav class="footer-nav" aria-label="Footer navigation">
+                        <a href="about.html" class="footer-link">About</a>
+                        <a href="contact.html" class="footer-link">Contact</a>
+                        <a href="resume/index.html" class="footer-link">Resume</a>
+                    </nav>
+                </div>
+                <p class="footer-copyright">
+                    © <span id="currentYear" aria-label="Current year">2025</span> All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ======================================================================
+         SCRIPTS
+         ====================================================================== -->
+    
+    <!-- Configuration file - loaded first for global access -->
+    <script src="config.js" defer></script>
+    
+    <!-- Main JavaScript file - loaded with defer for non-blocking execution -->
+    <script src="common.js" defer></script>
+</body>
+</html>
+

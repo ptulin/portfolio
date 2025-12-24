@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ======================================================================
+         META TAGS & DOCUMENT CONFIGURATION
+         ====================================================================== -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- ======================================================================
+         PRIMARY META TAGS (SEO)
+         ====================================================================== -->
+    
+    <title>Resume - Pawel Tulin | AI-Driven Product Designer & UX Leader</title>
+    <meta name="title" content="Resume - Pawel Tulin">
+    <meta name="description" content="Pawel Tulin's resume - AI-Driven Product Designer, UX Leader & Research Strategist">
+    <meta name="author" content="Pawel Tulin">
+    
+    <!-- ======================================================================
+         PERFORMANCE OPTIMIZATION (Resource Hints)
+         ====================================================================== -->
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- ======================================================================
+         TYPOGRAPHY (Google Fonts)
+         ====================================================================== -->
+    
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- ======================================================================
+         STYLESHEET
+         ====================================================================== -->
+    
+    <link rel="stylesheet" href="../common.css">
+    
+    <!-- ======================================================================
+         PAGE-SPECIFIC STYLES
+         ====================================================================== -->
+    
+    <style>
+        /* Resume Display Page Specific Styles */
+        .resumeaccess-section {
+            padding-top: 6rem;
+            padding-bottom: 4rem;
+        }
+        
+        .resumeaccess-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .resumeaccess-container {
+                padding: 0 2rem;
+            }
+        }
+        
+        .resumeaccess-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--color-border);
+        }
+        
+        .resumeaccess-header h1 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--color-foreground);
+        }
+        
+        @media (min-width: 768px) {
+            .resumeaccess-header h1 {
+                font-size: 3rem;
+            }
+        }
+        
+        .resumeaccess-title {
+            font-family: var(--font-body);
+            font-size: 1.125rem;
+            color: var(--color-muted-foreground);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        
+        @media (min-width: 768px) {
+            .resumeaccess-title {
+                font-size: 1.25rem;
+            }
+        }
+        
+        .resumeaccess-contact {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            color: var(--color-muted-foreground);
+        }
+        
+        .resumeaccess-contact a {
+            color: var(--color-muted-foreground);
+            text-decoration: none;
+            transition: color var(--transition-base);
+        }
+        
+        .resumeaccess-contact a:hover {
+            color: var(--color-primary);
+        }
+        
+        .resumeaccess-content {
+            font-size: 1rem;
+            color: var(--color-foreground);
+            line-height: 1.7;
+        }
+        
+        .resumeaccess-section-item {
+            margin-bottom: 3rem;
+        }
+        
+        .resumeaccess-section-item h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--color-border);
+            color: var(--color-foreground);
+        }
+        
+        @media (min-width: 768px) {
+            .resumeaccess-section-item h2 {
+                font-size: 1.75rem;
+            }
+        }
+        
+        .resumeaccess-text {
+            line-height: 1.8;
+            color: var(--color-muted-foreground);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        
+        .resumeaccess-skills-list {
+            line-height: 1.8;
+        }
+        
+        /* Experience Items */
+        .resumeaccess-experience-item {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .resumeaccess-experience-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        
+        .resumeaccess-experience-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .resumeaccess-experience-header h3 {
+            font-family: var(--font-body);
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--color-foreground);
+            margin: 0;
+        }
+        
+        @media (min-width: 768px) {
+            .resumeaccess-experience-header h3 {
+                font-size: 1.25rem;
+            }
+        }
+        
+        .resumeaccess-experience-company {
+            font-weight: 500;
+            color: var(--color-foreground);
+        }
+        
+        .resumeaccess-experience-date {
+            margin-left: auto;
+            color: var(--color-muted-foreground);
+            font-size: 0.9375rem;
+        }
+        
+        .resumeaccess-experience-meta {
+            font-size: 0.9375rem;
+            color: var(--color-muted-foreground);
+            margin-bottom: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .resumeaccess-experience-industry {
+            font-style: italic;
+        }
+        
+        .resumeaccess-experience-location {
+            font-style: italic;
+        }
+        
+        .resumeaccess-experience-details {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+        
+        .resumeaccess-experience-details li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--color-muted-foreground);
+            line-height: 1.7;
+        }
+        
+        .resumeaccess-experience-details li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: bold;
+        }
+        
+        .resumeaccess-experience-results {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--color-border);
+            font-size: 0.9375rem;
+            color: var(--color-foreground);
+            line-height: 1.7;
+        }
+        
+        .resumeaccess-experience-results strong {
+            color: var(--color-foreground);
+        }
+        
+        .resumeaccess-experience-text {
+            color: var(--color-muted-foreground);
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+        }
+        
+        .resumeaccess-experience-company-list {
+            font-weight: 500;
+            color: var(--color-foreground);
+        }
+        
+        /* Education Items */
+        .resumeaccess-education-item {
+            margin-bottom: 2rem;
+        }
+        
+        .resumeaccess-education-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .resumeaccess-education-header h3 {
+            font-family: var(--font-body);
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--color-foreground);
+            margin: 0;
+        }
+        
+        @media (min-width: 768px) {
+            .resumeaccess-education-header h3 {
+                font-size: 1.25rem;
+            }
+        }
+        
+        .resumeaccess-education-institution {
+            font-weight: 500;
+            color: var(--color-foreground);
+        }
+        
+        /* Download Button */
+        .resumeaccess-footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 2px solid var(--color-border);
+        }
+        
+        .resumeaccess-download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: var(--gradient-primary);
+            color: var(--color-primary-foreground);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: all var(--transition-base);
+            font-size: 1rem;
+            font-family: var(--font-body);
+        }
+        
+        .resumeaccess-download-btn:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(26, 211, 196, 0.3);
+        }
+        
+        .resumeaccess-download-btn svg {
+            flex-shrink: 0;
+            width: 1rem;
+            height: 1rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .resumeaccess-container {
+                padding: 0 1rem;
+            }
+            
+            .resumeaccess-header h1 {
+                font-size: 2rem;
+            }
+            
+            .resumeaccess-title {
+                font-size: 1rem;
+            }
+            
+            .resumeaccess-contact {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .resumeaccess-experience-header,
+            .resumeaccess-education-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .resumeaccess-experience-date {
+                margin-left: 0;
+            }
+            
+            .resumeaccess-experience-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .resumeaccess-section-item h2 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body class="resumeaccess-page">
+    <!-- ======================================================================
+         NAVIGATION HEADER
+         ====================================================================== -->
+    
+    <header class="navbar" role="banner">
+        <nav class="container" aria-label="Main navigation">
+            <div class="nav-content">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link" aria-label="Pawel Tulin - Home"><span class="text-gradient">Pawel</span> Tulin</a>
+                </div>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="../index.html#work" class="nav-link" role="menuitem">Work</a></li>
+                    <li role="none"><a href="../about.html" class="nav-link" role="menuitem">About</a></li>
+                    <li role="none"><a href="../index.html#expertise" class="nav-link" role="menuitem">Service</a></li>
+                    <li role="none"><a href="../contact.html" class="nav-link" role="menuitem">Contact</a></li>
+                    <li role="none"><a href="../contact.html" class="nav-button" role="menuitem">Let's Talk</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ======================================================================
+         MAIN CONTENT AREA
+         ====================================================================== -->
+    
+    <main>
+        <!-- ==================================================================
+             RESUME SECTION
+             ================================================================== -->
+        
+        <section class="resumeaccess-section" aria-labelledby="resume-title">
+            <div class="container">
+                <div class="resumeaccess-container">
+                    <div class="resumeaccess-header">
+                        <h1 id="resume-title">Pawel Tulin</h1>
+                        <p class="resumeaccess-title">AI-Driven Product Designer, UX Leader & Research Strategist</p>
+                        <div class="resumeaccess-contact">
+                            <span>New York City, NY | EST</span>
+                            <span>646-464-1493</span>
+                            <a href="mailto:ptulin@gmail.com">ptulin@gmail.com</a>
+                            <a href="https://pavotu.com" target="_blank" rel="noopener noreferrer">pavotu.com</a>
+                            <a href="https://linkedin.com/in/paweltulin" target="_blank" rel="noopener noreferrer">linkedin.com/in/paweltulin</a>
+                        </div>
+                    </div>
+
+                    <div class="resumeaccess-content">
+                        <section class="resumeaccess-section-item">
+                            <h2>SUMMARY</h2>
+                            <p class="resumeaccess-text">Principal-level UX practitioner with deep experience across research, interaction design, product design, service design, and AI-driven workflow modeling. Specialized in simplifying complex, data-heavy systems and designing clear human-AI interaction patterns for enterprise products. Skilled in mixed-methods research, IA, prototyping, journey mapping, dashboard UX, and multi-channel service design. Strong execution focus with ability to translate ambiguous requirements into structured models, wireframes, prototypes, and evidence-based recommendations. Hands-on contributor across fintech, enterprise SaaS, HR/payroll, e-commerce, AI/ML platforms, and global nonprofit environments. Experienced integrating LLM-assisted synthesis, prompt design, and agent workflows into research and product processes.</p>
+                        </section>
+
+                        <section class="resumeaccess-section-item">
+                            <h2>SKILLS</h2>
+                            <p class="resumeaccess-text resumeaccess-skills-list">Interaction design, Information architecture, Workflow modeling, Wireframes and prototypes, Dashboard UX, Conversational UX, Human-AI interaction pattern, LLM workflow design, AI explainability patterns, Mixed-methods research, Usability testing, Interviews and contextual inquiry, Journey mapping, Insight synthesis, Service blueprints, End-to-end service design, Cross-functional collaboration, Requirements translation, Continuous discovery, Analytics-informed UX, Enterprise UX standards, Complex systems modeling, AI-assisted research synthesis</p>
+                        </section>
+
+                        <section class="resumeaccess-section-item">
+                            <h2>TOOLS & METHODS</h2>
+                            <p class="resumeaccess-text">Figma, Miro, Axure, Lucidchart, Tableau, Adobe Analytics, Google Analytics, UserTesting-style remote tools, Jira, Confluence, Notion, AI research/synthesis pipelines, Advanced prompt engineering, HTML/CSS/JS (collaboration level)</p>
+                        </section>
+
+                        <section class="resumeaccess-section-item">
+                            <h2>PROFESSIONAL EXPERIENCE</h2>
+                            
+                            <div class="resumeaccess-experience-item">
+                                <div class="resumeaccess-experience-header">
+                                    <h3>UX & Systems Designer / UX Researcher</h3>
+                                    <span class="resumeaccess-experience-company">DisruptiveExperience</span>
+                                    <span class="resumeaccess-experience-date">Jan 2025 - Present</span>
+                                </div>
+                                <p class="resumeaccess-experience-meta">
+                                    <span class="resumeaccess-experience-industry">Industry/Type: UX, Research, Product, AI Strategy Consulting</span>
+                                    <span class="resumeaccess-experience-location">New York, NY</span>
+                                </p>
+                                <ul class="resumeaccess-experience-details">
+                                    <li>Conduct qualitative research programs (interviews, usability tests, contextual studies, workshops) for nonprofit, education, and global data products.</li>
+                                    <li>Create IA models, workflows, journey maps, prototypes, dashboards, and structured recommendations for complex, multi-stakeholder environments.</li>
+                                    <li>Design interaction patterns and flows for data-heavy analytics systems with multilingual and accessibility requirements.</li>
+                                    <li>Use AI-assisted synthesis to cluster insights, accelerate discovery, and improve pattern recognition while maintaining research rigor.</li>
+                                    <li>Facilitate cross-team working sessions translating ambiguous requirements into structured UX artifacts.</li>
+                                </ul>
+                                <p class="resumeaccess-experience-results"><strong>Results:</strong> Improved reporting clarity and reduced manual workflows by 50%+; established unified IA and workflow models adopted across organizations; enabled clearer decision-making for international stakeholder groups.</p>
+                            </div>
+
+                            <div class="resumeaccess-experience-item">
+                                <div class="resumeaccess-experience-header">
+                                    <h3>UX Strategist / Researcher / Senior Product Designer</h3>
+                                    <span class="resumeaccess-experience-company">Fiserv</span>
+                                    <span class="resumeaccess-experience-date">Jul 2021 - Dec 2024</span>
+                                </div>
+                                <p class="resumeaccess-experience-meta">
+                                    <span class="resumeaccess-experience-industry">Industry/Type: Fintech · Enterprise SaaS · Cloud Data Systems</span>
+                                    <span class="resumeaccess-experience-location">New York, NY</span>
+                                </p>
+                                <ul class="resumeaccess-experience-details">
+                                    <li>Conducted discovery research across financial and compliance workflows, mapping user behavior, tasks, and pain points.</li>
+                                    <li>Designed dashboards, workflows, filters, and interaction patterns for cloud-based reporting and AI-assisted financial tools.</li>
+                                    <li>Created wireframes, prototypes, and iterative usability studies refining information hierarchy, drill-downs, and reasoning surfaces.</li>
+                                    <li>Integrated analytics instrumentation into UX processes to support evidence-based iteration.</li>
+                                    <li>Developed UX patterns enabling consistent interfaces across legacy and cloud products.</li>
+                                    <li>Contributed to AI-powered reporting workflows including LLM-guided flows, explainability layers, and guardrails.</li>
+                                </ul>
+                                <p class="resumeaccess-experience-results"><strong>Results:</strong> Reduced reporting cycles from days to minutes; decreased design and engineering rework by 30-50%; accelerated feature delivery by 25-40%; improved clarity of complex financial interactions.</p>
+                            </div>
+
+                            <div class="resumeaccess-experience-item">
+                                <div class="resumeaccess-experience-header">
+                                    <h3>Senior UX Researcher / Service Designer</h3>
+                                    <span class="resumeaccess-experience-company">ADP</span>
+                                    <span class="resumeaccess-experience-date">Aug 2019 - Jun 2021</span>
+                                </div>
+                                <p class="resumeaccess-experience-meta">
+                                    <span class="resumeaccess-experience-industry">Industry/Type: Global Payroll · HR · Conversational AI</span>
+                                    <span class="resumeaccess-experience-location">New York, NY</span>
+                                </p>
+                                <ul class="resumeaccess-experience-details">
+                                    <li>Conducted global qualitative research across HR/payroll support journeys, including interviews, usability tests, and behavior analysis.</li>
+                                    <li>Designed conversational flows, intents, entities, and error-handling logic for IBM Watson-powered multilingual support systems.</li>
+                                    <li>Produced IA, prototypes, and workflow maps for high-volume, regulated support environments.</li>
+                                    <li>Collaborated with engineering and operations teams across countries to validate flows and ensure accurate implementation.</li>
+                                </ul>
+                                <p class="resumeaccess-experience-results"><strong>Results:</strong> Automated 80-90% of support inquiries; reduced live-agent load by 60%; increased resolution speed and satisfaction across global markets.</p>
+                            </div>
+
+                            <div class="resumeaccess-experience-item">
+                                <div class="resumeaccess-experience-header">
+                                    <h3>UX Strategy & Research Lead</h3>
+                                    <span class="resumeaccess-experience-company">G2A</span>
+                                    <span class="resumeaccess-experience-date">Sep 2016 - Aug 2019</span>
+                                </div>
+                                <p class="resumeaccess-experience-meta">
+                                    <span class="resumeaccess-experience-industry">Industry/Type: E-commerce · Marketplace · Payments</span>
+                                    <span class="resumeaccess-experience-location">Poland</span>
+                                </p>
+                                <ul class="resumeaccess-experience-details">
+                                    <li>Led research across mobile, checkout, funnels, loyalty systems, and recommendation UX.</li>
+                                    <li>Conducted mixed-methods studies and analytics reviews to identify friction and inform redesigns.</li>
+                                    <li>Created IA, prototypes, user flows, and component libraries for web and mobile.</li>
+                                    <li>Supported experimentation frameworks and evidence-based decision-making.</li>
+                                </ul>
+                                <p class="resumeaccess-experience-results"><strong>Results:</strong> Improved conversion, retention, and engagement; reduced drop-off in critical flows; enhanced clarity and consistency across global journeys.</p>
+                            </div>
+
+                            <div class="resumeaccess-experience-item">
+                                <div class="resumeaccess-experience-header">
+                                    <h3>Experience Designer / UX Researcher</h3>
+                                    <span class="resumeaccess-experience-company">IBM Watson / Havas</span>
+                                    <span class="resumeaccess-experience-date">Jul 2014 - Sep 2016</span>
+                                </div>
+                                <p class="resumeaccess-experience-meta">
+                                    <span class="resumeaccess-experience-industry">Industry/Type: Enterprise · AI/ML · Developer Tools</span>
+                                    <span class="resumeaccess-experience-location">NYC</span>
+                                </p>
+                                <ul class="resumeaccess-experience-details">
+                                    <li>Conducted 200+ interviews and usability evaluations with enterprise developers using Watson cognitive tools.</li>
+                                    <li>Designed IA, onboarding flows, content structures, and interaction models for developer success.</li>
+                                    <li>Created prototypes and documentation to simplify complex data prep and model-building tasks.</li>
+                                </ul>
+                                <p class="resumeaccess-experience-results"><strong>Results:</strong> Faster onboarding, clearer documentation, higher developer satisfaction, and improved self-service adoption.</p>
+                            </div>
+
+                            <div class="resumeaccess-experience-item">
+                                <div class="resumeaccess-experience-header">
+                                    <h3>Earlier Roles</h3>
+                                </div>
+                                <p class="resumeaccess-experience-meta">
+                                    <span class="resumeaccess-experience-company-list">HNW, Infusion, NYSE Euronext, Rapp Collins, Edelman, MRM Worldwide, Interbrand/BrandWizard</span>
+                                </p>
+                                <p class="resumeaccess-experience-text">Various UX, IA, and research roles across finance, government, healthcare, education, and enterprise SaaS.</p>
+                                <p class="resumeaccess-experience-text">Delivered UX research, IA, workflow design, prototypes, and navigation models for dashboards, multilingual applications, regulated systems, and secure enterprise workflows.</p>
+                            </div>
+                        </section>
+
+                        <section class="resumeaccess-section-item">
+                            <h2>EDUCATION</h2>
+                            <div class="resumeaccess-education-item">
+                                <div class="resumeaccess-education-header">
+                                    <h3>M.S., Biomechanics and Robotics</h3>
+                                    <span class="resumeaccess-education-institution">Warsaw Technical University</span>
+                                </div>
+                            </div>
+                            <div class="resumeaccess-education-item">
+                                <div class="resumeaccess-education-header">
+                                    <h3>Graduate Studies in Psychology & Philosophy</h3>
+                                    <span class="resumeaccess-education-institution">San Diego State University</span>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="resumeaccess-footer">
+                        <a href="../assets/pdf/resume.pdf" class="resumeaccess-download-btn" download aria-label="Download resume as PDF">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            Download PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ======================================================================
+         FOOTER
+         ====================================================================== -->
+    
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <span class="footer-name"><span class="text-gradient">Pawel</span> Tulin</span>
+                    <nav class="footer-nav" aria-label="Footer navigation">
+                        <a href="../about.html" class="footer-link">About</a>
+                        <a href="../contact.html" class="footer-link">Contact</a>
+                        <a href="index.html" class="footer-link">Resume</a>
+                    </nav>
+                </div>
+                <p class="footer-copyright">
+                    © <span id="currentYear" aria-label="Current year">2025</span> All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ======================================================================
+         SCRIPTS
+         ====================================================================== -->
+    
+    <!-- Backend integration utility - loaded first -->
+    <script src="../js/utils.js" defer></script>
+    
+    <!-- Configuration file - loaded for global access -->
+    <script src="../config.js" defer></script>
+    
+    <!-- Main JavaScript file - loaded with defer for non-blocking execution -->
+    <script src="../common.js" defer></script>
+    
+    <!-- ======================================================================
+         RESUME ACCESS PAGE SPECIFIC JAVASCRIPT
+         ====================================================================== -->
+    
+    <script>
+        // Wait for DOM to be ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if access was granted
+            if (sessionStorage.getItem('resumeAccess') !== 'granted') {
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            // Log access (silently fail if CORS blocks it - logging is not critical)
+            const passwordID = sessionStorage.getItem('passwordID');
+            if (passwordID && typeof submitToAppsScript !== 'undefined') {
+                submitToAppsScript(
+                    { passwordID, email: '' },
+                    'logAccess',
+                    function() { /* Success - no action needed */ },
+                    function() { /* Error - silently fail */ }
+                );
+            }
+            
+            // Set current year
+            const yearElement = document.getElementById('currentYear');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+</body>
+</html>
+
