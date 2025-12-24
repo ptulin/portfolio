@@ -1,102 +1,79 @@
-# Pawel Tulin - AI-Driven Product Designer & UX Leader
+# Pawel Tulin — UX & Product Leader (AI + Enterprise Platforms)
 
-## About
-Pawel Tulin is an AI-Driven Product Designer, UX Leader & Research Strategist with over 15 years of experience building enterprise-grade human-AI systems, workflows, and complex platforms for fintech, SaaS, and mission-driven organizations.
+## Summary
+Pawel Tulin is a UX/Product design leader and research strategist with 15+ years delivering enterprise-grade platforms and human-AI workflows across fintech, SaaS, and mission-driven organizations. Focus: turning complex systems into usable, measurable experiences—balancing user needs, business outcomes, and technical constraints.
 
 ## Role Focus
-- Product Design
-- UX Design & Research
-- AI Design & Human-AI Interaction
-- Enterprise Design
+- Product Design Leadership (0→1 and scale)
+- Enterprise UX Strategy & Service Design
+- AI UX / Human-AI Interaction (agentic workflows, copilots)
+- UX Research Strategy (mixed methods, analytics-informed)
+- Design Systems and Cross-functional Operating Models
 
-## Key Projects & Outcomes
+## Core Strengths
+- Complex workflow design (risk, compliance, operations, analytics)
+- Information architecture for large platforms
+- Research-to-roadmap decisioning (qual + quant)
+- Stakeholder alignment (exec, product, engineering, data)
+- Experimentation and measurement (A/B, funnels, adoption, efficiency)
 
-### Fiserv - CFO AI Office Automation
-- AI Report Generation
-- Custom Workflows & Dashboards
-- Agentic Framework
-- Personal RAG
-- Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=fiserv-cfo-ai-automation
+## Selected Projects (with canonical case studies)
 
-### Jobbot - AI Email Automation Experiment
-- Custom Email Replies
-- Custom Resume Generation
-- Almost No Costs
-- Built on Google + GPT APIs
-- Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=jobbot-email-automation
+### Fiserv — CFO AI Office Automation
+Built human-AI workflows for finance operations: automated reporting, custom dashboards, and agentic patterns (RAG-style retrieval for enterprise context).
+Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=fiserv-cfo-ai-automation
 
-### ADP/Global - Customer Support Chatbots
-- IBM Watson-powered conversational AI
-- 90% of customer interactions automated
-- 70% reduction in support costs
-- Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=adp-customer-support-chatbots
+### Jobbot — AI Email Automation
+Designed and built an automation system for email triage, tailored replies, and resume generation using Google + GPT APIs, emphasizing reliability, controls, and repeatable workflows.
+Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=jobbot-email-automation
 
-### Lord Abbett - Data & Users
-- Data Visualization
-- UI Personalization
-- Mission Critical Security
-- Advanced Error Handling
-- Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=lord-abbett-data-users
+### ADP Global — Customer Support Chatbots
+Led UX for IBM Watson-powered conversational support; documented outcomes include ~90% of customer interactions automated and ~70% reduction in support costs.
+Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=adp-customer-support-chatbots
 
-### Pearson - Online Education Platform
-- Personalized learning
-- Trusted content
-- Comprehensive assessment
-- Data-driven insights
-- Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=pearson-online-education
+### Lord Abbett — Data & Users
+Designed secure, mission-critical data experiences including visualization, personalization, and robust error handling for investment platforms.
+Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=lord-abbett-data-users
 
-### G2A - Global E-Commerce Platform
-- AI Product Recommenders
-- Blockchain Loyalty Systems
-- Service Design
-- Team Building and Management
-- Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=g2a-global-ecommerce
+### Pearson — Online Education Platform
+Improved learning experience design across personalization, assessment, and insights, connecting content and progress into a cohesive platform.
+Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=pearson-online-education
 
-### Gerson Lehrman Group (GLG) - Expert Network Platform
-- Custom Search Engine
-- Interactive Data Visualization
-- Largest Expert Network
-- Complex Compliance Workflows
-- Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=glg-expert-network
+### G2A — Global E-Commerce Platform
+Led experience strategy across personalization and loyalty concepts using service design to align cross-functional delivery.
+Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=g2a-global-ecommerce
 
-### IBM - Bluedot Intelligence
-- Custom research
-- Rapid prototyping
-- User Journeys and Personas
-- Natural Language Processing
-- Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=ibm-bluedot-intelligence
+### Gerson Lehrman Group (GLG) — Expert Network Platform
+Designed complex search, compliance, and discovery workflows with interactive data visualization at scale.
+Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=glg-expert-network
 
-### TD Ameritrade - UX Competitive Analysis & Heuristic Evaluation
-- Heuristic usability audit
-- Comparative UX study
-- Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=td-ameritrade-ux-analysis
+### IBM — Bluedot Intelligence
+Delivered research-driven UX and rapid prototyping for NLP-enabled experiences, including journeys, personas, and concept validation.
+Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=ibm-bluedot-intelligence
 
-## Areas of Expertise
-1. AI & Machine Learning Design - Designing intelligent interfaces that seamlessly integrate AI capabilities while maintaining human-centered experiences.
-2. UX Research & Strategy - Deep user research and strategic thinking to uncover insights that drive product decisions and user experiences.
-3. Service Design - End-to-end service design that connects touchpoints and creates cohesive experiences across digital and physical channels.
-4. Product Leadership - Leading cross-functional teams to deliver products that balance business goals, technical constraints, and user needs.
+### TD Ameritrade — UX Competitive Analysis
+Produced heuristic evaluations and comparative UX analysis to identify prioritized usability and platform improvements.
+Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=td-ameritrade-ux-analysis
 
-## Professional Statistics
-- 15+ Years Experience
-- 50+ Projects Delivered
-- 90% AI Automation Rate
-- 70% Cost Reduction
+## Expertise Areas
+1) AI UX / Human-AI Interaction — assistive and agentic workflows with transparency, control, and trust.
+2) UX Research & Strategy — mixed-method research translated into decisions and roadmaps.
+3) Service Design — end-to-end journeys across channels and operational constraints.
+4) Product Leadership — aligning teams to deliver measurable outcomes.
 
-## Companies Worked With
-IBM, Fiserv, Pearson, TD Ameritrade, Lord Abbett, G2A, ADP, GLG (Gerson Lehrman Group)
+## Companies
+IBM, Fiserv, ADP, Pearson, TD Ameritrade, Lord Abbett, G2A, GLG
 
 ## Contact
-- Email: ptulin@gmail.com
-- LinkedIn: https://linkedin.com/in/paweltulin
-- Website: https://disruptiveexperience.com/pawel/
-- Resume: https://disruptiveexperience.com/pawel/resume/
+Email: ptulin@gmail.com
+LinkedIn: https://linkedin.com/in/paweltulin
+Website: https://disruptiveexperience.com/pawel/
+Resume: https://disruptiveexperience.com/pawel/resume/
 
 ## Canonical URLs
-- Homepage: https://disruptiveexperience.com/pawel/
-- About: https://disruptiveexperience.com/pawel/about.html
-- Contact: https://disruptiveexperience.com/pawel/contact.html
+Homepage: https://disruptiveexperience.com/pawel/
+About: https://disruptiveexperience.com/pawel/about.html
+Contact: https://disruptiveexperience.com/pawel/contact.html
 
 ## Current Focus
-Currently focused on building agentic AI frameworks and automation workflows that augment human capabilities rather than replace them.
-
+Building pragmatic agentic AI workflow patterns and automation frameworks that augment human decision-making with clear guardrails, explainability, and measurable value.
