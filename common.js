@@ -1322,7 +1322,7 @@ const casestudyInit = () => {
             }
             // Pearson results image: Before/After comparison
             if (resultsImage) {
-                resultsImage.src = 'images/pearson/beforeAfter.png';
+                resultsImage.src = 'images/pearson/before-after.png';
                 resultsImage.alt = 'Before and after comparison showing transformation from cluttered light-themed interface to modern dark-themed Pearson educational platform with improved navigation and data visualization';
                 resultsImage.width = 1536;
                 resultsImage.height = 1024;
@@ -1346,7 +1346,7 @@ const casestudyInit = () => {
             }
             // G2A results image: Before/After comparison showing KPI improvements
             if (resultsImage) {
-                resultsImage.src = 'images/g2a/beforeAfter.png';
+                resultsImage.src = 'images/g2a/before-after.png';
                 resultsImage.alt = 'Before and after comparison showing G2A platform improvements: Revenue Growth (18% to 52%), Customer Loyalty (+22% to +63%), Daily Orders (8,900 to 17,500), and Refunds Declined (2,100 to 8,400)';
                 resultsImage.width = 1536;
                 resultsImage.height = 1024;
@@ -1370,7 +1370,7 @@ const casestudyInit = () => {
             }
             // IBM results image: Before/After comparison
             if (resultsImage) {
-                resultsImage.src = 'images/ibm/beforeAfter.png';
+                resultsImage.src = 'images/ibm/before-after.png';
                 resultsImage.alt = 'Before and after comparison showing transformation from traditional Rational Software Architect interface to modern IBM Bluedot Intelligence-driven research dashboard';
                 resultsImage.width = 1536;
                 resultsImage.height = 1024;
