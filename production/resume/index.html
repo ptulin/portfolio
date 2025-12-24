@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ======================================================================
+         META TAGS & DOCUMENT CONFIGURATION
+         ====================================================================== -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- ======================================================================
+         PRIMARY META TAGS (SEO)
+         ====================================================================== -->
+    
+    <title>Resume Access - Pawel Tulin | AI-Driven Product Designer & UX Leader</title>
+    <meta name="title" content="Resume Access - Pawel Tulin">
+    <meta name="description" content="Enter your access code to view Pawel Tulin's resume.">
+    <meta name="author" content="Pawel Tulin">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- ======================================================================
+         PERFORMANCE OPTIMIZATION (Resource Hints)
+         ====================================================================== -->
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- ======================================================================
+         TYPOGRAPHY (Google Fonts)
+         ====================================================================== -->
+    
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- ======================================================================
+         STYLESHEET
+         ====================================================================== -->
+    
+    <link rel="stylesheet" href="../common.css">
+    
+    <!-- ======================================================================
+         PAGE-SPECIFIC STYLES
+         ====================================================================== -->
+    
+    <style>
+        /* Resume Access Page Specific Styles */
+        .resumepage-section {
+            padding-top: 8rem;
+            padding-bottom: 6rem;
+            min-height: calc(100vh - 5rem);
+            display: flex;
+            align-items: center;
+        }
+        
+        .resumepage-container {
+            max-width: 32rem;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .resumepage-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .resumepage-label {
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-primary);
+            display: block;
+            margin-bottom: 1rem;
+        }
+        
+        .resumepage-title {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--color-foreground);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        @media (min-width: 768px) {
+            .resumepage-title {
+                font-size: 3rem;
+            }
+        }
+        
+        .resumepage-description {
+            font-family: var(--font-body);
+            font-size: 1.125rem;
+            color: var(--color-muted-foreground);
+        }
+        
+        .resumepage-form {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius-lg);
+            padding: 2.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .resumepage-form {
+                padding: 3rem;
+            }
+        }
+        
+        .resumepage-form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .resumepage-form-group label {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--color-foreground);
+            margin-bottom: 0.5rem;
+        }
+        
+        .resumepage-form-group input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--color-background);
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius);
+            color: var(--color-foreground);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: border-color var(--transition-base);
+        }
+        
+        .resumepage-form-group input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(26, 211, 196, 0.1);
+        }
+        
+        .resumepage-error-message {
+            margin-top: 0.5rem;
+            padding: 0.75rem 1rem;
+            border-radius: var(--border-radius);
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            display: none;
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        .resumepage-error-message.show {
+            display: block;
+        }
+        
+        .resumepage-btn-submit {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            background: var(--gradient-primary);
+            color: var(--color-primary-foreground);
+            font-family: var(--font-body);
+            font-weight: 600;
+            border-radius: var(--border-radius);
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            width: 100%;
+            justify-content: center;
+        }
+        
+        @media (min-width: 640px) {
+            .resumepage-btn-submit {
+                width: auto;
+            }
+        }
+        
+        .resumepage-btn-submit:hover {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(26, 211, 196, 0.3);
+        }
+        
+        .resumepage-btn-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .resumepage-request-link {
+            display: block;
+            margin-top: 1.5rem;
+            text-align: center;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color var(--transition-base);
+        }
+        
+        .resumepage-request-link:hover {
+            color: var(--color-primary-hover);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="resumepage-page">
+    <!-- ======================================================================
+         NAVIGATION HEADER
+         ====================================================================== -->
+    
+    <header class="navbar" role="banner">
+        <nav class="container" aria-label="Main navigation">
+            <div class="nav-content">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link" aria-label="Pawel Tulin - Home"><span class="text-gradient">Pawel</span> Tulin</a>
+                </div>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="../index.html#work" class="nav-link" role="menuitem">Work</a></li>
+                    <li role="none"><a href="../about.html" class="nav-link" role="menuitem">About</a></li>
+                    <li role="none"><a href="../index.html#expertise" class="nav-link" role="menuitem">Service</a></li>
+                    <li role="none"><a href="../contact.html" class="nav-link" role="menuitem">Contact</a></li>
+                    <li role="none"><a href="../contact.html" class="nav-button" role="menuitem">Let's Talk</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ======================================================================
+         MAIN CONTENT AREA
+         ====================================================================== -->
+    
+    <main>
+        <!-- ==================================================================
+             RESUME ACCESS SECTION
+             ================================================================== -->
+        
+        <section class="resumepage-section" aria-labelledby="resume-access-title">
+            <div class="container">
+                <div class="resumepage-container">
+                    <div class="resumepage-header">
+                        <span class="resumepage-label">Resume Access</span>
+                        <h1 id="resume-access-title" class="resumepage-title">Enter Access Code</h1>
+                        <p class="resumepage-description">
+                            Please enter your personal access code to view the resume.
+                        </p>
+                    </div>
+
+                    <form id="passwordForm" class="resumepage-form" aria-label="Resume access form">
+                        <div class="resumepage-form-group">
+                            <label for="password">Access Code</label>
+                            <input type="text" id="password" name="password" placeholder="PT-00001" required autofocus aria-required="true">
+                            <div class="resumepage-error-message" id="passwordError" role="alert" aria-live="polite"></div>
+                        </div>
+                        
+                        <button type="submit" class="resumepage-btn-submit" id="submitBtn" aria-label="Access resume">
+                            Access Resume
+                        </button>
+                        
+                        <a href="../contact.html" class="resumepage-request-link">Request Access Code</a>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ======================================================================
+         FOOTER
+         ====================================================================== -->
+    
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <span class="footer-name"><span class="text-gradient">Pawel</span> Tulin</span>
+                    <nav class="footer-nav" aria-label="Footer navigation">
+                        <a href="../about.html" class="footer-link">About</a>
+                        <a href="../contact.html" class="footer-link">Contact</a>
+                        <a href="index.html" class="footer-link">Resume</a>
+                    </nav>
+                </div>
+                <p class="footer-copyright">
+                    © <span id="currentYear" aria-label="Current year">2025</span> All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ======================================================================
+         SCRIPTS
+         ====================================================================== -->
+    
+    <!-- Backend integration utility - loaded first -->
+    <script src="../js/utils.js" defer></script>
+    
+    <!-- Configuration file - loaded for global access -->
+    <script src="../config.js" defer></script>
+    
+    <!-- Main JavaScript file - loaded with defer for non-blocking execution -->
+    <script src="../common.js" defer></script>
+    
+    <!-- ======================================================================
+         RESUME PAGE SPECIFIC JAVASCRIPT
+         ====================================================================== -->
+    
+    <script>
+        // Wait for DOM and utils to be ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year
+            const yearElement = document.getElementById('currentYear');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+            
+            // Password form submission
+            const passwordForm = document.getElementById('passwordForm');
+            if (passwordForm && typeof submitToAppsScript !== 'undefined') {
+                passwordForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const password = document.getElementById('password').value.trim();
+                    const submitBtn = document.getElementById('submitBtn');
+                    const errorMessage = document.getElementById('passwordError');
+                    
+                    if (!password) {
+                        errorMessage.textContent = 'Please enter an access code.';
+                        errorMessage.classList.add('show');
+                        return;
+                    }
+                    
+                    errorMessage.classList.remove('show');
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Verifying...';
+                    
+                    // Use shared utility function
+                    submitToAppsScript(
+                        { password, email: '' },
+                        'verifyPassword',
+                        function(result) {
+                            // Success - store session data and redirect
+                            sessionStorage.setItem('passwordID', password);
+                            sessionStorage.setItem('resumeAccess', 'granted');
+                            window.location.href = 'access.html';
+                        },
+                        function(error) {
+                            // Error - show message
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'Access Resume';
+                            errorMessage.textContent = 'Invalid access code. Please try again.';
+                            errorMessage.classList.add('show');
+                        },
+                        1500
+                    );
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+

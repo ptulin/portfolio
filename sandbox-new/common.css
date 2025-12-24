@@ -392,6 +392,102 @@
 }
 
 /* ==========================================================================
+   GLG THEME - DARK BLUE/LIGHT BLUE COLOR PALETTE
+   Based on the Expert Network Platform dashboard design
+   ========================================================================== */
+
+/**
+ * GLG Theme - Dark Blue/Light Blue Color Palette
+ * 
+ * To apply: Add class "glg-theme" to body element
+ * To revert: Remove "glg-theme" class from body element
+ * 
+ * Color scheme matches the dashboard image:
+ * - Dark blue backgrounds
+ * - Light blue text and accents
+ * - Glowing blue accents (particularly on world map visualization)
+ * - Modern professional expert network platform aesthetic
+ */
+
+.glg-theme {
+    /* Background Colors - Dark Blues */
+    --color-background: hsl(220, 35%, 8%);
+    --color-card: hsl(220, 30%, 12%);
+    --color-secondary: hsl(220, 30%, 15%);
+    --color-muted: hsl(220, 25%, 18%);
+    
+    /* Foreground Colors - Light Blues/Grays */
+    --color-foreground: hsl(200, 15%, 90%);
+    --color-card-foreground: hsl(200, 15%, 90%);
+    --color-muted-foreground: hsl(200, 10%, 65%);
+    
+    /* Primary Colors - Light Blue/Cyan (GLG Expert Network) */
+    --color-primary: hsl(195, 85%, 55%);
+    --color-primary-foreground: hsl(220, 35%, 8%);
+    --color-primary-hover: hsl(195, 85%, 50%);
+    
+    /* Borders - Blue Tones */
+    --color-border: hsl(220, 30%, 25%);
+    --color-border-opacity: rgba(100, 180, 255, 0.25);
+    
+    /* Gradients - Light Blue/Cyan Tones */
+    --gradient-accent: linear-gradient(135deg, hsl(195, 85%, 55%) 0%, hsl(200, 80%, 60%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(195, 85%, 55%) 0%, hsl(200, 80%, 60%) 100%);
+    
+    /* Shadows - Light Blue Glow */
+    --shadow-glow: 0 0 20px rgba(100, 180, 255, 0.4);
+}
+
+/* ==========================================================================
+   TD AMERITRADE THEME - DARK GRAY/GREEN/RED COLOR PALETTE
+   Based on the thinkorswim trading platform design
+   ========================================================================== */
+
+/**
+ * TD Ameritrade Theme - Dark Gray/Green/Red Color Palette
+ * 
+ * To apply: Add class "td-ameritrade-theme" to body element
+ * To revert: Remove "td-ameritrade-theme" class from body element
+ * 
+ * Color scheme matches the thinkorswim trading platform:
+ * - Dark gray/black backgrounds (trading interface)
+ * - Green accents (positive changes, gains)
+ * - Red accents (negative changes, losses)
+ * - Orange, Purple, Blue (chart indicators)
+ * - White/Light Gray (text, labels, grid lines)
+ * - Professional financial trading aesthetic
+ */
+
+.td-ameritrade-theme {
+    /* Background Colors - Dark Grays/Blacks */
+    --color-background: hsl(0, 0%, 8%);
+    --color-card: hsl(0, 0%, 12%);
+    --color-secondary: hsl(0, 0%, 15%);
+    --color-muted: hsl(0, 0%, 18%);
+    
+    /* Foreground Colors - Light Grays/Whites */
+    --color-foreground: hsl(0, 0%, 92%);
+    --color-card-foreground: hsl(0, 0%, 92%);
+    --color-muted-foreground: hsl(0, 0%, 60%);
+    
+    /* Primary Colors - Green (thinkorswim brand, positive changes) */
+    --color-primary: hsl(120, 60%, 50%);
+    --color-primary-foreground: hsl(0, 0%, 8%);
+    --color-primary-hover: hsl(120, 60%, 45%);
+    
+    /* Borders - Dark Grays */
+    --color-border: hsl(0, 0%, 25%);
+    --color-border-opacity: rgba(0, 200, 0, 0.2);
+    
+    /* Gradients - Green Tones (matching thinkorswim) */
+    --gradient-accent: linear-gradient(135deg, hsl(120, 60%, 50%) 0%, hsl(120, 65%, 55%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(120, 60%, 50%) 0%, hsl(120, 65%, 55%) 100%);
+    
+    /* Shadows - Green Glow (matching trading platform) */
+    --shadow-glow: 0 0 20px rgba(0, 200, 0, 0.3);
+}
+
+/* ==========================================================================
    RESET & BASE STYLES
    ========================================================================== */
 

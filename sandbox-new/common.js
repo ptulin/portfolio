@@ -1152,6 +1152,18 @@ const casestudyUpdateHero = (data) => {
                 heroImage.src = 'images/ibm/dashboard.png';
                 heroImage.width = 1536;
                 heroImage.height = 1024;
+            } else if (projectSlug === 'glg-expert-network') {
+                heroImage.src = 'images/glg/dashboard.png';
+                heroImage.alt = 'GLG Expert Network Platform dashboard showing expert search, project management, and industry insights';
+                heroImage.width = 1536;
+                heroImage.height = 1024;
+                console.debug('[casestudyUpdateHero] Set GLG hero image to images/glg/dashboard.png');
+            } else if (projectSlug === 'td-ameritrade-ux-analysis') {
+                heroImage.src = 'images/td-ameritrade/dashboard.png';
+                heroImage.alt = 'thinkorswim by Charles Schwab trading platform showing multi-device trading interface with charts and market data';
+                heroImage.width = 1536;
+                heroImage.height = 1024;
+                console.debug('[casestudyUpdateHero] Set TD Ameritrade hero image to images/td-ameritrade/dashboard.png');
             } else {
                 // Default image for other case studies
                 heroImage.src = 'images/case-study-hero-D8N--dk8.jpg';
@@ -1187,6 +1199,8 @@ const casestudyInit = () => {
          * - Pearson: Dark Blue/Light Blue theme
          * - G2A: Orange/White theme
          * - IBM: Dark Blue/Glowing Blue theme
+         * - GLG: Dark Blue/Light Blue theme
+         * - TD Ameritrade: Dark Gray/Green theme
          * 
          * Themes are applied via CSS classes on the body element.
          * Images are set dynamically based on the project slug.
@@ -1200,7 +1214,7 @@ const casestudyInit = () => {
          * Ensures clean theme switching without conflicts
          */
         const removeAllThemes = () => {
-            document.body.classList.remove('fiserv-theme', 'jobbot-theme', 'adp-theme', 'lordabbett-theme', 'pearson-theme', 'g2a-theme', 'ibm-theme');
+            document.body.classList.remove('fiserv-theme', 'jobbot-theme', 'adp-theme', 'lordabbett-theme', 'pearson-theme', 'g2a-theme', 'ibm-theme', 'glg-theme', 'td-ameritrade-theme');
         };
         
         // Fiserv Case Study: Orange/Brown theme with custom images
@@ -1358,6 +1372,54 @@ const casestudyInit = () => {
             if (resultsImage) {
                 resultsImage.src = 'images/ibm/beforeAfter.png';
                 resultsImage.alt = 'Before and after comparison showing transformation from traditional Rational Software Architect interface to modern IBM Bluedot Intelligence-driven research dashboard';
+                resultsImage.width = 1536;
+                resultsImage.height = 1024;
+            }
+        // GLG Case Study: Dark Blue/Light Blue theme with custom hero image
+        } else if (projectSlug === 'glg-expert-network') {
+            removeAllThemes();
+            document.body.classList.add('glg-theme');
+            if (heroImage) {
+                heroImage.src = 'images/glg/dashboard.png';
+                heroImage.alt = 'GLG Expert Network Platform dashboard showing expert search, project management, and industry insights';
+                heroImage.width = 1536;
+                heroImage.height = 1024;
+            }
+            // GLG process image: Expert network workflow
+            if (processImage) {
+                processImage.src = 'images/glg/process.png';
+                processImage.alt = 'GLG Expert Network Platform process: Service Design & Research, AI Recommender System, Blockchain Loyalty Design, and Team Building & Scaling';
+                processImage.width = 1024;
+                processImage.height = 1024;
+            }
+            // GLG results image: Before/After comparison
+            if (resultsImage) {
+                resultsImage.src = 'images/glg/beforeAfter.png';
+                resultsImage.alt = 'Before and after comparison showing transformation from traditional GLG Research interface to modern GLG Expert Network Platform with interactive data visualizations and network graphs';
+                resultsImage.width = 1536;
+                resultsImage.height = 1024;
+            }
+        // TD Ameritrade Case Study: Dark Gray/Green theme with custom hero image
+        } else if (projectSlug === 'td-ameritrade-ux-analysis') {
+            removeAllThemes();
+            document.body.classList.add('td-ameritrade-theme');
+            if (heroImage) {
+                heroImage.src = 'images/td-ameritrade/dashboard.png';
+                heroImage.alt = 'thinkorswim by Charles Schwab trading platform showing multi-device trading interface with charts and market data';
+                heroImage.width = 1536;
+                heroImage.height = 1024;
+            }
+            // TD Ameritrade process image: thinkorswim development cycle
+            if (processImage) {
+                processImage.src = 'images/td-ameritrade/process.png';
+                processImage.alt = 'thinkorswim development process: Research (Expert Interviews, User Feedback, Market Analysis), Design & Prototype (Wireframes, User Testing, Interactive Prototypes), and Implement & Iterate (Deploy Updates, Gather Data, Refine Features)';
+                processImage.width = 1024;
+                processImage.height = 1024;
+            }
+            // TD Ameritrade results image: Before/After comparison
+            if (resultsImage) {
+                resultsImage.src = 'images/td-ameritrade/beforeAfter.png';
+                resultsImage.alt = 'Before and after comparison showing transformation from traditional TD Ameritrade retail brokerage website to modern thinkorswim by Charles Schwab multi-device trading platform';
                 resultsImage.width = 1536;
                 resultsImage.height = 1024;
             }
