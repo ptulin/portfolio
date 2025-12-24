@@ -356,6 +356,12 @@ const homepageRenderProjects = () => {
         return; // Not on homepage
     }
     
+    // If content already exists (from noscript or initial HTML), preserve it for AI crawlers
+    // Only render if grid is empty (JS-enabled browsers)
+    if (grid.children.length > 0) {
+        return; // Content already present, skip JS rendering
+    }
+    
     try {
         grid.innerHTML = homepagePROJECTS.map(homepageCreateProjectCard).join('');
     } catch (error) {
@@ -373,6 +379,12 @@ const homepageRenderExpertise = () => {
     
     if (!grid) {
         return; // Not on homepage
+    }
+    
+    // If content already exists (from noscript or initial HTML), preserve it for AI crawlers
+    // Only render if grid is empty (JS-enabled browsers)
+    if (grid.children.length > 0) {
+        return; // Content already present, skip JS rendering
     }
     
     try {
