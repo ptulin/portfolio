@@ -1418,7 +1418,7 @@ const casestudyInit = () => {
             }
             // TD Ameritrade results image: Before/After comparison
             if (resultsImage) {
-                resultsImage.src = 'images/td-ameritrade/beforeAfter.png';
+                resultsImage.src = 'images/td-ameritrade/before-after.png';
                 resultsImage.alt = 'Before and after comparison showing transformation from traditional TD Ameritrade retail brokerage website to modern thinkorswim by Charles Schwab multi-device trading platform';
                 resultsImage.width = 1536;
                 resultsImage.height = 1024;
