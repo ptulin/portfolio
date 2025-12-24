@@ -1,102 +1,83 @@
-# Portfolio Website - Pawel Tulin
+# Portfolio Website - Production
 
-A modern, responsive portfolio website showcasing AI-driven product design work and case studies.
+Professional portfolio website showcasing UX/UI design work and case studies.
 
-## 🌐 Live Site & Repository
-
-**Live Website**: https://disruptiveexperience.com/pawel/  
-**GitHub Repository**: https://github.com/ptulin/portfolio
-
-## 🚀 Quick Start
-
-### Local Development
-
-Navigate to the `sandbox-new` directory and start a local server:
-
-**Option 1: Node.js Server**
-```bash
-cd sandbox-new
-node server.js
-```
-Access at: http://localhost:5177
-
-**Option 2: Python Server**
-```bash
-cd sandbox-new
-python3 server.py
-```
-Access at: http://localhost:5177
+**Live Site:** https://disruptiveexperience.com/pawel/
 
 ## 📁 Project Structure
 
 ```
-portfolioRedesign/
-├── sandbox-new/          # Main project directory (deployed to production)
-│   ├── index.html        # Homepage
-│   ├── about.html        # About page
-│   ├── contact.html      # Contact form page
-│   ├── case-study.html   # Case study template
-│   ├── 404.html          # Error page
-│   ├── resume/           # Resume pages
-│   ├── common.css        # Unified stylesheet
-│   ├── common.js         # Unified JavaScript
-│   ├── config.js         # Configuration
-│   └── ...               # See sandbox-new/README.md for full structure
-├── .cpanel.yml           # cPanel deployment configuration
-├── .gitignore            # Git ignore rules
-└── README.md             # This file
+production/
+├── index.html              # Homepage
+├── about.html              # About page
+├── contact.html            # Contact page
+├── case-study.html         # Case study template
+├── 404.html                # Error page
+├── common.css              # Main stylesheet
+├── common.js               # Main JavaScript
+├── config.js               # Configuration
+├── case_studies_data.js    # Case study content
+├── robots.txt              # SEO robots file
+├── sitemap.xml             # SEO sitemap
+├── images/                 # Image assets
+│   ├── adp/
+│   ├── fiserv/
+│   ├── g2a/
+│   ├── glg/
+│   ├── ibm/
+│   ├── jobbot/
+│   ├── lord-abbett/
+│   ├── pearson/
+│   └── td-ameritrade/
+├── js/
+│   └── utils.js            # Backend utilities
+└── resume/
+    ├── index.html          # Resume password entry
+    └── access.html         # Resume display
 ```
 
-## 🔀 Git Branches
+## 🎨 Features
 
-- **`main`** - Production branch (auto-deploys to https://disruptiveexperience.com/pawel/)
-- **`develop`** - Development branch (for testing and new features)
+- **Responsive Design:** Mobile-first, works on all devices
+- **Case Studies:** 8 detailed case studies with custom themes
+- **SEO Optimized:** Proper meta tags, sitemap, robots.txt
+- **Performance:** Optimized images and code
+- **Accessibility:** WCAG compliant, semantic HTML
 
-## 🚢 Deployment
+## 🚀 Deployment
 
-The site is automatically deployed via cPanel Git Version Control:
+This project is deployed via GitHub to cPanel:
 
-1. Push changes to GitHub: `git push origin main`
-2. cPanel automatically pulls and deploys via `.cpanel.yml`
-3. Files sync to `/home1/moose/public_html/portfolio/`
+1. Push changes to `main` branch
+2. Pull from GitHub via cPanel Git Version Control
+3. Files are automatically deployed to production
 
-See `DEPLOYMENT_GUIDE.md` for detailed deployment instructions.
+## 📝 Case Studies
 
-## 📚 Documentation
+1. **Fiserv** - CFO AI Office Automation
+2. **JobBot** - Email Automation
+3. **ADP** - Customer Support Chatbots
+4. **Lord Abbett** - Data Users Platform
+5. **Pearson** - Online Education Platform
+6. **G2A** - Global E-Commerce
+7. **IBM** - Bluedot Intelligence
+8. **GLG** - Expert Network Platform
+9. **TD Ameritrade** - UX Analysis
 
-All detailed documentation is in the `sandbox-new` directory:
+## 🛠️ Technology Stack
 
-- **sandbox-new/README.md** - Complete project overview and quick start
-- **sandbox-new/ARCHITECTURE.md** - Architecture and extensibility guide
-- **sandbox-new/OPTIMIZATION_SUMMARY.md** - Code optimizations
-- **sandbox-new/DEPLOYMENT_CHECKLIST.md** - Deployment guide
-- **sandbox-new/PROJECT_SUCCESS_SUMMARY.md** - Feature summary
-- **sandbox-new/RESPONSIVE_DESIGN_CHECKLIST.md** - Responsive design details
-- **DEPLOYMENT_GUIDE.md** - GitHub deployment instructions
+- **HTML5** - Semantic markup
+- **CSS3** - Custom properties, modern layouts
+- **JavaScript (ES6+)** - Vanilla JS, no frameworks
+- **Google Apps Script** - Backend form handling
 
-## ✨ Features
+## 📄 License
 
-- **Responsive Design**: Mobile-first, works on all devices
-- **Dynamic Content**: Case studies loaded based on URL parameters
-- **Form Handling**: Contact form and resume password verification
-- **SEO Optimized**: Sitemap, robots.txt, structured data
-- **Accessibility**: WCAG compliant with skip links and ARIA labels
-- **Performance**: Optimized assets, lazy loading, deferred scripts
+© 2025 Pawel Tulin. All rights reserved.
 
-## 🔧 Technology Stack
+## 👤 Author
 
-- **HTML5**: Semantic markup
-- **CSS3**: Custom properties, Flexbox, Grid
-- **JavaScript (ES6+)**: Vanilla JS, no frameworks
-- **Backend**: Google Apps Script integration
-- **No Build Tools**: Pure static files
+**Pawel Tulin**
+- Portfolio: https://disruptiveexperience.com/pawel/
+- Email: ptulin@gmail.com
 
-## 📝 License
-
-All rights reserved. This portfolio website is proprietary.
-
----
-
-**Version**: 2.1.0  
-**Author**: Pawel Tulin  
-**Status**: ✅ Production Ready
