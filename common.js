@@ -1394,7 +1394,7 @@ const casestudyInit = () => {
             }
             // GLG results image: Before/After comparison
             if (resultsImage) {
-                resultsImage.src = 'images/glg/beforeAfter.png';
+                resultsImage.src = 'images/glg/before-after.png';
                 resultsImage.alt = 'Before and after comparison showing transformation from traditional GLG Research interface to modern GLG Expert Network Platform with interactive data visualizations and network graphs';
                 resultsImage.width = 1536;
                 resultsImage.height = 1024;
