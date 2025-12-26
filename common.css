@@ -577,7 +577,7 @@ img {
     left: 0;
     right: 0;
     z-index: 1000;
-    background-color: color-mix(in srgb, var(--color-background) 80%, transparent);
+    background-color: var(--color-background);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--color-border);
 }
@@ -1118,6 +1118,7 @@ img {
     gap: var(--spacing-lg);
     padding-top: var(--spacing-md);
     border-top: 1px solid var(--color-border-opacity);
+    margin-top: auto;
 }
 
 .homepage-project-link {

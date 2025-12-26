@@ -405,10 +405,24 @@ const homepageRenderExpertise = () => {
 const initMobileMenu = () => {
     const toggle = document.querySelector('.mobile-menu-toggle');
     const navLinks = document.querySelector('.nav-links');
-    
+
     if (!toggle || !navLinks) {
         return; // Mobile menu not present
     }
+
+    // Reset navigation state on page load to prevent persistence issues across page transitions
+    navLinks.style.display = '';
+    navLinks.style.flexDirection = '';
+    navLinks.style.position = '';
+    navLinks.style.top = '';
+    navLinks.style.left = '';
+    navLinks.style.right = '';
+    navLinks.style.backgroundColor = '';
+    navLinks.style.padding = '';
+    navLinks.style.borderTop = '';
+    navLinks.style.zIndex = '';
+    navLinks.style.boxShadow = '';
+    toggle.setAttribute('aria-expanded', 'false');
     
     // Remove any existing listeners by cloning the element
     const newToggle = toggle.cloneNode(true);
@@ -1046,7 +1060,7 @@ const getCaseStudyData = (slug) => {
     try {
         // Check if CASE_STUDY_DATA is available (loaded from case_studies_data.js)
         if (typeof CASE_STUDY_DATA !== 'undefined' && CASE_STUDY_DATA[slug]) {
-            console.debug(`[getCaseStudyData] Loaded data for: ${slug}`);
+            // Case study data loaded successfully
             return CASE_STUDY_DATA[slug];
         }
         
@@ -1171,13 +1185,13 @@ const casestudyUpdateHero = (data) => {
                 heroImage.alt = 'GLG Expert Network Platform dashboard showing expert search, project management, and industry insights';
                 heroImage.width = 1536;
                 heroImage.height = 1024;
-                console.debug('[casestudyUpdateHero] Set GLG hero image to images/glg/dashboard.png');
+                // GLG case study images loaded
             } else if (projectSlug === 'td-ameritrade-ux-analysis') {
                 heroImage.src = 'images/td-ameritrade/dashboard.png';
                 heroImage.alt = 'thinkorswim by Charles Schwab trading platform showing multi-device trading interface with charts and market data';
                 heroImage.width = 1536;
                 heroImage.height = 1024;
-                console.debug('[casestudyUpdateHero] Set TD Ameritrade hero image to images/td-ameritrade/dashboard.png');
+                // TD Ameritrade case study images loaded
             } else {
                 // Default image for other case studies
                 heroImage.src = 'images/case-study-hero-D8N--dk8.jpg';
@@ -1200,7 +1214,7 @@ const casestudyInit = () => {
         const urlParams = new URLSearchParams(window.location.search);
         const projectSlug = urlParams.get('project') || 'fiserv-cfo-ai-automation'; // Default to Fiserv
         
-        console.debug(`[casestudyInit] Loading case study: ${projectSlug}`);
+        // Loading case study page
         
         /**
          * Apply case study-specific theme and images dynamically
@@ -1259,7 +1273,7 @@ const casestudyInit = () => {
                 heroImage.alt = 'Job automation dashboard showing email processing and resume generation interface';
                 heroImage.width = 1536;
                 heroImage.height = 1024;
-                console.debug('[casestudyInit] Set JobBot hero image to images/jobbot/dashboard.png');
+                // JobBot case study images loaded
             }
             if (processImage) {
                 processImage.src = 'images/jobbot/process.png';
@@ -1520,14 +1534,14 @@ const init = () => {
         
         // Homepage detection
         if (body.classList.contains('homepage-page') || document.getElementById('projectsGrid')) {
-            console.debug('[init] Detected homepage, initializing...');
+            // Homepage detected and initialized
             homepageInit();
             return;
         }
         
         // Case study page detection
         if (body.classList.contains('casestudy-page') || document.getElementById('overviewGrid')) {
-            console.debug('[init] Detected case study page, initializing...');
+            // Case study page detected and initialized
             casestudyInit();
             
             // Optional: Load case study data based on URL parameter
@@ -1536,7 +1550,7 @@ const init = () => {
             if (projectSlug && window.PORTFOLIO_CONFIG) {
                 const caseStudy = window.PORTFOLIO_CONFIG.getCaseStudy(projectSlug);
                 if (caseStudy) {
-                    console.debug(`[init] Case study found: ${caseStudy.title}`);
+                    // Case study data loaded successfully
                     // Future: Dynamic content loading based on case study config
                 } else {
                     console.warn(`[init] Case study not found for slug: ${projectSlug}`);

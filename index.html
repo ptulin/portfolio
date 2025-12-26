@@ -119,7 +119,6 @@
                     <li role="none"><a href="#work" class="nav-link" role="menuitem">Work</a></li>
                     <li role="none"><a href="about.html" class="nav-link" role="menuitem">About</a></li>
                     <li role="none"><a href="#expertise" class="nav-link" role="menuitem">Service</a></li>
-                    <li role="none"><a href="contact.html" class="nav-link" role="menuitem">Contact</a></li>
                     <li role="none"><a href="contact.html" class="nav-button" role="menuitem">Let's Talk</a></li>
                 </ul>
                 <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -145,15 +144,16 @@
         <div class="container">
             <div class="homepage-availability-badge" role="status" aria-live="polite">
                 <span class="homepage-badge-dot" aria-hidden="true"></span>
-                <span class="homepage-badge-text">Available for new projects</span>
+                <span class="homepage-badge-text">Available for select roles and projects</span>
             </div>
             <h1 id="hero-title" class="homepage-hero-title">
-                <span class="homepage-hero-title-line">AI-Driven</span>
-                <span class="homepage-hero-title-line homepage-hero-title-highlight">Product Designer</span>
-                <span class="homepage-hero-title-line">UX Leader & Research Strategist</span>
+                Senior UX & AI <span style="color: hsl(180, 70%, 50%)">Product Leader</span>
             </h1>
             <p class="homepage-hero-description">
-                I build enterprise-grade human-AI systems, workflows, and complex platforms for fintech, SaaS, and mission-driven organizations. Transforming complex problems into elegant, user-centered solutions.
+                I design enterprise human–AI workflows and complex platforms that teams can ship, trust, and operate at scale.
+            </p>
+            <p class="homepage-hero-description">
+                Most organizations are past AI experimentation and focused on execution: identifying which processes are worth automating, what level of risk and oversight is required, and whether the economics make sense. I help teams move from review and prioritization into production by designing human–AI systems that fit real workflows, constraints, and decision-making practices.
             </p>
             <div class="homepage-hero-buttons">
                 <a href="#work" class="btn btn-primary" aria-label="View selected work projects">
@@ -191,9 +191,55 @@
     </section>
 
     <!-- ======================================================================
+         ABOUT SECTION
+         ====================================================================== -->
+
+    <section id="about" class="homepage-about-section" aria-labelledby="about-title">
+        <div class="container">
+            <div class="homepage-about-wrapper">
+                <div class="homepage-about-content-wrapper">
+                    <header class="section-header">
+                        <p class="section-subtitle">About</p>
+                        <h2 id="about-title" class="section-title">
+                            How <span style="color: hsl(180, 70%, 50%)">I Work</span>
+                        </h2>
+                        <div class="homepage-about-content">
+                            <p>
+                                I'm a designer and researcher by training, with over 15 years of experience designing and leading complex digital systems across fintech, education, and enterprise platforms. My foundation in UX research and product design shapes how I approach AI: grounded in real user behavior, operational constraints, and measurable outcomes.
+                            </p>
+                            <p style="color: hsl(180, 70%, 50%)">
+                                Today, most AI challenges aren't about models—they're about readiness. Teams struggle to understand which workflows can be automated, where human judgment is required, how outputs should be reviewed, and what it will cost to run systems reliably over time.
+                            </p>
+                            <p>
+                                My work focuses on bridging that gap. I map real processes, identify high-leverage opportunities for automation, and design human-in-the-loop experiences that make AI usable in production—so it becomes part of how work gets done, not an isolated experiment.
+                            </p>
+                            <p>
+                                <a href="/about.html" style="color: hsl(180, 70%, 50%)">Learn more about my background and approach →</a>
+                            </p>
+                        </div>
+                    </header>
+                </div>
+                <aside class="homepage-companies-section" aria-labelledby="companies-title">
+                    <h3 id="companies-title" class="homepage-companies-title">Companies I've Worked With</h3>
+                    <div class="homepage-companies-grid" role="list">
+                        <div class="homepage-company-logo" role="listitem">IBM</div>
+                        <div class="homepage-company-logo" role="listitem">Fiserv</div>
+                        <div class="homepage-company-logo" role="listitem">Pearson</div>
+                        <div class="homepage-company-logo" role="listitem">TD Ameritrade</div>
+                        <div class="homepage-company-logo" role="listitem">Lord Abbett</div>
+                        <div class="homepage-company-logo" role="listitem">G2A</div>
+                        <div class="homepage-company-logo" role="listitem">ADP</div>
+                        <div class="homepage-company-logo" role="listitem">GLG</div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
          FEATURED WORK SECTION
          ====================================================================== -->
-    
+
     <section id="work" class="homepage-work-section" aria-labelledby="work-title">
         <div class="container">
             <header class="section-header">
@@ -214,12 +260,7 @@
                         <div class="homepage-project-content">
                             <span class="homepage-project-company">Fiserv</span>
                             <h3 class="homepage-project-title">CFO AI Office Automation</h3>
-                            <ul class="homepage-project-features">
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>AI Report Generation</li>
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>Custom Workflows & Dashboards</li>
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>Agentic Framework</li>
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>Personal RAG</li>
-                            </ul>
+                            <p class="homepage-project-description">I designed an AI-assisted CFO workflow for reporting and analysis, which reduced reporting cycles and enabled faster, more consistent financial decision-making at enterprise scale.</p>
                             <div class="homepage-project-links">
                                 <a href="case-study.html?project=fiserv-cfo-ai-automation" class="homepage-project-link">View Case</a>
                             </div>
@@ -232,12 +273,7 @@
                         <div class="homepage-project-content">
                             <span class="homepage-project-company">Jobbot</span>
                             <h3 class="homepage-project-title">AI Email Automation Experiment</h3>
-                            <ul class="homepage-project-features">
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>Custom Email Replies</li>
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>Custom Resume Generation</li>
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>Almost No Costs</li>
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>Built on Google + GPT APIs</li>
-                            </ul>
+                            <p class="homepage-project-description">I built an AI workflow that automated recruiter email replies, resume tailoring, and follow-ups, reducing manual effort while maintaining timely, high-quality communication with hiring teams.</p>
                             <div class="homepage-project-links">
                                 <a href="case-study.html?project=jobbot-email-automation" class="homepage-project-link">View Case</a>
                             </div>
@@ -250,11 +286,7 @@
                         <div class="homepage-project-content">
                             <span class="homepage-project-company">ADP/Global</span>
                             <h3 class="homepage-project-title">Customer Support Chatbots</h3>
-                            <ul class="homepage-project-features">
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>IBM Watson-powered conversational AI</li>
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>90% of customer interactions automated</li>
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>70% reduction in support costs</li>
-                            </ul>
+                            <p class="homepage-project-description">I led the design of IBM Watson–powered conversational AI to handle global customer support at scale, automating roughly 80% of conversations, cutting support costs by about 75%, and reducing response wait times to near zero—freeing human agents to focus on complex, high-value issues.</p>
                             <div class="homepage-project-links">
                                 <a href="case-study.html?project=adp-customer-support-chatbots" class="homepage-project-link">View Case</a>
                             </div>
@@ -267,12 +299,7 @@
                         <div class="homepage-project-content">
                             <span class="homepage-project-company">Lord Abbett</span>
                             <h3 class="homepage-project-title">Data & Users</h3>
-                            <ul class="homepage-project-features">
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>Data Visualization</li>
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>UI Personalization</li>
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>Mission Critical Security</li>
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>Advanced Error Handling</li>
-                            </ul>
+                            <p class="homepage-project-description">I led a complete redesign of Lord Abbett's digital presence, introducing mobile tools, personalized user experiences, and clear data visualization—resulting in a cohesive platform that delivered tailored insights and new capabilities for each investor.</p>
                             <div class="homepage-project-links">
                                 <a href="case-study.html?project=lord-abbett-data-users" class="homepage-project-link">View Case</a>
                             </div>
@@ -285,12 +312,7 @@
                         <div class="homepage-project-content">
                             <span class="homepage-project-company">Pearson</span>
                             <h3 class="homepage-project-title">Online Education Platform</h3>
-                            <ul class="homepage-project-features">
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>Personalized learning</li>
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>Trusted content</li>
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>Comprehensive assessment</li>
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>Data-driven insights</li>
-                            </ul>
+                            <p class="homepage-project-description">I led UX for the nationwide implementation of Common Core standards across U.S. public schools, designing personalized learning and teaching tools that enabled educators to tailor instruction to individual student needs—delivered at national scale in collaboration with Apple.</p>
                             <div class="homepage-project-links">
                                 <a href="case-study.html?project=pearson-online-education" class="homepage-project-link">View Case</a>
                             </div>
@@ -303,12 +325,7 @@
                         <div class="homepage-project-content">
                             <span class="homepage-project-company">G2A</span>
                             <h3 class="homepage-project-title">Global E-Commerce Platform</h3>
-                            <ul class="homepage-project-features">
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>AI Product Recommenders</li>
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>Blockchain Loyalty Systems</li>
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>Service Design</li>
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>Team Building and Management</li>
-                            </ul>
+                            <p class="homepage-project-description">I led and scaled a global UX research and design organization, shifting product development to a data-driven model and delivering personalization initiatives—including recommender systems and blockchain-based loyalty—which increased platform revenue by roughly 30% in the first year.</p>
                             <div class="homepage-project-links">
                                 <a href="case-study.html?project=g2a-global-ecommerce" class="homepage-project-link">View Case</a>
                             </div>
@@ -321,12 +338,7 @@
                         <div class="homepage-project-content">
                             <span class="homepage-project-company">Gerson Lehrman Group</span>
                             <h3 class="homepage-project-title">Expert Network Platform</h3>
-                            <ul class="homepage-project-features">
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>Custom Search Engine</li>
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>Interactive Data Visualization</li>
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>Largest Expert Network</li>
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>Complex Compliance Workflows</li>
-                            </ul>
+                            <p class="homepage-project-description">I designed a custom search engine interfacing with hundreds of global government and industry databases, enabling rapid discovery of domain experts worldwide while supporting complex compliance and review requirements.</p>
                             <div class="homepage-project-links">
                                 <a href="case-study.html?project=glg-expert-network" class="homepage-project-link">View Case</a>
                             </div>
@@ -339,12 +351,7 @@
                         <div class="homepage-project-content">
                             <span class="homepage-project-company">IBM</span>
                             <h3 class="homepage-project-title">Bluedot Intelligence</h3>
-                            <ul class="homepage-project-features">
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>Custom research</li>
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>Rapid prototyping</li>
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>User Journeys and Personas</li>
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>Natural Language Processing</li>
-                            </ul>
+                            <p class="homepage-project-description">I led UX research and rapid prototyping for an AI-driven intelligence platform, translating complex analytical models into usable workflows through clear user journeys, personas, and natural-language interaction patterns.</p>
                             <div class="homepage-project-links">
                                 <a href="case-study.html?project=ibm-bluedot-intelligence" class="homepage-project-link">View Case</a>
                             </div>
@@ -357,10 +364,7 @@
                         <div class="homepage-project-content">
                             <span class="homepage-project-company">TD Ameritrade</span>
                             <h3 class="homepage-project-title">UX Competitive Analysis & Heuristic Evaluation</h3>
-                            <ul class="homepage-project-features">
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>Heuristic usability audit</li>
-                                <li><span class="homepage-feature-dot" aria-hidden="true"></span>Comparative UX study</li>
-                            </ul>
+                            <p class="homepage-project-description">I conducted a comprehensive UX audit and competitive analysis of trading platforms, identifying usability gaps and actionable improvements to support faster, more confident decision-making for active traders.</p>
                             <div class="homepage-project-links">
                                 <a href="case-study.html?project=td-ameritrade-ux-analysis" class="homepage-project-link">View Case</a>
                             </div>
@@ -424,49 +428,6 @@
                         <h3 class="homepage-expertise-title">Product Leadership</h3>
                         <p class="homepage-expertise-description">Leading cross-functional teams to deliver products that balance business goals, technical constraints, and user needs.</p>
                     </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======================================================================
-         ABOUT SECTION
-         ====================================================================== -->
-    
-    <section id="about" class="homepage-about-section" aria-labelledby="about-title">
-        <div class="container">
-            <div class="homepage-about-wrapper">
-                <div class="homepage-about-content-wrapper">
-                    <header class="section-header">
-                        <p class="section-subtitle">About</p>
-                        <h2 id="about-title" class="section-title">
-                            Designing the <span class="text-gradient">Future</span> of Human-AI Interaction
-                        </h2>
-                        <div class="homepage-about-content">
-                            <p>
-                                With over 15 years of experience in product design and UX research, I've led design initiatives for enterprise platforms serving millions of users across fintech, education, and e-commerce sectors.
-                            </p>
-                            <p>
-                                My work sits at the intersection of human-centered design and emerging AI technologies. I specialize in making complex systems intuitive, helping organizations leverage AI while maintaining the human touch that creates lasting connections.
-                            </p>
-                            <p>
-                                Currently focused on building agentic AI frameworks and automation workflows that augment human capabilities rather than replace them.
-                            </p>
-                        </div>
-                    </header>
-                </div>
-                <aside class="homepage-companies-section" aria-labelledby="companies-title">
-                    <h3 id="companies-title" class="homepage-companies-title">Companies I've Worked With</h3>
-                    <div class="homepage-companies-grid" role="list">
-                        <div class="homepage-company-logo" role="listitem">IBM</div>
-                        <div class="homepage-company-logo" role="listitem">Fiserv</div>
-                        <div class="homepage-company-logo" role="listitem">Pearson</div>
-                        <div class="homepage-company-logo" role="listitem">TD Ameritrade</div>
-                        <div class="homepage-company-logo" role="listitem">Lord Abbett</div>
-                        <div class="homepage-company-logo" role="listitem">G2A</div>
-                        <div class="homepage-company-logo" role="listitem">ADP</div>
-                        <div class="homepage-company-logo" role="listitem">GLG</div>
-                    </div>
-                </aside>
             </div>
         </div>
     </section>

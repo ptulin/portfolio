@@ -1,0 +1,147 @@
+=== RAW llm.txt (VERBATIM) ===
+
+# Pawel Tulin - AI-Driven Product Designer & UX Leader
+
+## About
+Pawel Tulin is an AI-Driven Product Designer, UX Leader & Research Strategist with over 15 years of experience building enterprise-grade human-AI systems, workflows, and complex platforms for fintech, SaaS, and mission-driven organizations.
+
+## Role Focus
+- Product Design
+- UX Design & Research
+- AI Design & Human-AI Interaction
+- Enterprise Design
+
+## Key Projects & Outcomes
+
+### Fiserv - CFO AI Office Automation
+- AI Report Generation
+- Custom Workflows & Dashboards
+- Agentic Framework
+- Personal RAG
+- Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=fiserv-cfo-ai-automation
+
+### Jobbot - AI Email Automation Experiment
+- Custom Email Replies
+- Custom Resume Generation
+- Almost No Costs
+- Built on Google + GPT APIs
+- Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=jobbot-email-automation
+
+### ADP/Global - Customer Support Chatbots
+- IBM Watson-powered conversational AI
+- 90% of customer interactions automated
+- 70% reduction in support costs
+- Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=adp-customer-support-chatbots
+
+### Lord Abbett - Data & Users
+- Data Visualization
+- UI Personalization
+- Mission Critical Security
+- Advanced Error Handling
+- Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=lord-abbett-data-users
+
+### Pearson - Online Education Platform
+- Personalized learning
+- Trusted content
+- Comprehensive assessment
+- Data-driven insights
+- Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=pearson-online-education
+
+### G2A - Global E-Commerce Platform
+- AI Product Recommenders
+- Blockchain Loyalty Systems
+- Service Design
+- Team Building and Management
+- Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=g2a-global-ecommerce
+
+### Gerson Lehrman Group (GLG) - Expert Network Platform
+- Custom Search Engine
+- Interactive Data Visualization
+- Largest Expert Network
+- Complex Compliance Workflows
+- Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=glg-expert-network
+
+### IBM - Bluedot Intelligence
+- Custom research
+- Rapid prototyping
+- User Journeys and Personas
+- Natural Language Processing
+- Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=ibm-bluedot-intelligence
+
+### TD Ameritrade - UX Competitive Analysis & Heuristic Evaluation
+- Heuristic usability audit
+- Comparative UX study
+- Case Study: https://disruptiveexperience.com/pawel/case-study.html?project=td-ameritrade-ux-analysis
+
+## Areas of Expertise
+1. AI & Machine Learning Design - Designing intelligent interfaces that seamlessly integrate AI capabilities while maintaining human-centered experiences.
+2. UX Research & Strategy - Deep user research and strategic thinking to uncover insights that drive product decisions and user experiences.
+3. Service Design - End-to-end service design that connects touchpoints and creates cohesive experiences across digital and physical channels.
+4. Product Leadership - Leading cross-functional teams to deliver products that balance business goals, technical constraints, and user needs.
+
+## Professional Statistics
+- 15+ Years Experience
+- 50+ Projects Delivered
+- 90% AI Automation Rate
+- 70% Cost Reduction
+
+## Companies Worked With
+IBM, Fiserv, Pearson, TD Ameritrade, Lord Abbett, G2A, ADP, GLG (Gerson Lehrman Group)
+
+## Contact
+- Email: ptulin@gmail.com
+- LinkedIn: https://linkedin.com/in/paweltulin
+- Website: https://disruptiveexperience.com/pawel/
+- Resume: https://disruptiveexperience.com/pawel/resume/
+
+## Canonical URLs
+- Homepage: https://disruptiveexperience.com/pawel/
+- About: https://disruptiveexperience.com/pawel/about.html
+- Contact: https://disruptiveexperience.com/pawel/contact.html
+
+## Current Focus
+Currently focused on building agentic AI frameworks and automation workflows that augment human capabilities rather than replace them.
+
+
+=== CONTEXT ===
+
+INTENDED AUDIENCE:
+- Primary: AI agents, LLM-based tools (ChatGPT, Claude, etc.) that fetch and summarize portfolio content
+- Secondary: Recruiters using AI tools to search and match candidates
+- Tertiary: RAG systems and internal tools that need structured portfolio data
+- Not intended for: Direct human reading (though readable)
+
+CONSTRAINTS:
+- Must be machine-readable (plain text, structured format)
+- Must include canonical URLs for verification
+- Should align with homepage content for consistency
+- No marketing fluff - factual, outcome-oriented
+- Must be accessible via simple HTTP GET (no auth, no JS)
+
+SOURCE OF TRUTH:
+- Current status: DERIVATIVE (summary of homepage + case studies)
+- Derived from: index.html homepage content, case study data
+- Not currently: Authoritative primary source
+- Relationship: Mirrors existing site copy structure
+
+UPDATE EXPECTATIONS:
+- llm.txt is ALLOWED to:
+  * Introduce stronger positioning language (e.g., "leading" vs "building")
+  * Emphasize AI/product leadership over visual design skills
+  * Include outcome-oriented phrasing (e.g., "delivered X% improvement")
+  * Use senior-level terminology (e.g., "strategic", "enterprise", "scalable")
+  * Highlight business impact alongside technical achievements
+  * Optimize for AI agent understanding and recruiter matching
+
+- llm.txt should NOT:
+  * Contradict homepage/resume facts
+  * Include false or unverifiable claims
+  * Use overly promotional language
+  * Remove existing factual content
+
+- Optimization goals:
+  * Clarity for AI agents parsing and summarizing
+  * Positioning for senior UX/Product/AI leadership roles
+  * Emphasis on strategic impact and business outcomes
+  * Better keyword alignment for recruiter AI tools
+
