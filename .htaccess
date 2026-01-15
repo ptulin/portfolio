@@ -9,7 +9,8 @@
 </IfModule>
 
 # CRITICAL: Disable ModSecurity for this directory
-# Support both mod_security2.c (common on shared hosts) and mod_security.c
+# Try mod_security2.c first (common on shared hosts), then mod_security.c
+# If SecRuleEngine Off causes 500 error, hosting doesn't allow it in .htaccess
 <IfModule mod_security2.c>
     SecRuleEngine Off
 </IfModule>
