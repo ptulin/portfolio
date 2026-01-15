@@ -1,0 +1,86 @@
+# ============================================
+# Fix HTTP 406 Not Acceptable Error
+# Scoped to /pawel/ and /pawel_tulin_samples/ paths only
+# ============================================
+# 
+# This configuration addresses 406 errors for non-browser clients
+# while maintaining security for the rest of the site.
+#
+# Root Cause: Content negotiation or WAF rules blocking requests
+# with non-standard Accept headers or User-Agents
+# ============================================
+
+# Disable MultiViews content negotiation (common cause of 406)
+<IfModule mod_negotiation.c>
+    Options -MultiViews
+</IfModule>
+
+# Force HTML content type for .html files (prevents negotiation issues)
+<FilesMatch "\.(html|htm)$">
+    ForceType text/html
+    Header set Content-Type "text/html; charset=utf-8"
+</FilesMatch>
+
+# Allow all Accept headers for HTML content
+# This ensures bots, AI tools, and API clients can access pages
+<IfModule mod_headers.c>
+    # Remove Accept header restrictions for HTML pages
+    Header unset Accept
+    Header append Accept "*/*"
+</IfModule>
+
+# ============================================
+# Path-Specific Rules (if using <Directory> or LocationMatch)
+# Apply these only to /pawel/ and /pawel_tulin_samples/
+# ============================================
+# Note: These rules apply to the directory where .htaccess is placed
+# If .htaccess is in document root, use <LocationMatch> in vhost config instead
+
+# ============================================
+# mod_security Whitelisting (if supported by hosting)
+# ============================================
+# Uncomment these if mod_security is causing 406 errors
+# Many shared hosts don't allow this - test carefully
+#
+# <IfModule mod_security.c>
+#     # Remove common rules that block bots/AI tools
+#     SecRuleRemoveById 900015  # User-Agent validation
+#     SecRuleRemoveById 900016  # Accept header validation
+#     SecRuleRemoveById 960015  # Request header anomaly
+#     SecRuleRemoveById 960017  # Missing/empty User-Agent
+#     SecRuleRemoveById 960024  # Request header missing
+# </IfModule>
+
+# ============================================
+# Security: Block malicious patterns (safe - doesn't affect bots)
+# ============================================
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Block SQL injection attempts (safe - doesn't affect legitimate bots)
+    RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
+    RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+    RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
+    RewriteRule .* - [F,L]
+    
+    # DO NOT block based on User-Agent
+    # DO NOT block based on Accept header
+    # These rules would cause 406 errors for legitimate clients
+</IfModule>
+
+# ============================================
+# IMPORTANT: Remove or comment out any existing rules that:
+# - Check HTTP_USER_AGENT and return [F] (Forbidden)
+# - Check HTTP:Accept and return [F]
+# - Block based on User-Agent or Accept headers
+# ============================================
+#
+# Example of what to REMOVE/COMMENT OUT:
+# RewriteCond %{HTTP_USER_AGENT} ^.*(bot|crawler|spider).*$ [NC]
+# RewriteRule .* - [F,L]
+#
+# RewriteCond %{HTTP:Accept} !text/html [NC]
+# RewriteRule .* - [F,L]
+#
+# SetEnvIf User-Agent ".*bot.*" block_ua
+# Deny from env=block_ua
