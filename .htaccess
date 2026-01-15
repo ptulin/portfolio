@@ -1,6 +1,7 @@
 # ============================================
 # Fix HTTP 406 Not Acceptable Error - /pawel/ only
 # Root Cause: ModSecurity blocking requests with incomplete User-Agent strings
+# NOTE: SecRuleEngine Off causes 500 error - not allowed in .htaccess on this host
 # ============================================
 
 # TEST: Verify .htaccess is being applied
@@ -8,15 +9,14 @@
     Header set X-DX-HTACCESS "pawel-on"
 </IfModule>
 
-# CRITICAL: Disable ModSecurity for this directory
-# Try mod_security2.c first (common on shared hosts), then mod_security.c
-# If SecRuleEngine Off causes 500 error, hosting doesn't allow it in .htaccess
+# Disable content negotiation
+Options -MultiViews
+
+# Attempt to remove ModSecurity rules (may not work if host doesn't allow)
+# If this doesn't work, contact hosting support to disable ModSecurity for /pawel/
 <IfModule mod_security2.c>
-    SecRuleEngine Off
+    SecRuleRemoveById 1-999999
 </IfModule>
 <IfModule mod_security.c>
-    SecRuleEngine Off
+    SecRuleRemoveById 1-999999
 </IfModule>
-
-# Disable content negotiation as defense in depth
-Options -MultiViews
