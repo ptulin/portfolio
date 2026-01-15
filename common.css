@@ -873,7 +873,7 @@ img {
     padding: var(--spacing-sm) var(--spacing-md);
     background-color: #e5e5e5;
     border-radius: var(--border-radius-full);
-    border: 1px solid #ff0000;
+    border: 1px solid hsl(180, 70%, 50%);
     margin-bottom: var(--spacing-xl);
     text-decoration: none;
     cursor: pointer;
