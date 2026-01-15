@@ -1,6 +1,6 @@
 # ============================================
 # Fix HTTP 406 Not Acceptable Error
-# Scoped to /pawel/ and /pawel_tulin_samples/ paths only
+# Scoped to /pawel/ path only
 # ============================================
 # 
 # This configuration addresses 406 errors for non-browser clients
@@ -9,6 +9,11 @@
 # Root Cause: Content negotiation or WAF rules blocking requests
 # with non-standard Accept headers or User-Agents
 # ============================================
+
+# TEST: Verify .htaccess is being applied
+<IfModule mod_headers.c>
+    Header set X-DX-HTACCESS "pawel-on"
+</IfModule>
 
 # Disable MultiViews content negotiation (common cause of 406)
 <IfModule mod_negotiation.c>
