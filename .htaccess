@@ -1,13 +1,3 @@
-# ============================================
-# Fix HTTP 406 Not Acceptable Error - /pawel/ only
-# Root Cause: ModSecurity blocking requests with programmatic User-Agents
-# NOTE: SecRuleEngine Off and SecRuleRemoveById are NOT allowed in .htaccess on this host
-# ============================================
-
-# TEST: Verify .htaccess is being applied
 <IfModule mod_headers.c>
-    Header set X-DX-HTACCESS "pawel-on"
+  Header set X-DX-HTACCESS "pawel-on"
 </IfModule>
-
-# Disable content negotiation
-Options -MultiViews
