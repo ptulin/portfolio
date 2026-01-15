@@ -3,16 +3,25 @@
 # Scoped to /pawel/ path only
 # ============================================
 # 
-# This configuration addresses 406 errors for non-browser clients
-# while maintaining security for the rest of the site.
-#
-# Root Cause: Content negotiation or WAF rules blocking requests
-# with non-standard Accept headers or User-Agents
+# Root Cause: Apache content negotiation rejecting requests with
+# incomplete User-Agent strings (e.g., "Mozilla/5.0" without full string)
 # ============================================
 
 # TEST: Verify .htaccess is being applied
 <IfModule mod_headers.c>
     Header set X-DX-HTACCESS "pawel-on"
+</IfModule>
+
+# CRITICAL: Disable content negotiation entirely for this directory
+# This prevents Apache from rejecting requests based on Accept headers
+<IfModule mod_negotiation.c>
+    Options -MultiViews
+    Options -ContentNegotiation
+</IfModule>
+
+# Force content type to prevent negotiation
+<IfModule mod_mime.c>
+    ForceType text/html
 </IfModule>
 
 # Disable MultiViews content negotiation (common cause of 406)
@@ -26,26 +35,20 @@
     Header set Content-Type "text/html; charset=utf-8"
 </FilesMatch>
 
-# Allow all Accept headers for HTML content
-# This ensures bots, AI tools, and API clients can access pages
+# Allow all Accept headers - prevent content negotiation rejection
 <IfModule mod_headers.c>
-    # Remove Accept header restrictions for HTML pages
-    Header unset Accept
-    Header append Accept "*/*"
+    # Don't unset Accept - just ensure we accept all
+    Header always set Accept "*/*" env=REDIRECT_accept
 </IfModule>
 
 # ============================================
-# Path-Specific Rules - Scope to /pawel/ and /pawel_tulin_samples/
+# Path-Specific Rules - Scope to /pawel/ only
 # ============================================
-# If .htaccess is in document root, use LocationMatch to scope rules
-# If .htaccess is in /pawel/, these rules apply to that directory only
+# Since .htaccess is in /pawel/, these rules apply to that directory only
 <IfModule mod_rewrite.c>
     RewriteEngine On
     
-    # Allow all requests to /pawel/ and /pawel_tulin_samples/ paths
-    # This prevents any upstream blocking rules from affecting these paths
-    RewriteCond %{REQUEST_URI} ^/pawel(/|$) [OR]
-    RewriteCond %{REQUEST_URI} ^/pawel_tulin_samples(/|$)
+    # Set environment variable to allow all requests
     RewriteRule .* - [E=ALLOW_REQUEST:1]
 </IfModule>
 
@@ -73,10 +76,9 @@
     SecRuleRemoveById 920270  # Missing Host Header
     SecRuleRemoveById 920280  # Empty Host Header
     
-    # Alternative: Allow all requests to /pawel/ paths
-    # This creates a pass rule that bypasses ModSecurity for these paths
+    # Alternative: Bypass ModSecurity for /pawel/ path
+    # This creates a pass rule that bypasses ModSecurity for this path
     SecRule REQUEST_URI "@beginsWith /pawel" "id:1000,phase:1,pass,nolog,ctl:ruleRemoveById=1-999999"
-    SecRule REQUEST_URI "@beginsWith /pawel_tulin_samples" "id:1001,phase:1,pass,nolog,ctl:ruleRemoveById=1-999999"
     
     # Last resort: Disable ModSecurity entirely for this directory
     # WARNING: Only uncomment if SecRuleRemoveById and SecRule don't work
