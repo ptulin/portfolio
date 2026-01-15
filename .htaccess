@@ -1,10 +1,5 @@
 # ============================================
-# Fix HTTP 406 Not Acceptable Error
-# Scoped to /pawel/ path only
-# ============================================
-# 
-# Root Cause: Apache content negotiation rejecting requests with
-# incomplete User-Agent strings (e.g., "Mozilla/5.0" without full string)
+# Fix HTTP 406 Not Acceptable Error - /pawel/ only
 # ============================================
 
 # TEST: Verify .htaccess is being applied
@@ -12,110 +7,33 @@
     Header set X-DX-HTACCESS "pawel-on"
 </IfModule>
 
-# CRITICAL: Disable content negotiation entirely for this directory
-# This prevents Apache from rejecting requests based on Accept headers
-<IfModule mod_negotiation.c>
-    Options -MultiViews
-    Options -ContentNegotiation
-</IfModule>
-
-# Force content type to prevent negotiation
-<IfModule mod_mime.c>
-    ForceType text/html
-</IfModule>
-
-# Disable MultiViews content negotiation (common cause of 406)
+# Disable MultiViews content negotiation (prevents 406 errors)
 <IfModule mod_negotiation.c>
     Options -MultiViews
 </IfModule>
 
-# Force HTML content type for .html files (prevents negotiation issues)
-<FilesMatch "\.(html|htm)$">
+# Force HTML content type for all files in this directory
+<FilesMatch ".*">
     ForceType text/html
-    Header set Content-Type "text/html; charset=utf-8"
 </FilesMatch>
 
-# Allow all Accept headers - prevent content negotiation rejection
-<IfModule mod_headers.c>
-    # Don't unset Accept - just ensure we accept all
-    Header always set Accept "*/*" env=REDIRECT_accept
-</IfModule>
-
-# ============================================
-# Path-Specific Rules - Scope to /pawel/ only
-# ============================================
-# Since .htaccess is in /pawel/, these rules apply to that directory only
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    
-    # Set environment variable to allow all requests
-    RewriteRule .* - [E=ALLOW_REQUEST:1]
-</IfModule>
-
-# ============================================
-# mod_security Whitelisting - ACTIVE
-# ============================================
-# Remove ModSecurity rules that cause 406 errors for non-browser clients
-# These rules are scoped to this directory only
+# Remove ModSecurity rules that block based on headers
 <IfModule mod_security.c>
-    # OWASP CRS rules that block based on headers (common 406 causes)
-    SecRuleRemoveById 900015  # User-Agent validation
-    SecRuleRemoveById 900016  # Accept header validation
-    SecRuleRemoveById 960015  # Request header anomaly
-    SecRuleRemoveById 960017  # Missing/empty User-Agent
-    SecRuleRemoveById 960024  # Request header missing
+    # OWASP CRS rules that cause 406 for programmatic clients
+    SecRuleRemoveById 900015
+    SecRuleRemoveById 900016
+    SecRuleRemoveById 960015
+    SecRuleRemoveById 960017
+    SecRuleRemoveById 960024
     
-    # OWASP CRS 920 series - Protocol Enforcement (header validation)
-    SecRuleRemoveById 920100  # Invalid HTTP Request Line
-    SecRuleRemoveById 920120  # Missing User-Agent Header
-    SecRuleRemoveById 920160  # Missing Accept Header
-    SecRuleRemoveById 920170  # Missing Accept-Language Header
-    SecRuleRemoveById 920180  # Missing Accept-Encoding Header
-    SecRuleRemoveById 920200  # Missing Content-Type Header (for POST)
-    SecRuleRemoveById 920230  # Multiple/Conflicting Accept Headers
-    SecRuleRemoveById 920270  # Missing Host Header
-    SecRuleRemoveById 920280  # Empty Host Header
-    
-    # Alternative: Bypass ModSecurity for /pawel/ path
-    # This creates a pass rule that bypasses ModSecurity for this path
-    SecRule REQUEST_URI "@beginsWith /pawel" "id:1000,phase:1,pass,nolog,ctl:ruleRemoveById=1-999999"
-    
-    # Last resort: Disable ModSecurity entirely for this directory
-    # WARNING: Only uncomment if SecRuleRemoveById and SecRule don't work
-    # This disables ALL ModSecurity rules for this directory
-    # SecRuleEngine Off
+    # OWASP CRS 920 series - Protocol Enforcement
+    SecRuleRemoveById 920100
+    SecRuleRemoveById 920120
+    SecRuleRemoveById 920160
+    SecRuleRemoveById 920170
+    SecRuleRemoveById 920180
+    SecRuleRemoveById 920200
+    SecRuleRemoveById 920230
+    SecRuleRemoveById 920270
+    SecRuleRemoveById 920280
 </IfModule>
-
-# ============================================
-# Security: Block malicious patterns (safe - doesn't affect bots)
-# ============================================
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    
-    # Block SQL injection attempts (safe - doesn't affect legitimate bots)
-    RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
-    RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
-    RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
-    RewriteRule .* - [F,L]
-    
-    # DO NOT block based on User-Agent
-    # DO NOT block based on Accept header
-    # These rules would cause 406 errors for legitimate clients
-</IfModule>
-
-# ============================================
-# IMPORTANT: Remove or comment out any existing rules that:
-# - Check HTTP_USER_AGENT and return [F] (Forbidden)
-# - Check HTTP:Accept and return [F]
-# - Block based on User-Agent or Accept headers
-# ============================================
-#
-# Example of what to REMOVE/COMMENT OUT:
-# RewriteCond %{HTTP_USER_AGENT} ^.*(bot|crawler|spider).*$ [NC]
-# RewriteRule .* - [F,L]
-#
-# RewriteCond %{HTTP:Accept} !text/html [NC]
-# RewriteRule .* - [F,L]
-#
-# SetEnvIf User-Agent ".*bot.*" block_ua
-# Deny from env=block_ua
