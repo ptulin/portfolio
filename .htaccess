@@ -7,12 +7,17 @@
     Header set X-DX-HTACCESS "pawel-on"
 </IfModule>
 
-# Disable MultiViews content negotiation (prevents 406 errors)
-<IfModule mod_negotiation.c>
-    Options -MultiViews
-</IfModule>
+# CRITICAL: Disable content negotiation BEFORE any other processing
+# This must be at the top to prevent Apache from rejecting requests
+Options -MultiViews
 
-# Force HTML content type for all files in this directory
+# Force content type for directory index
+DirectoryIndex index.html
+<Files index.html>
+    ForceType text/html
+</Files>
+
+# Force HTML content type for all files
 <FilesMatch ".*">
     ForceType text/html
 </FilesMatch>
@@ -36,4 +41,13 @@
     SecRuleRemoveById 920230
     SecRuleRemoveById 920270
     SecRuleRemoveById 920280
+</IfModule>
+
+# Alternative: Use RewriteRule to force content type before negotiation
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Force content type before Apache processes the request
+    RewriteCond %{REQUEST_URI} ^/pawel/?$ [OR]
+    RewriteCond %{REQUEST_URI} ^/pawel/index\.html?$
+    RewriteRule .* - [T=text/html]
 </IfModule>
