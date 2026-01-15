@@ -1,7 +1,7 @@
 # ============================================
 # Fix HTTP 406 Not Acceptable Error - /pawel/ only
-# Root Cause: ModSecurity blocking requests with incomplete User-Agent strings
-# NOTE: SecRuleEngine Off causes 500 error - not allowed in .htaccess on this host
+# Root Cause: ModSecurity blocking requests with programmatic User-Agents
+# NOTE: SecRuleEngine Off and SecRuleRemoveById are NOT allowed in .htaccess on this host
 # ============================================
 
 # TEST: Verify .htaccess is being applied
@@ -11,12 +11,3 @@
 
 # Disable content negotiation
 Options -MultiViews
-
-# Attempt to remove ModSecurity rules (may not work if host doesn't allow)
-# If this doesn't work, contact hosting support to disable ModSecurity for /pawel/
-<IfModule mod_security2.c>
-    SecRuleRemoveById 1-999999
-</IfModule>
-<IfModule mod_security.c>
-    SecRuleRemoveById 1-999999
-</IfModule>
