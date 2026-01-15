@@ -30,26 +30,54 @@
 </IfModule>
 
 # ============================================
-# Path-Specific Rules (if using <Directory> or LocationMatch)
-# Apply these only to /pawel/ and /pawel_tulin_samples/
+# Path-Specific Rules - Scope to /pawel/ and /pawel_tulin_samples/
 # ============================================
-# Note: These rules apply to the directory where .htaccess is placed
-# If .htaccess is in document root, use <LocationMatch> in vhost config instead
+# If .htaccess is in document root, use LocationMatch to scope rules
+# If .htaccess is in /pawel/, these rules apply to that directory only
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Allow all requests to /pawel/ and /pawel_tulin_samples/ paths
+    # This prevents any upstream blocking rules from affecting these paths
+    RewriteCond %{REQUEST_URI} ^/pawel(/|$) [OR]
+    RewriteCond %{REQUEST_URI} ^/pawel_tulin_samples(/|$)
+    RewriteRule .* - [E=ALLOW_REQUEST:1]
+</IfModule>
 
 # ============================================
-# mod_security Whitelisting (if supported by hosting)
+# mod_security Whitelisting - ACTIVE
 # ============================================
-# Uncomment these if mod_security is causing 406 errors
-# Many shared hosts don't allow this - test carefully
-#
-# <IfModule mod_security.c>
-#     # Remove common rules that block bots/AI tools
-#     SecRuleRemoveById 900015  # User-Agent validation
-#     SecRuleRemoveById 900016  # Accept header validation
-#     SecRuleRemoveById 960015  # Request header anomaly
-#     SecRuleRemoveById 960017  # Missing/empty User-Agent
-#     SecRuleRemoveById 960024  # Request header missing
-# </IfModule>
+# Remove ModSecurity rules that cause 406 errors for non-browser clients
+# These rules are scoped to this directory only
+<IfModule mod_security.c>
+    # OWASP CRS rules that block based on headers (common 406 causes)
+    SecRuleRemoveById 900015  # User-Agent validation
+    SecRuleRemoveById 900016  # Accept header validation
+    SecRuleRemoveById 960015  # Request header anomaly
+    SecRuleRemoveById 960017  # Missing/empty User-Agent
+    SecRuleRemoveById 960024  # Request header missing
+    
+    # OWASP CRS 920 series - Protocol Enforcement (header validation)
+    SecRuleRemoveById 920100  # Invalid HTTP Request Line
+    SecRuleRemoveById 920120  # Missing User-Agent Header
+    SecRuleRemoveById 920160  # Missing Accept Header
+    SecRuleRemoveById 920170  # Missing Accept-Language Header
+    SecRuleRemoveById 920180  # Missing Accept-Encoding Header
+    SecRuleRemoveById 920200  # Missing Content-Type Header (for POST)
+    SecRuleRemoveById 920230  # Multiple/Conflicting Accept Headers
+    SecRuleRemoveById 920270  # Missing Host Header
+    SecRuleRemoveById 920280  # Empty Host Header
+    
+    # Alternative: Allow all requests to /pawel/ paths
+    # This creates a pass rule that bypasses ModSecurity for these paths
+    SecRule REQUEST_URI "@beginsWith /pawel" "id:1000,phase:1,pass,nolog,ctl:ruleRemoveById=1-999999"
+    SecRule REQUEST_URI "@beginsWith /pawel_tulin_samples" "id:1001,phase:1,pass,nolog,ctl:ruleRemoveById=1-999999"
+    
+    # Last resort: Disable ModSecurity entirely for this directory
+    # WARNING: Only uncomment if SecRuleRemoveById and SecRule don't work
+    # This disables ALL ModSecurity rules for this directory
+    # SecRuleEngine Off
+</IfModule>
 
 # ============================================
 # Security: Block malicious patterns (safe - doesn't affect bots)
