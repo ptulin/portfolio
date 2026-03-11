@@ -954,6 +954,20 @@ img {
     box-shadow: var(--shadow-card);
 }
 
+.homepage-portfolio-link-tertiary {
+    background-color: rgba(26, 211, 196, 0.08);
+    color: var(--color-primary);
+    border-color: rgba(26, 211, 196, 0.55);
+}
+
+.homepage-portfolio-link-tertiary:hover {
+    background-color: rgba(26, 211, 196, 0.16);
+    border-color: var(--color-primary-hover);
+    color: var(--color-foreground);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+}
+
 .homepage-portfolio-link-icon {
     display: flex;
     align-items: center;
