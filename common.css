@@ -722,6 +722,21 @@ img {
     border-color: var(--color-primary);
 }
 
+.btn-tools {
+    border: 1px solid var(--color-primary);
+    background-color: rgba(26, 211, 196, 0.08);
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.btn-tools:hover {
+    background-color: rgba(26, 211, 196, 0.16);
+    border-color: var(--color-primary-hover);
+    color: var(--color-foreground);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+}
+
 /* Case study button variations */
 .casestudy-page .btn-primary {
     background: var(--gradient-primary);
@@ -2274,4 +2289,3 @@ img {
         font-size: 0.875rem;
     }
 }
-
