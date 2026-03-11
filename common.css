@@ -957,7 +957,9 @@ img {
 .homepage-portfolio-link-tertiary {
     background-color: rgba(26, 211, 196, 0.08);
     color: var(--color-primary);
-    border-color: rgba(26, 211, 196, 0.55);
+    border-width: 2px;
+    border-color: var(--color-primary);
+    box-shadow: inset 0 0 0 1px rgba(26, 211, 196, 0.18);
 }
 
 .homepage-portfolio-link-tertiary:hover {
